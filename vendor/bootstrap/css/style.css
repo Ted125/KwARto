@@ -1,0 +1,57 @@
+
+/* HOME PAGE */
+
+.logo {
+  height: 60px !important;
+}
+
+.topnav {
+	background-color: white !important;
+}
+
+.navtext {
+	color: #d51a1d !important;
+	text-decoration: none;
+}
+
+.username {
+	color: gray !important;
+	text-decoration: none;
+}
+
+.intBtn {
+	background-color: #d51a1d !important;
+	color: white !important;	
+	margin: 0px auto;
+}
+
+.intTab > li > a {
+	color: #d51a1d !important;
+	padding: 5px 80px 5px 80px;
+	text-decoration: none;
+}	
+
+.intTab > li {
+	margin: 0px 0px;
+	background-color: white;
+}
+
+.intTab > li > .active {
+	background-color: #d51a1d !important;
+	color: white !important;
+}
+
+.footerClr {
+	background-color: #d51a1d !important;
+}
+
+.searchbar {
+	padding-left: 40px;
+	padding-right: 40px;
+
+}
+.intBtnCard{
+	margin-top: -92%;
+	margin-right: -75%;
+	/*position: relative; bottom: 190px; left: 95px;*/
+}
