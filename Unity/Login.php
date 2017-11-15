@@ -22,7 +22,7 @@
         echo $row['userPic'] . "\n";
       }
     }else{
-      return null;
+      //return null;
     }
   }
 ?>
