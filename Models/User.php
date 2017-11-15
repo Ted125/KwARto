@@ -13,7 +13,7 @@
     private $userPic;
     private $email;
     private $birthdate;
-    private $addedTimestamp;
+    private $addedTimeStamp;
     private $updatedTimestamp;
     private $addedBy;
 
