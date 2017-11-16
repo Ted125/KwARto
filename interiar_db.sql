@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2017 at 09:54 AM
+-- Generation Time: Nov 16, 2017 at 02:17 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -44,18 +44,26 @@ CREATE TABLE `furniture_table` (
   `furnitureID` int(8) NOT NULL,
   `furnitureName` varchar(128) NOT NULL,
   `furnitureLength` float NOT NULL,
-  `furnitureHeigth` float NOT NULL,
+  `furnitureHeight` float NOT NULL,
   `furnitureWidth` float NOT NULL,
   `furnitureRating` int(2) NOT NULL,
   `furnitureType` enum('chair','table','bedroom','entertainment','storage','sets','home','office','kitchen','dining','other') NOT NULL,
-  `furnitureCost` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `furniturePrice` float UNSIGNED NOT NULL DEFAULT '0',
   `furnitureStock` int(10) NOT NULL,
-  `furniturePicture` longblob NOT NULL,
+  `furniturePicture` varchar(250) NOT NULL,
   `furnitureDescription` varchar(256) NOT NULL,
   `addedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastUpdatedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `manufacturerNo` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `furniture_table`
+--
+
+INSERT INTO `furniture_table` (`furnitureID`, `furnitureName`, `furnitureLength`, `furnitureHeight`, `furnitureWidth`, `furnitureRating`, `furnitureType`, `furniturePrice`, `furnitureStock`, `furniturePicture`, `furnitureDescription`, `addedTimeStamp`, `lastUpdatedTimeStamp`, `manufacturerNo`) VALUES
+(1, 'Dream Chair', 5, 10, 5, 4, '', 500, 3, '1.jpg', 'The chair of your dreams!', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
+(2, 'Dream Table', 10, 5, 10, 5, '', 700, 2, '4.jpg', 'The table of your dreams!', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -134,7 +142,8 @@ CREATE TABLE `user_table` (
 --
 
 INSERT INTO `user_table` (`userID`, `userName`, `isActivated`, `userPassword`, `userType`, `firstName`, `lastName`, `middleInitial`, `userPic`, `email`, `birthDate`, `addedTimeStamp`, `lastAddedTimeStamp`, `addedBy`) VALUES
-(1, 'Ted125', 1, '12345', 'customer', 'Christian Ted', 'Ochoa', 'R', '1.jpg', 'christianted.ochoa@gmail.com', '1997-11-18', '2017-11-12 08:05:53', '0000-00-00 00:00:00', NULL);
+(1, 'Ted125', 1, '12345', 'customer', 'Christian Ted', 'Ochoa', 'R', '1.jpg', 'christianted.ochoa@gmail.com', '1997-11-18', '2017-11-12 08:05:53', '0000-00-00 00:00:00', NULL),
+(8, 'Username', 0, 'witcher', 'customer', 'Geralt', 'Rivia', 'A', '1.jpg', 'geraltofrivia@gmail.com', '0000-00-00', '2017-11-15 11:08:42', '0000-00-00 00:00:00', NULL);
 
 --
 -- Indexes for dumped tables
@@ -202,7 +211,7 @@ ALTER TABLE `cart_table`
 -- AUTO_INCREMENT for table `furniture_table`
 --
 ALTER TABLE `furniture_table`
-  MODIFY `furnitureID` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `furnitureID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `manufacturer_table`
 --
@@ -222,7 +231,7 @@ ALTER TABLE `transaction_table`
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `userID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
