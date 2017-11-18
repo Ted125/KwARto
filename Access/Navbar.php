@@ -24,11 +24,15 @@
           if(!isset($_SESSION['username'])){
             //Session is empty
             echo "<li class='nav-item'>
-                  <p class='navtext'>Welcome!
-                  <a href='Controllers/Login.php' id='loginForm'>Login</a>
-                  |
-                  <a href='#' id='registerForm'>Register</a>
-                  </p>
+                    <p class='navtext'>Welcome!
+                      <form action='Controllers/Login.php' method='POST'>
+                        <input type='email' name='loginEmail' placeholder='Email'></input>
+                        <input type='password' name='loginPassword' placeholder='********'></input>
+                        <button type='submit' class='btn btn-sm'>Submit</button>
+                      </form>
+                      |
+                      <a href='#' id='registerForm'>Register</a>
+                    </p>
                   </li>";
           } else {
             //Session is active
