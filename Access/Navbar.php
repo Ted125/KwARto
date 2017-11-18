@@ -17,9 +17,33 @@
         </form>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <p class="navtext">Welcome, <span class="username">User!</span><img href="#" src="obj.jpg" style="max-height: 40px;" ></img></p>
-        </li>
+        </li> -->
+        <?php
+          if(!isset($_SESSION['username'])){
+            //Session is empty
+            echo "<li class='nav-item'>
+                  <p class='navtext'>Welcome!
+                  <a href='Controllers/Login.php' id='loginForm'>Login</a>
+                  |
+                  <a href='#' id='registerForm'>Register</a>
+                  </p>
+                  </li>";
+          } else {
+            //Session is active
+            echo "<li class='nav-item'>
+                    <p class='navtext'>Welcome,
+                      <a href='#' id='username'>".$_SESSION['username']."</a>
+                      <img href='#' src='obj.jpg' style='max-height: 40px;' ></img>
+                      |
+                      <a href='Controllers/Logout.php' id='logoutForm'>Logout</a>
+                    </p>
+                  </li>";
+          }
+
+        ?>
+        
       </ul>
     </div>
   </div>
