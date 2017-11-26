@@ -16,7 +16,7 @@
   <body>
 
     <?php include'Access/Navbar.php'; ?>
-
+    <?php include'Access/RegisterForm.php'; ?>
     <br>
     <!-- Page Content -->
     <div class="container">

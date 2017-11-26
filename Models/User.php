@@ -17,8 +17,8 @@
     private $updatedTimestamp;
     private $addedBy;
 
-    private $DB_TABLE = "user_table";
-    private $DB_TABLE_PK = "userID";
+    const DB_TABLE = "user_details";
+    const DB_TABLE_PK = "userID";
 
     public function __construct(){
       parent::__construct();
@@ -29,7 +29,7 @@
       if($connection){
 
         //If possible please replace query name  with sql name, plox
-        $query = "SELECT userName FROM user_table WHERE email = '".$sessionEmail."' AND  userPassword = '".$sessionPassword."'";
+        $query = "SELECT username FROM user_details WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
 
         echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
         echo "||".$query;
@@ -48,7 +48,7 @@
           // echo "<h1>LOGGED IN!</h1>";
           //return the data from the Query
           $row = $result->fetch_assoc();
-          return $row["userName"];
+          return $row["username"];
         }else{
           return null;
         }
