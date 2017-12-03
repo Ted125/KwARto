@@ -4,7 +4,7 @@
   class User extends Database{
     private $userID;
     private $userName;
-    private $isActivated;
+    private $userStatus;
     private $userPassword;
     private $userType;
     private $firstName;
