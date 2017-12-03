@@ -64,7 +64,10 @@
 
             <?php
               $prodMenuId = 0;
-              include'Access/CardProd.php';
+              
+              for($cnt = 0; $cnt < 5; $cnt++, $prodMenuId++){
+                include'Access/CardProd.php';
+              }//testing only
             ?>
 
           </div>
