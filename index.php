@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <?php
+    session_start();
+  ?>
   <head>
 
     <?php include'Access/Header.php'; ?>
@@ -14,7 +16,7 @@
   <body>
 
     <?php include'Access/Navbar.php'; ?>
-
+    <?php include'Access/RegisterForm.php'; ?>
     <br>
     <!-- Page Content -->
     <div class="container">
