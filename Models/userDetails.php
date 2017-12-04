@@ -107,12 +107,41 @@
 
     public function deleteUser(){
         if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            $delete= "DELETE
-                      FROM user_table
-                      WHERE userID = '".$userID."' && userStatus = 'Not_Activated' 
-                     ";	
-            $result = mysqli_query($mysqli, $delete);
-            if(mysqli_num_rows($result) == 1){
+            setUserId($_POST['userId']);
+            $db = "user_details";
+            $id = NULL;
+            if(getUserType($_POST['userType'] == 'customer')){
+                $db = "customer";
+            }else if(getUserType($_POST['userType'])){
+                $db = "seller";
+            }	
+            if($db != "user_details"){
+                $select = "SELECT * 
+                            FROM  '".$db."' x, user_details y
+                            WHERE x.userId = 'y.".getUserId()."'";
+                            $qry = mysqli_query($mysqli, $select);
+                            $row = mysqli_fetch_array($qry);
+                            $id = $row[0];
+
+                $delete1 = "DELETE
+                            FROM '".$db." ' x, user_details y
+                            WHERE userID = 'x.".$id."' && y.userStatus = 'Not_Activated' 
+                           ";
+        
+                $result1 = mysqli_query($mysqli, $delete1);
+                if(mysqli_num_rows($result1) == 1){
+                    alert("Delete: Succesful");
+                }else{
+                    alert("Delete: Fail")
+                }
+            }
+            $delete2 = "DELETE
+            FROM user_table
+            WHERE userID = '".getUserId()."' && userStatus = 'Not_Activated' 
+           ";
+
+            $result2 = mysqli_query($mysqli, $delete2);
+            if(mysqli_num_rows($result2) == 1){
                 alert("Delete: Succesful");
             }else{
                 alert("Delete: Fail")
