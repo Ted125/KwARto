@@ -1,4 +1,4 @@
-<?php require_once("Database.php");;
+<?php require("SQL_Connect.php");;
     
     class customer extends user_details{
         private $customerId;
@@ -55,9 +55,11 @@
             if(getUserType($_SESSION['userType']) == 'customer'){
                 setCustomerId($_SESSION['customerId'];
                 setUserId($_SESSION['userId']);
+                setUpdatedBy($_SESSION['userId']);
             }else if(getUserType($_SESSION['userType']) == 'admin'){
                 setCustomerId($_POST['customerId'];
                 setUserId($_POST['userId']);
+                setUpdatedBy($_SESSION['userId'])
             }    
             /*CUSTOMER DETAILS*/
             setFirstName($_POST['firstName']);
@@ -70,7 +72,6 @@
             setEmail($_POST['email']);
             setMobileNumber($_POST['mobileNumber']);
             setAddress($_POST['address']);
-            setUpdatedBy($_SESSION['userId']);
 
             /* UPDATE CUSTOMER TABLE */
             
@@ -96,17 +97,8 @@
                        WHERE userID = '".getUserId()."'";
             $result2 = mysqli_query($mysqli, $update);    
         }else{
-            echo "no session"
+            echo "no session";
         }
-    }
-
-    public function readUser(){
-        $query = mysqli_query($mysqli, "SELECT userID, userStatus, course, userType, 
-                                             firstName, lastName, middleInitial, userPic, email, birthdate,
-                                        FROM  user_table
-                                        WHERE userID='".$userID."'
-                                       ");
-        $result = mysqli_fetch_array($query);
     }
 
     public function readCustomer(){

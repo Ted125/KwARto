@@ -1,4 +1,4 @@
-<?php require_once("Database.php");
+<?php require("SQL_Connect.php");
     
     class user_details{
         private $userId;
