@@ -1,6 +1,7 @@
 <?php
-	
-  require_once("../Models/User.php");
+  //require_once("../Models/userDetails.php");
+  require_once("../Models/customerCRUD.php");
+  require_once("../Models/sellerDetails.php")
 
   session_start();
   // new Login();
@@ -20,18 +21,18 @@
 
   //     //header( "Location: http://localhost/capstone-project/" );
   //   }
-
   // }
 
   $user = new User();
       $verify = $user->Login($_POST['loginEmail'], $_POST['loginPassword']);
 
       if($verify != null){
-
-      	echo $_SESSION['username'] = $verify;
+        $_SESSION['userId'] = getUserId($verify['userId']);
+        $_SESSION['username'] = getUsername($verify['username']);
+        $_SESSION['userType'] = getUserType($verify['userType']);
       } else {
       	//inform user that the input is not valid
-      	echo "Not logged in";
+      	echo "Invalid credentials or not activated";
       }
 
       header( "Location: http://localhost/capstone-project/" );

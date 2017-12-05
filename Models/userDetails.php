@@ -1,5 +1,6 @@
 <?php require("SQL_Connect.php");
-    
+      require_once("Database.php");
+
     class user_details{
         private $userId;
         private $username;
@@ -154,6 +155,30 @@
         return result;
     }
 
+    public function login($sessionId, $sessionPassword){     
+        setUsername($sessionId);
+        setPassword($sessionPassword);   
+        $result = NULL;
+        $connection = $this->Connect();
+        if($connection){
+            $query = "SELECT *
+                      FROM user_details where email = '".getUsername()."' OR username = '".getUsername()."'
+                           AND password = '".getPassword()."'
+                     ";
+            $row = mysqli_query($mysqli, $query);
+            if(mysqli_num_rows($row) == 1){        
+                $result = mysqli_fetch_array($row);
+                setUserStatus($result['userStatus']);
+                if(getUserStatus() != 'active'){ 
+                    $result = NULL;
+                }
+            }
+        }else{
+            echo "no connection to db!";
+        }
+        return result;
+    }
+
     public function readAdmin(){
         $query ="SELECT
                         userId,
@@ -168,10 +193,14 @@
                  FROM  user_details
                  WHERE userId = '".getUserId()."'
                 ");
-        $row = mysqli_query($mysqli, $query);
-        $result = mysqli_fetch_array($row);
 
-        return result;
+        $row = mysqli_query($mysqli, $query);
+        if(mysqli_num_rows($row) == 1){        
+            $result = mysqli_fetch_array($row);
+            return result;
+        }else{
+            return NULL;
+        }
     }
 
     /***************** SETTERS AND GETTERS ****************/
