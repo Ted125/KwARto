@@ -1,35 +1,35 @@
 <?php require("SQL_Connect.php");
-      require_once("Database.php");
+require_once("Database.php");
 
-    class user_details{
-        private $userId;
-        private $username;
-        private $password;
-        private $userType;
-        private $userStatus;
-        private $gender;
-        private $email;
-        private $mobileNumber;
-        private $dateAdded;
-        private $dateUpdated;
-        private $addedBy;
-        private $updatedBy;
-        private $image;
-        private $address;
+class user_details{
+    private $userId;
+    private $username;
+    private $password;
+    private $userType;
+    private $userStatus;
+    private $gender;
+    private $email;
+    private $mobileNumber;
+    private $dateAdded;
+    private $dateUpdated;
+    private $addedBy;
+    private $updatedBy;
+    private $image;
+    private $address;
 
-        const DB_TABLE = "user_table";
-        const DB_TABLE_PK = "userId";
-    }
+    const DB_TABLE = "user_table";
+    const DB_TABLE_PK = "userId";
+
 
     /***************** CONSTRUCTOR ****************/
 
     public function __construct(){
-        
+
     }
 
     /***************** FUNCTIONS ****************/
 
-    public function createUser(){
+    public function createUser($userType){
         setUsername($_POST['username']);
         setPassword($_POST['password']);
         setGender($_POST['gender']);
@@ -37,7 +37,7 @@
         setMobileNumber($_POST['mobileNumber']);
         setAddress($_POST['address']);
         if(isset($_SESSION)){
-            setAddedBy($_SESSION['userId'])
+            setAddedBy($_SESSION['userId']);
         }else{
             setAddedBy("NULL");
         }
@@ -45,31 +45,31 @@
         setAddress($_POST['address']);
         $create = "INSERT INTO user_details
         ( 
-            userID, 
-            userName,
-            `password`, 
-            userType, 
-            userStatus,
-            gender,
-            email, 
-            mobileNumber,
-            addedBy,
-            `address`
+        userID, 
+        userName,
+        `password`, 
+        userType, 
+        userStatus,
+        gender,
+        email, 
+        mobileNumber,
+        addedBy,
+        `address`
         )
         VALUES
-        ('""','".getUserId()."','".getUsername()."','".getPassword()."','".getUserType()."','".getUserStatus()."','
-          ".getGender()."','".getEmail()."','".getMobileNumber()."','".getAddedBy()."','".getAddress()."')";
-        
+        ( ,'".getUserId()."','".getUsername()."','".getPassword()."','".getUserType()."','".getUserStatus()."','
+        ".getGender()."','".getEmail()."','".getMobileNumber()."','".getAddedBy()."','".getAddress()."')";
+
         $result = mysqli_query($mysqli, $create);
         $select = "SELECT * 
-                   FROM  user_details 
-                   WHERE userName='".getUsername()."'";
+        FROM  user_details 
+        WHERE userName='".getUsername()."'";
         $qry = mysqli_query($mysqli, $select);
         $row = mysqli_fetch_array($qry);
         setUserId($row[0]);
         return getUserId();
     }
-    
+
     public function createAdmin(){
         if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
             setUserStatus('active');
@@ -84,9 +84,9 @@
         if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
-                       SET userStatus = 'active' 
-                       WHERE userId = '".getUserId()."'
-                      ";
+            SET userStatus = 'active' 
+            WHERE userId = '".getUserId()."'
+            ";
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'only admins can activate a user';
@@ -97,9 +97,9 @@
         if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
-                       SET userStatus = 'inactive' 
-                       WHERE userId = '".getUserId()."'
-                      ";
+            SET userStatus = 'inactive' 
+            WHERE userId = '".getUserId()."'
+            ";
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'only admins can deactivate a user';
@@ -118,40 +118,40 @@
             }	
             if($db != "user_details"){
                 $select = "SELECT * 
-                            FROM  '".$db."' x, user_details y
-                            WHERE x.userId = 'y.".getUserId()."'";
-                            $qry = mysqli_query($mysqli, $select);
-                            $row = mysqli_fetch_array($qry);
-                            $id = $row[0];
+                FROM  '".$db."' x, user_details y
+                WHERE x.userId = 'y.".getUserId()."'";
+                $qry = mysqli_query($mysqli, $select);
+                $row = mysqli_fetch_array($qry);
+                $id = $row[0];
 
                 $delete1 = "DELETE
-                            FROM '".$db." ' x, user_details y
-                            WHERE userID = 'x.".$id."' && y.userStatus = 'Not_Activated' 
-                           ";
-        
+                FROM '".$db." ' x, user_details y
+                WHERE userID = 'x.".$id."' && y.userStatus = 'Not_Activated' 
+                ";
+
                 $result1 = mysqli_query($mysqli, $delete1);
                 if(mysqli_num_rows($result1) == 1){
                     alert("Delete: Succesful");
                 }else{
-                    alert("Delete: Fail")
+                    alert("Delete: Fail");
                 }
             }
             $delete2 = "DELETE
             FROM user_table
             WHERE userID = '".getUserId()."' && userStatus = 'Not_Activated' 
-           ";
+            ";
 
             $result2 = mysqli_query($mysqli, $delete2);
             if(mysqli_num_rows($result2) == 1){
                 alert("Delete: Succesful");
             }else{
-                alert("Delete: Fail")
+                alert("Delete: Fail");
             }
         }else{
             echo 'only admins can deactivate a user';
         }
-        
-        
+
+
         return result;
     }
 
@@ -162,9 +162,9 @@
         $connection = $this->Connect();
         if($connection){
             $query = "SELECT *
-                      FROM user_details where email = '".getUsername()."' OR username = '".getUsername()."'
-                           AND password = '".getPassword()."'
-                     ";
+            FROM user_details where email = '".getUsername()."' OR username = '".getUsername()."'
+            AND password = '".getPassword()."'
+            ";
             $row = mysqli_query($mysqli, $query);
             if(mysqli_num_rows($row) == 1){        
                 $result = mysqli_fetch_array($row);
@@ -181,18 +181,18 @@
 
     public function readAdmin(){
         $query ="SELECT
-                        userId,
-                        username,
-                        userType,
-                        `status`,
-                        gender,
-                        email,
-                        mobileNumber,
-                        `image`,
-                        `address`
-                 FROM  user_details
-                 WHERE userId = '".getUserId()."'
-                ");
+        userId,
+        username,
+        userType,
+        `status`,
+        gender,
+        email,
+        mobileNumber,
+        `image`,
+        `address`
+        FROM  user_details
+        WHERE userId = '".getUserId()."'
+        ";
 
         $row = mysqli_query($mysqli, $query);
         if(mysqli_num_rows($row) == 1){        
@@ -228,7 +228,7 @@
     public function setPassword($password){
         $this->password = $password;
     }
-    
+
     public function getUserType(){
         return $this->userType;
     }
@@ -316,4 +316,5 @@
     public function setAddress($address){
         $this->address = $address;
     }
+}
 ?>

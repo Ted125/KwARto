@@ -29,9 +29,9 @@
       if($connection){
 
         //If possible please replace query name  with sql name, plox
-        $query = "SELECT username FROM user_details WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+        $query = "SELECT username, email, userType FROM user_details WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
 
-        echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+        //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
         echo "||".$query;
         $rowcount = 0;
         if($result = mysqli_query($connection, $query)){
@@ -48,7 +48,7 @@
           // echo "<h1>LOGGED IN!</h1>";
           //return the data from the Query
           $row = $result->fetch_assoc();
-          return $row["username"];
+          return $row;
         }else{
           return null;
         }
