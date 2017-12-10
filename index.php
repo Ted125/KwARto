@@ -31,7 +31,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -67,7 +67,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -103,7 +103,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -139,7 +139,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -179,7 +179,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -215,7 +215,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -251,7 +251,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -287,7 +287,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -327,7 +327,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -363,7 +363,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -399,7 +399,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>
@@ -435,7 +435,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                                <a href="single.php"><img src="images/5.png" alt=" " class="img-responsive" /></a>
                                                 <p>Comfy Chair</p>
                                                 <h4>P805.00 <span>P1200.00</span></h4>
                                             </div>

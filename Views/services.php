@@ -204,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>similique sunt in culpa qui officia deserunt</li>
 						<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>odio dignissimos ducimus qui blanditiis</li>
 					</ul>
-					<a href="single.html">Shop Now</a>
+					<a href="single.php">Shop Now</a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

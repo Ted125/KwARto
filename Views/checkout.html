@@ -34,7 +34,7 @@
 					</thead>
 					<tbody><tr class="rem1">
 						<td class="invert">1</td>
-						<td class="invert-image"><a href="single.html"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.php"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
@@ -55,7 +55,7 @@
 					</tr>
 					<tr class="rem2">
 						<td class="invert">2</td>
-						<td class="invert-image"><a href="single.html"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.php"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
@@ -76,7 +76,7 @@
 					</tr>
 					<tr class="rem3">
 						<td class="invert">3</td>
-						<td class="invert-image"><a href="single.html"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.php"><img src="images/5.png" alt=" " class="img-responsive"></a></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           

@@ -36,7 +36,7 @@
 					  <input type="text" name="registerFName" placeholder="First Name" required=" ">
 					  <input type="text" name="registerMName" placeholder="Middle Name" required=" ">
 					  <input type="text" name="registerLName" placeholder="Last Name" required=" ">
-					  <input type="date" name="registerBDay" placeholder="BDay" required=" ">		
+					  <input type="date" name="registerBDay" class="form-module" placeholder="BDay" required=" ">
 					  <input type="text" name="registerUsername" placeholder="Username" required=" ">
 					  <input type="password" name="registerPassword" placeholder="Password" required=" ">
 					  <input type="email" name="registerEmail" placeholder="Email Address" required=" ">

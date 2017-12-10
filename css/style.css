@@ -2774,7 +2774,7 @@ input.checkbox:checked:after {
     font-weight: 400;
     line-height: 1;
 }
-.form-module input[type="text"],.form-module input[type="password"],.form-module input[type="email"] {
+.form-module input[type="text"],.form-module input[type="password"],input[type="date"],.form-module input[type="email"] {
   outline: none;
   display: block;
   width: 100%;
