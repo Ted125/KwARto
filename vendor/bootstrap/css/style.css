@@ -12,6 +12,8 @@
 .navtext {
 	color: #d51a1d !important;
 	text-decoration: none;
+	position: inherit!important;
+	margin-left: 150px!important;
 }
 
 .username {

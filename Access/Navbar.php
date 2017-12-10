@@ -46,10 +46,10 @@
                       } else {
                                   //Session is active
                         echo "<li class='nav-item'>
-                        <p class='navtext'><b>Henlo</b>,
+                        <p class='navtext' style='position: inherit;margin-left: 150px;'><b>Henlo</b>,
                         <a href='#' id='username'>".$_SESSION['username']."</a>
                         |
-                        <button class='cart_details_drop'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
+                        <button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
                         </p>
                         ";
                       }
