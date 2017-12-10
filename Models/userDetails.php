@@ -1,5 +1,5 @@
 <?php require("SQL_Connect.php");
-require_once("Database.php");
+include("Database.php");
 
 class user_details{
     private $userId;
@@ -28,46 +28,59 @@ class user_details{
     }
 
     /***************** FUNCTIONS ****************/
+    public function debug(){
+        echo "<h1>".$_POST["registerFName"]." in second class</h1>";
+
+        /*sample code here*/
+    }
 
     public function createUser($userType){
-        setUsername($_POST['username']);
-        setPassword($_POST['password']);
-        setGender($_POST['gender']);
-        setEmail($_POST['email']);
-        setMobileNumber($_POST['mobileNumber']);
-        setAddress($_POST['address']);
-        if(isset($_SESSION)){
-            setAddedBy($_SESSION['userId']);
-        }else{
-            setAddedBy("NULL");
-        }
-        //setImage($_POST['image']);  i dont know if i should put an image sa creation.
-        setAddress($_POST['address']);
-        $create = "INSERT INTO user_details
-        ( 
-        userID, 
-        userName,
-        `password`, 
-        userType, 
-        userStatus,
-        gender,
-        email, 
-        mobileNumber,
-        addedBy,
-        `address`
-        )
-        VALUES
-        ( ,'".getUserId()."','".getUsername()."','".getPassword()."','".getUserType()."','".getUserStatus()."','
-        ".getGender()."','".getEmail()."','".getMobileNumber()."','".getAddedBy()."','".getAddress()."')";
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $this->setUsername($_POST['registerUsername']);
+            $this->setPassword($_POST['registerPassword']);
+            $this->setUserType($userType);
+            $this->setGender("Other");
+            $this->setEmail($_POST['registerEmail']);
+            $this->setMobileNumber($_POST['registerPhone']);
+            $this->setAddress("Sample Address");
+            // if(isset($_SESSION)){
+            //     setAddedBy($_SESSION['userId']);
+            // }else{
+            //     setAddedBy("NULL");
+            // }
+            //setImage($_POST['image']);  i dont know if i should put an image sa creation.
+            $create = "INSERT INTO user_details
+            ( 
+            username,
+            password, 
+            userType, 
+            userStatus,
+            gender,
+            email, 
+            mobileNumber,
+            addedBy,
+            address
+            )
+            VALUES
+            ('".$this->getUsername()."','".$this->getPassword()."','".$this->getUserType()."','".$this->getUserStatus()."','
+            ".$this->getGender()."','".$this->getEmail()."','".$this->getMobileNumber()."','".$this->getAddedBy()."','".$this->getAddress()."')";
 
-        $result = mysqli_query($mysqli, $create);
-        $select = "SELECT * 
-        FROM  user_details 
-        WHERE userName='".getUsername()."'";
-        $qry = mysqli_query($mysqli, $select);
-        $row = mysqli_fetch_array($qry);
-        setUserId($row[0]);
-        return getUserId();
+            $result = mysqli_query($connection, $create);
+
+            // $select = "SELECT * 
+            // FROM  user_details 
+            // WHERE userName='".$this->getUsername()."'";//there must be other way
+            // $qry = mysqli_query($connection, $select);
+            // $row = mysqli_fetch_array($qry);
+            // $this->setUserId($row[0]);
+
+            $id = $connection->insert_id;
+            mysqli_close($connection);
+            echo "<h1> after result in userDetails.php ".$id."</h1>";
+            return $id;
+        }
     }
 
     public function createAdmin(){

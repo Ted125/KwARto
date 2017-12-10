@@ -20,40 +20,51 @@ class customer extends user_details{
 
     /***************** FUNCTIONS ****************/
     public function debug(){
-        echo "<h1>".$_POST["registerFName"]."</h1>";
-
+        echo "<h1>".$_POST["registerFName"]." in first class</h1>";
+        $userDetails = new user_details();
+        $userDetails->debug();
         /*sample code here*/
     }
 
     public function createCustomer(){
-        $userType = "customer";
-        setUserId(createUser());
-        setFirstName($_POST["registerFName"]);
-        setMiddleName($_POST["registerMName"]);
-        setLastName($_POST["registerLName"]);
-        setBirthdate($_POST["registerBDay"]);
-        if(!isset($_SESSION)){
-            setAddedBy($userId);
-            setUserStatus('inactive');
-        }else{
-            setAddedBy($_SESSION['userId']);
-            setUserStatus('active');
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $userDetails = new user_details();
+            $userType = "customer";
+            $this->setUserId($userDetails->createUser($userType));
+            echo "<h1>after result in customerCRUD.php ".$this->getUserId()."</h1>";    
+            $this->setFirstName($_POST["registerFName"]);
+            $this->setMiddleName($_POST["registerMName"]);
+            $this->setLastName($_POST["registerLName"]);
+            $this->setBirthdate($_POST["registerBDay"]);
+            // if(!isset($_SESSION)){
+            //     setAddedBy($userId);
+            //     setUserStatus('inactive');
+            // }else{
+            //     setAddedBy($_SESSION['userId']);
+            //     setUserStatus('active');
+            // }
+            $create = "INSERT INTO customer
+            ( 
+            firstName,
+            middleName,
+            lastName,
+            birthdate,
+            userId
+            )
+            VALUES
+            ('".$this->getFirstName()."','".$this->getMiddleName()."','".$this->getLastName()."','".$this->getBirthdate()."','".$this->getUserId()."')";
+
+            $result = mysqli_query($connection, $create);
+            
+            if($result){
+                return result;
+            } else {
+                return null;
+            }
         }
-        $create = "INSERT INTO customer
-        ( 
-        customerId,
-        firstName,
-        middleName,
-        lastName,
-        birthdate,
-        userId
-        )
-        VALUES
-        ( ,'".getFirstName()."','".getMiddleName()."','".getLastName()."','".getBirthdate()."','".getUserId()."')";
-
-        $result = mysqli_query($mysqli, $create);
-
-        return result;
+        
     }
 
     public function updateCustomer(){
@@ -178,7 +189,7 @@ class customer extends user_details{
                     return $this->userId;
                 }
 
-                public function setUserId($birthdate){
+                public function setUserId($userId){
                     $this->userId = $userId;
                 }
             }
