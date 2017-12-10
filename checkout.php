@@ -15,7 +15,7 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- about -->
-		<div class="privacy about">
+		<div class="privacy about backdrop">
 			<h3>Chec<span>kout</span></h3>
 			
 	      <div class="checkout-right">
@@ -111,7 +111,7 @@
 				</div>
 				<div class="col-md-8 address_form_agile">
 					  <h4>Customer Details</h4>
-				<form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+				<form action="payment.php" method="post" class="creditly-card-form agileinfo_form">
 									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
 										<div class="information-wrapper">
 											<div class="first-row form-group">
@@ -159,7 +159,7 @@
 									</section>
 								</form>
 									<div class="checkout-right-basket">
-				        	<a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+				        	<a href="payment.php">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 			      	</div>
 					</div>
 			

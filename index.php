@@ -168,7 +168,7 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
-                    <h6>Decor</h6>
+                    <h6>Furniture</h6>
                     <div class="col-md-3 w3ls_w3l_banner_left">
                         <div class="hover14 column">
                             <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -316,7 +316,7 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
-                    <h6>Decor</h6>
+                    <h6>Lighting</h6>
                     <div class="col-md-3 w3ls_w3l_banner_left">
                         <div class="hover14 column">
                             <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">

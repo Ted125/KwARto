@@ -17,8 +17,8 @@
 <div>	
 		</div>
 		<div class="banner_nav_right">
-			<div class="agileinfo_single" style="padding-left:200px;">
-				<h5>charminar pulao basmati rice 5 kg</h5>
+			<div class="agileinfo_single backdrop" style="padding-left:200px;">
+				<h5>Comfy Chair</h5>
 				<div class="col-md-4 agileinfo_single_left">
 					<img id="example" src="http://via.placeholder.com/300" alt=" " class="img-responsive" style="margin:auto;" />
 				</div>
@@ -74,13 +74,13 @@
 	</div>
 <!-- //banner -->
 <!-- brands -->
-	<div class="w3ls_banner_nav_right_grid w3ls_banner_nav_right_grid_popular">
+	<div class="backdrop">
 		<div class="container">
 			<h3>Users Also Liked</h3><br>
-				<div class="w3ls_banner_nav_right_grid1">
-					<div class="col-md-3 w3ls_w3l_banner_left">
+				<div>
+					<div class="col-md-3 ">
 						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+						<div class="agile_top_brand_left_grid ">
 							<div class="agile_top_brand_left_grid_pos">
 								<img src="images/offer.png" alt=" " class="img-responsive" />
 							</div>
@@ -116,7 +116,7 @@
 					</div>
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+						<div class="agile_top_brand_left_grid ">
 							<div class="agile_top_brand_left_grid_pos">
 								<img src="images/offer.png" alt=" " class="img-responsive" />
 							</div>
@@ -152,7 +152,7 @@
 					</div>
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+						<div class="agile_top_brand_left_grid ">
 							<div class="agile_top_brand_left_grid_pos">
 								<img src="images/offer.png" alt=" " class="img-responsive" />
 							</div>
@@ -188,7 +188,7 @@
 					</div>
 					<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+						<div class="agile_top_brand_left_grid ">
 							<div class="agile_top_brand_left_grid_pos">
 								<img src="images/offer.png" alt=" " class="img-responsive" />
 							</div>

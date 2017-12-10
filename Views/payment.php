@@ -16,7 +16,7 @@
     <?php include'Access/Navbar.php'; ?>
 		<div>
 <!-- payment -->
-		<div class="privacy about">
+		<div class="privacy about backdrop">
 			<h3>Pay<span>ment</span></h3>
 			
 	         <div class="checkout-right">
