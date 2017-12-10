@@ -15,7 +15,7 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- about -->
-		<div class="privacy about" style="padding-left: 200px; padding-right: 200px;">
+		<div class="privacy about backdrop" style="padding-left: 200px; padding-right: 200px;">
 			<h3>About Us</h3>
 			<p class="animi">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 			<div class="agile_about_grids">

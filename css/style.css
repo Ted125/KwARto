@@ -270,78 +270,17 @@ ul.dropdown-menu.drp-mnu li a i {
     background-color: #D42D2D;
     border: none;
 }
-.w3ls_vegetables_menu {
-    left: 13%;
-    border: none;
-    padding: 1em;
-}
-.w3ls_vegetables ul li {
-    list-style-type: none;
-}
-.w3ls_vegetables ul  {
-    list-style-type: none;
-}
-.w3ls_vegetables ul li:first-child {
-    margin-bottom:.5em;
-}
-.w3ls_vegetables ul li a {
-    color: #212121;
-/*-- w3layouts --*/
-    display: block;
+
+.linkmenu {
     text-decoration: none;
+    color: black;
 }
-.w3ls_vegetables ul li a:hover{
-	color:#D42D2D;
+
+.linkmenu:hover {
+    text-decoration: none;
+    color: red;
 }
-.w3l_banner_nav_right_banner1,.w3l_banner_nav_right_banner,.w3l_banner_nav_right_banner2{
-	min-height:500px;
-	text-align: right;
-	padding:10em 17em 0 0;
-	margin-bottom: 5em;
-}
-.w3l_banner_nav_right_banner{
-	background:url(../images/1.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner1{
-	background:url(../images/2.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner2{
-	background:url(../images/3.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner h3,.w3l_banner_nav_right_banner1 h3,.w3l_banner_nav_right_banner2 h3{
-	font-size: 2em;
-    color: #fff;
-    font-weight: 300;
-    text-transform: uppercase;
-	margin-bottom: 1em;
-}
-.w3l_banner_nav_right_banner h3 span,.w3l_banner_nav_right_banner1 h3 span{
-	display:block;
-	font-weight:600;
-	line-height:2em;
-}
-.w3l_banner_nav_right_banner2 h3 i{
-/*-- agileits --*/
-	display:block;
-	font-weight:600;
-	line-height:2em;
-	color:#D42D2D;
-}
+
 .more a{
 	padding:10px 30px;
 	background:#D42D2D;
@@ -357,6 +296,12 @@ ul.dropdown-menu.drp-mnu li a i {
     width: 20%;
     text-align: center;
     margin-left:59em;
+}
+
+.backdrop {
+    background-image:url(https://s-media-cache-ak0.pinimg.com/originals/28/8c/5b/288c5bc0ca810db4f86e9a71f99e417f.jpg);
+    padding-left: 200px; 
+    padding-right: 200px;
 }
 /* Saqui */
 .button--saqui {
