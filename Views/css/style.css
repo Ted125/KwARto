@@ -484,14 +484,17 @@ ul.dropdown-menu.drp-mnu li a i {
     top: -1%;
     right: 10%;
 }
-.top-brands h3,.fresh-vegetables h3,.mail h3,.testimonials h3,.w3_login h3,.w3ls_w3l_banner_nav_right_grid h3,h3.title,.faq h3,.services h3,.about h3,.team h3,.events h3{
+.top-brands h3,.fresh-vegetables h3,.mail h3,.testimonials h3,.page_login h3,.w3ls_w3l_banner_nav_right_grid h3,h3.title,.faq h3,.services h3,.about h3,.team h3,.events h3{
 	text-align:center;
 	color:#212121;
 	padding-bottom:.5em;
 	position:relative;
 	font-size: 2.5em;
 }
-.top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.w3_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
+.page_login { 
+    background-image: url(http://www.newlifeoffice.com/wp-content/uploads/2014/03/full01.jpg);
+}
+.top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.page_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
 	content: '';
     background: #D42D2D;
     height: 2px;
@@ -1786,7 +1789,7 @@ h2.typoh2{
 		display: none;
 	}
 }
-.typo,.privacy,.faq,.services,.events,.mail,.agileinfo_single,.w3_login{
+.typo,.privacy,.faq,.services,.events,.mail,.agileinfo_single,.page_login{
     padding: 5em;
 }
 /*--//Typography --*/
@@ -2719,7 +2722,7 @@ input.checkbox:checked:after {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     margin: 3em auto 0;
 }
-.w3_login_module{
+.login_module{
 	min-height: 475px;
 }
 .form-module .toggle {
@@ -2953,7 +2956,7 @@ input.checkbox:checked:after {
 	.snipcart-details {
 		width: 88%;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 5em 3em;
 	}
 	.events_bottom_left1_grid {
@@ -3020,7 +3023,7 @@ input.checkbox:checked:after {
 	.top_brand_left {
 		padding-left: 0;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 2.3em;
 	}
 	.banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
@@ -3084,7 +3087,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner_pet {
 		padding: 3em 0 0 3em !important;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 4em 3em;
 	}
 	.w3agile_event_grid_right h4 {
@@ -3149,7 +3152,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner3_btml h4 {
 		font-size: 1.3em;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 2em;
 	}
 	.w3ls_w3l_banner_nav_right_grid1 h6 {
@@ -3557,7 +3560,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner7 {
 		background-position: -140px 0px;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 3em 2em;
 	}
 	.w3l_banner_nav_right_banner_pet a, .w3ls_service_grids1_right a {
@@ -3994,7 +3997,7 @@ input.checkbox:checked:after {
 	.wthree_banner_bottom_left {
 		width: 90%;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.8em;
 	}
 	.top_brand_left,.w3ls_w3l_banner_left {
@@ -4095,7 +4098,7 @@ input.checkbox:checked:after {
 	.w3ls_w3l_banner_nav_right_grid {
 		padding: 0 1em 2em;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 2em 1em;
 	}
 	.w3l_fruit {
@@ -4184,7 +4187,7 @@ input.checkbox:checked:after {
 	.form-module .toggle .tooltip {
 		display: none;
 	}
-	.w3_login {
+	.page_login {
 		padding-bottom: 0;
 	}
 	.agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -4339,7 +4342,7 @@ input.checkbox:checked:after {
 	.form-module .form {
 		padding: 20px;
 	}
-	.w3_login_module {
+	.login_module {
 		min-height: 433px;
 	}
 	.agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -4449,7 +4452,7 @@ input.checkbox:checked:after {
 	.view p {
 		padding: 10px 10px 0px;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.6em;
 	}
 	.w3ls_service_grids {
@@ -4637,7 +4640,7 @@ input.checkbox:checked:after {
 	.agile_about_grid_left ol {
 		padding-left: 15px;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.49em;
 	}
 	.agileits_team_grids {
@@ -4758,7 +4761,7 @@ input.checkbox:checked:after {
 		padding: 10px;
 		font-size: 13px;
 	}
-	.w3_login_module {
+	.login_module {
 		min-height: 375px;
 	}
 	.form-module {

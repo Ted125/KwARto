@@ -15,9 +15,9 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- login -->
-		<div class="w3_login" >
+		<div class="page_login">
 			<h3>Sign In & Sign Up</h3>
-			<div class="w3_login_module">
+			<div class="login_module">
 				<div class="module form-module">
 				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
 					<div class="tooltip">Click Me</div>
@@ -132,7 +132,7 @@
                     <li><a href="#">privacy policy</a></li>
                     <li><a href="#">terms of use</a></li>
                 </ul>
-            </div>
+            </div>	
             <div class="clearfix"> </div>
             <div class="agile_footer_grids">
                 <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
