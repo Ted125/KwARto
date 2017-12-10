@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2017 at 09:54 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.5.38
+-- Generation Time: Nov 14, 2017 at 01:59 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -71,7 +73,7 @@ CREATE TABLE `manufacturer_table` (
   `manufacturerContactNumber` varchar(8) NOT NULL,
   `manufacturerAddress` varchar(128) NOT NULL,
   `addedTimeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastAddedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `updatedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -115,17 +117,18 @@ CREATE TABLE `transaction_table` (
 CREATE TABLE `user_table` (
   `userID` int(8) NOT NULL,
   `userName` varchar(128) NOT NULL,
-  `isActivated` tinyint(1) NOT NULL DEFAULT '0',
+  `userStatus` enum('Activated','Not_Activated','Banned') NOT NULL DEFAULT 'Not_Activated',
   `userPassword` varchar(128) NOT NULL,
   `userType` enum('admin','manufacturer','customer') NOT NULL,
   `firstName` varchar(32) NOT NULL,
   `lastName` varchar(32) NOT NULL,
   `middleInitial` char(1) DEFAULT NULL,
   `userPic` varchar(100) NOT NULL,
+  `gender` enum('M','F','O') NOT NULL DEFAULT 'M',
   `email` varchar(128) NOT NULL,
   `birthDate` date NOT NULL,
   `addedTimeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastAddedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updatedTimeStamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `addedBy` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -133,8 +136,8 @@ CREATE TABLE `user_table` (
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`userID`, `userName`, `isActivated`, `userPassword`, `userType`, `firstName`, `lastName`, `middleInitial`, `userPic`, `email`, `birthDate`, `addedTimeStamp`, `lastAddedTimeStamp`, `addedBy`) VALUES
-(1, 'Ted125', 1, '12345', 'customer', 'Christian Ted', 'Ochoa', 'R', '1.jpg', 'christianted.ochoa@gmail.com', '1997-11-18', '2017-11-12 08:05:53', '0000-00-00 00:00:00', NULL);
+INSERT INTO `user_table` (`userID`, `userName`, `userStatus`, `userPassword`, `userType`, `firstName`, `lastName`, `middleInitial`, `userPic`, `gender`, `email`, `birthDate`, `addedTimeStamp`, `updatedTimeStamp`, `addedBy`) VALUES
+(1, 'Ted125', 'Activated', '12345', 'customer', 'Christian Ted', 'Ochoa', 'R', '1.jpg', 'M', 'christianted.ochoa@gmail.com', '1997-11-18', '2017-11-12 00:05:53', '0000-00-00 00:00:00', NULL);
 
 --
 -- Indexes for dumped tables
@@ -258,6 +261,7 @@ ALTER TABLE `transaction_table`
 --
 ALTER TABLE `user_table`
   ADD CONSTRAINT `USER_TABLE_FK` FOREIGN KEY (`addedBy`) REFERENCES `user_table` (`userID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,5 +1,5 @@
 <?php
-	$mysqli = mysqli_connect("localhost", "root", "", "interiar_db");
+	$mysqli = mysqli_connect("localhost", "root", "", "kwarto_db");
 
 	/* check connection */
 	if (!$mysqli) {

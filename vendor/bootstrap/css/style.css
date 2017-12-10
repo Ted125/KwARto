@@ -12,6 +12,14 @@
 .navtext {
 	color: #d51a1d !important;
 	text-decoration: none;
+	position: inherit!important;
+	margin-left: 150px!important;
+}
+
+.backdrop {
+	background-image:url(https://s-media-cache-ak0.pinimg.com/originals/28/8c/5b/288c5bc0ca810db4f86e9a71f99e417f.jpg);
+	padding-left: 200px; 
+	padding-right: 200px;
 }
 
 .username {
