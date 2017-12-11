@@ -40,16 +40,16 @@
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="mail.php">Contact Us</a></li>
                     <?php
-                      if(!isset($_SESSION['username'])){
+                      if(!isset($_SESSION['userId'])){
                                   //Session is empty
-                        echo "<li class='item-right'><button class='cart_details_drop'><a href='login.php' style='color: white;'><span>Login/Sign-Up</span></a></button></li> ";
+                        echo "<a href='login.php' style='color: red;'><span>Login/Sign-Up</span></a> ";
                       } else {
                                   //Session is active
                         echo "<li class='nav-item'>
                         <p class='navtext'><b>Henlo</b>,
-                        <a href='#' id='username'>".$_SESSION['username']."</a>
+                        <a href='profile.php' id='username'>".$_SESSION['username']."</a>
                         |
-                        <button class='cart_details_drop'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
+                        <a href='Controllers/Logout.php' id='logoutForm' style='color: red;'><span>Logout</span></a>
                         </p>
                         ";
                       }

@@ -28,8 +28,13 @@ class user_details{
     }
 
     /***************** FUNCTIONS ****************/
-    public function debug(){
-        echo "<h1>".$_POST["registerFName"]." in second class</h1>";
+    public function debug($field, $newData){
+        $create = "UPDATE user_details
+                SET 
+                ".$field." = '".$newData."'
+                WHERE 
+                user_details.userId = ".$_SESSION['userId']."";
+        echo $create;
 
         /*sample code here*/
     }
@@ -80,6 +85,28 @@ class user_details{
             mysqli_close($connection);
             echo "<h1> after result in userDetails.php ".$id."</h1>";
             return $id;
+        }
+    }
+
+    public function updateUser($field, $newData){
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+
+            $create = "UPDATE user_details
+                SET 
+                ".$field." = '".$newData."'
+                WHERE 
+                user_details.userId = ".$_SESSION['userId']."";
+            $result = mysqli_query($connection, $create);
+            
+            if(mysqli_affected_rows($connection) > 0){
+                mysqli_close($connection);
+                return true;
+            } else {
+                mysqli_close($connection);
+                return false;
+            }
         }
     }
 

@@ -30,7 +30,17 @@
   if($verify != null){
     $_SESSION['userId'] = $verify['userId'];
     $_SESSION['username'] = $verify['username'];
-        //$_SESSION['userType'] = getUserType($verify['userType']);
+    $_SESSION['email'] = $verify['email'];
+    $_SESSION['userType'] = $verify['userType'];
+    $_SESSION['gender'] = $verify['gender'];
+    $_SESSION['mobileNumber'] = $verify['mobileNumber'];
+    $_SESSION['dateAdded'] = $verify['dateAdded'];
+    $_SESSION['address'] = $verify['address'];
+    $_SESSION['firstName'] = $verify['firstName'];
+    $_SESSION['middleName'] = $verify['middleName'];
+    $_SESSION['lastName'] = $verify['lastName'];
+    $_SESSION['birthdate'] = $verify['birthdate'];
+
   } else {
       	//inform user that the input is not valid
    echo "Invalid credentials or not activated";

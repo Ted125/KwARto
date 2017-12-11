@@ -29,7 +29,7 @@
       if($connection){
 
         //If possible please replace query name  with sql name, plox
-        $query = "SELECT username, email, userType FROM user_details WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+        $query = "SELECT user_details.userId AS userId, username, email, userType, gender, mobileNumber, dateAdded, address, firstName, middleName, lastName, birthdate FROM user_details INNER JOIN customer ON customer.userId = user_details.userId WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
 
         //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
         echo "||".$query;
