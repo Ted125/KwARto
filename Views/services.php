@@ -82,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="logo_products_left1">
 				<ul class="special_items">
 					<li><a href="events.html">Events</a><i>/</i></li>
-					<li><a href="about.html">About Us</a><i>/</i></li>
+					<li><a href="about.php">About Us</a><i>/</i></li>
 					<li><a href="products.html">Best Deals</a><i>/</i></li>
 					<li><a href="services.html">Services</a></li>
 				</ul>
@@ -308,7 +308,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h3>information</h3>
 				<ul class="w3_footer_grid_list">
 					<li><a href="events.html">Events</a></li>
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="about.php">About Us</a></li>
 					<li><a href="products.html">Best Deals</a></li>
 					<li><a href="services.html">Services</a></li>
 					<li><a href="short-codes.html">Short Codes</a></li>
