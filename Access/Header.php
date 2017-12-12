@@ -1,8 +1,9 @@
-<title>KwARto | Deals</title>
+<title>KwARto | Web Application</title>
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="icon" type="image/png" href="images/icon.png" />
 
 <script src="js/jquery-1.11.1.min.js"></script>
 

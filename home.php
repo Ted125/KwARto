@@ -67,6 +67,22 @@
 			</div>
 			<div class="events-bottom">
 				<div class="col-md-6 events_bottom_left">
+					<div class="col-md-8 events_bottom_left2">	
+						<img src="images/ar.png" alt=" " class="img-responsive" style="min-height: 150%; min-width: 150%;" />
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 events_bottom_left">
+					<div class=" text-center col-md-8 events_bottom_left2">	
+						<h3>Get the mobile app!</h3>
+						<p>Download the kwARto mobile application in the Google Play Store today to obtain the full experience! <br> <br> Mobile Application Exclusive Features: <br>Augmented Reality Preview of furniture products!<br>Handheld shopping experience!<br>Blah blah blah!<br>Augmented Reality Preview of furniture products!</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="events-bottom">
+				<div class="col-md-6 events_bottom_left">
 					<div class="col-md-4 events_bottom_left1">
 						<div class="events_bottom_left1_grid">
 							<h4>12</h4>
@@ -108,6 +124,7 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
+		</div>
 		</div>
 <!-- //events -->
 		</div>
