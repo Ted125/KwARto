@@ -68,9 +68,9 @@
 <!-- //banner -->
 
 <!-- newsletter-top-serv-btm -->
-	<div class="newsletter-top-serv-btm">
+	<div class="newsletter-top-serv-btm" style="padding-bottom: 30px;">
 		<div class="container">
-			<h2>Modes of Payment</h2><br>
+			<br><h2>Modes of Payment</h2><br>
             <div class="col-md-4 wthree_news_top_serv_btm_grid">
 				<div class="wthree_news_top_serv_btm_grid_icon">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -95,6 +95,7 @@
 				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
 					saepe eveniet ut et voluptates repudiandae sint et.</p>
 			</div>
+			<br>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
