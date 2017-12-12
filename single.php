@@ -63,7 +63,7 @@
 									<input type="hidden" name="return" value=" " />
 									<input type="hidden" name="cancel_return" value=" " />
 									<input type="submit" name="submit" value="Add to cart" class="button" /><br><br>
-									<a href="checkout.php"><input type="button" name="submit" value="Proceed to Checkout" class="button"></input></a>
+									
 								</fieldset>
 							</form>';
 							}
