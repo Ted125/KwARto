@@ -1,4 +1,6 @@
-<?php require("SQL_Connect.php");
+<?php 
+
+require("SQL_Connect.php");
 include("Database.php");
 
 class user_details{
@@ -46,16 +48,16 @@ class user_details{
             $this->setUsername($_POST['registerUsername']);
             $this->setPassword($_POST['registerPassword']);
             $this->setUserType($userType);
-            $this->setGender("Other");
+            $this->setGender($_POST['registerGender']);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddress("Sample Address");
             // if(isset($_SESSION)){
-            //     setAddedBy($_SESSION['userId']);
+            //     $this->setAddedBy($_SESSION['userId']);
             // }else{
-            //     setAddedBy("NULL");
+            //     $this->setAddedBy("NULL");
             // }
-            //setImage($_POST['image']);  i dont know if i should put an image sa creation.
+            //$this->setImage($_POST['image']);  i dont know if i should put an image sa creation.
             $create = "INSERT INTO user_details
             ( 
             username,
@@ -81,10 +83,10 @@ class user_details{
             // $row = mysqli_fetch_array($qry);
             // $this->setUserId($row[0]);
 
-            $id = $connection->insert_id;
+            $this->setUserId($connection->insert_id);
             mysqli_close($connection);
-            echo "<h1> after result in userDetails.php ".$id."</h1>";
-            return $id;
+            echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
+            return $this->getUserId();
         }
     }
 
@@ -92,7 +94,6 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
-
             $create = "UPDATE user_details
                 SET 
                 ".$field." = '".$newData."'
@@ -112,20 +113,20 @@ class user_details{
 
     public function createAdmin(){
         if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserStatus('active');
-            setUserType('admin');
-            createUser();
+            $this->setUserStatus('active');
+            $this->setUserType('admin');
+            $this->createUser();
         }else{
             echo 'only admins can create an admin';
         }
     }
 
     public function activateUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserId($_POST['userId']);
+        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
+            $this->setUserId($_POST['userId']);
             $update = "UPDATE user_details
             SET userStatus = 'active' 
-            WHERE userId = '".getUserId()."'
+            WHERE userId = '".$this->getUserId()."'
             ";
             $result = mysqli_query($mysqli, $update);
         }else{
@@ -134,7 +135,7 @@ class user_details{
     }
 
     public function deactiveUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
+        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
             SET userStatus = 'inactive' 
@@ -147,19 +148,19 @@ class user_details{
     }
 
     public function deleteUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
+        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
             setUserId($_POST['userId']);
             $db = "user_details";
             $id = NULL;
-            if(getUserType($_POST['userType'] == 'customer')){
+            if($this->getUserType($_POST['userType'] == 'customer')){
                 $db = "customer";
-            }else if(getUserType($_POST['userType'])){
+            }else if($this->getUserType($_POST['userType'])){
                 $db = "seller";
             }	
             if($db != "user_details"){
                 $select = "SELECT * 
                 FROM  '".$db."' x, user_details y
-                WHERE x.userId = 'y.".getUserId()."'";
+                WHERE x.userId = 'y.".$this->getUserId()."'";
                 $qry = mysqli_query($mysqli, $select);
                 $row = mysqli_fetch_array($qry);
                 $id = $row[0];
@@ -178,14 +179,14 @@ class user_details{
             }
             $delete2 = "DELETE
             FROM user_table
-            WHERE userID = '".getUserId()."' && userStatus = 'Not_Activated' 
+            WHERE userID = '".$this->getUserId()."' && userStatus = 'Not_Activated' 
             ";
 
             $result2 = mysqli_query($mysqli, $delete2);
             if(mysqli_num_rows($result2) == 1){
-                alert("Delete: Succesful");
+                '<script>alert("Delete: Succesful");</script>';
             }else{
-                alert("Delete: Fail");
+                '<script>alert("Delete: Fail");</script>';
             }
         }else{
             echo 'only admins can deactivate a user';
@@ -195,29 +196,35 @@ class user_details{
         return result;
     }
 
-    public function login($sessionId, $sessionPassword){     
-        setUsername($sessionId);
-        setPassword($sessionPassword);   
-        $result = NULL;
+    public function Login($sessionEmail, $sessionPassword){
         $connection = $this->Connect();
         if($connection){
-            $query = "SELECT *
-            FROM user_details where email = '".getUsername()."' OR username = '".getUsername()."'
-            AND password = '".getPassword()."'
-            ";
-            $row = mysqli_query($mysqli, $query);
-            if(mysqli_num_rows($row) == 1){        
-                $result = mysqli_fetch_array($row);
-                setUserStatus($result['userStatus']);
-                if(getUserStatus() != 'active'){ 
-                    $result = NULL;
-                }
-            }
-        }else{
-            echo "no connection to db!";
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT user_details.userId AS userId, username, email, userType, gender, mobileNumber, dateAdded, address, firstName, middleName, lastName, birthdate 
+          FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+            return $row;
+          }else{
+            return null;
+          }
         }
-        return result;
-    }
+      }
 
     public function readAdmin(){
         $query ="SELECT
@@ -231,7 +238,7 @@ class user_details{
         `image`,
         `address`
         FROM  user_details
-        WHERE userId = '".getUserId()."'
+        WHERE userId = '".$this->getUserId()."'
         ";
 
         $row = mysqli_query($mysqli, $query);
