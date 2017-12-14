@@ -147,51 +147,59 @@ class user_details{
         }
     }
 
-    public function deleteUser(){
+    public function deleteUser($userId){
         if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
-            setUserId($_POST['userId']);
-            $db = "user_details";
+            $this->setUserId($userId);
+            $table = "user_details";
             $id = NULL;
             if($this->getUserType($_POST['userType'] == 'customer')){
-                $db = "customer";
+                $table = "customer";
             }else if($this->getUserType($_POST['userType'])){
-                $db = "seller";
+                $table = "seller";
             }	
-            if($db != "user_details"){
-                $select = "SELECT * 
-                FROM  '".$db."' x, user_details y
-                WHERE x.userId = 'y.".$this->getUserId()."'";
-                $qry = mysqli_query($mysqli, $select);
-                $row = mysqli_fetch_array($qry);
-                $id = $row[0];
+            if($table != "user_details"){
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    // Getting seller or customer ID
+                    $select = "SELECT * 
+                               FROM  '".$table."' x, user_details y
+                               WHERE x.userId = 'y.".$this->getUserId()."'";
+                    
+                    $qry = mysqli_query($mysqli, $select);
+                    $row = mysqli_fetch_array($qry);
+                    $id = $row[0];
 
-                $delete1 = "DELETE
-                FROM '".$db." ' x, user_details y
-                WHERE userID = 'x.".$id."' && y.userStatus = 'Not_Activated' 
-                ";
+                    // Actual deletion of customer or seller
+                    $delete1 = "DELETE
+                                FROM '".$table." ' x, user_details y
+                                WHERE userID = 'x.".$id."' && y.userStatus = 'inactive' 
+                                ";
 
-                $result1 = mysqli_query($mysqli, $delete1);
-                if(mysqli_num_rows($result1) == 1){
-                    alert("Delete: Succesful");
+                    $result1 = mysqli_query($mysqli, $delete1);
+                    if(mysqli_num_rows($result1) == 1){
+                        echo 'Delete: Success';
+                    }else{
+                        echo 'Delete: Fail';
+                    }
                 }else{
-                    alert("Delete: Fail");
+                    echo 'no db connection';
                 }
             }
+            // Deletion from user_details
             $delete2 = "DELETE
-            FROM user_table
-            WHERE userID = '".$this->getUserId()."' && userStatus = 'Not_Activated' 
-            ";
-
+                        FROM user_details
+                        WHERE userID = '".$this->getUserId()."' && userStatus = 'inactive' 
+                        ";
             $result2 = mysqli_query($mysqli, $delete2);
             if(mysqli_num_rows($result2) == 1){
-                '<script>alert("Delete: Succesful");</script>';
+                echo 'Delete: Success';
             }else{
-                '<script>alert("Delete: Fail");</script>';
+                echo 'Delete: Fail';
             }
         }else{
-            echo 'only admins can deactivate a user';
+            echo 'only admins can delete a user';
         }
-
 
         return result;
     }
@@ -227,6 +235,7 @@ class user_details{
       }
 
     public function readAdmin(){
+        $result = NULL;
         $query ="SELECT
         userId,
         username,
@@ -240,14 +249,11 @@ class user_details{
         FROM  user_details
         WHERE userId = '".$this->getUserId()."'
         ";
-
         $row = mysqli_query($mysqli, $query);
         if(mysqli_num_rows($row) == 1){        
             $result = mysqli_fetch_array($row);
-            return result;
-        }else{
-            return NULL;
         }
+        return result;
     }
 
     /***************** SETTERS AND GETTERS ****************/

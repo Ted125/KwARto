@@ -19,6 +19,7 @@ class customer extends user_details{
     }
 
     /***************** FUNCTIONS ****************/
+    
     public function debug($field, $newData){
         $create = "UPDATE customer
                 SET 
@@ -67,20 +68,25 @@ class customer extends user_details{
                 return null;
             }
         }
-        
     }
-    public function updateCustomer($field, $newData){
-        $db = new Database();
-        $connection = $db->Connect();
-        if($connection){
 
-            $create = "UPDATE customer
-                SET 
-                ".$field." = ".$newData."
-                WHERE 
-                customer.userId = ".$_SESSION['userId']."";
-            $result = mysqli_query($connection, $create);
-            mysqli_close($connection);
+    public function updateCustomer($field, $newData){
+        if(isset($_SESSION && $_SESSION['userType'] == 'customer'){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+
+                $create = "UPDATE customer
+                           SET  '".$field."' = '".$newData."'
+                    WHERE 
+                    customer.userId = '".$_SESSION['userId']."'";
+                $result = mysqli_query($connection, $create);
+                mysqli_close($connection);
+            }else{
+                echo 'no db connection';
+            }
+        }else{
+            echo 'no session';
         }
     }
     // public function updateCustomer(){
@@ -150,7 +156,7 @@ class customer extends user_details{
         u.image,
         u.address
         FROM  customer c, user_details u
-        WHERE c.customerId ='".getCustomerId()."' && c.userId = u.userId
+        WHERE c.customerId ='".$this->getCustomerId()."' && c.userId = u.userId
         ";
         $row = mysqli_query($mysqli, $query);
         $result = mysqli_fetch_array($row);
