@@ -94,13 +94,33 @@ include("userDetails.php");
         return result;
 
     }
+
+    public function updateFurniture($field, $newData){
+        if(isset($_SESSION && $_SESSION['userType'] == 'seller'){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+                $this->setFurnitureId($_POST['furnitureId']);
+                $create = "UPDATE furniture
+                           SET  '".$field."' = '".$newData."'
+                    WHERE 
+                    furnitureId = '".$this->getFurnitureId()."'";
+                $result = mysqli_query($connection, $create);
+                mysqli_close($connection);
+            }else{
+                echo 'no db connection';
+            }
+        }else{
+            echo 'no session or not a seller';
+        }
+    }
         
-        public function deleteFurniture($furnitureId){
-            $result = NULL;
-            if(isset($_SESSION){
-                if($this->getUserType($_SESSION['userType']) != 'customer'){
-                    $this->setFurnitureId($furnitureId);
-                    $delete = " DELETE 
+    public function deleteFurniture($furnitureId){
+        $result = NULL;
+        if(isset($_SESSION){
+            if($this->getUserType($_SESSION['userType']) != 'customer'){
+                $this->setFurnitureId($furnitureId);
+                 $delete = " DELETE 
                                 FROM  furniture
                                 WHERE  furnitureId = '".$this->getFurnitureId()."'
                               ";
@@ -114,6 +134,31 @@ include("userDetails.php");
             }
             return result
         }
+
+    public function readFurniture(){
+        $this->setFurnitureId($_POST['furnitureId']); 
+        $query ="SELECT
+        furnitureId,
+        name,
+        description,
+        length,
+        width,
+        height,
+        rating,
+        price,
+        unit,
+        modelName,
+        discount,
+        categoryId,
+        sellerId
+        FROM  furniture
+        WHERE furnitureId ='".$this->getFurnitureId()."'
+        ";
+        $row = mysqli_query($mysqli, $query);
+        $result = mysqli_fetch_array($row);
+
+        return result;
+    }
 
     }
     /***************** SETTERS AND GETTERS ****************/*/

@@ -141,7 +141,7 @@ class customer extends user_details{
     // }
 
     public function readCustomer(){
-        setCustomerId($_POST['customerId']); 
+        $this->setCustomerId($_POST['customerId']); 
         $query ="SELECT
         c.firstName,
         c.middleName,

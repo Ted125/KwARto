@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 10:01 AM
+-- Generation Time: Dec 15, 2017 at 03:57 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -50,6 +50,7 @@ CREATE TABLE `customer` (
   `middleName` varchar(256) DEFAULT NULL,
   `lastName` varchar(256) NOT NULL,
   `birthdate` date NOT NULL,
+  `shippingAddress` varchar(256) DEFAULT NULL,
   `userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -116,6 +117,31 @@ CREATE TABLE `furniture_image` (
   `addedBy` int(11) NOT NULL,
   `updatedBy` int(11) NOT NULL,
   `furnitureId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `furniture_stock`
+--
+
+CREATE TABLE `furniture_stock` (
+  `stockId` int(11) NOT NULL,
+  `status` enum('available','on_hold','sold') DEFAULT 'available',
+  `furnitureId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `locationId` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `type` enum('city','barangay') NOT NULL DEFAULT 'city',
+  `parentLocationId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -204,9 +230,10 @@ CREATE TABLE `user_details` (
   `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `addedBy` int(11) DEFAULT NULL,
-  `updatedBy` int(11) NOT NULL,
+  `updatedBy` int(11) DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
-  `address` varchar(256) DEFAULT NULL
+  `address` varchar(256) DEFAULT NULL,
+  `locationId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -251,6 +278,22 @@ ALTER TABLE `furniture_image`
   ADD KEY `furniture_image_FK` (`furnitureId`);
 
 --
+-- Indexes for table `furniture_stock`
+--
+ALTER TABLE `furniture_stock`
+  ADD PRIMARY KEY (`stockId`),
+  ADD UNIQUE KEY `stockId` (`stockId`),
+  ADD KEY `furniture_stock_FK` (`furnitureId`);
+
+--
+-- Indexes for table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`locationId`),
+  ADD UNIQUE KEY `locationId` (`locationId`),
+  ADD KEY `location_FK` (`parentLocationId`);
+
+--
 -- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
@@ -283,7 +326,8 @@ ALTER TABLE `seller`
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`userId`),
+  ADD KEY `user_details_FK` (`locationId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -314,6 +358,16 @@ ALTER TABLE `furniture`
 --
 ALTER TABLE `furniture_image`
   MODIFY `furnitureImageId` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `furniture_stock`
+--
+ALTER TABLE `furniture_stock`
+  MODIFY `stockId` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_item`
 --
@@ -376,6 +430,18 @@ ALTER TABLE `furniture_image`
   ADD CONSTRAINT `furniture_image_FK` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`);
 
 --
+-- Constraints for table `furniture_stock`
+--
+ALTER TABLE `furniture_stock`
+  ADD CONSTRAINT `furniture_stock_FK` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`);
+
+--
+-- Constraints for table `location`
+--
+ALTER TABLE `location`
+  ADD CONSTRAINT `location_FK` FOREIGN KEY (`parentLocationId`) REFERENCES `location` (`locationId`);
+
+--
 -- Constraints for table `order_item`
 --
 ALTER TABLE `order_item`
@@ -394,6 +460,12 @@ ALTER TABLE `review`
 --
 ALTER TABLE `seller`
   ADD CONSTRAINT `seller_FK` FOREIGN KEY (`userId`) REFERENCES `user_details` (`userId`);
+
+--
+-- Constraints for table `user_details`
+--
+ALTER TABLE `user_details`
+  ADD CONSTRAINT `user_details_FK` FOREIGN KEY (`locationId`) REFERENCES `location` (`locationId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
