@@ -20,16 +20,16 @@
     /***************** FUNCTIONS *****************/
 
     public function createSeller($userId){
-        setUserType('seller');
-        setUserId(createUser());
-        setName($_POST['name']);
-        setDescription($_POST['description']);
+        $this->setUserType('seller');
+        $this->setUserId(createUser());
+        $this->setName($_POST['name']);
+        $this->setDescription($_POST['description']);
         if(!isset($_SESSION)){
-            setAddedBy($userId);
-            setUserStatus('inactive');
+            $this->setAddedBy($userId);
+            $this->setUserStatus('inactive');
         }else{
-            setAddedBy($_SESSION['userId']);
-            setUserStatus('active');
+            $this->setAddedBy($_SESSION['userId']);
+            $this->setUserStatus('active');
         }
         $create = "INSERT INTO seller
         ( 
@@ -44,48 +44,27 @@
         return result;
     }
 
-    public function updateSeller(){
+    public function updateSeller($field, $newData){
+        $this->setUserType($_SESSION['userType'];
+        $this->setUserId($_SESSION['userId']);
         if(isset($_SESSION)){
-            if(getUserType($_SESSION['userType']) == 'seller'){
-                setSellerId($_SESSION['sellerId'];
-                setUserId($_SESSION['userId']);
-                setUpdatedBy($_SESSION['userId']);
-            }else if(getUserType($_SESSION['userType']) == 'admin'){
-                setCustomerId($_POST['sellerId'];
-                setUserId($_POST['userId']);
-                setUpdatedBy($_SESSION['userId'])
-            }    
-            /*SELLER DETAILS*/
-            setName($_POST['name']);
-            setDescription($_POST['description']);
-            /*USER DETAILS*/
-            setPassword($_POST['password']);
-            setGender($_POST['gender']);
-            setEmail($_POST['email']);
-            setMobileNumber($_POST['mobileNumber']);
-            setAddress($_POST['address']);
-
-            $update1 = "UPDATE customer
-            SET
-                firstName = '".getName()."',
-                description = '".getDescription()."'
-            WHERE sellerId = '".getSellerId()."'";	
-            $result1 = mysqli_query($mysqli, $update);
-
-            /* UPDATE USER_DETAILS TABLE */
-        
-            $update2 = "UPDATE user_details
-            SET
-               `password` = '".getPassword()."',
-                gender = '".getGender()."',
-                email = '".getEmail()."',
-                mobileNumber = '".getMobileNumber()."',
-                address = '".getAddress()."',
-                updatedBy = '".getUpdatedBy()."',
-            WHERE userID = '".getUserId()."'";
-            $result2 = mysqli_query($mysqli, $update);
+            if(!strcmp($this->getUserType(),'customer') == 0){
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $create = "UPDATE seller
+                               SET  '".$field."' = '".$newData."'
+                               WHERE customer.userId = '".$this->getUserId()."'";
+                    $result = mysqli_query($connection, $create);
+                    mysqli_close($connection);
+                }else{
+                    echo 'no db connection';
+                }
+            }else{
+                echo 'customers are not allowed to update sellers';
+            }
         }else{
-            echo "no session";
+            echo 'no session';
         }
     }
 

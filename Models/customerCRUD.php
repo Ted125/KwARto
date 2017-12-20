@@ -37,7 +37,6 @@ class customer extends user_details{
             $userDetails = new user_details();
             $userType = "customer";
             $this->setUserId($userDetails->createUser($userType));
-            echo "<h1>after result in customerCRUD.php ".$this->getUserId()."</h1>";    
             $this->setFirstName($_POST["registerFName"]);
             $this->setMiddleName($_POST["registerMName"]);
             $this->setLastName($_POST["registerLName"]);
@@ -71,15 +70,16 @@ class customer extends user_details{
     }
 
     public function updateCustomer($field, $newData){
-        if(isset($_SESSION && $_SESSION['userType'] == 'customer'){
+        $this->setUserType($_SESSION['userType'];
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'customer') == 0){
             $db = new Database();
             $connection = $db->Connect();
             if($connection){
 
                 $create = "UPDATE customer
                            SET  '".$field."' = '".$newData."'
-                    WHERE 
-                    customer.userId = '".$_SESSION['userId']."'";
+                           WHERE customer.userId = '".$this->getUserId()."'";
                 $result = mysqli_query($connection, $create);
                 mysqli_close($connection);
             }else{

@@ -3,6 +3,7 @@
 require("SQL_Connect.php");
 include("Database.php");
 include("userDetails.php");
+
   class user_details{
     private $furnitureId;
     private $name;
@@ -96,7 +97,8 @@ include("userDetails.php");
     }
 
     public function updateFurniture($field, $newData){
-        if(isset($_SESSION && $_SESSION['userType'] == 'seller'){
+        $this->setUserType($_SESSION['userType']);
+        if(isset($_SESSION && strcmp($this->getUserType(),'seller') == 0){
             $db = new Database();
             $connection = $db->Connect();
             if($connection){
@@ -118,7 +120,8 @@ include("userDetails.php");
     public function deleteFurniture($furnitureId){
         $result = NULL;
         if(isset($_SESSION){
-            if($this->getUserType($_SESSION['userType']) != 'customer'){
+            $this->setUsertype($_SESSION['userType']);
+            if(!strcmp($this->getUserType(),'customer')==0){
                 $this->setFurnitureId($furnitureId);
                  $delete = " DELETE 
                                 FROM  furniture
@@ -159,6 +162,8 @@ include("userDetails.php");
 
         return result;
     }
+
+    
 
     }
     /***************** SETTERS AND GETTERS ****************/*/

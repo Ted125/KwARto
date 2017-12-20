@@ -112,17 +112,21 @@ class user_details{
     }
 
     public function createAdmin(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
+        $result;
+        $this->setUserType($_SESSION['userType']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
-            $this->createUser();
+            $result = $this->createUser();
         }else{
             echo 'only admins can create an admin';
         }
+        return result;
     }
 
     public function activateUser(){
-        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
+        $this->setUserType($_SESSION['userType']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserId($_POST['userId']);
             $update = "UPDATE user_details
             SET userStatus = 'active' 
@@ -135,7 +139,8 @@ class user_details{
     }
 
     public function deactiveUser(){
-        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
+        $this->setUserType($_SESSION['userType']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
             SET userStatus = 'inactive' 
@@ -148,13 +153,16 @@ class user_details{
     }
 
     public function deleteUser($userId){
-        if(isset($_SESSION) && $this->getUserType($_SESSION['userType']) == 'admin'){
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($userId);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserId($userId);
             $table = "user_details";
             $id = NULL;
-            if($this->getUserType($_POST['userType'] == 'customer')){
+            $this->setUserType($_POST['userType']);
+            if(!strcmp($this->getUserType(),'customer') == 0){
                 $table = "customer";
-            }else if($this->getUserType($_POST['userType'])){
+            }else if(strcmp($this->getUserType(), 'seller' ) == 0){
                 $table = "seller";
             }	
             if($table != "user_details"){
@@ -180,7 +188,7 @@ class user_details{
                     if(mysqli_num_rows($result1) == 1){
                         echo 'Delete: Success';
                     }else{
-                        echo 'Delete: Fail';
+                        echo 'Delete: Failed or Cancelled';
                     }
                 }else{
                     echo 'no db connection';
@@ -195,7 +203,7 @@ class user_details{
             if(mysqli_num_rows($result2) == 1){
                 echo 'Delete: Success';
             }else{
-                echo 'Delete: Fail';
+                echo 'Delete: Failed or Cancelled';
             }
         }else{
             echo 'only admins can delete a user';
