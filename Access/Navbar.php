@@ -35,7 +35,8 @@
             </div>
             <div class="logo_products_left1">
                 <ul class="special_items items-bread">
-                    <li><a href="index.php">Home</a></li>            
+                    <li><a href="index.php">Home</a></li>  
+                    <li><a href="home.php">Store</a></li>           
                     <li><a href="privacy.php">Privacy Policy</a></li>              
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="mail.php">Contact Us</a></li>
