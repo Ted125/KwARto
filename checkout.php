@@ -15,7 +15,7 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- about -->
-		<div class="privacy about">
+		<div class="privacy about backdrop">
 			<h3>Chec<span>kout</span></h3>
 			
 	      <div class="checkout-right">

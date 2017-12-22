@@ -42,15 +42,14 @@
                     <?php
                       if(!isset($_SESSION['userId'])){
                                   //Session is empty
-                        echo "<a href='login.php' style='color: red;'><span>Login/Sign-Up</span></a> ";
+                        echo "<li class='item-right'><button class='cart_details_drop'><a href='login.php' style='color: white;'><span>Login/Sign-Up</span></a></button></li> ";
                       } else {
                                   //Session is active
                         echo "<li class='nav-item'>
-                        <p class='navtext'><b>Henlo</b>,
+                        <p class='navtext' style='position: inherit;margin-left: 150px;'><b>Henlo</b>,
                         <a href='profile.php' id='username'>".$_SESSION['username']."</a>
                         |
-                        <a href='Controllers/Logout.php' id='logoutForm' style='color: red;'><span>Logout</span></a>
-                        </p>
+                        <button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
                         ";
                       }
 

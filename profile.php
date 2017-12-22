@@ -18,90 +18,91 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- about -->
-	<?php 
-	if(!isset($_SESSION['userId'])){
-		include'Access/Error.php';
-	} else {
-		echo '
-		<div id="profile" class="container">
-			<div class="row">
-				<div id="profileHeader" class="col-lg-04" align="center">
-					<h2><span>Account Settings</span></h2><br>
-						<div id="profileContents" class="col-lg-02" align="left">
-					';
-							//echo "<h4>Number: ".$_SESSION['userId']."</h4>";
-							echo "<b>User Name: </b>".$_SESSION['username']." 
-								<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='username'></input>
-										<input name='newData' type='text'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-							echo "<b>Password: </b>********
-								<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='password'></input>
-										<input name='newData' type='password'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-							echo "<hr>";
-							echo "<b>Name: </b>".$_SESSION['firstName']." ".$_SESSION['middleName']." ".$_SESSION['lastName']." <div align='right'><a class='editLink' href='#'>edit</a></div>";
-							echo "<hr>";
-							echo "<b>Birth Date: </b>".$_SESSION['birthdate']." <div align='right'><a class='editLink' href='#'>edit</a></div>";
-							echo "<hr>";
-							echo "<b>Gender; </b>".$_SESSION['gender']."
-								<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='gender'></input>
-										<input name='newData' type='text'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-							echo "<hr>";
-							echo "<b>Type: </b>".$_SESSION['userType']."";
-							echo "<hr>";
-							echo "<b>Date Added: </b>".$_SESSION['dateAdded']."";
-							echo "<hr>";
-							echo "<b>Email Address: </b>".$_SESSION['email']."
-								<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='email'></input>
-										<input name='newData' type='text'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-							echo "<hr>";
-					    	echo "<b>Mobile Number: </b>".$_SESSION['mobileNumber']."
-					    		<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='mobileNumber'></input>
-										<input name='newData' type='text'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-					    	echo "<hr>";
-					    	echo "<b>Address: </b>".$_SESSION['address']."
-					    		<form action='Controllers/UpdateUser.php' method='POST'> 
-									<div align='right'>
-										<input name='field' type='hidden' value='address'></input>
-										<input name='newData' type='text'></input>
-										<button class='btn btn-warning submit'>edit</button>
-									</div>
-								</form>";
-					    	echo "<hr>";
-					    	
+	<div class="profile backdrop">
+		<?php 
+		if(!isset($_SESSION['userId'])){
+			include'Access/Error.php';
+		} else {
+			echo '
+			<div id="profile" class="container">
+				<div class="row">
+					<div id="profileHeader" class="col-lg-04" align="center">
+						<h2><span>Account Settings</span></h2><br>
+							<div id="profileContents" class="col-lg-02" align="left">
+						';
+								//echo "<h4>Number: ".$_SESSION['userId']."</h4>";
+								echo "<b>User Name: </b>".$_SESSION['username']." 
+									<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='username'></input>
+											<input name='newData' type='text'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+								echo "<b>Password: </b>********
+									<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='password'></input>
+											<input name='newData' type='password'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+								echo "<hr>";
+								echo "<b>Name: </b>".$_SESSION['firstName']." ".$_SESSION['middleName']." ".$_SESSION['lastName']." <div align='right'><a class='editLink' href='#'>edit</a></div>";
+								echo "<hr>";
+								echo "<b>Birth Date: </b>".$_SESSION['birthdate']." <div align='right'><a class='editLink' href='#'>edit</a></div>";
+								echo "<hr>";
+								echo "<b>Gender; </b>".$_SESSION['gender']."
+									<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='gender'></input>
+											<input name='newData' type='text'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+								echo "<hr>";
+								echo "<b>Type: </b>".$_SESSION['userType']."";
+								echo "<hr>";
+								echo "<b>Date Added: </b>".$_SESSION['dateAdded']."";
+								echo "<hr>";
+								echo "<b>Email Address: </b>".$_SESSION['email']."
+									<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='email'></input>
+											<input name='newData' type='text'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+								echo "<hr>";
+						    	echo "<b>Mobile Number: </b>".$_SESSION['mobileNumber']."
+						    		<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='mobileNumber'></input>
+											<input name='newData' type='text'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+						    	echo "<hr>";
+						    	echo "<b>Address: </b>".$_SESSION['address']."
+						    		<form action='Controllers/UpdateUser.php' method='POST'> 
+										<div align='right'>
+											<input name='field' type='hidden' value='address'></input>
+											<input name='newData' type='text'></input>
+											<button class='btn btn-warning submit'>edit</button>
+										</div>
+									</form>";
+						    	echo "<hr>";
+						    	
 
-					    
-		echo '	    	</div>
-		    	<a href="#">I would like to change my personal info.</a>
-		    	</div>
-		    </div>
-	    </div>';
-	}
-    ?>
-    
+						    
+			echo '	    	</div>
+			    	<a href="#">I would like to change my personal info.</a>
+			    	</div>
+			    </div>
+		    </div>';
+		}
+	    ?>
+    </div>
 
     <?php include'Access/Footer.php'; ?>
     <!-- //footer -->

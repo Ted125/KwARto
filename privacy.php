@@ -16,7 +16,7 @@
     <?php include'Access/Navbar.php'; ?>
 		<div>
 <!-- privacy -->
-		<div class="privacy">
+		<div class="privacy backdrop">
 			<div class="privacy1">
 				<h3>Privacy Policy</h3>
 				<div class="banner-bottom-grid1 privacy1-grid">

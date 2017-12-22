@@ -16,7 +16,7 @@
     <?php include'Access/Navbar.php'; ?>
 <div>	
 		</div>
-		<div class="banner_nav_right">
+		<div class="banner_nav_right backdrop">
 			<div class="agileinfo_single" style="padding-left:200px;">
 				<h5>charminar pulao basmati rice 5 kg</h5>
 				<div class="col-md-4 agileinfo_single_left">

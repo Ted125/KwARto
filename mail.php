@@ -17,8 +17,8 @@
     </div>
 		<div>
 <!-- mail -->
-		<div class="mail">
-			<h3>Mail Us</h3>
+		<div class="mail backdrop">
+			<h3>Contact Us</h3>
 			<div class="agileinfo_mail_grids">
 				<div class="col-md-4 agileinfo_mail_grid_left">
 					<ul>

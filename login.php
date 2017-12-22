@@ -15,9 +15,9 @@
 
     <?php include'Access/Navbar.php'; ?>
 <!-- login -->
-		<div class="w3_login" >
+		<div class="page_login backdrop">
 			<h3>Sign In & Sign Up</h3>
-			<div class="w3_login_module">
+			<div class="login_module">
 				<div class="module form-module">
 				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
 					<div class="tooltip">Click Me</div>
@@ -36,7 +36,7 @@
 					  <input type="text" name="registerFName" placeholder="First Name" required=" ">
 					  <input type="text" name="registerMName" placeholder="Middle Name" required=" ">
 					  <input type="text" name="registerLName" placeholder="Last Name" required=" ">
-					  <input type="date" name="registerBDay" placeholder="BDay" required=" ">		
+					  <input type="date" name="registerBDay" class="form-module" placeholder="BDay" required=" ">
 					  <input type="text" name="registerUsername" placeholder="Username" required=" ">
 					  <input type="password" name="registerPassword" placeholder="Password" required=" ">
 					  <input type="email" name="registerEmail" placeholder="Email Address" required=" ">
@@ -68,9 +68,9 @@
 <!-- //banner -->
 
 <!-- newsletter-top-serv-btm -->
-	<div class="newsletter-top-serv-btm">
+	<div class="newsletter-top-serv-btm" style="padding-bottom: 30px;">
 		<div class="container">
-			<h2>Modes of Payment</h2><br>
+			<br><h2>Modes of Payment</h2><br>
             <div class="col-md-4 wthree_news_top_serv_btm_grid">
 				<div class="wthree_news_top_serv_btm_grid_icon">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -95,6 +95,7 @@
 				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
 					saepe eveniet ut et voluptates repudiandae sint et.</p>
 			</div>
+			<br>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -121,7 +122,7 @@
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="mail.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -132,7 +133,7 @@
                     <li><a href="#">privacy policy</a></li>
                     <li><a href="#">terms of use</a></li>
                 </ul>
-            </div>
+            </div>	
             <div class="clearfix"> </div>
             <div class="agile_footer_grids">
                 <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">

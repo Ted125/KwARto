@@ -293,6 +293,13 @@ ul.dropdown-menu.drp-mnu li a i {
 .w3ls_vegetables ul li a:hover{
 	color:#D42D2D;
 }
+
+.backdrop {
+    background-image:url(https://s-media-cache-ak0.pinimg.com/originals/28/8c/5b/288c5bc0ca810db4f86e9a71f99e417f.jpg);
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
 .w3l_banner_nav_right_banner1,.w3l_banner_nav_right_banner,.w3l_banner_nav_right_banner2{
 	min-height:500px;
 	text-align: right;
@@ -484,14 +491,19 @@ ul.dropdown-menu.drp-mnu li a i {
     top: -1%;
     right: 10%;
 }
-.top-brands h3,.fresh-vegetables h3,.mail h3,.testimonials h3,.w3_login h3,.w3ls_w3l_banner_nav_right_grid h3,h3.title,.faq h3,.services h3,.about h3,.team h3,.events h3{
+.top-brands h3,.fresh-vegetables h3,.mail h3,.testimonials h3,.page_login h3,.w3ls_w3l_banner_nav_right_grid h3,h3.title,.faq h3,.services h3,.about h3,.team h3,.events h3{
 	text-align:center;
 	color:#212121;
 	padding-bottom:.5em;
 	position:relative;
 	font-size: 2.5em;
 }
-.top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.w3_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
+
+.page_login {
+    background-image: url(http://www.newlifeoffice.com/wp-content/uploads/2014/03/full01.jpg);
+}
+
+.top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.page_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
 	content: '';
     background: #D42D2D;
     height: 2px;

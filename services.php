@@ -19,7 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <body>
   	<?php include'Access/Navbar.php'; ?>
 <!-- header -->
-	<div class="agileits_header">
+	<div class="agileits_header backdrop">
 		<div class="w3l_offers">
 			<a href="products.html">Today's special Offers !</a>
 		</div>

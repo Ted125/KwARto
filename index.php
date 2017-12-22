@@ -14,7 +14,7 @@
 
     <?php include'Access/Navbar.php'; ?>
     <!-- <?php include'Access/RegisterForm.php'; ?> -->
-    <div class="" style="padding-left: 200px; padding-right: 200px;">
+    <div class="backdrop" style="padding-left: 200px; padding-right: 200px;">
         <br>
         <br>
         <div class="w3ls_w3l_banner_nav_right_grid">
