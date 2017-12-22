@@ -213,7 +213,8 @@ class user_details{
     }
 
     public function Login($sessionEmail, $sessionPassword){
-        $connection = $this->Connect();
+        $db = new Database();
+        $connection = $db->Connect();
         if($connection){
           //If possible please replace query name  with sql name, plox
           $query = "SELECT user_details.userId AS userId, username, email, userType, gender, mobileNumber, dateAdded, address, firstName, middleName, lastName, birthdate 

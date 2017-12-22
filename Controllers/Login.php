@@ -1,5 +1,5 @@
 <?php
-  require_once("../Models/User.php");
+  require_once("../Models/userDetails.php");
   //require_once("../Models/userDetails.php");
   //require_once("../Models/customerCRUD.php");
   //require_once("../Models/sellerDetails.php");
@@ -24,7 +24,7 @@
   //   }
   // }
 
-  $user = new User();
+  $user = new user_details();
   $verify = $user->Login($_POST['loginEmail'], $_POST['loginPassword']);
 
   if($verify != null){
