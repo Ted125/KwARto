@@ -429,6 +429,65 @@ ul.dropdown-menu.drp-mnu li a i {
 .btn-danger.my-cart-btn:focus {
     outline: none;
 }
+
+.question-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 20%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
+.reviews {
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+.profile-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 60%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
+.prof-labels {
+    color: #D42D2D!important;
+}
+
+.prof-items {
+    color: black;
+}
+
+.change-pw-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 40%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
 .snipcart-details input.button {
     font-size: 14px;
     color: #fff;
