@@ -445,6 +445,17 @@ ul.dropdown-menu.drp-mnu li a i {
     outline: none;
 }
 
+.tabadmin {
+    background-color: #D42D2D;
+    color: white!important;
+}
+
+.tabadmin:focus {
+    background-color: #D42D2D;
+    color: white!important;
+}
+
+
 .reviews {
     padding-left: 5%;
     padding-top: 2%;
