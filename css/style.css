@@ -455,6 +455,19 @@ ul.dropdown-menu.drp-mnu li a i {
     color: white!important;
 }
 
+.section-basic {
+    padding-top: 0;
+}
+
+.section-images {
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .section-navbars .navbar-collapse {
+        display: none !important;
+    }
+}
 
 .reviews {
     padding-left: 5%;
