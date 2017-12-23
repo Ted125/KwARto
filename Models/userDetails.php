@@ -1,6 +1,4 @@
 <?php 
-
-require("SQL_Connect.php");
 include("Database.php");
 
 class user_details{

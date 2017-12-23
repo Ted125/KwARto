@@ -40,11 +40,13 @@
     $_SESSION['middleName'] = $verify['middleName'];
     $_SESSION['lastName'] = $verify['lastName'];
     $_SESSION['birthdate'] = $verify['birthdate'];
-
+    header( "Location: http://localhost/capstone-project/" );
   } else {
       	//inform user that the input is not valid
-   echo "Invalid credentials or not activated";
+    $_SESSION['loginAlert'] = "Email or Password does not match, try again.";
+    echo "Invalid credentials or not activated";
+    header( "Location: http://localhost/capstone-project/login.php" );
  }
 
- header( "Location: http://localhost/capstone-project/" );
+ //header( "Location: http://localhost/capstone-project/" );
 ?>

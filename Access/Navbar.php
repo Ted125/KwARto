@@ -53,11 +53,8 @@
                         <button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
                         ";
                       }
-
                     ?>
-                    
                 </ul>
-
             </div>
             <div class="clearfix"> </div>
         </div>
