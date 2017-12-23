@@ -430,6 +430,26 @@ ul.dropdown-menu.drp-mnu li a i {
     outline: none;
 }
 
+.question-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 20%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
+.reviews {
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
 .profile-btn {
     font-size: 14px;
     color: #fff;

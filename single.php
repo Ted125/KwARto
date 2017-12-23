@@ -18,11 +18,19 @@
 		</div>
 		<div class="banner_nav_right">
 			<div class="agileinfo_single backdrop" style="padding-left:200px;">
-				<h5>Comfy Chair</h5>
+				<h5 style="margin-bottom: 10px;">Comfy Chair</h5>
 				<div class="col-md-4 agileinfo_single_left">
 					<img id="example" src="http://via.placeholder.com/300" alt=" " class="img-responsive" style="margin:auto;" />
 				</div>
 				<div class="col-md-8 agileinfo_single_right">
+					<div class="w3agile_description">
+						<h4>Description :</h4>
+						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+							officia deserunt mollit anim id est laborum.Duis aute irure dolor in 
+							reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+							pariatur.</p>
+					</div>
+					
 					<div class="rating1">
 						<span class="starRating">
 							<input id="rating5" type="radio" name="rating" value="5">
@@ -37,13 +45,7 @@
 							<label for="rating1">1</label>
 						</span>
 					</div>
-					<div class="w3agile_description">
-						<h4>Description :</h4>
-						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-							officia deserunt mollit anim id est laborum.Duis aute irure dolor in 
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-							pariatur.</p>
-					</div>
+					<br>
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
 							<h4>P805.00 <span>P1200.00</span></h4>
@@ -68,6 +70,27 @@
 					</div>
 				</div>
 				<div class="clearfix"> </div>
+
+				<div class="row" style="padding-left: 2%; padding-top: 3%;">
+					<button class="question-btn">Ask Seller A Question</button>
+					<button class="question-btn">Write A Review</button>
+					<div class="reviews">
+						<h3>User Reviews</h3>
+							<div class="row" style="padding-left: 15px; padding-top: 20px;">
+								<a href="#"><img src="https://www.shareicon.net/download/2016/07/05/791214_man_512x512.png" width="35" height="35" alt="photo avatar"></a>
+								<a href="#" style="color: #D42D2D;">Ma Boi</a> - <span>posted 6 days ago</span>
+							</div>
+							<p style="padding-left: 5%;">Hello, this is a review I wrote for you.</a></p>
+
+							<div class="row" style="padding-left: 15px; padding-top: 20px;">
+								<a href="#"><img src="https://www.shareicon.net/data/2016/07/05/791219_man_512x512.png" width="35" height="35" alt="photo avatar"></a>
+								<a href="#" style="color: #D42D2D;">Ma Grill</a> - <span>posted 6 days ago</span>
+							</div>
+							<p style="padding-left: 5%;">Hello, this is another review I wrote for you -- only this review is a little bit longer so that I can see the behavior for multiple lines. Thanks!</a></p>
+							</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
