@@ -34,18 +34,18 @@
 }
 
 .intTab > li > a {
-	color: #d51a1d !important;
+	color: white !important;
 	padding: 5px 80px 5px 80px;
 	text-decoration: none;
 }	
 
 .intTab > li {
 	margin: 0px 0px;
-	background-color: white;
+	background-color: #D42d2D;
 }
 
 .intTab > li > .active {
-	background-color: #d51a1d !important;
+	background-color: #D42d2D !important;
 	color: white !important;
 }
 

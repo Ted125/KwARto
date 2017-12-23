@@ -13,48 +13,45 @@
   </style>
   <body>
 <!-- header -->
-    <?php include'Access/Navbar.php'; ?>
-<div>	
+<?php include'Access/Navbar.php'; ?>
+<div class="banner_nav_right">
+	<div class="agileinfo_single backdrop" style="padding-left:200px; padding-top: 50px;">
+		<h5 style="margin-bottom: -10px;">User Profile</h5>
+		<div class="col-md-3 agileinfo_single_left text-center">
+			<img id="example" src="http://via.placeholder.com/300" alt=" " class="img-responsive" style="margin:auto;" />
+			<button class="profile-btn" style="margin-top: 10px;">Select New Photo</button>
+			<button class="profile-btn">Update Photo</button>
 		</div>
-		<div class="banner_nav_right">
-			<div class="agileinfo_single backdrop" style="padding-left:200px; padding-top: 50px;">
-				<h5 style="margin-bottom: -10px;">User Profile</h5>
-				<div class="col-md-3 agileinfo_single_left text-center">
-					<img id="example" src="http://via.placeholder.com/300" alt=" " class="img-responsive" style="margin:auto;" />
-					<button class="profile-btn" style="margin-top: 10px;">Select New Photo</button>
-					<button class="profile-btn">Update Photo</button>
+		<div class="col-md-8 agileinfo_single_right">	
+			<div class="w3agile_description">
+				<div class="row">
+					<h3>Reviews Dashboard</h3><br>
+					<h4 class="prof-labels">Products Rated : <span class="prof-items">0</span></h4>
+					<h4 class="prof-labels">Products Purchased : <span class="prof-items">0</span></h4>
+					<h4 class="prof-labels">Comments Posted : <span class="prof-items">0</span></h4>
+					<br>
 				</div>
-				<div class="col-md-8 agileinfo_single_right">	
-					<div class="w3agile_description">
-						<div class="row">
-							<h3>Reviews Dashboard</h3><br>
-							<h4 class="prof-labels">Products Rated : <span class="prof-items">0</span></h4>
-							<h4 class="prof-labels">Products Purchased : <span class="prof-items">0</span></h4>
-							<h4 class="prof-labels">Comments Posted : <span class="prof-items">0</span></h4>
-							
-							<br>
-						</div>
-						<div class="row">
-							<h3>Personal Information</h3><br>
-							<h4 class="prof-labels">First Name : <span class="prof-items">John</span></h4>
-							<h4 class="prof-labels">Middle Name : <span class="prof-items">Smithers</span></h4>
-							<h4 class="prof-labels">Last Name : <span class="prof-items">Smith</span></h4>
-							<h4 class="prof-labels">Birthdate : <span class="prof-items">January 09, 1994</span></h4>
-							<h4 class="prof-labels">Gender : <span class="prof-items">Male</span></h4>
-							<h4 class="prof-labels">Shipping Address : <span class="prof-items">124 Internet St., Please Help</span></h4>
-							<h4 class="prof-labels">E-mail Address : <span class="prof-items">place@holder.com</span></h4>
-							<button class="change-pw-btn">Change E-mail Address</button>
-							<h4 class="prof-labels">Password : <span class="prof-items">********</span></h4>
-							<button class="change-pw-btn">Change Password</button>
-						</div>
-							<button class="change-pw-btn" style="float: right;">Update Account Information</button>
-					</div>
+				<div class="row">
+					<h3>Personal Information</h3><br>
+					<h4 class="prof-labels">First Name : <span class="prof-items">John</span></h4>
+					<h4 class="prof-labels">Middle Name : <span class="prof-items">Smithers</span></h4>
+					<h4 class="prof-labels">Last Name : <span class="prof-items">Smith</span></h4>
+					<h4 class="prof-labels">Birthdate : <span class="prof-items">January 09, 1994</span></h4>
+					<h4 class="prof-labels">Gender : <span class="prof-items">Male</span></h4>
+					<h4 class="prof-labels">Address : <span class="prof-items">124 Internet St., Please Help</span></h4>
+                    <h4 class="prof-labels">Contact Number : <span class="prof-items">+63 912 456 7890</span></h4>
+					<h4 class="prof-labels">E-mail Address : <span class="prof-items">place@holder.com</span></h4>
+					<button class="change-pw-btn">Change E-mail Address</button>
+					<h4 class="prof-labels">Password : <span class="prof-items">********</span></h4>
+					<button class="change-pw-btn">Change Password</button>
 				</div>
-				<div class="clearfix"> </div>
+					<button class="change-pw-btn" style="float: right;">Update Account Information</button>
 			</div>
 		</div>
-		<div class="clearfix"></div>
+		<div class="clearfix"> </div>
 	</div>
+</div>
+<div class="clearfix"></div>
 <!-- //banner -->
 
     <!-- newsletter -->
