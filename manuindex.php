@@ -62,21 +62,19 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
-              <p>Super Admin</p>
+              <h1 class="h4">Company Name</h1>
+              <p>Manufacturer</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-                    <li><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="usersmgt.php"> <i class="icon-grid"></i>Users Management</a></li>
-                    <li><a href="manumgt.php"> <i class="icon-grid"></i>Manufacturers Mgmt.</a></li>
-                    <li><a href="prodsmgt.php"> <i class="icon-grid"></i>Products Management</a></li>
-                    <li class="active"><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
-                    
+                    <li class="active"><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
+                    <li><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
+                    <li><a href="upload.php"> <i class="icon-grid"></i>Upload Product</a></li>
+ 
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
-            <li> <a href="adprofile.php"> <i class="icon-flask"></i>Profile </a></li>
+            <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile </a></li>
             <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -103,8 +101,8 @@
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                    <div class="title"><span>New<br>Users</span>
+                    <div class="icon bg-violet"><i class="fa-money"></i></div>
+                    <div class="title"><span>Monthly<br>Sold</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
@@ -115,8 +113,8 @@
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-red"><i class="icon-check"></i></div>
-                    <div class="title"><span>Pending<br>Transactions</span>
+                    <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
+                    <div class="title"><span>New<br>Comments</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
@@ -127,8 +125,8 @@
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-green"><i class="icon-bill"></i></div>
-                    <div class="title"><span>Added<br>Manufacturers</span>
+                    <div class="icon bg-green"><i class="fa fa-star"></i></div>
+                    <div class="title"><span>New<br>Ratings</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
@@ -139,13 +137,13 @@
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-orange"><i class="icon-padnote"></i></div>
-                    <div class="title"><span>Pending<br>Manufacturers</span>
+                    <div class="icon bg-orange"><i class="fa fa-warning"></i></div>
+                    <div class="title"><span>New<br>Questions</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>50</strong></div>
+                    <div class="number"><strong>12</strong></div>
                   </div>
                 </div>
               </div>
@@ -158,10 +156,11 @@
                 <div class="col-lg-8">
                   <div class="line-chart-example card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Registered Users</h3>
+                      <h3 class="h4">Total Sales</h3>
                     </div>
                     <div class="card-body">
                       <canvas id="lineChartExample"></canvas>
+                      <!-- reused these charts. just make new ones in charts-custom.js .. templated na to-->
                     </div>
                   </div>
                 </div>
@@ -179,24 +178,9 @@
                     <div class="icon bg-orange"><i class="fa fa-mail-reply"></i></div>
                     <div class="text"><strong>10</strong><br><small>Product Returns</small></div>
                   </div>
-                  <div class="statistic d-flex align-items-center bg-white has-shadow">
-                    <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
-                    <div class="text"><strong>55</strong><br><small>User Reviews</small></div>
-                  </div>
                 </div>
                 
-                <div class="col-lg-6">
-                  <div class="line-chart-example card no-margin-bottom">
-                    
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Top Selling Manufacturers</h3>
-                    </div>
-                    <div class="card-body">
-                      <canvas id="lineChartExample1"></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                   <div class="line-chart-example card">
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Top Selling Products</h3>

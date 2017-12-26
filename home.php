@@ -3,22 +3,55 @@
 
 <head>
 
-    <?php include'Access/Header.php'; ?>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 
   </head>
   <style>
-
     <?php include'Access/Style.php'; ?>
 
   </style>
-  <body>
-<!-- header -->
-    <?php include'Access/Navbar.php'; ?>
+  
+    <?php include'Access/Header.php'; ?>
+<body class="index-page sidebar-collapse">
+    
+    <div class="wrapper">
+        <div class="page-header clear-filter" filter-color="orange" style="background-image: url(./images/header.png); margin-top: 0px;">
+            <div class="page-header-image" data-parallax="true" style="">
+            </div>
+            <div class="container">
+                <div class="content-center brand" >
+                    <img src="./images/largerw.png" alt="">
+                    <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; font-size: 3em;"class="h1-seo">KWARTO</h1><br><br>
+                    <h3 style="font-family: 'Source Sans Pro', sans-serif!important; font-size: 2em;">Revolutionizing online furniture shopping.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="section section-images">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hero-images-container">
+                                <img src="./images/hero-image-1.png" alt="">
+                            </div>
+                            <div class="hero-images-container-1">
+                                <img src="./images/hero-image-2.png" alt="">
+                            </div>
+                            <div class="hero-images-container-2">
+                                <img src="./images/hero-image-3.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <div>	
 <!-- events -->
-		<img src="images/header.jpg" style="padding: 0;">
-		<div class="events">
-			<h3>What is KwARto?</h3>
+		<div style="padding-top: 0px;" class="events">
+			<h3 >What is KwARto?</h3>
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
 					<div class="col-md-3 w3agile_event_grid_left">
@@ -81,48 +114,11 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="events-bottom">
-				<div class="col-md-6 events_bottom_left">
-					<div class="col-md-4 events_bottom_left1">
-						<div class="events_bottom_left1_grid">
-							<h4>12</h4>
-							<p>December 2017</p>
-						</div>
-					</div>
-					<div class="col-md-8 events_bottom_left2">	
-						<img src="http://www.alakazam.com.tr/eng/wp-content/uploads/2015/08/sleep-839358_1920-1-demo-400x266.jpg" alt=" " class="img-responsive" />
-						<h4>Announcement</h4>
-						<ul>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i>3:00 PM</li>
-							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
-						</ul>
-						<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil 
-							impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
-							assumenda est.</p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="col-md-6 events_bottom_left">
-					<div class="col-md-4 events_bottom_left1">
-						<div class="events_bottom_left1_grid">
-							<h4>12</h4>
-							<p>December 2017</p>
-						</div>
-					</div>
-					<div class="col-md-8 events_bottom_left2">	
-						<img src="http://www.alakazam.com.tr/eng/wp-content/uploads/2015/08/sleep-839358_1920-1-demo-400x266.jpg" alt=" " class="img-responsive" />
-						<h4>Important Announcement</h4>
-						<ul>s
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i>3:30 PM</li>
-							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
-						</ul>
-						<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil 
-							impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
-							assumenda est.</p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
+			<br>
+			<div class="text-center">
+				<a href="loginnew.php"><button class="profile-btn" style="width: 30%;"><h2>Get Started!</h2></button></a>
+			</div>
+			<div class="clearfix"> </div>	
 			</div>
 		</div>
 		</div>
@@ -146,93 +142,6 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //newsletter -->
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="col-md-3 w3_footer_grid">
-                <h3>information</h3>
-                <ul class="w3_footer_grid_list">
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="mail.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 w3_footer_grid">
-                <h3>policy info</h3>
-                <ul class="w3_footer_grid_list">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">privacy policy</a></li>
-                    <li><a href="#">terms of use</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-            <div class="agile_footer_grids">
-                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
-                    <div class="w3_footer_grid_bottom">
-                        <h5>connect with us</h5>
-                        <ul class="agileits_social_icons">
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-    <!-- //footer -->
-    
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $(".dropdown").hover(
-            function() {
-                $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                $(this).toggleClass('open');
-            },
-            function() {
-                $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                $(this).toggleClass('open');
-            }
-        );
-    });
-    </script>
-    <!-- here stars scrolling icon -->
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $().UItoTop({ easingType: 'easeOutQuart' });
-
-    });
-    </script>
-    <!-- //here ends scrolling icon -->
-    <script src="js/minicart.js"></script>
-    <script>
-    paypal.minicart.render();
-
-    paypal.minicart.cart.on('checkout', function(evt) {
-        var items = this.items(),
-            len = items.length,
-            total = 0,
-            i;
-
-        // Count the number of each item in the cart
-        for (i = 0; i < len; i++) {
-            total += items[i].get('quantity');
-        }
-
-        if (total < 1) {
-            alert('The minimum order quantity is 1. Please add more to your shopping cart before checking out');
-            evt.preventDefault();
-        }
-    });
-    </script>
-    <!-- /.container -->  
-    <?php include'Access/ScriptLinks.php'; ?>
-
 
   </body>
 

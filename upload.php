@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
  
     <!-- Web Icon -->
-    <link rel="shortcut icon" href=" images/icon.png">
+    <link rel="shortcut icon" href="images/icon.png">
    
   </head>
   <body>
@@ -62,21 +62,19 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
-              <p>Super Admin</p>
+              <h1 class="h4">Company Name</h1>
+              <p>Manufacturer</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-                    <li class="active"><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="usersmgt.php"> <i class="icon-grid"></i>Users Management</a></li>
-                    <li><a href="manumgt.php"> <i class="icon-grid"></i>Manufacturers Mgmt.</a></li>
-                    <li><a href="prodsmgt.php"> <i class="icon-grid"></i>Products Management</a></li>
-                    <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
-                    
+                    <li><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
+                    <li><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
+                    <li class="active"><a href="upload.php"> <i class="icon-grid"></i>Upload Product</a></li>
+ 
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
-            <li> <a href="adprofile.php"> <i class="icon-flask"></i>Profile </a></li>
+            <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
             <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -84,80 +82,97 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Admin Dashboard</h2>
+              <h2 class="no-margin-bottom">Upload Product</h2>
             </div>
           </header>
-          <!-- Dashboard Counts Section-->
-          
-          <!-- Dashboard Header Section    -->
-          <section class="dashboard-header" style="background-color: #faf6f6">
+          <!-- Breadcrumb-->
+          <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
+              <li class="breadcrumb-item active">Upload Product  </li>
+            </ul>
+          </div>
+          <!-- Forms Section-->
+          <section class="forms" style="background-color: #faf6f6"> 
             <div class="container-fluid">
               <div class="row">
                 
-                <!-- Line Chart -->
-                <div class="chart col-lg-8 col-12">
-                  <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
-                    <canvas id="lineCahrt"></canvas>
-                  </div>
-                </div>
-                <div class="chart col-lg-4 col-12">
-                  <!-- Bar Chart   -->
-                  <div class="bar-chart has-shadow bg-white">
-                    <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
-                    <canvas id="barChartHome"></canvas>
-                  </div>
-                  <!-- Numbers-->
-                  <div class="statistic d-flex align-items-center bg-white has-shadow">
-                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
-                    <div class="text"><strong>99.9%</strong><br><small>Uptime Success Rate</small></div>
+                <!-- General Information -->
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Product Information</h3>
+                    </div>
+                    <div class="card-body row">
+                      <div class="col-lg-4 text-center">
+                        <img src="http://via.placeholder.com/300"><br>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Select Photo</button><br>
+                      </div>
+                      <form class="form-horizontal col-lg-8">
+                       
+                        <div class="form-group">
+                          <label>Product Name</label>
+                          <input type="text" placeholder="Product Name" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Description</label>
+                          <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here"></textarea>
+                        </div>
+                        <div class="form-group">       
+                          <label>Length</label>
+                          <input type="text" placeholder="0" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Width</label>
+                          <input type="text" placeholder="0" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Height</label>
+                          <input type="text" placeholder="0" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Warranty ID</label>
+                          <input type="text" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Unit</label>
+                          <select name="account" class="form-control">
+                            <option>millimeter/s</option>
+                            <option>centimeter/s</option>
+                            <option>inch/es</option>
+                            <option>meter/s</option>
+                          </select>
+                        </div>
+                        <div class="form-group">       
+                          <label>Price</label>
+                          <input type="text" placeholder="0.00" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Quantity</label>
+                          <input type="text" placeholder="0" class="form-control">
+                        </div>
+                        <div class="form-group">       
+                          <label>Discount</label>
+                          <input type="text" placeholder="0.00" class="form-control">
+                        </div>
+                        <div class="form-group text-right">
+                          <p>Are you sure you want to upload this product?</p>       
+                          <input type="submit" value="Upload" class="btn btn-primary">
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <!-- Projects Section-->
-          
-          <!-- Client Section-->
-          <section class="client no-padding-top">
-            <div class="container-fluid">
-              <div class="row">
-                <!-- Work Amount  -->
-                <div class="col-lg-6">
-                  <div class="work-amount card">
-                    <div class="card-body">
-                      <h3>Average Demographic</h3><small>Average number of hours users spend on the website according to age group</small>
-                      <div class="chart text-center">
-                        <div class="text"><strong>2</strong><br><span>Hours</span></div>
-                        <canvas id="pieChart"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Total Sales -->
-                <div class="col-lg-6">
-                  <div class="overdue card">
-                    <div class="card-body">
-                      <h3>Total Sales</h3><small>Total commission from ads and general store revenue.</small>
-                      <div class="number text-center">P20,320</div>
-                      <div class="chart">
-                        <canvas id="lineChart1"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          
           <!-- Page Footer-->
-         <footer class="main-footer">
+          <footer class="main-footer">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-lg-12 text-right">
-                  <p>kwARto &copy; 2018-2019</p>
+                  <p>kwARto &copy; 2017-2019</p>
                 </div>
-                
               </div>
             </div>
           </footer>
@@ -171,7 +186,6 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

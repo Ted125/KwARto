@@ -1,5 +1,6 @@
 <!DOCTYPE html>
- <head>
+<html>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>kwARto 2018</title>
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
  
     <!-- Web Icon -->
-    <link rel="shortcut icon" href=" images/icon.png">
+    <link rel="shortcut icon" href="images/icon.png">
    
   </head>
   <body>
@@ -61,21 +62,19 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
-              <p>Super Admin</p>
+              <h1 class="h4">Company Name</h1>
+              <p>Manufacturer</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-                    <li><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="usersmgt.php"> <i class="icon-grid"></i>Users Management</a></li>
-                    <li><a href="manumgt.php"> <i class="icon-grid"></i>Manufacturers Mgmt.</a></li>
-                    <li><a href="prodsmgt.php"> <i class="icon-grid"></i>Products Management</a></li>
-                    <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
-                    
+                    <li><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
+                    <li><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
+                    <li><a href="upload.php"> <i class="icon-grid"></i>Upload Product</a></li>
+ 
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
-            <li class="active"> <a href="adprofile.php"> <i class="icon-flask"></i>Profile </a></li>
+            <li class="active"> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
             <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -102,7 +101,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Admin Information</h3>
+                      <h3 class="h4">Account Information</h3>
                     </div>
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
@@ -130,7 +129,6 @@
                           </div>
                         </div>
                         <div class="line"></div>
-                        
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
