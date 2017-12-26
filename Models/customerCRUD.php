@@ -1,4 +1,4 @@
-<?php require("SQL_Connect.php");
+<?php include("Databse.php");
 
 class customer extends user_details{
     private $customerId;
@@ -70,7 +70,7 @@ class customer extends user_details{
     }
 
     public function updateCustomer($field, $newData){
-        $this->setUserType($_SESSION['userType'];
+        $this->setUserType($_SESSION['userType']);
         $this->setUserId($_SESSION['userId']);
         if(isset($_SESSION) && strcmp($this->getUserType(),'customer') == 0){
             $db = new Database();
