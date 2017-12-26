@@ -1,5 +1,5 @@
 <?php 
-include("Database.php");
+require("Database.php");
 
 class user_details{
     private $userId;
@@ -40,8 +40,8 @@ class user_details{
     }
 
     public function createUser($userType){
-        $db = new Database();
-        $connection = $db->Connect();
+        //$db = new Database();
+        //$connection = $db->Connect();
         if($connection){
             $this->setUsername($_POST['registerUsername']);
             $this->setPassword($_POST['registerPassword']);
@@ -82,7 +82,7 @@ class user_details{
             // $this->setUserId($row[0]);
 
             $this->setUserId($connection->insert_id);
-            mysqli_close($connection);
+            //mysqli_close($connection);
             echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
             return $this->getUserId();
         }

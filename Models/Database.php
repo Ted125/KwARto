@@ -3,7 +3,7 @@
     private $server = "localhost";
     private $username = "root";
     private $password = "";
-    private $databaseName = "kwarto_db";
+    private $databaseName = "safety_test";
     private $connection;
 
     public function __construct(){

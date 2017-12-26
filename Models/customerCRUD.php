@@ -1,4 +1,4 @@
-<?php include("Databse.php");
+<?php require("Database.php");
 
 class customer extends user_details{
     private $customerId;
