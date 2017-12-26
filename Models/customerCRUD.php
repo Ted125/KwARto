@@ -1,4 +1,4 @@
-<?php require("Database.php");
+<?php require("SQL_Connect.php");
 
 class customer extends user_details{
     private $customerId;

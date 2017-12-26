@@ -37,12 +37,11 @@ registerAddress
 
 if($verify != null){
 	//$_SESSION['userId'] = $verify['userId'];
-    //$_SESSION['username'] = $_POST["registerUsername"];
- 	header( "Location: http://localhost/capstone-project/login.php" );
+    $_SESSION['username'] = $_POST["registerUsername"];
 } else {
       	//inform user that the input is not valid
 	echo "Invalid credentials or not activated";
-	header( "Location: http://localhost/capstone-project/" );
+	
 }
-
+header( "Location: http://localhost/capstone-project/" );
 ?>
