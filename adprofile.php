@@ -130,6 +130,14 @@
                           </div>
                         </div>
                         <div class="line"></div>
+                        
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Mobile Number</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" value="+63 123 456 7890">
+                          </div>
+                        </div>
+
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
