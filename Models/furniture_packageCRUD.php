@@ -7,8 +7,8 @@ class furniture_package extends furniture{
     private $item;
     private $furnitureId;
 
-    const DB_TABLE = "furniture_image";
-    const DB_TABLE_PK = "furnitureImageId";
+    const DB_TABLE = "furniture_package";
+    const DB_TABLE_PK = "packId";
 
     /***************** CONSTRUCTOR ****************/
     

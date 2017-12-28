@@ -7,8 +7,8 @@ class furniture_stock extends furniture{
     private $status;
     private $furnitureId;
 
-    const DB_TABLE = "furniture_image";
-    const DB_TABLE_PK = "furnitureImageId";
+    const DB_TABLE = "furniture_stock";
+    const DB_TABLE_PK = "stockId";
 
     /***************** CONSTRUCTOR ****************/
     
