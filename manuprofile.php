@@ -141,7 +141,14 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img src="http://via.placeholder.com/300"><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photo</button><br>
+                        <div style="margin-top: 5px;">
+                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                          
+
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
                         <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
                       </div>
                       <form class="form-horizontal col-lg-8">
