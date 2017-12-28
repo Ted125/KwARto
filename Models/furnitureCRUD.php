@@ -8,21 +8,25 @@ include("userDetails.php");
     private $furnitureId;
     private $name;
     private $description;
+    private $warrantyId;
+    private $model;
+    private $color;
+    private $weight;
+    private $weightUnit;
     private $length;
     private $width;
     private $height;
-    private $rating;
+    private $sizeUnit;
     private $price;
-    private $unit;
     private $dateAdded;
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
     private $modelName;
     private $discount;
-    private $stockId;
     private $categoryId;
     private $sellerId;
+    private $versionOf;
 
     const DB_TABLE = "user_table";
     const DB_TABLE_PK = "userId";
@@ -202,6 +206,46 @@ include("userDetails.php");
         $this->description = $description;
     }
 
+    public function getWarrantyId(){
+        return $this->warrantyId;
+    }
+
+    public function setWarrantyId($warrantyId){
+        $this->warrantyId = $warrantyId;
+    }
+
+    public function getModel(){
+        return $this->model;
+    }
+
+    public function setModel($model){
+        $this->model = $model;
+    }
+
+    public function getColor(){
+        return $this->color;
+    }
+
+    public function setColor($color){
+        $this->color = $color;
+    }
+
+    public function getWeight(){
+        return $this->weight;
+    }
+
+    public function setWeight($weight){
+        $this->weight = $weight;
+    }
+
+    public function getWeightUnit(){
+        return $this->weightUnit;
+    }
+
+    public function setWarrantyId($weightUnit){
+        $this->weightUnit = $weightUnit;
+    }
+
     public function getLength(){
         return $this->length;
     }
@@ -222,32 +266,24 @@ include("userDetails.php");
         return $this->height;
     }
 
-    public function setHeight(){
+    public function setHeight($height){
         $this->height = $height;
     }
 
-    public function getRating(){
-        return $this->getRating;
+    public function getSizeUnit(){
+        return $this->sizeUnit;
     }
 
-    public function setRating($rating){
-        $this->rating = $rating;
+    public function setSizeUnit($sizeUnit){
+        $this->sizeUnit = $sizeUnit;
     }
 
     public function getPrice(){
         return $this->price;
     }
 
-    public function setPrice(){
+    public function setPrice($price){
         $this->price = $price;
-    }
-
-    public function getUnit(){
-        return $this->unit;
-    }
-
-    public function setUnit($unit){
-        $this->unit = $unit;
     }
 
     public function getDateAdded(){
@@ -320,6 +356,14 @@ include("userDetails.php");
 
     public function setSellerId($sellerId){
         $this->sellerId = $sellerId
+    }
+
+    public function getVersionOf(){
+        return $this->versionOf;
+    }
+
+    public function setVersionOf($versionOf){
+        $this->versionOf = $versionOf
     }
 
   }

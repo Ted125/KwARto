@@ -8,7 +8,6 @@ class user_details{
     private $password;
     private $userType;
     private $userStatus;
-    private $gender;
     private $email;
     private $mobileNumber;
     private $dateAdded;
@@ -16,7 +15,6 @@ class user_details{
     private $addedBy;
     private $updatedBy;
     private $image;
-    private $address;
 
     const DB_TABLE = "user_table";
     const DB_TABLE_PK = "userId";
@@ -359,14 +357,6 @@ class user_details{
         $this->userStatus = $userStatus;
     }
 
-    public function getGender(){
-        return $this->gender;
-    }
-
-    public function setGender($gender){
-        $this->gender = $gender;
-    }
-
     public function getEmail(){
         return $this->email;
     }
@@ -423,12 +413,4 @@ class user_details{
         $this->image = $image;
     }
 
-    public function getAddress(){
-        return $this->address;
-    }
-
-    public function setAddress($address){
-        $this->address = $address;
-    }
-}
 ?>
