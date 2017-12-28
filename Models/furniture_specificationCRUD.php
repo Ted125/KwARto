@@ -2,7 +2,7 @@
 require("SQL_Connect.php");
 include("Database.php");
 
-class furniture_specification extends furniture{
+class furniture_specification{
     private $specId;
     private $specification;
     private $furnitureId;
@@ -13,7 +13,7 @@ class furniture_specification extends furniture{
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-        parent::__construct();
+        
     }
 
     /***************** FUNCTIONS ****************/

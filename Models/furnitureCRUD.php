@@ -3,8 +3,12 @@
 require("SQL_Connect.php");
 include("Database.php");
 include("userDetails.php");
+include("furniture_imageCRUD.php");
+include("furniture_specificationCRUD.php");
+include("furniture_stockCRUD.php");
+include("furniture_packageCRUD.php");
 
-  class user_details{
+  class furniture{
     private $furnitureId;
     private $name;
     private $description;
@@ -38,145 +42,80 @@ include("userDetails.php");
     }
 
     /***************** FUNCTIONS ****************/
-    public function debug($field, $newData){
-        $create = "UPDATE user_details
-                SET 
-                ".$field." = '".$newData."'
-                WHERE 
-                user_details.userId = ".$_SESSION['userId']."";
-        echo $create;
-
-        /*sample code here*/
-    }
     
     public function createFurniture(){
         if(isset($_SESSION)){
-            $result = NULL;
-            $db = new Database();
-            $connection = $db->Connect();
-            if($connection){
-                $furniture = new furniture();
-                $this->setName($_POST['name']);
-                $this->setDescription($_POST['description']);
-                $this->setLength($_POST['length']);
-                $this->setWidth($_POST['width']);
-                $this->setHeight($_POST['height']);
-                $this->setRating('5');
-                $this->setPrice($_POST['price']);
-                $this->setUnit($_POST['unit']);
-                $this->setModelName($_POST['modelName']);
-                $this->setDiscount('0');
-                //$this->setStockId()
-                $this->setCategoryId($_POST['categoryId']);
-                $this->setSellerId($_SESSION['sellerId']);
-                $create = "INSERT INTO furniture
-                ( 
-                name,
-                description,
-                length,
-                width,
-                height,
-                rating,
-                price,
-                unit,
-                modelName,
-                discount,
-                "/*stockId,*/"
-                categoryId,
-                sellerId
-                )
-                VALUES
-                ('".$this->getDescription()."',
-                '".$this->getLength()."',
-                '".$this->getWidth()."',
-                '".$this->getHeight()."',
-                '".$this->getRating()."',
-                '".$this->getPrice()."',
-                '".$this->getUnit()."',
-                '".$this->getModelName()."',
-                '".$this->getDiscount()."',
-                '"/*.$this->getStockId()*/."',
-                '".$this->getCategoryId()."',
-                '".$this->getSellerId()."')";
-
-                $result = mysqli_query($connection, $create);
-                
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    //$furniture = new furniture();
+                    $this->setName($_POST['name']);
+                    $this->setDescription($_POST['description']);
+                    $this->setWarrantyId($_POST['warrantyId']);
+                    $this->setModel($_POST['model']);
+                    $this->setColor($_POST['color']);
+                    $this->setWeight($_POST['weight']);
+                    $this->setWeightUnit($_POST['weightUnit']);
+                    $this->setLength($_POST['length']);
+                    $this->setWidth($_POST['width']);
+                    $this->setHeight($_POST['height']);
+                    $this->setSizeUnit($_POST['sizeUnit']);
+                    $this->setPrice($_POST['price']);
+                    $this->setModelName($_POST['modelName']);
+                    $this->setDiscount($_POST['discount']);
+                    $this->setCategoryId($_POST['categoryId']);
+                    $this->setSellerId($_SESSION['sellerId']);
+                    $this->setVersionOf($_POST['versionOf']);
+                    $create = "INSERT INTO furniture
+                    ( 
+                    name,
+                    description,
+                    warrantyId,
+                    model,
+                    color,
+                    weight,
+                    weightUnit,
+                    length,
+                    width,
+                    height,
+                    sizeUnit,
+                    price,
+                    modelName,
+                    discount,
+                    categoryId,
+                    sellerId,
+                    versionOf
+                    )
+                    VALUES
+                    ('".$this->getName()."',
+                    '".$this->getDescription()."',
+                    '".$this->getWarrantyId()."',
+                    '".$this->getModel()."',
+                    '".$this->getColor()."',
+                    '".$this->getWeightUnit()."',
+                    '".$this->getLength()."',
+                    '".$this->getWidth()."',
+                    '".$this->getHeight()."',
+                    '".$this->getSizeUnit()."',
+                    '".$this->getPrice()."',
+                    '".$this->getModelName()."',
+                    '".$this->getDiscount()."',
+                    '".$this->getCategoryId()."',
+                    '".$this->getSellerId()."'
+                    '".$this->getVersionOf()."',)";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only sellers can add furniture';
             }
         }else{
-            echo 'no session';
+            echo 'no session found';
         }
-
         return $result;
-
     }
-
-    public function updateFurniture($field, $newData){
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION && strcmp($this->getUserType(),'seller') == 0){
-            $db = new Database();
-            $connection = $db->Connect();
-            if($connection){
-                $this->setFurnitureId($_POST['furnitureId']);
-                $create = "UPDATE furniture
-                           SET  '".$field."' = '".$newData."'
-                           WHERE 
-                           furnitureId = '".$this->getFurnitureId()."'";
-                $result = mysqli_query($connection, $create);
-                mysqli_close($connection);
-            }else{
-                echo 'no db connection';
-            }
-        }else{
-            echo 'no session or not a seller';
-        }
-    }
-
-    public function deleteFurniture($furnitureId){
-        $result = NULL;
-        if(isset($_SESSION){
-            $this->setUsertype($_SESSION['userType']);
-            if(!strcmp($this->getUserType(),'customer')==0){
-                $this->setFurnitureId($furnitureId);
-                $delete = " DELETE 
-                                FROM  furniture
-                                WHERE  furnitureId = '".$this->getFurnitureId()."'
-                              ";
-                $result = mysqli_query($connection, $delete);
-                mysqli_close($connection);
-            }else{
-                echo 'only admins and sellers can delete furniture';
-            }
-        }else{
-            echo 'no session';
-        }
-        return result
-    }
-
-    public function readFurniture(){
-        $this->setFurnitureId($_POST['furnitureId']); 
-        $query ="SELECT
-        furnitureId,
-        name,
-        description,
-        length,
-        width,
-        height,
-        rating,
-        price,
-        unit,
-        modelName,
-        discount,
-        categoryId,
-        sellerId
-        FROM  furniture
-        WHERE furnitureId ='".$this->getFurnitureId()."'
-        ";
-        $row = mysqli_query($mysqli, $query);
-        $result = mysqli_fetch_array($row);
-
-        return result;
-    }
-
     
 
     }
@@ -242,7 +181,7 @@ include("userDetails.php");
         return $this->weightUnit;
     }
 
-    public function setWarrantyId($weightUnit){
+    public function setWeightUnit($weightUnit){
         $this->weightUnit = $weightUnit;
     }
 

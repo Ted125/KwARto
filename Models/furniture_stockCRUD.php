@@ -2,9 +2,13 @@
 require("SQL_Connect.php");
 include("Database.php");
 
-class furniture_stock extends furniture{
+class furniture_stock{
     private $stockId;
     private $status;
+    private $dateAdded;
+    private $dateUpdated;
+    private $addedBy;
+    private $updatedBy;
     private $furnitureId;
 
     const DB_TABLE = "furniture_stock";
@@ -13,7 +17,7 @@ class furniture_stock extends furniture{
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-        parent::__construct();
+        
     }
 
     /***************** FUNCTIONS ****************/
@@ -38,6 +42,38 @@ class furniture_stock extends furniture{
         $this->status = $status;
     }
 
+    public function getDateAdded(){
+        return $this->dateAdded;
+    }
+
+    public function setDateAdded($dateAdded){
+        $this->dateAdded = $dateAdded;
+    }
+
+    public function getDateUpdated(){
+        return $this->dateUpdated;
+    }
+
+    public function setDateUpdated($dateUpdated){
+        $this->dateUpdated = $dateUpdated;
+    }
+
+    public function getAddedBy(){
+        return $this->addedBy;
+    }
+
+    public function setAddedBy($addedBy){
+        $this->addedBy = $addedBy;
+    }
+
+    public function getUpdatedBy(){
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy($updatedBy){
+        $this->updatedBy = $updatedBy;
+    }
+
     public function getFurnitureId(){
         return $this->furnitureId;
     }
@@ -47,5 +83,4 @@ class furniture_stock extends furniture{
     }
 
 }
-
 ?>

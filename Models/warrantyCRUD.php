@@ -2,23 +2,22 @@
 require("SQL_Connect.php");
 include("Database.php");
 
-class furniture_image{
-    private $furnitureImageId;
-    private $image;
-    private $furnitureId;
+class warranty{
+    private $warrantyId;
+    private $name;
+    private $description;
     private $dateAdded;
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
-    private $furnitureId;
 
-    const DB_TABLE = "furniture_image";
-    const DB_TABLE_PK = "furnitureImageId";
+    const DB_TABLE = "warranty";
+    const DB_TABLE_PK = "warrantyId";
 
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-        
+        parent::__construct();
     }
 
     /***************** FUNCTIONS ****************/
@@ -27,24 +26,28 @@ class furniture_image{
 
     /************ SETTERS AND GETTERS ************/
     
-    public function getFurnitureImageId(){
-        return $this->furnitureImageId;
+    public function getWarrantyId(){
+        return $this->warrantyId;
     }
 
-    public function setFurnitureImageId($furnitureImageId){
-        $this->furnitureImageId = $furnitureImageId;
+    public function setWarrantyId($warrantyId){
+        $this->warrantyId = $warrantyId;
     }
 
-    public function getImage(){
-        return $this->image;
+    public function getName(){
+        return $this->name;
     }
 
-    public function setImage($image){
-        $this->image = $image;
+    public function setName($name){
+        $this->name = $name;
     }
 
-    public function getFurnitureId(){
-        return $this->furnitureId;
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function setDescription($description){
+        $this->description = $description;
     }
 
     public function getDateAdded(){
@@ -77,10 +80,6 @@ class furniture_image{
 
     public function setUpdatedBy($updatedBy){
         $this->updatedBy = $updatedBy;
-    }
-
-    public function setFurnitureId($furnitureId){
-        $this->furnitureId = $furnitureId;
     }
 
 }

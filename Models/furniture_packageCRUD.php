@@ -2,7 +2,7 @@
 require("SQL_Connect.php");
 include("Database.php");
 
-class furniture_package extends furniture{
+class furniture_package{
     private $packId;
     private $item;
     private $furnitureId;
@@ -13,7 +13,7 @@ class furniture_package extends furniture{
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-        parent::__construct();
+        
     }
 
     /***************** FUNCTIONS ****************/

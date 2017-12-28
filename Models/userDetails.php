@@ -125,9 +125,9 @@ class user_details{
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserId($_POST['userId']);
             $update = "UPDATE user_details
-            SET userStatus = 'active' 
-            WHERE userId = '".$this->getUserId()."'
-            ";
+                       SET userStatus = 'active' 
+                       WHERE userId = '".$this->getUserId()."'
+                      ";
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'only admins can activate a user';
@@ -139,9 +139,9 @@ class user_details{
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
-            SET userStatus = 'inactive' 
-            WHERE userId = '".getUserId()."'
-            ";
+                       SET userStatus = 'inactive' 
+                       WHERE userId = '".getUserId()."'
+                      ";
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'only admins can deactivate a user';
