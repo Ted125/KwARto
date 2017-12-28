@@ -1,6 +1,6 @@
 <?php 
 require("SQL_Connect.php");
-include("Database.php");
+//require("Database.php");
 
 class user_details{
     private $userId;
@@ -45,12 +45,12 @@ class user_details{
         $connection = $db->Connect();
         if($connection){
             $this->setUsername($_POST['registerUsername']);
-            $this->setPassword($_POST['registerPassword']);
+            $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
-            $this->setGender($_POST['registerGender']);
+            //$this->setGender($_POST['registerGender']);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
-            $this->setAddress("Sample Address");
+            //$this->setAddress("Sample Address");
             // if(isset($_SESSION)){
             //     $this->setAddedBy($_SESSION['userId']);
             // }else{
@@ -63,16 +63,13 @@ class user_details{
             password, 
             userType, 
             userStatus,
-            gender,
             email, 
             mobileNumber,
-            addedBy,
-            address
+            addedBy
             )
             VALUES
-            ('".$this->getUsername()."','".$this->getPassword()."','".$this->getUserType()."','".$this->getUserStatus()."','
-            ".$this->getGender()."','".$this->getEmail()."','".$this->getMobileNumber()."','".$this->getAddedBy()."','".$this->getAddress()."')";
-
+            ('".$this->getUsername()."','".$this->getPassword()."','".$this->getUserType()."','".$this->getUserStatus()."','".$this->getEmail()."','".$this->getMobileNumber()."', 0)";
+            echo $create;
             $result = mysqli_query($connection, $create);
 
             // $select = "SELECT * 
@@ -86,6 +83,8 @@ class user_details{
             mysqli_close($connection);
             echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
             return $this->getUserId();
+        } else {
+            echo "Connection Error on User Details";
         }
     }
 
@@ -212,12 +211,69 @@ class user_details{
     }
 
     public function Login($sessionEmail, $sessionPassword){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $query = "SELECT userType
+                      FROM user_details
+                      WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+            if($result = mysqli_query($connection, $query)){
+                $rowcount=mysqli_num_rows($result);
+                if($rowcount == 1){
+                    $row = $result->fetch_assoc();
+                    if(strcmp($row['userType'], "customer") == 0){
+                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                    } else if(strcmp($row['userType'], "admin") == 0){
+                        return $this->LoginAdmin($sessionEmail, $sessionPassword);
+                    } else if(strcmp($row['userType'], "seller") == 0){
+                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                    }
+                }
+            }
+        }
+    }
+
+    public function LoginCustomer($sessionEmail, $sessionPassword){
+        //require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, username, email, userType, gender, mobileNumber, dateAdded, address, firstName, middleName, lastName, birthdate 
+          $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, dateAdded, firstName, middleName, lastName, birthdate 
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+            return $row;
+          }else{
+            return null;
+          }
+        }
+      }
+
+      public function LoginAdmin($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT userId, username, email, userType, mobileNumber, dateAdded 
+          FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
           echo "||".$query;
@@ -248,14 +304,11 @@ class user_details{
         userId,
         username,
         userType,
-        `status`,
-        gender,
+        status,
         email,
         mobileNumber,
-        `image`,
-        `address`
+        image,
         FROM  user_details
-        WHERE userId = '".$this->getUserId()."'
         ";
         $row = mysqli_query($mysqli, $query);
         if(mysqli_num_rows($row) == 1){        
@@ -267,7 +320,7 @@ class user_details{
     /***************** SETTERS AND GETTERS ****************/
 
     public function getUserId(){
-        return $this->user_id;
+        return $this->userId;
     }
 
     public function setUserId($userId){

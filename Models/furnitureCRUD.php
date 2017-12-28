@@ -34,7 +34,17 @@ include("userDetails.php");
     }
 
     /***************** FUNCTIONS ****************/
+    public function debug($field, $newData){
+        $create = "UPDATE user_details
+                SET 
+                ".$field." = '".$newData."'
+                WHERE 
+                user_details.userId = ".$_SESSION['userId']."";
+        echo $create;
 
+        /*sample code here*/
+    }
+    
     public function createFurniture(){
         if(isset($_SESSION)){
             $result = NULL;
@@ -92,7 +102,7 @@ include("userDetails.php");
             echo 'no session';
         }
 
-        return result;
+        return $result;
 
     }
 
@@ -105,8 +115,8 @@ include("userDetails.php");
                 $this->setFurnitureId($_POST['furnitureId']);
                 $create = "UPDATE furniture
                            SET  '".$field."' = '".$newData."'
-                    WHERE 
-                    furnitureId = '".$this->getFurnitureId()."'";
+                           WHERE 
+                           furnitureId = '".$this->getFurnitureId()."'";
                 $result = mysqli_query($connection, $create);
                 mysqli_close($connection);
             }else{
@@ -116,27 +126,27 @@ include("userDetails.php");
             echo 'no session or not a seller';
         }
     }
-        
+
     public function deleteFurniture($furnitureId){
         $result = NULL;
         if(isset($_SESSION){
             $this->setUsertype($_SESSION['userType']);
             if(!strcmp($this->getUserType(),'customer')==0){
                 $this->setFurnitureId($furnitureId);
-                 $delete = " DELETE 
+                $delete = " DELETE 
                                 FROM  furniture
                                 WHERE  furnitureId = '".$this->getFurnitureId()."'
                               ";
-                    $result = mysqli_query($connection, $delete);
-                    mysqli_close($connection);
-                }else{
-                    echo 'only admins and sellers can delete furniture';
-                }
+                $result = mysqli_query($connection, $delete);
+                mysqli_close($connection);
             }else{
-                echo 'no session';
+                echo 'only admins and sellers can delete furniture';
             }
-            return result
+        }else{
+            echo 'no session';
         }
+        return result
+    }
 
     public function readFurniture(){
         $this->setFurnitureId($_POST['furnitureId']); 
@@ -166,7 +176,7 @@ include("userDetails.php");
     
 
     }
-    /***************** SETTERS AND GETTERS ****************/*/
+    /***************** SETTERS AND GETTERS ****************/
 
     public function getFurnitureId(){
         return $this->furnitureId;

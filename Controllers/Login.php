@@ -25,7 +25,7 @@
   // }
 
   $user = new user_details();
-  $verify = $user->Login($_POST['loginEmail'], $_POST['loginPassword']);
+  $verify = $user->Login($_POST['loginEmail'], md5($_POST['loginPassword']));
 
   if($verify != null){
     $_SESSION['userId'] = $verify['userId'];
@@ -43,7 +43,7 @@
     header( "Location: http://localhost/capstone-project/" );
   } else {
       	//inform user that the input is not valid
-    $_SESSION['loginAlert'] = "Email or Password does not match, try again.";
+    //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
     echo "Invalid credentials or not activated";
     header( "Location: http://localhost/capstone-project/login.php" );
  }

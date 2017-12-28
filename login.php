@@ -28,7 +28,7 @@
 				  </div>
 				  <div class="form">
 					<h2>Login to your account</h2>
-					<p id="alertMsg" class="text-danger"><?php if(isset($_SESSION['loginAlert'])){echo $_SESSION['loginAlert'];}?></p>
+					<p id="alertMsg" class="text-danger"></p>
 					<form action="Controllers/Login.php" method="POST">
 					  <input type="email" name="loginEmail" placeholder="Email" required=" ">
 					  <input type="password" name="loginPassword" placeholder="Password" required=" ">

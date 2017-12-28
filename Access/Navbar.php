@@ -1,7 +1,5 @@
 <!-- Navigation -->
-<?php
-    session_start();
-  ?>
+
 <div class="logo_products">
         <div class="container">
             <div class="logo_products_left">
@@ -47,10 +45,17 @@
                       } else {
                                   //Session is active
                         echo "<li class='nav-item'>
-                        <p class='navtext' style='position: inherit;margin-left: 150px;'><b>Henlo</b>,
-                        <a href='profile.php' id='username'>".$_SESSION['username']."</a>
-                        |
-                        <button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
+                        <p class='navtext' style='position: inherit;margin-left: 150px;'><b>Henlo</b>,";
+
+                        if(strcmp($_SESSION['userType'], "admin") == 0){
+                          echo "<a href='adminPage.php' id='username'>".$_SESSION['username']."</a>
+                          |";
+                        } else {
+                          echo "<a href='profile.php' id='username'>".$_SESSION['username']."</a>
+                          |";
+                        }
+
+                        echo "<button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
                         ";
                       }
                     ?>

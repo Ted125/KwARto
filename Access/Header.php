@@ -1,3 +1,7 @@
+<?php
+    session_start();
+  ?>
+
 <title>KwARto | Deals</title>
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />

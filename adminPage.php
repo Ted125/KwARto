@@ -12,7 +12,7 @@
 </style>
 <body>
 <?php
-        if(!strcmp($_SESSION['userType'], "admin") == 0){
+        if(strcmp($_SESSION['userType'], "admin") != 0){
             header( "Location: http://localhost/capstone-project/error.php" );
         }
 

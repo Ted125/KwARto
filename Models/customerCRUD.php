@@ -1,4 +1,6 @@
-<?php require("SQL_Connect.php");
+<?php 
+require("SQL_Connect.php");
+include("Database.php");
 
 class customer extends user_details{
     private $customerId;
@@ -58,7 +60,7 @@ class customer extends user_details{
             )
             VALUES
             ('".$this->getFirstName()."','".$this->getMiddleName()."','".$this->getLastName()."','".$this->getBirthdate()."','".$this->getUserId()."')";
-
+            echo $create;
             $result = mysqli_query($connection, $create);
             
             if($result){
@@ -66,6 +68,8 @@ class customer extends user_details{
             } else {
                 return null;
             }
+        } else{
+            echo "Connection Error on Customer";
         }
     }
 
