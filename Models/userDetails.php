@@ -422,5 +422,5 @@ class user_details{
     public function setImage($image){
         $this->image = $image;
     }
-
+}
 ?>
