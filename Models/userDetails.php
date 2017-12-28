@@ -296,23 +296,33 @@ class user_details{
         }
       }
 
-    public function readAdmin(){
-        $result = NULL;
-        $query ="SELECT
-        userId,
-        username,
-        userType,
-        status,
-        email,
-        mobileNumber,
-        image,
-        FROM  user_details
-        ";
-        $row = mysqli_query($mysqli, $query);
-        if(mysqli_num_rows($row) == 1){        
-            $result = mysqli_fetch_array($row);
-        }
-        return result;
+    public function DisplayAllUsers(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            userId,
+            username,
+            userType,
+            userStatus,
+            email,
+            mobileNumber,
+            dateAdded
+            FROM  user_details
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+            return $result;
+        } else {
+            echo "Connection Error";
+            return null;
+        }        
+        
     }
 
     /***************** SETTERS AND GETTERS ****************/

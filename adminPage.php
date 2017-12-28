@@ -8,7 +8,10 @@
 <style>
 
 <?php include'Access/Style.php'; ?>
-
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 </style>
 <body>
 <?php
@@ -21,6 +24,23 @@
 <div class="admin backdrop" style="padding-left: 200px; padding-right: 200px;">
     
     <h1>Henlo admin!</h1>
+    <p>Make sure that every table can be linked to the their own page depending on the userType</p>
+    <?php
+
+
+    ?>
+    <table>
+        <tr>
+            <th>User Id</th>
+            <th>Username</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Date Added</th>
+        </tr>
+        <?php require("Controllers/DisplayUsers.php");?>
+    </table>
 </div>
 
 <!-- //footer -->
