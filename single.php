@@ -19,8 +19,12 @@
 		<div class="banner_nav_right">
 			<div class="agileinfo_single backdrop" style="padding-left:200px;">
 				<h5 style="margin-bottom: 10px;">Comfy Chair</h5>
-				<div class="col-md-4 agileinfo_single_left">
+				<div class="col-md-4 text-center" style="padding:0px;">
 					<img id="example" src="http://via.placeholder.com/300" alt=" " class="img-responsive" style="margin:auto;" />
+					<br>
+					<img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                    <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                    <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
 				</div>
 				<div class="col-md-8 agileinfo_single_right">
 					<div class="w3agile_description">

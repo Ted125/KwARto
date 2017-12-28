@@ -102,9 +102,9 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
                     <li><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
-                    <li class="active"><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
+                    <li><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
-                    <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
+                    <li class="active"><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
  
           </ul><span class="heading">Extras</span>
@@ -157,7 +157,7 @@
                               <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
                               <!-- Modal-->
                                 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-                                <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
+                                <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h4 id="exampleModalLabel" class="modal-title">Update Product</h4>
@@ -172,16 +172,6 @@
                                         <div class="form-group">       
                                           <label>Description</label>
                                           <textarea class="form-control" rows="3" id="description">This is the description of the product. There are three rows for this space</textarea>
-                                        </div>
-                                        <div class="form-group">       
-                                          <label style="margin-bottom: 0px;">Product Images</label><br>
-                                          <p class="small">Maximum number of images is 5</p>
-                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                                          <button type="button" data-dismiss="modal" class="btn btn-primary">Update Photos</button>
                                         </div>
                                         <div class="form-group">       
                                           <label>Length</label>
