@@ -5731,6 +5731,10 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
+.modal-bigger {
+        min-width: 800px!important;
+        margin: 30px auto
+    }
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
        -o-transition:      -o-transform .3s ease-out;
