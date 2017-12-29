@@ -111,7 +111,19 @@
                     </div>
                     <div class="number"><strong>29</strong></div>
                   </div>
-                </div>  
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-red"><i class="icon-check"></i></div>
+                    <div class="title"><span>Pending<br>Transactions</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>70</strong></div>
+                  </div>
+                </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
