@@ -2,7 +2,28 @@
 <html>
 
 <head>
+	<title>KwARto | Web Application</title>
 
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="icon" type="image/png" href="images/icon.png" />
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+
+	<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<!-- smooth-scrolling -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+	</script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
@@ -11,11 +32,9 @@
 
   </head>
   <style>
-    <?php include'Access/Style.php'; ?>
 
   </style>
   
-    <?php include'Access/Header.php'; ?>
 <body class="index-page sidebar-collapse">
     
     <div class="wrapper">
@@ -54,7 +73,7 @@
 			<h3 >What is KwARto?</h3>
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
-					<div class="col-md-3 w3agile_event_grid_left">
+					<div class="col-md-3 w3agile_event_grid_left text-right">
 						<i class="fa fa-bullhorn" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
@@ -64,7 +83,7 @@
 					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md-6 w3agile_event_grid">
-					<div class="col-md-3 w3agile_event_grid_left">
+					<div class="col-md-3 w3agile_event_grid_left text-right">
 						<i class="fa fa-bullseye" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
@@ -77,7 +96,7 @@
 			</div>
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
-					<div class="col-md-3 w3agile_event_grid_left">
+					<div class="col-md-3 w3agile_event_grid_left text-right">
 						<i class="fa fa-credit-card" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
@@ -87,7 +106,7 @@
 					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md-6 w3agile_event_grid">
-					<div class="col-md-3 w3agile_event_grid_left">
+					<div class="col-md-3 w3agile_event_grid_left text-right">
 						<i class="fa fa-eye" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
@@ -116,7 +135,7 @@
 			</div>
 			<br>
 			<div class="text-center">
-				<a href="loginnew.php"><button class="profile-btn" style="width: 30%;"><h2>Get Started!</h2></button></a>
+				<a href="index.php"><button class="profile-btn" style="width: 30%; border-radius: 8px;"><h2 style="margin-bottom: 0px;">Get Started!</h2></button></a>
 			</div>
 			<div class="clearfix"> </div>	
 			</div>
