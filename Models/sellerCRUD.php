@@ -20,27 +20,40 @@
     /***************** FUNCTIONS *****************/
 
     public function createSeller($userId){
-        $this->setUserType('seller');
-        $this->setUserId(createUser());
-        $this->setName($_POST['name']);
-        $this->setDescription($_POST['description']);
-        if(!isset($_SESSION)){
-            $this->setAddedBy($userId);
-            $this->setUserStatus('inactive');
-        }else{
-            $this->setAddedBy($_SESSION['userId']);
-            $this->setUserStatus('active');
-        }
-        $create = "INSERT INTO seller
-        ( 
-            sellerId,
-            `name`,
-            `description`,
-            userId
-        )
-        VALUES
-        ('" "','".getName()."','".getDescription()."','".getUserId()."')";
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $userDetails = new user_details();
+            $userType = "seller";
+            $this->setUserType('seller');
+            $this->setUserId($this->createUser());
+            $this->setName($_POST['name']);
+            $this->setDescription($_POST['description']);
+            if(!isset($_SESSION)){
+                $this->setAddedBy('NULL');
+                $this->setUserStatus('inactive');
+            }else{
+                $this->setAddedBy($_SESSION['userId']);
+                $this->setUserStatus('active');
+            }
+            $create = "INSERT INTO seller
+            ( 
+                sellerId,
+                `name`,
+                `description`,
+                userId
+            )
+            VALUES
+            ('".getName()."',
+            '".getDescription()."',
+            '".getUserId()."')
+            ";
 
+            echo $create;
+            $result = mysqli_query($connection, $create);
+        }else{
+            echo 'no connection'
+        }
         return result;
     }
 

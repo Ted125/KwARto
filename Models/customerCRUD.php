@@ -59,7 +59,12 @@ class customer extends user_details{
             userId
             )
             VALUES
-            ('".$this->getFirstName()."','".$this->getMiddleName()."','".$this->getLastName()."','".$this->getBirthdate()."','".$this->getUserId()."')";
+            ('".$this->getFirstName()."',
+            '".$this->getMiddleName()."',
+            '".$this->getLastName()."',
+            '".$this->getBirthdate()."',
+            '".$this->getUserId()."'
+            )";
             echo $create;
             $result = mysqli_query($connection, $create);
             

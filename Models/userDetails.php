@@ -1,6 +1,6 @@
 <?php 
 require("SQL_Connect.php");
-//require("Database.php");
+require("Database.php");
 
 class user_details{
     private $userId;
@@ -10,12 +10,12 @@ class user_details{
     private $userStatus;
     private $email;
     private $mobileNumber;
+    private $image;
     private $dateAdded;
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
-    private $image;
-
+    
     const DB_TABLE = "user_table";
     const DB_TABLE_PK = "userId";
 
@@ -45,16 +45,12 @@ class user_details{
             $this->setUsername($_POST['registerUsername']);
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
-            //$this->setGender($_POST['registerGender']);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
-            //$this->setAddress("Sample Address");
-            // if(isset($_SESSION)){
-            //     $this->setAddedBy($_SESSION['userId']);
-            // }else{
-            //     $this->setAddedBy("NULL");
-            // }
-            //$this->setImage($_POST['image']);  i dont know if i should put an image sa creation.
+            $this->setAddedBy('NULL');
+            if(isset($_SESSION)){
+               $this->setAddedBy($_SESSION['userId']); 
+            }
             $create = "INSERT INTO user_details
             ( 
             username,
@@ -66,10 +62,16 @@ class user_details{
             addedBy
             )
             VALUES
-            ('".$this->getUsername()."','".$this->getPassword()."','".$this->getUserType()."','".$this->getUserStatus()."','".$this->getEmail()."','".$this->getMobileNumber()."', 0)";
+            ('".$this->getUsername()."',
+            '".$this->getPassword()."',
+            '".$this->getUserType()."',
+            '".$this->getUserStatus()."',
+            '".$this->getEmail()."',
+            '".$this->getMobileNumber()."',
+            '".$this->getAddedBy()."'
+            )";
             echo $create;
             $result = mysqli_query($connection, $create);
-
             // $select = "SELECT * 
             // FROM  user_details 
             // WHERE userName='".$this->getUsername()."'";//there must be other way
@@ -113,9 +115,9 @@ class user_details{
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
-            $result = $this->createUser();
+            $result = $this->createUser($this->getUserType());
         }else{
-            echo 'only admins can create an admin';
+            echo 'no session or only admins can create other admins';
         }
         return result;
     }
@@ -130,7 +132,7 @@ class user_details{
                       ";
             $result = mysqli_query($mysqli, $update);
         }else{
-            echo 'only admins can activate a user';
+            echo 'no session or only admins can activate a user';
         }            
     }
 
@@ -144,7 +146,7 @@ class user_details{
                       ";
             $result = mysqli_query($mysqli, $update);
         }else{
-            echo 'only admins can deactivate a user';
+            echo 'no session or only admins can deactivate a user';
         }
     }
 
@@ -209,7 +211,6 @@ class user_details{
     }
 
     public function Login($sessionEmail, $sessionPassword){
-        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -297,7 +298,6 @@ class user_details{
       }
 
     public function DisplayAllUsers(){
-        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -383,6 +383,14 @@ class user_details{
         $this->mobileNumber = $mobileNumber;
     }
 
+    public function getImage(){
+        return $this->image;
+    }
+
+    public function setImage($image){
+        $this->image = $image;
+    }
+
     public function getDateAdded(){
         return $this->dateAdded;
     }
@@ -415,12 +423,5 @@ class user_details{
         $this->updatedBy = $updatedBy;
     }
 
-    public function getImage(){
-        return $this->image;
-    }
-
-    public function setImage($image){
-        $this->image = $image;
-    }
 }
 ?>
