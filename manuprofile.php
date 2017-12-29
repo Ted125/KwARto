@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>kwARto 2018</title>
+    <title>KwARto | Web Application</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -141,15 +141,7 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img src="http://via.placeholder.com/300"><br>
-                        <div style="margin-top: 5px;">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          
-
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Select Photo</button><br>
                       </div>
                       <form class="form-horizontal col-lg-8">
                         <div class="form-group row">
