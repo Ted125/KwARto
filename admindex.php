@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
-    <!-- Web Icon -->
-    <link rel="shortcut icon" href=" images/icon.png">
+    <link rel="icon" href="images/icon.png">
    
   </head>
   <body>

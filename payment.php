@@ -15,6 +15,8 @@ n<!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="icon" href="images/icon.png">
 </head>
 
@@ -75,131 +77,63 @@ n<!DOCTYPE html>
 		<div class="row">
 			<div class="col">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 10px;">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<li class="active"><a href="profile.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
+						<li class="active"><a href="payment.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Payment</a></li>
 					</ul>
 				</div>
 
 			</div>
 		</div>
 
-		<h2>Account Information</h2>
-		<div class="row">
-			<div class="col-lg-4 text-center">
-				<img src="http://via.placeholder.com/300">
-				<div class="red_button add_to_cart_button" style="margin-top: 10px;"><a href="#">Change Photo</a></div>
-			</div>
-			<div class="col-lg-8">
-				<div class="product_details">
-					<form class="form-horizontal" role="form">
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">First name:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="Jane">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Last name:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="Doe">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Address:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="123 St. ABC City, Some Country">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Birthdate:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="date" value="">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Change Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" placeholder="email@email.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Confirm New Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" placeholder="email@email.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Gender:</label>
-			            <div class="col-lg-8">
-			              <div class="ui-select">
-			                <select id="user_time_zone" class="form-control">
-			                  <option value="Hawaii">Male</option>
-			                  <option value="Alaska">Female</option>
-			                  <option value="Alaska">Other</option>
-			                </select>
-			              </div>
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-md-3 control-label">Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" disabled="" value="11111122333">
-			            </div>
-			          </div>
-
-			          <div class="form-group">
-			            <label class="col-md-6 control-label">Change Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" placeholder="********">
-			            </div>
-			          </div>
-			          
-			          <div class="form-group">
-			            <label class="col-md-6 control-label">Confirm New Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" placeholder="********">
-			            </div>
-			          </div>
-			          
-			          <div class="form-group">
-			            <label class="col-md-3 control-label"></label>
-			            <div class="col-md-8 text-right">
-			              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-										<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
-										</div>
-										<div class="modal-body text-left">
-										Are you sure you want to continue?
-										 
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
-											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-			            </div>
-			          </div>
-			        </form>
-					
+	<div class="blogs">
+		<div class="container">
+			<h2><i class="fa fa-money" aria-hidden="true"></i> Checkout</h2>
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">
+						<h3>Select Your Payment Method</h3>
+					</div>
 				</div>
-					
+			</div>
+			<div class="row blogs_container">
+				<div class="col-lg-4 blog_item_col">
+					<div class="blog_item">
+						<div class="blog_background" style="background-image:url(https://rpsstudio.co/assets/images/icons/cash.svg)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Cash On Delivery</h4>
+							<span class="blog_meta">Pay to courier upon receiving</span>
+							<a class="" data-toggle="modal" data-target="#myModal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 blog_item_col">
+					<div class="blog_item">
+						<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Credit or Debit Card</h4>
+							<span class="blog_meta">Visa | Mastercard</span>
+							<a class="" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 blog_item_col">
+					<div class="blog_item">
+						<div class="blog_background" style="background-image:url(https://www.sketchappsources.com/resources/source-image/PayPalCard.png)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Paypal</h4>
+							<span class="blog_meta">You will be redirected</span>
+							<a class="" style="text-decoration: none; color: #d42d2d;" href="https://www.paypal.com/PH">Select</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+		
+	</div>
+	
 
 	<div class="benefit">
 		<div class="container">
@@ -298,6 +232,89 @@ n<!DOCTYPE html>
 			</div>
 		</div>
 	</footer>
+	
+	<!-- MODAL CONTENTS -->
+	<!-- CASH ON DELIVERY -->
+	<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+	    <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 id="exampleModalLabel" class="modal-title">CASH ON DELIVERY</h4>
+	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+	        </div>
+	        <div class="modal-body">
+	        	<h5>Ship to:</h5>
+	          <form>
+	            <div class="form-group">
+	              <label>Full Name</label>
+	              <input type="text" placeholder="John Smith" class="form-control">
+	            </div>
+	            <div class="form-group">       
+	              <label>Complete Address (House Number, Building and Street Name)</label>
+	              <textarea class="form-control" rows="3" id="address" placeholder="12B, ABC Blg, 123 Internet St."></textarea>
+	            </div>
+	            <div class="form-group">       
+	              <label>Province</label>
+	              <select name="account" class="form-control">
+	                <option>Province</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>City/Municipality</label>
+	              <select name="account" class="form-control">
+	                <option>City/Municipality</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>Barangay</label>
+	              <select name="account" class="form-control">
+	                <option>Barangay</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>Phone Number</label>
+	              <input type="text" placeholder="0912 345 6789" class="form-control">
+	            </div>
+
+	            <h6>Delivery Options:</h6>
+	            <div class="row">
+		            <div class="blog_item" style="width: 250px;">
+						<div class="blog_background" style="min-height: auto; background-image:url(https://d30y9cdsu7xlg0.cloudfront.net/png/92358-200.png)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<span>Standard Delivery</span><br>
+							<h6>Sat 6, Mon | 22 Jan 2018</h6>
+							<span class="blog_meta">P99.00</span>
+						</div>
+					</div>
+
+					<div class="blog_item" style="width: 250px; margin-left: 20px;">
+						<div class="blog_background" style="min-height: auto; background-image:url(https://d30y9cdsu7xlg0.cloudfront.net/png/100245-200.png)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<span>Rush Delivery</span><br>
+							<h6>Sat 2, Mon | 5 Jan 2018</h6>
+							<span class="blog_meta">P249.00</span>
+						</div>
+					</div>
+				</div>
+
+	            <div class="form-group">
+	              <p>Please review all information before proceeding.</p>       
+	              <input type="submit" value="PROCEED TO PAY" class="btn red_button" style="color: white;">
+	            </div>
+	          </form>
+	        </div>
+	    </div>
+  </div>
+  <!-- END OF CASH ON DELIVERY -->
 
 </div>
 

@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="icon" href="images/icon.png">
 </head>
 
 <body>
@@ -51,7 +52,7 @@
 								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
 								</li>
 								<li class="checkout">
-									<a href="#">
+									<a href="cart.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>

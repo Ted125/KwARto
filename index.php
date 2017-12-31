@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="icon" href="images/icon.png">
 </head>
 
 <body>
@@ -46,13 +47,11 @@
 								<li><a href="about.php">about us</a></li>
 								<li><a href="contact.php">contact</a></li>
 							</ul>
-							<ul class="navbar_user">
-
+							<ul class="navbar_user row">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-
-								</li>
-								<li class="checkout">
+								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li data-toggle="modal" data-target="#myModal" class="project-title d-flex align-items-center checkout">
+									<!-- MODAL CONTENT BELOW -->
 									<a href="#">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
@@ -509,49 +508,6 @@
 		</div>
 	</div>
 
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>free shipping</h6>
-							<p>Within the Philippines</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>cash on delivery</h6>
-							<p>Pay upon receiving your item</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>14 days return</h6>
-							<p>See return policy for details</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>Open Always</h6>
-							<p>24/7</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="blogs">
 		<div class="container">
 			<div class="row">
@@ -589,6 +545,49 @@
 							<h4 class="blog_title">Christmas Sale</h4>
 							<span class="blog_meta">3:00 PM | Dec 01, 2017</span>
 							<a class="blog_more" href="#">See more</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="benefit">
+		<div class="container">
+			<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>free shipping</h6>
+							<p>Within the Philippines</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>cash on delivery</h6>
+							<p>Pay upon receiving your item</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>14 days return</h6>
+							<p>See return policy for details</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>Open Always</h6>
+							<p>24/7</p>
 						</div>
 					</div>
 				</div>
@@ -650,6 +649,89 @@
 	</footer>
 
 </div>
+
+<!-- MODAL CONTENTS -->
+
+<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                    <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
+                          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body">
+                          <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
+								<thead>
+									<tr style="text-align: center;">
+										<th>Item No.</th>	
+										<th>Product</th>
+										<th>Quantity</th>
+										<th>Product Name</th>
+									
+										<th>Price</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody class="text-center">
+									<tr class="">
+										<td class="">1</td>
+										<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
+										<td class="">
+											<div class="" style="text-align: -webkit-center"> 
+												<div class="form-group form-group-options">
+						                            <div class="input-group input-group-option" style="width: 130px;">
+						                                <span class="input-group-addon input-group-addon-remove btn">
+						                                    <span class="fa fa-minus"></span>
+						                                </span>
+						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
+						                                <span class="input-group-addon btn">
+						                                    <span class="fa fa-plus"></span>
+						                                </span>
+						                            </div>
+				                        		</div>
+											</div>
+										</td>
+										<td class="">Comfy Chair</td>
+										<td class="">P850.00</td>
+										<td class="" style="text-align:  center;">	
+											<div class="red_button" style="width: 200px"><a href="#">move to wishlist</a></div><br>
+											<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
+										</td>
+									</tr>
+									<tr class="">
+										<td class="">2</td>
+										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
+										<td class="">
+											<div class="" style="text-align: -webkit-center"> 
+												<div class="form-group form-group-options">
+						                            <div class="input-group input-group-option" style="width: 130px;">
+						                                <span class="input-group-addon input-group-addon-remove btn">
+						                                    <span class="fa fa-minus"></span>
+						                                </span>
+						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
+						                                <span class="input-group-addon btn">
+						                                    <span class="fa fa-plus"></span>
+						                                </span>
+						                            </div>
+				                        		</div>
+											</div>
+										</td>
+										<td class="">Swivel Chair</td>
+										<td class="">P540.00</td>
+										<td class="" style="text-align:  center;">	
+											<div class="red_button" style="width: 200px;"><a href="#">move to wishlist</a></div><br>
+											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
+										</td>
+									</tr>
+							</tbody></table>
+                        </div>
+                        <div class="modal-footer">
+                        	<a href="cart.php" class="btn red_button button" style="color: white;" >Checkout</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
