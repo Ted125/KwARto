@@ -308,7 +308,7 @@ n<!DOCTYPE html>
 
 	            <div class="form-group">
 	              <p>Please review all information before proceeding.</p>       
-	              <input type="submit" value="PROCEED TO PAY" class="btn red_button" style="color: white;">
+	              <div class="red_button shop_now_button" style="margin-top: 0px;"><a href="complete.php">COMPLETE</a></div>
 	            </div>
 	          </form>
 	        </div>
