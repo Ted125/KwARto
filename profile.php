@@ -448,7 +448,7 @@ n<!DOCTYPE html>
 												</div>
 												<div class="modal-footer">
 													<div class="red_button shop_now_button"><a href="loginnew.php">Yes</a></div>
-													<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+													<div class="red_button shop_now_button" style="color:white; background-color: #555" data-dismiss="modal">Cancel</div>
 												</div>
 											</div>
 										</div>
