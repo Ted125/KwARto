@@ -71,132 +71,393 @@ n<!DOCTYPE html>
 		</div>
 	</header>
 	
+
 	<div class="container single_product_container">
-		<div class="row">
-			<div class="col">
+		<div class="tabs_section_container">
+			<div class="row">
+				<div class="col" style="height: 30px;">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
-					<ul>
-						<li><a href="index.php">Home</a></li>
-						<li class="active"><a href="profile.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
-					</ul>
+					<div class="breadcrumbs d-flex flex-row align-items-center">
+						<ul>
+							<li><a href="index.php">Home</a></li>
+							<li class="active"><a href="profile.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 
-		<h2>Account Information</h2>
-		<div class="row">
-			<div class="col-lg-4 text-center">
-				<img src="http://via.placeholder.com/300">
-				<div class="red_button add_to_cart_button" style="margin-top: 10px;"><a href="#">Change Photo</a></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="tabs_container">
+						<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
+							<li class="tab active" data-active-tab="tab_1"><span>Account Information</span></li>
+							<li class="tab" data-active-tab="tab_2"><span>Transaction History</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>Account Settings</span></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-8">
-				<div class="product_details">
-					<form class="form-horizontal" role="form">
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">First name:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="Jane">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Last name:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="Doe">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Address:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" value="123 St. ABC City, Some Country">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Birthdate:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="date" value="">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Change Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" placeholder="email@email.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Confirm New Email:</label>
-			            <div class="col-lg-8">
-			              <input class="form-control" type="text" placeholder="email@email.com">
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-lg-3 control-label">Gender:</label>
-			            <div class="col-lg-8">
-			              <div class="ui-select">
-			                <select id="user_time_zone" class="form-control">
-			                  <option value="Hawaii">Male</option>
-			                  <option value="Alaska">Female</option>
-			                  <option value="Alaska">Other</option>
-			                </select>
-			              </div>
-			            </div>
-			          </div>
-			          <div class="form-group">
-			            <label class="col-md-3 control-label">Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" disabled="" value="11111122333">
-			            </div>
-			          </div>
+			<div class="row">
+				<div class="col">
 
-			          <div class="form-group">
-			            <label class="col-md-6 control-label">Change Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" placeholder="********">
-			            </div>
-			          </div>
-			          
-			          <div class="form-group">
-			            <label class="col-md-6 control-label">Confirm New Password:</label>
-			            <div class="col-md-8">
-			              <input class="form-control" type="password" placeholder="********">
-			            </div>
-			          </div>
-			          
-			          <div class="form-group">
-			            <label class="col-md-3 control-label"></label>
-			            <div class="col-md-8 text-right">
-			              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-										<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+					<!-- Tab Account Information -->
+
+					<div id="tab_1" class="tab_container active" style="padding-left: 80px;">
+						<h3>Account Information</h3>
+						<div class="row">
+							<div class="col-lg-4 text-center">
+								<img src="http://via.placeholder.com/300">
+								<div class="red_button add_to_cart_button" style="margin-top: 10px;"><a href="#">Change Photo</a></div>
+							</div>
+							<div class="col-lg-8">
+								<div class="product_details">
+									<form class="form-horizontal" role="form">
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">First name:</label>
+							            <div class="col-lg-8">
+							              <input class="form-control" type="text" value="Jane">
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">Last name:</label>
+							            <div class="col-lg-8">
+							              <input class="form-control" type="text" value="Doe">
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">Address:</label>
+							            <div class="col-lg-8">
+							              <input class="form-control" type="text" value="123 St. ABC City, Some Country">
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">Birthdate:</label>
+							            <div class="col-lg-8">
+							              <input class="form-control" type="date" value="">
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">Email:</label>
+							            <div class="col-lg-8">
+							              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-lg-3 control-label">Gender:</label>
+							            <div class="col-lg-8">
+							              <div class="ui-select">
+							                <select id="user_time_zone" class="form-control">
+							                  <option value="Hawaii">Male</option>
+							                  <option value="Alaska">Female</option>
+							                  <option value="Alaska">Other</option>
+							                </select>
+							              </div>
+							            </div>
+							          </div>
+							          <div class="form-group">
+							            <label class="col-md-3 control-label">Password:</label>
+							            <div class="col-md-8">
+							              <input class="form-control" type="password" disabled="" value="11111122333">
+							            </div>
+							          </div>							          
+							          <div class="form-group">
+							            <label class="col-md-3 control-label"></label>
+							            <div class="col-md-8 text-right">
+							              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
+											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+														<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+														</div>
+														<div class="modal-body text-left">
+														Are you sure you want to continue?
+														 
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
+															<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										<div class="modal-body text-left">
-										Are you sure you want to continue?
-										 
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
-											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							            </div>
+							          </div>
+							        </form>
+								</div>	
+							</div>
+						</div>
+					</div>
+
+					<div id="tab_2" class="tab_container">
+						<div class="row" style="padding-left: 80px;">
+							<div class="col additional_info_col">
+								<div class="tab_title additional_info_title">
+									<h3>Transaction History</h3>
+								</div>
+								<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
+							        <thead>
+							            <tr style="text-align: center;">
+							                <th>Order ID</th>	
+							                <th>Date</th>
+							                <th>Status</th>
+							                <th>Action</th>
+							                <th></th>
+							            </tr>
+							        </thead>
+							        <tbody class="text-center">
+							            <tr class="">
+							                <td class="">#213535</td>
+							                <td class="">December 23, 2017</td>
+							                <td class="" style="color: #FF6347;">Pending</td>
+							                <td>
+							                    <div class="red_button" data-toggle="modal" data-target="#transhist1" style="width: 200px;">
+							                        <a href="#">View Details</a>
+							                    </div>
+
+							                    <div class="modal fade" id="transhist1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+													<div class="modal-dialog" role="document" style="min-width: 800px!important;">
+														<div class="modal-content">
+															<div class="modal-header">
+							                                  <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
+							                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+							                                </div>
+															<div class="modal-body text-left">
+							                                  <div class="row" style="margin-bottom: 10px; padding-left: 10px;">
+							                                    <span>Status:<span style="color: #FF6347"> Pending</span></span>
+							                                  </div>
+
+							                                  <h5 style="color: #555">Order details:</h5>
+							                                  <p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
+
+							                                  <div class="recent-activities card">
+							                                    <div class="card-header">
+							                                      <h3 class="h4">Order Summary</h3>
+							                                    </div>
+							                                    <div class="card-body no-padding">
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
+							                                            <div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Modern Table</h5>
+							                                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
+							                                            <div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Wooden Stool</h5>
+							                                            <p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
+							                                            <div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Chic Table Piece</h5>
+							                                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                    </div>
+							                                  </div>
+							                                  <br>
+							                                  <div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
+							                                </div>
+														</div>
+													</div>
+												</div>
+							                </td>
+							            </tr>
+							            <tr class="">
+							                <td class="">#212312</td>
+							                <td class="">December 22, 2017</td>
+							                <td class="" style="color: #28a745;">Completed</td>
+							                <td>
+							                    <div class="red_button" data-toggle="modal" data-target="#transhist2" style="width: 200px;">
+							                        <a href="#">View Details</a>
+							                    </div>
+							                   
+												<div class="modal fade" id="transhist2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+													<div class="modal-dialog" role="document" style="min-width: 800px!important;">
+														<div class="modal-content">
+															<div class="modal-header">
+							                                  <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
+							                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+							                                </div>
+															<div class="modal-body text-left">
+							                                  <div class="row" style="margin-bottom: 10px; padding-left: 10px;">
+							                                    <span>Status:<span style="color: #28a745"> Completed</span></span>
+							                                  </div>
+
+							                                  <h5 style="color: #555">Order details:</h5>
+							                                  <p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
+
+							                                  <div class="recent-activities card">
+							                                    <div class="card-header">
+							                                      <h3 class="h4">Order Summary</h3>
+							                                    </div>
+							                                    <div class="card-body no-padding">
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
+							                                            <div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Modern Table</h5>
+							                                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
+							                                            <div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Wooden Stool</h5>
+							                                            <p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                      <div class="item">
+							                                        <div class="row" style="margin-bottom: 0px;">
+							                                          <div class="col-4 date-holder text-right">
+							                                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
+							                                            <div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
+							                                          </div>
+							                                          <div class="col-8 content">
+							                                            <h5>Chic Table Piece</h5>
+							                                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
+							                                          </div>
+							                                        </div>
+							                                      </div>
+							                                    </div>
+							                                  </div>
+							                                  <br>
+							                                  <div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
+							                                </div>
+														</div>
+													</div>
+												</div>
+							                </td>
+							            </tr>
+							        </tbody>
+							    </table>
+							</div>
+						</div>
+					</div>
+
+					<div id="tab_3" class="tab_container" style="padding-left: 80px;">
+						<h3>Account Settings</h3>
+						<div  style="padding-left: 80px; margin-top: 20px;">
+							<h5>Change Password:</h5>
+							<div class="form-group">
+				            <label class="col-md-3 control-label">Password:</label>
+				            <div class="col-md-8">
+				              <input class="form-control" type="password" disabled="" value="11111122333">
+				            </div>
+				          </div>
+
+				          <div class="form-group">
+				            <label class="col-md-6 control-label">Change Password:</label>
+				            <div class="col-md-8">
+				              <input class="form-control" type="password" placeholder="********">
+				            </div>
+				          </div>
+				          
+				          <div class="form-group">
+				            <label class="col-md-6 control-label">Confirm New Password:</label>
+				            <div class="col-md-8">
+				              <input class="form-control" type="password" placeholder="********">
+				            </div>
+				          </div>
+
+				          <h5>Change E-mail Address:</h5>
+							<div class="form-group">
+				            <label class="col-lg-3 control-label">Email:</label>
+				            <div class="col-lg-8">
+				              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
+				            </div>
+				          </div>
+				          <div class="form-group">
+				            <label class="col-lg-3 control-label">Change Email:</label>
+				            <div class="col-lg-8">
+				              <input class="form-control" type="text" placeholder="email@email.com">
+				            </div>
+				          </div>
+				          <div class="form-group">
+				            <label class="col-lg-3 control-label">Confirm New Email:</label>
+				            <div class="col-lg-8">
+				              <input class="form-control" type="text" placeholder="email@email.com">
+				            </div>
+				          </div>
+
+				           <div class="form-group" style="margin-bottom: 0px;">
+					            <label class="col-md-3 control-label"></label>
+					            <div class="col-md-8 text-right">
+					              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsave">SAVE CHANGES</button>
+									<div class="modal fade" id="myModalsave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+												<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+												</div>
+												<div class="modal-body text-left">
+													Are you sure you want to continue?
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
+													<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-			            </div>
-			          </div>
-			        </form>
-					
+					        </div>
+
+					        <div class="form-group" >
+					            <label class="col-md-3 control-label"></label>
+					            <div class="col-md-8 text-right">
+					              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button>
+									<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+												<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+												</div>
+												<div class="modal-body text-left">
+													Are you sure you want to log out?
+												</div>
+												<div class="modal-footer">
+													<div class="red_button shop_now_button"><a href="loginnew.php">Yes</a></div>
+													<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+					        </div>
+					    </div>
+				    </div>
 				</div>
-					
 			</div>
 		</div>
 	</div>
