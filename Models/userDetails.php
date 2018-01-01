@@ -119,7 +119,7 @@ class user_details{
         }else{
             echo 'no session or only admins can create other admins';
         }
-        return result;
+        return $result;
     }
 
     public function activateUser(){
@@ -133,7 +133,8 @@ class user_details{
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'no session or only admins can activate a user';
-        }            
+        }
+        return $result;            
     }
 
     public function deactiveUser(){
@@ -210,7 +211,7 @@ class user_details{
         return result;
     }
 
-    public function Login($sessionEmail, $sessionPassword){
+    public function login($sessionEmail, $sessionPassword){
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -233,10 +234,11 @@ class user_details{
         }
     }
 
-    public function LoginCustomer($sessionEmail, $sessionPassword){
+    public function loginCustomer($sessionEmail, $sessionPassword){
         //require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
+        $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
           $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, dateAdded, firstName, middleName, lastName, birthdate 
@@ -258,17 +260,18 @@ class user_details{
             // echo "<h1>LOGGED IN!</h1>";
             //return the data from the Query
             $row = $result->fetch_assoc();
-            return $row;
           }else{
-            return null;
+            echo 'not found';
           }
         }
-      }
+        return $row;
+    }
 
-      public function LoginAdmin($sessionEmail, $sessionPassword){
+      public function loginAdmin($sessionEmail, $sessionPassword){
         //require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
+        $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
           $query = "SELECT userId, username, email, userType, mobileNumber, dateAdded 
@@ -290,16 +293,17 @@ class user_details{
             // echo "<h1>LOGGED IN!</h1>";
             //return the data from the Query
             $row = $result->fetch_assoc();
-            return $row;
           }else{
-            return null;
+            echo 'not found';
           }
         }
+        return $row;
       }
 
-    public function DisplayAllUsers(){
+    public function displayAllUsers(){
         $db = new Database();
         $connection = $db->Connect();
+        $result = null;
         if($connection){
             //$result = NULL;
             $query ="SELECT
@@ -313,16 +317,43 @@ class user_details{
             FROM  user_details
             ";
             $result = mysqli_query($connection, $query);
+        
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function displayUser($userId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setUserId($userId);
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            userId,
+            username,
+            userType,
+            userStatus,
+            email,
+            mobileNumber,
+            dateAdded
+            FROM  user_details
+            WHERE userId = '".$this->getUserId()."'
+            ";
+            $result = mysqli_query($connection, $query);
                   
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
-            return $result;
         } else {
             echo "Connection Error";
-            return null;
         }        
-        
+        return $result;
     }
 
     /***************** SETTERS AND GETTERS ****************/

@@ -65,6 +65,7 @@ class customer extends user_details{
             '".$this->getBirthdate()."',
             '".$this->getUserId()."'
             )";
+            
             echo $create;
             $result = mysqli_query($connection, $create);
             

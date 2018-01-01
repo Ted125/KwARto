@@ -104,8 +104,8 @@ include("furniture_packageCRUD.php");
                     '".$this->getDiscount()."',
                     '".$this->getCategoryId()."',
                     '".$this->getSellerId()."'
-                    '".$this->getVersionOf()."',)";
-                    
+                    '".$this->getVersionOf()."'
+                    )";
                     $result = mysqli_query($connection, $create);   
                 }
             }else{
@@ -116,9 +116,51 @@ include("furniture_packageCRUD.php");
         }
         return $result;
     }
-    
 
+    public function displayFurniture($furnitureId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnituredId);
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            furnitureId,
+            name,
+            description,
+            warrantyId,
+            model,
+            color,
+            weight,
+            weightUnit,
+            length,
+            width,
+            height,
+            sizeUnit,
+            price,
+            dateAdded,
+            dateUpdated,
+            addedBy,
+            updatedBy,
+            modelName,
+            discount,
+            categoryId,
+            sellerId,
+            versionOf
+            FROM  furniture
+            WHERE furnitureId = '".$this->getFurnitureId()."'
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
     }
+
     /***************** SETTERS AND GETTERS ****************/
 
     public function getFurnitureId(){
