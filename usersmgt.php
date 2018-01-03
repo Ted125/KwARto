@@ -100,10 +100,259 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Pending Users List</h3>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="text-muted">* Click to see more details</h6>
+                      <table class="table table-striped table-hover text-center">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>E-mail Address</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr data-toggle="modal" data-target="#myModal">
+                            <th scope="row">1</th>
+                            <td>John</td>
+                            <td>Smith</td>
+                            <td>name@user.com</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to approve this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to reject this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+  
+
+                            <!-- Modal Contents for Row -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="row">
+                                      <div class="col-7">
+                                         <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-right: 3px;">John</h5>  </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-right: 3px;">Smithers</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Last Name: <h5 style="font-weight: normal; padding-right: 3px;">Smith</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-right: 3px;">Male</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-right: 3px;">+63 123 456 7890</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail: <h5 style="font-weight: normal; padding-right: 3px;">name@user.com</h5></h5></div>
+                                      </div>
+                                      <div class="col-5">
+                                          <img src="http://lorempixel.com/150/150/">
+
+                                      </div>
+                                    </div>
+                                  
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jane</td>
+                            <td>Doe</td>
+                            <td>name@user.com</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to approve this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to reject this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>name@user.com</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to approve this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to reject this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Adam</td>
+                            <td>Williams</td>
+                            <td>name@user.com</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to approve this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to reject this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>  
+
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Users List</h3>
                     </div>
                     <div class="card-body">
-                      <table class="table table-striped table-hover">
+                      <h6 class="text-muted">* Click to see more details</h6>
+                      <table class="table table-striped table-hover text-center">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -226,7 +475,7 @@
                       </table>
                     </div>
                   </div>
-                </div>  
+                </div> 
               </div>
             </div>
           </section>
