@@ -18,7 +18,36 @@ class furniture_specification{
 
     /***************** FUNCTIONS ****************/
 
-
+    public function createFurnitureSpecification($furnitureId){
+        if(isset($_SESSION)){
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    //$furniture = new furniture();
+                    $this->setSpecification($_POST['specification']);
+                    $this->setFurnitureId($furnitureId);
+                    $create = "INSERT INTO furniture_specification
+                    ( 
+                    status
+                    furnitureId
+                    )
+                    VALUES
+                    ('".$this->getSpecification()."',
+                    '".$this->getFurnitureId()."',
+                    )";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only sellers can add furniture specifications';
+            }
+        }else{
+            echo 'no session found';
+        }
+        return $result;
+    }
 
     /************ SETTERS AND GETTERS ************/
     

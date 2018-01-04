@@ -30,8 +30,10 @@ class furniture_stock{
                 $connection = $db->Connect();
                 if($connection){
                     //$furniture = new furniture();
-                    $this->setStockId('available');
+                    $this->setStatus('available');
                     $this->setFurnitureId($furnitureId);
+                    $this->setAddedBy($_SESSION['userId']);
+                    $this->setUpdatedBy($_SESSION['userId']);
                     $create = "INSERT INTO furniture_stock
                     ( 
                     status
@@ -39,7 +41,9 @@ class furniture_stock{
                     )
                     VALUES
                     ('".$this->getStatus()."',
-                    '".$this->getFurnitureId()."'
+                    '".$this->getFurnitureId()."',
+                    '".$this->getAddedBy()."',
+                    '".$this->getUpdatedBy()."'
                     )";
                     
                     $result = mysqli_query($connection, $create);   
@@ -53,19 +57,66 @@ class furniture_stock{
         return $result;
     }
 
-    public function boughtFurnitureStock($furnitureId){
+    public function checkFurnitureStock($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
         $this->setFurnitureId($furnituredId);
         $result = null;
         if($connection){
-            $query = "SELECT stockId, status, dateAdded, addedBy, updatedBy, dateUpdated, furnitureId 
+            $query = "SELECT x.stockId, x.status, x.dateAdded, x.dateUpdated, x.addedBy, x.updatedBy, x.furnitureId 
             FROM furniture_stock x, furniture y
-            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'available'  
+            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'available'  order by x.dateAdded limit 1
             ";
             $result = mysqli_query($connection, $query);
             mysqli_close($connection);
-            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;  
+    }
+
+    public function purchaseFurnitureStock($furnitureId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnituredId);
+        $result = $avail = null;
+        if($connection){
+            $avail = checkFurnitureStock($this->getFurnitureId());   
+            if($avail != null){
+                $query = "UPDATE furniture_stocks 
+                          SET status = 'on hold', customerId = '".$_SESSION['userId']."'
+                          WHERE stockId = '".$avail[0]."'
+                         ";
+                $result = mysqli_query($connection, $query);
+                mysqli_close($connection);
+            // THIS WILL CALL A FUNCTION TO ADD TO CART I HAVENT MADE CART YET
+            }else{
+                echo "No available stock";
+            }
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;  
+    }
+
+    public function soldFurnitureStock($furnitureId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnituredId);
+        $result = $avail = null;
+        if($connection){
+            $avail = checkFurnitureStock($this->getFurnitureId());   
+            if($avail != null){
+                $query = "UPDATE furniture_stocks 
+                          SET status = 'sold'
+                          WHERE furnitureId = '".$this->getFurnitureId()."' && customerId '".$_SESSION['userId']."'
+                         ";
+                $result = mysqli_query($connection, $query);
+                mysqli_close($connection);
+            // THIS WILL CALL A FUNCTION TO ADD TO CART I HAVENT MADE CART YET
+            }else{
+                echo "No available stock";
+            }
         } else {
             echo "Connection Error";
         }        
@@ -78,9 +129,9 @@ class furniture_stock{
         $this->setFurnitureId($furnituredId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT (*) AS 'Available Stock'
-            FROM  furniture_stock x, furniture y
-            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'available'  
+            $query ="SELECT COUNT(*) AS sold_stock 
+            FROM furniture_stock 
+            WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available'
             ";
             $result = mysqli_query($connection, $query);
                   
@@ -99,9 +150,9 @@ class furniture_stock{
         $this->setFurnitureId($furnituredId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT (*) AS 'On Hold Stock'
-            FROM  furniture_stock x, furniture y
-            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'on_hold'  
+            $query ="SELECT COUNT(*) AS on_hold_stock 
+            FROM furniture_stock 
+            WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'on_hold'
             ";
             $result = mysqli_query($connection, $query);
                   
@@ -120,9 +171,9 @@ class furniture_stock{
         $this->setFurnitureId($furnituredId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT (*) AS 'Sold Stock'
-            FROM  furniture_stock x, furniture y
-            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'sold'  
+            $query ="SELECT COUNT(*) AS sold_stock 
+            FROM furniture_stock 
+            WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'sold'
             ";
             $result = mysqli_query($connection, $query);
                   

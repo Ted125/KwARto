@@ -28,6 +28,9 @@ include("furniture_packageCRUD.php");
     private $updatedBy;
     private $modelName;
     private $discount;
+    private $saleStart;
+    private $saleEnd;
+    private $live;
     private $categoryId;
     private $sellerId;
     private $versionOf;
@@ -55,9 +58,9 @@ include("furniture_packageCRUD.php");
                     $this->setDescription($_POST['description']);
                     $this->setWarrantyId($_POST['warrantyId']);
                     $this->setModel($_POST['model']);
-                    $this->setColor($_POST['color']);
-                    $this->setWeight($_POST['weight']);
-                    $this->setWeightUnit($_POST['weightUnit']);
+                    $this->setColor($_POST['color']);              /* ok ra if null */
+                    $this->setWeight($_POST['weight']);             /* ok ra if null */
+                    $this->setWeightUnit($_POST['weightUnit']);      /* ok ra if null */
                     $this->setLength($_POST['length']);
                     $this->setWidth($_POST['width']);
                     $this->setHeight($_POST['height']);
@@ -65,6 +68,8 @@ include("furniture_packageCRUD.php");
                     $this->setPrice($_POST['price']);
                     $this->setModelName($_POST['modelName']);
                     $this->setDiscount($_POST['discount']);
+                    $this->setSaleStart($_POST['saleStart']);
+                    $this->setSaleEnd($_POST['saleEnd']);
                     $this->setCategoryId($_POST['categoryId']);
                     $this->setSellerId($_SESSION['sellerId']);
                     $this->setVersionOf($_POST['versionOf']);
@@ -84,6 +89,8 @@ include("furniture_packageCRUD.php");
                     price,
                     modelName,
                     discount,
+                    saleStart,
+                    saleEnd, 
                     categoryId,
                     sellerId,
                     versionOf
@@ -144,6 +151,9 @@ include("furniture_packageCRUD.php");
             updatedBy,
             modelName,
             discount,
+            saleStart,
+            saleEnd,
+            live,
             categoryId,
             sellerId,
             versionOf
@@ -313,6 +323,30 @@ include("furniture_packageCRUD.php");
 
     public function setDiscount($discount){
         $this->discount = $discount;
+    }
+
+    public function getSaleStart(){
+        return $this->saleStart;
+    }
+
+    public function setSaleStart($saleStart){
+        $this->saleStart = $saleStart;
+    }
+
+    public function getSaleEnd(){
+        return $this->saleEnd;
+    }
+
+    public function setSaleEnd($saleEnd){
+        $this->saleEnd = $saleEnd;
+    }
+
+    public function getLive(){
+        return $this->live;
+    }
+
+    public function setLive($live){
+        $this->live = $live;
     }
 
     public function getStockId(){

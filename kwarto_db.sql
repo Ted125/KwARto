@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2017 at 05:37 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jan 03, 2018 at 02:22 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,81 +30,96 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `categoryId` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `addedBy` int(11) NOT NULL,
-  `updatedBy` int(11) NOT NULL,
-  `parent` int(11) DEFAULT NULL
+  `name` varchar(128) NOT NULL,
+  `lft` int(11) NOT NULL,
+  `rgt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`categoryId`, `name`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `parent`) VALUES
-(1, 'Bedroom Furniture', '2017-12-25 14:27:36', '2017-12-25 14:27:36', 1, 1, NULL),
-(2, 'Living Room Furniture', '2017-12-25 14:27:36', '2017-12-25 14:27:36', 1, 1, NULL),
-(3, 'Kitchen & Dining Furniture', '2017-12-25 14:28:02', '2017-12-25 14:28:02', 1, 1, NULL),
-(4, 'Kids Furniture', '2017-12-25 14:28:02', '2017-12-25 14:28:02', 1, 1, NULL),
-(5, 'Home Office Furniture', '2017-12-25 14:28:28', '2017-12-25 14:28:28', 1, 1, NULL),
-(6, 'Hallway & Entry Furniture', '2017-12-25 14:28:28', '2017-12-25 14:28:28', 1, 1, NULL),
-(7, 'Gaming Furniture', '2017-12-25 14:28:55', '2017-12-25 14:28:55', 1, 1, NULL),
-(8, 'Outdoor Furniture', '2017-12-25 14:28:55', '2017-12-25 14:28:55', 1, 1, NULL),
-(9, 'Furniture Protectors & Parts', '2017-12-25 14:29:14', '2017-12-25 14:29:31', 1, 1, NULL),
-(10, 'Beds', '2017-12-25 14:30:29', '2017-12-25 14:30:29', 1, 1, 1),
-(11, 'Bedside Tables', '2017-12-25 14:30:29', '2017-12-25 14:30:29', 1, 1, 1),
-(12, 'Dressers & Drawers', '2017-12-25 14:30:52', '2017-12-25 14:30:52', 1, 1, 1),
-(13, 'Wardrobes', '2017-12-25 14:30:52', '2017-12-25 14:30:52', 1, 1, 1),
-(14, 'Bed Ends', '2017-12-25 14:31:19', '2017-12-25 14:31:19', 1, 1, 1),
-(15, 'Bedroom Ensembles & Sets', '2017-12-25 14:31:19', '2017-12-25 14:31:19', 1, 1, 1),
-(16, 'Bed Headboards', '2017-12-25 14:31:41', '2017-12-25 14:31:41', 1, 1, 1),
-(17, 'Mattresses', '2017-12-25 14:31:41', '2017-12-25 14:31:41', 1, 1, 1),
-(18, 'Bedroom Shelving', '2017-12-25 14:32:04', '2017-12-25 14:32:04', 1, 1, 1),
-(19, 'Chairs', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(20, 'Beanbag', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(21, 'Massage Chairs', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(22, 'Sofas', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(23, 'Futons & Daybeds', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(24, 'Coffee Tables', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(25, 'Side Tables', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(26, 'Console Tables', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(27, 'Media & TV Storage', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(28, 'Bookcases & Shelving', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(29, 'Ottomans', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(30, 'Sofa Covers & Slips', '2017-12-25 14:38:32', '2017-12-25 14:38:32', 1, 1, 2),
-(31, 'Dining Tables', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(32, 'Bar Tables & Sets', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(33, 'Bar Stools', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(34, 'Wine & Drinks Cabinets', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(35, 'Dining Chairs', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(36, 'Dining Room Sets', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(37, 'Sideboards & Buffets', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(38, 'Kitchen Islands', '2017-12-25 14:41:19', '2017-12-25 14:41:19', 1, 1, 3),
-(39, 'Kids Tables & Sets', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(40, 'Kids Chairs', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(41, 'Kids Bookcases & Shelving', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(42, 'Toy Boxes & Organisers', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(43, 'Kids Wardrobes', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(44, 'Kids Beds', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(45, 'Nursery Furniture', '2017-12-25 14:44:03', '2017-12-25 14:44:03', 1, 1, 4),
-(46, 'Home Office Desks', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(47, 'Home Office Chairs', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(48, 'Office Bookcases & Shelving', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(49, 'Ergonomic Accessories', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(50, 'Filing Cabinets & Stands', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(51, 'Safes', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(52, 'Office Sets', '2017-12-25 14:46:23', '2017-12-25 14:46:23', 1, 1, 5),
-(53, 'Coat Racks & Umbrella Stands', '2017-12-25 14:48:51', '2017-12-25 14:48:51', 1, 1, 6),
-(54, 'Hall Stands & Shelving', '2017-12-25 14:48:51', '2017-12-25 14:48:51', 1, 1, 6),
-(55, 'Storage Benches', '2017-12-25 14:48:51', '2017-12-25 14:48:51', 1, 1, 6),
-(56, 'Shoe Storage', '2017-12-25 14:48:51', '2017-12-25 14:48:51', 1, 1, 6),
-(57, 'Gaming Tables', '2017-12-25 14:49:42', '2017-12-25 14:49:42', 1, 1, 7),
-(58, 'Gaming Chairs', '2017-12-25 14:49:42', '2017-12-25 14:49:42', 1, 1, 7),
-(59, 'Outdoor Tables', '2017-12-25 14:51:31', '2017-12-25 14:51:31', 1, 1, 8),
-(60, 'Outdoor Seating', '2017-12-25 14:51:31', '2017-12-25 14:51:31', 1, 1, 8),
-(61, 'Outdoor Sets', '2017-12-25 14:51:31', '2017-12-25 14:51:31', 1, 1, 8),
-(62, 'Shades & Awnings', '2017-12-25 14:51:31', '2017-12-25 14:51:31', 1, 1, 8);
+INSERT INTO `category` (`categoryId`, `name`, `lft`, `rgt`) VALUES
+(1, 'All Categories', 1, 160),
+(2, 'Furniture', 2, 149),
+(3, 'Bed & Bath', 150, 151),
+(4, 'Decor', 152, 153),
+(5, 'Houseware', 154, 155),
+(6, 'Window Treatments', 156, 157),
+(7, 'Lighting', 158, 159),
+(8, 'Bedroom', 3, 36),
+(9, 'Dining Room', 37, 52),
+(10, 'Kitchen', 53, 58),
+(11, 'Living Room', 59, 98),
+(12, 'Kids Furniture', 99, 110),
+(13, 'Office Furniture', 111, 134),
+(14, 'Outdoor Furniture', 135, 148),
+(15, 'Bed Frames', 4, 15),
+(16, 'Bunk + Loft + Double Decker Bed', 16, 17),
+(17, 'Folding Beds', 18, 19),
+(18, 'Day Beds', 20, 21),
+(19, 'Nightstands', 22, 23),
+(20, 'Dressers', 24, 25),
+(21, 'Chest of Drawers', 26, 27),
+(22, 'Shoe Cabinets', 28, 29),
+(23, 'Wardrobe', 30, 35),
+(24, 'Single Bed', 5, 6),
+(25, 'Semi-Double Bed', 7, 8),
+(26, 'Double Bed', 9, 10),
+(27, 'Queen Bed', 11, 12),
+(28, 'King Bed', 13, 14),
+(29, 'Hinge', 31, 32),
+(30, 'Sliding', 33, 34),
+(31, 'Barstools and Chairs', 38, 39),
+(32, 'Buffet Cabinets', 40, 41),
+(33, 'Display Cabinets', 42, 43),
+(34, 'Dining Chairs & Stools', 44, 45),
+(35, 'Folding Chair', 46, 47),
+(36, 'Dining Sets', 48, 49),
+(37, 'Tables + Table Tops + Table Legs', 50, 51),
+(38, 'Kitchen + Metal Racks', 54, 55),
+(39, 'Kitchen Cabinets', 56, 57),
+(40, 'Accent + Armchairs', 60, 61),
+(41, 'Benches + Ottomans + Bean Bags', 62, 63),
+(42, 'Chaise Lounge', 64, 65),
+(43, 'Bookcase + Wall Shelves', 66, 67),
+(44, 'TV Racks', 68, 69),
+(45, 'Magazine Racks', 70, 71),
+(46, 'Sofas', 72, 89),
+(47, 'Tables', 90, 97),
+(48, 'Native', 73, 74),
+(49, 'Apartment', 75, 76),
+(50, 'Transitional', 77, 78),
+(51, 'Modern', 79, 80),
+(52, 'Classical', 81, 82),
+(53, 'Modular', 83, 84),
+(54, 'Sofa Bed', 85, 86),
+(55, 'Recliners', 87, 88),
+(56, 'Center Table', 91, 92),
+(57, 'Side Table', 93, 94),
+(58, 'Console Table', 95, 96),
+(59, 'Bed Frames (Kids)', 100, 101),
+(60, 'Seating', 102, 103),
+(61, 'Play Sets', 104, 105),
+(62, 'Tables (Kids)', 106, 107),
+(63, 'Storage', 108, 109),
+(64, 'Bookcase', 112, 113),
+(65, 'Chairs', 114, 121),
+(66, 'Desks', 122, 129),
+(67, 'Filing Cabinets', 130, 131),
+(68, 'Office Series', 132, 133),
+(69, 'High Back Chairs', 115, 116),
+(70, 'Low Back Chairs', 117, 118),
+(71, 'Visitor Chairs', 119, 120),
+(72, 'Writing + Computer Desks', 123, 124),
+(73, 'Executive', 125, 126),
+(74, 'Work Station', 127, 128),
+(75, 'Outdoor Chair', 136, 137),
+(76, 'Outdoor Table', 138, 139),
+(77, 'Outdoor Sets', 140, 141),
+(78, 'Outdoor Lounger', 142, 143),
+(79, 'Umbrellas', 144, 145),
+(80, 'Public Chairs', 146, 147);
 
 -- --------------------------------------------------------
 
@@ -124,7 +141,12 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerId`, `firstName`, `middleName`, `lastName`, `birthdate`, `userId`) VALUES
-(1, 'Christian Ted', 'Reyes', 'Ochoa', '1997-11-18', 3);
+(1, 'Christian Ted', 'Reyes', 'Ochoa', '1997-11-18', 3),
+(2, 'kobe', 'bean', 'bryant', '1978-08-23', 4),
+(3, 'Julie Noreen', 'Malazarte', 'Sales', '1998-07-21', 5),
+(4, 'Geralt', 'Of', 'Rivia', '2017-12-29', 6),
+(5, 'First', 'Middle', 'Last', '2017-12-08', 7),
+(6, 'Punished', 'Venom', 'Snake', '2017-12-05', 8);
 
 -- --------------------------------------------------------
 
@@ -134,28 +156,39 @@ INSERT INTO `customer` (`customerId`, `firstName`, `middleName`, `lastName`, `bi
 
 CREATE TABLE `customer_order` (
   `orderId` int(11) NOT NULL,
-  `orderNumber` int(11) NOT NULL,
-  `deliveryTime` time NOT NULL,
+  `orderNumber` varchar(16) NOT NULL,
   `shippingContactPerson` varchar(256) DEFAULT NULL,
   `shippingAddress` varchar(512) DEFAULT NULL,
   `shippingLocationId` int(11) DEFAULT NULL,
-  `shippingContactNumber` int(16) DEFAULT NULL,
+  `shippingContactNumber` varchar(16) DEFAULT NULL,
   `billingContactPerson` varchar(256) DEFAULT NULL,
   `billingAddress` varchar(512) DEFAULT NULL,
   `billingLocationId` int(11) DEFAULT NULL,
-  `billingContactNumber` int(16) DEFAULT NULL,
+  `billingContactNumber` varchar(16) DEFAULT NULL,
   `discount` float NOT NULL,
   `tax` float NOT NULL,
-  `cancelled` tinyint(1) DEFAULT NULL,
-  `paid` tinyint(1) DEFAULT NULL,
-  `payment_date` timestamp NULL DEFAULT NULL,
+  `subtotalFee` float NOT NULL,
+  `shippingFee` float NOT NULL,
+  `totalFee` float NOT NULL,
+  `state` enum('pending','shipping','delivered') DEFAULT 'pending',
+  `cancelled` tinyint(1) DEFAULT '0',
+  `paid` tinyint(1) DEFAULT '0',
+  `paymentDate` timestamp NULL DEFAULT NULL,
   `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `addedBy` int(11) NOT NULL,
-  `updatedBy` int(11) NOT NULL,
   `customerId` int(11) NOT NULL,
   `paymentId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_order`
+--
+
+INSERT INTO `customer_order` (`orderId`, `orderNumber`, `shippingContactPerson`, `shippingAddress`, `shippingLocationId`, `shippingContactNumber`, `billingContactPerson`, `billingAddress`, `billingLocationId`, `billingContactNumber`, `discount`, `tax`, `subtotalFee`, `shippingFee`, `totalFee`, `state`, `cancelled`, `paid`, `paymentDate`, `dateAdded`, `dateUpdated`, `customerId`, `paymentId`) VALUES
+(33, '1514641332024', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 0, 12, 4750, 168, 5508.16, 'delivered', 0, 0, NULL, '2017-12-30 13:42:12', '2017-12-30 14:30:39', 1, 1),
+(34, '1514643812797', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 0, 12, 2375, 168, 2848.16, 'shipping', 0, 0, NULL, '2017-12-30 14:23:32', '2017-12-30 14:30:35', 1, 1),
+(35, '1514643863878', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 0, 12, 2375, 168, 2848.16, 'shipping', 0, 0, NULL, '2017-12-30 14:24:23', '2017-12-30 14:30:31', 1, 1),
+(36, '1514643899082', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 'Christian Ted Ochoa', 'Green Valley Subdivision', 53, '09172064946', 0, 12, 2375, 168, 2848.16, 'pending', 0, 0, NULL, '2017-12-30 14:24:59', '2017-12-30 14:24:59', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -170,12 +203,16 @@ CREATE TABLE `furniture` (
   `warrantyId` int(11) DEFAULT NULL,
   `model` varchar(64) DEFAULT NULL,
   `color` varchar(24) DEFAULT NULL,
-  `weight` float DEFAULT NULL,
-  `weightUnit` enum('oz','g','kg') DEFAULT NULL,
+  `weight` float NOT NULL,
+  `weightUnit` enum('lbs','g','kg') NOT NULL,
   `length` float NOT NULL,
   `width` float NOT NULL,
   `height` float NOT NULL,
   `sizeUnit` enum('m','cm','') NOT NULL,
+  `packageLength` float NOT NULL,
+  `packageWidth` float NOT NULL,
+  `packageHeight` float NOT NULL,
+  `packageSizeUnit` enum('cm') NOT NULL,
   `price` float NOT NULL,
   `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -183,7 +220,10 @@ CREATE TABLE `furniture` (
   `updatedBy` int(11) NOT NULL,
   `modelName` varchar(256) DEFAULT NULL,
   `discount` float NOT NULL,
-  `categoryId` int(11) NOT NULL,
+  `saleStart` timestamp NULL DEFAULT NULL,
+  `saleEnd` timestamp NULL DEFAULT NULL,
+  `live` tinyint(1) DEFAULT '0',
+  `categoryId` int(11) DEFAULT NULL,
   `sellerId` int(11) NOT NULL,
   `versionOf` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -192,8 +232,8 @@ CREATE TABLE `furniture` (
 -- Dumping data for table `furniture`
 --
 
-INSERT INTO `furniture` (`furnitureId`, `name`, `description`, `warrantyId`, `model`, `color`, `weight`, `weightUnit`, `length`, `width`, `height`, `sizeUnit`, `price`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `modelName`, `discount`, `categoryId`, `sellerId`, `versionOf`) VALUES
-(1, 'Dream Table', 'This table is the dream of our ancestors!', 1, 'DTBL-01', 'brown', 0.5, 'kg', 5, 5, 4, 'm', 2500, '2017-12-26 01:08:51', '2017-12-27 11:31:32', 2, 2, 'dream table', 5, 25, 1, NULL);
+INSERT INTO `furniture` (`furnitureId`, `name`, `description`, `warrantyId`, `model`, `color`, `weight`, `weightUnit`, `length`, `width`, `height`, `sizeUnit`, `packageLength`, `packageWidth`, `packageHeight`, `packageSizeUnit`, `price`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `modelName`, `discount`, `saleStart`, `saleEnd`, `live`, `categoryId`, `sellerId`, `versionOf`) VALUES
+(1, 'Dream Table', 'This table is the dream of our ancestors!', 1, 'DTBL-01', 'brown', 4, 'kg', 20, 15, 10, 'cm', 31, 21, 15, 'cm', 2500, '2017-12-26 01:08:51', '2017-12-31 05:17:58', 2, 2, 'dream table', 5, NULL, NULL, 0, 37, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -276,19 +316,22 @@ CREATE TABLE `furniture_stock` (
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `addedBy` int(11) NOT NULL,
   `updatedBy` int(11) NOT NULL,
-  `furnitureId` int(11) NOT NULL
+  `furnitureId` int(11) NOT NULL,
+  `customerId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `furniture_stock`
 --
 
-INSERT INTO `furniture_stock` (`stockId`, `status`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `furnitureId`) VALUES
-(1, 'available', '2017-12-26 01:17:41', '2017-12-26 02:07:31', 2, 2, 1),
-(2, 'available', '2017-12-26 01:17:41', '2017-12-26 02:07:36', 2, 2, 1),
-(3, 'sold', '2017-12-26 01:17:41', '2017-12-26 05:38:24', 2, 2, 1),
-(4, 'available', '2017-12-26 01:17:41', '2017-12-26 02:07:46', 2, 2, 1),
-(5, 'available', '2017-12-26 01:17:41', '2017-12-26 02:07:51', 2, 2, 1);
+INSERT INTO `furniture_stock` (`stockId`, `status`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `furnitureId`, `customerId`) VALUES
+(1, 'sold', '2017-12-26 01:17:41', '2017-12-30 13:42:12', 2, 2, 1, 1),
+(2, 'sold', '2017-12-26 01:17:41', '2017-12-30 13:42:12', 2, 2, 1, 1),
+(3, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:23:33', 2, 2, 1, 1),
+(4, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:24:24', 2, 2, 1, 1),
+(5, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:24:59', 2, 2, 1, 1),
+(6, 'available', '2018-01-03 13:21:34', '2018-01-03 13:21:42', 2, 2, 1, NULL),
+(7, 'available', '2018-01-03 13:21:52', '2018-01-03 13:21:52', 2, 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -365,21 +408,41 @@ INSERT INTO `location` (`locationId`, `name`, `type`, `parentLocationId`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `notificationId` int(11) NOT NULL,
+  `notification` varchar(512) NOT NULL,
+  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `userId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_item`
 --
 
 CREATE TABLE `order_item` (
   `orderItemId` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` float NOT NULL,
+  `originalPrice` float NOT NULL,
   `discount` float NOT NULL,
-  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `addedBy` int(11) NOT NULL,
-  `updatedBy` int(11) NOT NULL,
   `orderId` int(11) NOT NULL,
-  `furnitureId` int(11) NOT NULL
+  `stockId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`orderItemId`, `originalPrice`, `discount`, `orderId`, `stockId`) VALUES
+(44, 2500, 5, 33, 1),
+(45, 2500, 5, 33, 2),
+(46, 2500, 5, 34, 3),
+(47, 2500, 5, 35, 4),
+(48, 2500, 5, 36, 5);
 
 -- --------------------------------------------------------
 
@@ -389,14 +452,23 @@ CREATE TABLE `order_item` (
 
 CREATE TABLE `order_status` (
   `orderStatusId` int(11) NOT NULL,
-  `state` enum('processing','shipping','delivered','') NOT NULL,
   `status` varchar(1028) NOT NULL,
   `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `addedBy` int(11) NOT NULL,
-  `updatedBy` int(11) NOT NULL,
+  `addedBy` int(11) DEFAULT NULL,
+  `updatedBy` int(11) DEFAULT NULL,
   `orderId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_status`
+--
+
+INSERT INTO `order_status` (`orderStatusId`, `status`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `orderId`) VALUES
+(6, 'Order has been placed.', '2017-12-30 13:42:12', '2017-12-30 13:42:12', NULL, NULL, 33),
+(7, 'Order has been placed.', '2017-12-30 14:23:33', '2017-12-30 14:23:33', NULL, NULL, 34),
+(8, 'Order has been placed.', '2017-12-30 14:24:24', '2017-12-30 14:24:24', NULL, NULL, 35),
+(9, 'Order has been placed.', '2017-12-30 14:24:59', '2017-12-30 14:24:59', NULL, NULL, 36);
 
 -- --------------------------------------------------------
 
@@ -445,8 +517,15 @@ CREATE TABLE `question` (
 INSERT INTO `question` (`questionId`, `question`, `answer`, `active`, `datePosted`, `dateAnswered`, `customerId`, `furnitureId`) VALUES
 (1, 'Does the package come with the tools?', 'yes .. everything you need is in the package', 1, '2017-12-27 01:57:29', '2017-12-27 01:57:29', 1, 1),
 (2, 'Does it come with another color?', NULL, 1, '2017-12-27 01:57:29', NULL, 1, 1),
-(3, 'Excuse me.. does this table weigh more than 1 kg?', 'No it doesn''t. Actually it weighs 0.5kg.:)', 1, '2017-12-27 11:50:28', '2017-12-27 11:50:28', 1, 1),
-(4, 'When will you try to restock?', 'Every first Sunday of the month. :)', 1, '2017-12-27 11:50:28', '2017-12-27 11:50:28', 1, 1);
+(3, 'Excuse me.. does this table weigh more than 1 kg?', 'No it doesn\'t. Actually it weighs 0.5kg.:)', 1, '2017-12-27 11:50:28', '2017-12-27 11:50:28', 1, 1),
+(4, 'When will you try to restock?', 'Every first Sunday of the month. :)', 1, '2017-12-27 11:50:28', '2017-12-27 11:50:28', 1, 1),
+(5, 'Dont mind this question', NULL, 1, '2017-12-28 12:06:29', NULL, 1, 1),
+(6, 'Hey does this break easily?', NULL, 1, '2017-12-28 12:13:44', NULL, 1, 1),
+(8, 'Does this table come with a glass material variation?', NULL, 1, '2017-12-28 12:57:33', NULL, 1, 1),
+(9, 'Am I being ignored?', NULL, 1, '2017-12-28 13:05:03', NULL, 1, 1),
+(10, 'Are you guys going to answer my question or nah??', NULL, 1, '2017-12-28 13:07:48', NULL, 1, 1),
+(11, 'Do you make other furniture aside from tables?', NULL, 1, '2017-12-28 14:05:22', NULL, 1, 1),
+(12, 'Is this useful in the military???', NULL, 1, '2017-12-28 16:32:20', NULL, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -477,7 +556,11 @@ INSERT INTO `review` (`reviewId`, `rating`, `likes`, `title`, `body`, `dateAdded
 (2, 1, 2, 'Package missing tools', 'I received the package with MISSING LEGS wtf...', '2017-12-26 12:47:10', '2017-12-26 12:47:10', 3, 3, 1, 1),
 (3, 3, 2, 'Just like any other table...', 'The material is okay but not too strong plus its appeal.. meh..', '2017-12-27 12:11:25', '2017-12-27 12:11:25', 3, 3, 1, 1),
 (4, 4, 7, 'Gorgeous!', 'I have no complaints except for the fact that my package was slightly damaged..', '2017-12-27 12:11:25', '2017-12-27 12:11:25', 3, 3, 1, 1),
-(5, 5, 3, 'Worth the money!', 'Wow I never imagined it to be super sturdy despite being so light.', '2017-12-27 12:18:36', '2017-12-27 12:18:36', 3, 3, 1, 1);
+(5, 5, 3, 'Worth the money!', 'Wow I never imagined it to be super sturdy despite being so light.', '2017-12-27 12:18:36', '2017-12-27 12:18:36', 3, 3, 1, 1),
+(6, 5, 0, 'Test Review', 'Dont mind this review.', '2017-12-28 13:24:49', '2017-12-28 13:24:49', 3, 3, 1, 1),
+(7, 4, 0, 'Table is good', 'The table lives up to my expectations', '2017-12-28 14:17:45', '2017-12-28 14:17:45', 3, 3, 1, 1),
+(8, 5, 0, 'Cute', 'The table is so cute!', '2017-12-28 16:23:53', '2017-12-28 16:23:53', 5, 5, 1, 3),
+(9, 5, 0, 'Useful Everywhere It Seems', 'Wow I never thought I could hide underneath it to sneak past the Soviets LOL ! Great product!', '2017-12-28 16:33:06', '2017-12-28 16:33:06', 8, 8, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -527,7 +610,12 @@ CREATE TABLE `user_details` (
 INSERT INTO `user_details` (`userId`, `username`, `password`, `userType`, `userStatus`, `email`, `mobileNumber`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
 (1, 'admin', 'admin', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2017-12-25 15:08:22', NULL, NULL),
 (2, 'seller', 'seller', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2017-12-26 01:01:03', NULL, NULL),
-(3, 'customer', 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL);
+(3, 'customer', 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL),
+(4, NULL, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2017-12-28 14:52:22', NULL, NULL),
+(5, NULL, 'julie', 'customer', 'active', 'julie@gmail.com', '12345', NULL, '2017-12-28 16:14:04', '2017-12-28 16:14:04', NULL, NULL),
+(6, NULL, 'geralt', 'customer', 'active', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2017-12-28 16:25:24', NULL, NULL),
+(7, NULL, 'letters', 'customer', 'active', 'letters@gmail.com', '1234567890', NULL, '2017-12-28 16:29:07', '2017-12-28 16:29:07', NULL, NULL),
+(8, NULL, 'snake', 'customer', 'active', 'snake@gmail.com', '55555', NULL, '2017-12-28 16:31:33', '2017-12-28 16:31:33', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -550,7 +638,21 @@ CREATE TABLE `warranty` (
 --
 
 INSERT INTO `warranty` (`warrantyId`, `name`, `description`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
-(1, 'KwARto Warranty', 'KwARto refund policy only. Defective items can be returned to KwARto within the specified time period. If found to have a manufacturer''s defect, the item will be fully refunded. Please note KwARto will not perform any repairs and will not be held liable for any defects caused by the customer or defects occurring after the expiry of the warranty period. Note that the warranty does not cover normal wear and tear, excessive abuse or misuse or any instructions provided by the manufacturer or merchant that was not followed by the user that may cause the warranty to be voided.', '2017-12-26 02:28:35', '2017-12-26 02:28:35', 1, 1);
+(1, 'KwARto Warranty', 'KwARto refund policy only. Defective items can be returned to KwARto within the specified time period. If found to have a manufacturer\'s defect, the item will be fully refunded. Please note KwARto will not perform any repairs and will not be held liable for any defects caused by the customer or defects occurring after the expiry of the warranty period. Note that the warranty does not cover normal wear and tear, excessive abuse or misuse or any instructions provided by the manufacturer or merchant that was not followed by the user that may cause the warranty to be voided.', '2017-12-26 02:28:35', '2017-12-26 02:28:35', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `wishlistId` int(11) NOT NULL,
+  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `furnitureId` int(11) NOT NULL,
+  `customerId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -560,8 +662,7 @@ INSERT INTO `warranty` (`warrantyId`, `name`, `description`, `dateAdded`, `dateU
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`categoryId`),
-  ADD KEY `category_FK` (`parent`);
+  ADD PRIMARY KEY (`categoryId`);
 
 --
 -- Indexes for table `customer`
@@ -617,7 +718,8 @@ ALTER TABLE `furniture_specification`
 ALTER TABLE `furniture_stock`
   ADD PRIMARY KEY (`stockId`),
   ADD UNIQUE KEY `stockId` (`stockId`),
-  ADD KEY `furniture_stock_FK` (`furnitureId`);
+  ADD KEY `furniture_stock_FK` (`furnitureId`),
+  ADD KEY `customerId` (`customerId`);
 
 --
 -- Indexes for table `location`
@@ -628,12 +730,19 @@ ALTER TABLE `location`
   ADD KEY `location_FK` (`parentLocationId`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notificationId`),
+  ADD KEY `userId` (`userId`);
+
+--
 -- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`orderItemId`),
   ADD KEY `order_item_FK1` (`orderId`),
-  ADD KEY `order_item_FK2` (`furnitureId`);
+  ADD KEY `order_item_FK2` (`stockId`);
 
 --
 -- Indexes for table `order_status`
@@ -684,6 +793,14 @@ ALTER TABLE `warranty`
   ADD PRIMARY KEY (`warrantyId`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`wishlistId`),
+  ADD KEY `furnitureId` (`furnitureId`),
+  ADD KEY `customerId` (`customerId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -691,96 +808,119 @@ ALTER TABLE `warranty`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
 --
 -- AUTO_INCREMENT for table `furniture`
 --
 ALTER TABLE `furniture`
   MODIFY `furnitureId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `furniture_image`
 --
 ALTER TABLE `furniture_image`
   MODIFY `furnitureImageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `furniture_package`
 --
 ALTER TABLE `furniture_package`
   MODIFY `packId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `furniture_specification`
 --
 ALTER TABLE `furniture_specification`
   MODIFY `specId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `furniture_stock`
 --
 ALTER TABLE `furniture_stock`
-  MODIFY `stockId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `stockId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notificationId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `orderItemId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
 --
 -- AUTO_INCREMENT for table `order_status`
 --
 ALTER TABLE `order_status`
-  MODIFY `orderStatusId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderStatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
   MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
   MODIFY `sellerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `warranty`
 --
 ALTER TABLE `warranty`
   MODIFY `warrantyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `wishlistId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_FK` FOREIGN KEY (`parent`) REFERENCES `category` (`categoryId`);
 
 --
 -- Constraints for table `customer`
@@ -801,10 +941,10 @@ ALTER TABLE `customer_order`
 -- Constraints for table `furniture`
 --
 ALTER TABLE `furniture`
-  ADD CONSTRAINT `furniture_FK1` FOREIGN KEY (`categoryId`) REFERENCES `category` (`categoryId`),
   ADD CONSTRAINT `furniture_FK2` FOREIGN KEY (`sellerId`) REFERENCES `seller` (`sellerId`),
   ADD CONSTRAINT `furniture_FK3` FOREIGN KEY (`versionOf`) REFERENCES `furniture` (`furnitureId`),
-  ADD CONSTRAINT `furniture_FK4` FOREIGN KEY (`warrantyId`) REFERENCES `warranty` (`warrantyId`);
+  ADD CONSTRAINT `furniture_FK4` FOREIGN KEY (`warrantyId`) REFERENCES `warranty` (`warrantyId`),
+  ADD CONSTRAINT `furniture_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `category` (`categoryId`);
 
 --
 -- Constraints for table `furniture_image`
@@ -828,7 +968,8 @@ ALTER TABLE `furniture_specification`
 -- Constraints for table `furniture_stock`
 --
 ALTER TABLE `furniture_stock`
-  ADD CONSTRAINT `furniture_stock_FK` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`);
+  ADD CONSTRAINT `furniture_stock_FK1` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`),
+  ADD CONSTRAINT `furniture_stock_FK2` FOREIGN KEY (`customerId`) REFERENCES `customer` (`customerId`);
 
 --
 -- Constraints for table `location`
@@ -837,17 +978,23 @@ ALTER TABLE `location`
   ADD CONSTRAINT `location_FK` FOREIGN KEY (`parentLocationId`) REFERENCES `location` (`locationId`);
 
 --
+-- Constraints for table `notification`
+--
+ALTER TABLE `notification`
+  ADD CONSTRAINT `notification_FK1` FOREIGN KEY (`userId`) REFERENCES `user_details` (`userId`);
+
+--
 -- Constraints for table `order_item`
 --
 ALTER TABLE `order_item`
   ADD CONSTRAINT `order_item_FK1` FOREIGN KEY (`orderId`) REFERENCES `customer_order` (`orderId`),
-  ADD CONSTRAINT `order_item_FK2` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`);
+  ADD CONSTRAINT `order_item_FK2` FOREIGN KEY (`stockId`) REFERENCES `furniture_stock` (`stockId`);
 
 --
 -- Constraints for table `order_status`
 --
 ALTER TABLE `order_status`
-  ADD CONSTRAINT `order_status_fk_1` FOREIGN KEY (`orderStatusId`) REFERENCES `customer_order` (`orderId`);
+  ADD CONSTRAINT `order_status_fk_1` FOREIGN KEY (`orderId`) REFERENCES `customer_order` (`orderId`);
 
 --
 -- Constraints for table `question`
@@ -868,6 +1015,14 @@ ALTER TABLE `review`
 --
 ALTER TABLE `seller`
   ADD CONSTRAINT `seller_FK` FOREIGN KEY (`userId`) REFERENCES `user_details` (`userId`);
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `wishlist_FK1` FOREIGN KEY (`furnitureId`) REFERENCES `furniture` (`furnitureId`),
+  ADD CONSTRAINT `wishlist_FK2` FOREIGN KEY (`customerId`) REFERENCES `customer` (`customerId`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

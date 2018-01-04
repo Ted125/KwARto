@@ -18,7 +18,36 @@ class furniture_package{
 
     /***************** FUNCTIONS ****************/
 
-
+    public function createFurniturePackage($furnitureId){
+        if(isset($_SESSION)){
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    //$furniture = new furniture();
+                    $this->setItem($_POST['item']);
+                    $this->setFurnitureId($furnitureId);
+                    $create = "INSERT INTO furniture_package
+                    ( 
+                    status
+                    furnitureId
+                    )
+                    VALUES
+                    ('".$this->getSpecification()."',
+                    '".$this->getFurnitureId()."',
+                    )";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only sellers can add furniture items to the package';
+            }
+        }else{
+            echo 'no session found';
+        }
+        return $result;
+    }
 
     /************ SETTERS AND GETTERS ************/
     

@@ -23,7 +23,43 @@ class furniture_image{
 
     /***************** FUNCTIONS ****************/
 
+    public function createFurnitureImage($furnitureId){
+        if(isset($_SESSION)){
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setImage($_POST['image']);
+                    $this->setFurnitureId($furnitureId);
+                    $this->setAddedBy($_SESSION['userId']);
+                    $this->setUpdatedBy($_SESSION['userId']);
+                    $create = "INSERT INTO furniture_image
+                    ( 
+                    status
+                    furnitureId
+                    )
+                    VALUES
+                    ('".$this->getStatus()."',
+                    '".$this->getFurnitureId()."',
+                    '".$this->getAddedBy()."',
+                    '".$this->getUpdatedBy()."'
+                    )";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only sellers can add furniture image';
+            }
+        }else{
+            echo 'no session found';
+        }
+        return $result;
+    }
 
+    public function displayFurnitureImage($furnitureId){
+
+    }
 
     /************ SETTERS AND GETTERS ************/
     

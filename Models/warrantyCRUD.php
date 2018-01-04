@@ -22,7 +22,42 @@ class warranty{
 
     /***************** FUNCTIONS ****************/
 
-
+    public function createWarrantyId(){
+        if(isset($_SESSION)){
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    //$furniture = new furniture();
+                    $this->setName($_POST['name']);
+                    $this->setDescription($_POST['description']);
+                    $this->setAddedBy($_SESSION['userId']);
+                    $this->setUpdatedBy($_SESSION['userId']);
+                    $create = "INSERT INTO warranty
+                    ( 
+                    name,
+                    description,
+                    addedBy,
+                    updatedBy
+                    )
+                    VALUES
+                    ('".$this->getName()."',
+                    '".$this->getDescription()."',
+                    '".$this->getAddedBy()."',
+                    '".$this->getUpdatedBy()."'
+                    )";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only admins can add warranties';
+            }
+        }else{
+            echo 'no session found';
+        }
+        return $result;
+    }
 
     /************ SETTERS AND GETTERS ************/
     
