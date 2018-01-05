@@ -171,16 +171,6 @@
                             <li><a>Ceiling Fan</a></li>
                           </ul>
                         </li>
-                        <li> <a style="background-color: #d42d2d; color: white;">Deals</a>
-                          <ul>
-                            <li><a>Furniture</a></li>
-                            <li><a>Bed & Bath</a></li>
-                            <li><a>Decor</a></li>
-                            <li><a>Houseware</a></li>
-                            <li><a>Window Treatments</a></li>
-                            <li><a>Lighting</a></li>  
-                          </ul>
-                        </li>
                       </ul>
                     </div>
                   </div>
@@ -226,7 +216,25 @@
                         <div class="line"></div>
                         <div class="form-group row" style="float: right;">
                           <div class="">
-                            <button type="submit" class="btn btn-primary">Add Category</button>
+                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Add Category</button>
+                              <!-- Modal-->
+                              <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to add this category?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                           </div>
                         </div>
                       </form>
