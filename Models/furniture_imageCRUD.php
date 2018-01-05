@@ -1,6 +1,7 @@
 <?php 
 require("SQL_Connect.php");
 include("Database.php");
+include("userDetails.php");
 
 class furniture_image{
     private $furnitureImageId;
@@ -25,6 +26,7 @@ class furniture_image{
 
     public function createFurnitureImage($furnitureId){
         if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
@@ -58,8 +60,53 @@ class furniture_image{
     }
 
     public function displayFurnitureImage($furnitureId){
-
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnituredId);
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT *
+            FROM  furniture_image
+            WHERE furnitureId = '".$this->getFurnitureId()."'
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
     }
+
+    public function deleteFurnitureImage($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $delete = "DELETE
+                               FROM furniture_image
+                               WHERE furnitureId = '".$this->getFurnitureId()."'
+                              ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can delete their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
+
 
     /************ SETTERS AND GETTERS ************/
     

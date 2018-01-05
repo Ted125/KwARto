@@ -1,6 +1,7 @@
 <?php 
 require("SQL_Connect.php");
 include("Database.php");
+include("userDetails.php");
 
 class furniture_stock{
     private $stockId;
@@ -24,6 +25,7 @@ class furniture_stock{
     
     public function createFurnitureStock($furnitureId){
         if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
@@ -81,8 +83,8 @@ class furniture_stock{
         $this->setFurnitureId($furnituredId);
         $result = $avail = null;
         if($connection){
-            $avail = checkFurnitureStock($this->getFurnitureId());   
-            if($avail != null){
+            $avail = checkFurnitureStock($this->getFurnitureId());       /* Checks the the thing if there is still available stock*/  
+            if($avail != null){                                          /* cancels the purchasing if there are none*/
                 $query = "UPDATE furniture_stocks 
                           SET status = 'on hold', customerId = '".$_SESSION['userId']."'
                           WHERE stockId = '".$avail[0]."' && order by dateAdded limit 1
@@ -91,7 +93,7 @@ class furniture_stock{
                 mysqli_close($connection);
             // THIS WILL CALL A FUNCTION TO ADD TO CART I HAVENT MADE CART YET
             }else{
-                echo "No available stock";
+                echo "No available stock of this furniture";
             }
         } else {
             echo "Connection Error";
@@ -134,7 +136,6 @@ class furniture_stock{
             WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available'
             ";
             $result = mysqli_query($connection, $query);
-                  
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
@@ -185,7 +186,32 @@ class furniture_stock{
         }        
         return $result;
     }
-    	
+    
+    public function deleteFurnitureStock($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $delete = "DELETE
+                               FROM furniture_stock
+                               WHERE furnitureId = '".$this->getFurnitureId()."'
+                              ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can delete their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
 
     /************ SETTERS AND GETTERS ************/
     

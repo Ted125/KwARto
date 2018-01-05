@@ -21,6 +21,10 @@ include("furniture_packageCRUD.php");
     private $width;
     private $height;
     private $sizeUnit;
+    private $packageLength;
+    private $packageWidth;
+    private $packageHeight;
+    private $packageSizeUnit;
     private $price;
     private $dateAdded;
     private $dateUpdated;
@@ -48,6 +52,7 @@ include("furniture_packageCRUD.php");
     
     public function createFurniture(){
         if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
@@ -127,36 +132,11 @@ include("furniture_packageCRUD.php");
     public function displayFurniture($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
             //$result = NULL;
-            $query ="SELECT
-            furnitureId,
-            name,
-            description,
-            warrantyId,
-            model,
-            color,
-            weight,
-            weightUnit,
-            length,
-            width,
-            height,
-            sizeUnit,
-            price,
-            dateAdded,
-            dateUpdated,
-            addedBy,
-            updatedBy,
-            modelName,
-            discount,
-            saleStart,
-            saleEnd,
-            live,
-            categoryId,
-            sellerId,
-            versionOf
+            $query ="SELECT *
             FROM  furniture
             WHERE furnitureId = '".$this->getFurnitureId()."'
             ";
@@ -170,6 +150,47 @@ include("furniture_packageCRUD.php");
         }        
         return $result;
     }
+
+    public function deleteFurniture($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    deleteFurnitureImage($this->getFurnitureId());
+                    deleteFurniturePackage($this->getFurnitureId());
+                    deleteFurnitureSpecification($this->getFurnitureId());
+                    deleteFurnitureStock($this->getFurnitureId());
+                    $delete = "DELETE
+                               FROM furniture
+                               WHERE furnitureId = '".$this->getFurnitureId()."'
+                              ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can delete their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
+
+    /* IN PROGRESS SELECT THING
+    SELECT *
+    FROM furniture a
+    JOIN furniture_image b ON a.furnitureId = a.furnitureId 
+    JOIN furniture_package c ON c.furnitureId = a.furnitureId
+    JOIN furniture_specification d  ON d.furnitureId = a.furnitureId
+    JOIN furniture_stock e ON e.furnitureId = a.furnitureId
+    JOIN warranty f ON f.warrantyId = a.warrantyId
+    WHERE a.furnitureId = 1;
+    */
 
     /***************** SETTERS AND GETTERS ****************/
 
@@ -268,6 +289,38 @@ include("furniture_packageCRUD.php");
     public function setSizeUnit($sizeUnit){
         $this->sizeUnit = $sizeUnit;
     }
+
+    public function getPackageLength(){
+        return $this->packageLength;
+    }
+
+    public function setPackageLength($packageLength){
+        $this->packageLength = $packageLength;
+    }
+
+    public function getPackageWidth(){
+        return $this->packageWidth;
+    }
+
+    public function setPackageWidth($packageWidth){
+        $this->packageWidth = $packageWidth;
+    }
+
+    public function getPackageHeight(){
+        return $this->packageHeight;
+    }
+
+    public function setPackageHeight($packageHeight){
+        $this->packageHeight = $packageHeight;
+    }
+
+    public function getPackageSizeUnit(){
+        return $this->packageSizeUnit;
+    }
+
+    public function setPackageSizeUnit($packageSizeUnit){
+        $this->packageSizeUnit = $packageSizeUnit;
+    }    
 
     public function getPrice(){
         return $this->price;
