@@ -43,13 +43,6 @@ class customer extends user_details{
             $this->setMiddleName($_POST["registerMName"]);
             $this->setLastName($_POST["registerLName"]);
             $this->setBirthdate($_POST["registerBDay"]);
-            // if(!isset($_SESSION)){
-            //     setAddedBy($userId);
-            //     setUserStatus('inactive');
-            // }else{
-            //     setAddedBy($_SESSION['userId']);
-            //     setUserStatus('active');
-            // }
             $create = "INSERT INTO customer
             ( 
             firstName,
@@ -99,56 +92,6 @@ class customer extends user_details{
             echo 'no session';
         }
     }
-    // public function updateCustomer(){
-    //     if(isset($_SESSION)){
-    //         if(getUserType($_SESSION['userType']) == 'customer'){
-    //             setCustomerId($_SESSION['customerId']);
-    //             setUserId($_SESSION['userId']);
-    //             setUpdatedBy($_SESSION['userId']);
-    //         }else if(getUserType($_SESSION['userType']) == 'admin'){
-    //             setCustomerId($_POST['customerId']);
-    //             setUserId($_POST['userId']);
-    //             setUpdatedBy($_SESSION['userId']);
-    //         }    
-    //                 /*CUSTOMER DETAILS*/
-    //                 setFirstName($_POST['firstName']);
-    //                 setMiddleName($_POST['middleName']);
-    //                 setLastName($_POST['lastName']);
-    //                 setBirthdate($_POST['birthdate']);
-    //                 /*USER DETAILS*/
-    //                 setPassword($_POST['password']);
-    //                 setGender($_POST['gender']);
-    //                 setEmail($_POST['email']);
-    //                 setMobileNumber($_POST['mobileNumber']);
-    //                 setAddress($_POST['address']);
-
-    //                 /* UPDATE CUSTOMER TABLE */
-
-    //                 $update1 = "UPDATE customer
-    //                 SET
-    //                 firstName = '".getFirstName()."',
-    //                 middleName = '".getMiddleName()."',
-    //                 lastName = '".getLastName()."',
-    //                 birthdate = '".getBirthdate()."'
-    //                 WHERE customerId = '".getCustomerId()."'";	
-    //                 $result1 = mysqli_query($mysqli, $update);
-
-    //                 /* UPDATE USER_DETAILS TABLE */
-
-    //                 $update2 = "UPDATE user_details
-    //                 SET
-    //                 `password` = '".getPassword()."',
-    //                 gender = '".getGender()."',
-    //                 email = '".getEmail()."',
-    //                 mobileNumber = '".getMobileNumber()."',
-    //                 address = '".getAddress()."',
-    //                 updatedBy = '".getUpdatedBy()."',
-    //                 WHERE userID = '".getUserId()."'";
-    //                 $result2 = mysqli_query($mysqli, $update);    
-    //     }else{
-    //         echo "no session";
-    //     }
-    // }
 
     public function readCustomer(){
         $this->setCustomerId($_POST['customerId']); 
