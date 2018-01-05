@@ -175,6 +175,9 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="row">
+                                      <div class="col-5">
+                                          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
+                                      </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-right: 3px;">John</h5>  </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-right: 3px;">Smithers</h5> </h5></div>
@@ -182,10 +185,6 @@
                                          <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-right: 3px;">Male</h5> </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-right: 3px;">+63 123 456 7890</h5> </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>E-Mail: <h5 style="font-weight: normal; padding-right: 3px;">name@user.com</h5></h5></div>
-                                      </div>
-                                      <div class="col-5">
-                                          <img src="http://lorempixel.com/150/150/">
-
                                       </div>
                                     </div>
                                   
