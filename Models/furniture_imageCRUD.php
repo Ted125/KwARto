@@ -32,7 +32,11 @@ class furniture_image{
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
-                    $this->setImage($_POST['image']);
+                    $ctr = 0;
+                    $result = mysqli_query($connection, "SELECT * FROM furniture_image WHERE furnitureId = '".$this->getFurnitureId()."'");
+                    $num_rows = mysqli_num_rows($result);
+                    $ctr = $num_rows + 1;
+                    $this->setImage("'".$this->getFurnitureId()."'_'".$ctr."'");
                     $this->setFurnitureId($furnitureId);
                     $this->setAddedBy($_SESSION['userId']);
                     $this->setUpdatedBy($_SESSION['userId']);
@@ -81,7 +85,9 @@ class furniture_image{
         return $result;
     }
 
-    public function deleteFurnitureImage($furnitureId){
+    public function deleteFurnitureImage($furnituredId){}
+
+    public function deleteAllFurnitureImage($furnitureId){
         if(isset($_SESSION)){
             $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){

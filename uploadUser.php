@@ -1,9 +1,11 @@
 <?php
+require('Models/Database.php');
+
 
 $uploaddir = 'C:/xampp/htdocs/Capstone-Project/Resources/Images/Users/';
 $fileExtension = '.jpg';
 //$uploadfile = $uploaddir . basename('dummyname') . $fileExtension;
-$uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //user id will be the name of prof pics
+$uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //image naame will be the id of user
 echo "<p>";
 
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {

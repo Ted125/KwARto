@@ -73,7 +73,7 @@ class furniture_specification{
         return $result;
     }
 
-    public function deleteFurnitureSpecification($furnitureId){
+    public function deleteAllFurnitureSpecification($furnitureId){
         if(isset($_SESSION)){
             $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){

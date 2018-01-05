@@ -73,7 +73,7 @@ class furniture_package{
         return $result;
     }
 
-    public function deleteFurniturePackage($furnitureId){
+    public function deleteAllFurniturePackage($furnitureId){
         if(isset($_SESSION)){
             $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){

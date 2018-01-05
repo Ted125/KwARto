@@ -160,10 +160,10 @@ include("furniture_packageCRUD.php");
                 $connection = $db->Connect();
                 if($connection){
                     $this->setFurnitureId($furnitureId);
-                    deleteFurnitureImage($this->getFurnitureId());
-                    deleteFurniturePackage($this->getFurnitureId());
-                    deleteFurnitureSpecification($this->getFurnitureId());
-                    deleteFurnitureStock($this->getFurnitureId());
+                    deleteAllFurnitureImage($this->getFurnitureId());
+                    deleteAllFurniturePackage($this->getFurnitureId());
+                    deleteAllFurnitureSpecification($this->getFurnitureId());
+                    deleteAllFurnitureStock($this->getFurnitureId());
                     $delete = "DELETE
                                FROM furniture
                                WHERE furnitureId = '".$this->getFurnitureId()."'

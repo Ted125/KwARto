@@ -187,7 +187,7 @@ class furniture_stock{
         return $result;
     }
     
-    public function deleteFurnitureStock($furnitureId){
+    public function deleteAllFurnitureStock($furnitureId){
         if(isset($_SESSION)){
             $this->setUserType($_SESSION['userType']);
             if(strcmp($this->getUserType(),'seller') == 0){
