@@ -217,7 +217,25 @@
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
                             <button type="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Save Changes</button>
+                              <!-- Modal-->
+                              <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to save changes?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                           </div>
                         </div>
                       </form>

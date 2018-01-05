@@ -70,7 +70,8 @@
                     <li><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
                     <li class="active"><a href="usersmgt.php"> <i class="fa fa-user-circle-o"></i>Users Management</a></li>
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
-                    <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
+                    <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>                    
+                    <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
@@ -175,6 +176,9 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="row">
+                                      <div class="col-5">
+                                          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
+                                      </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-right: 3px;">John</h5>  </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-right: 3px;">Smithers</h5> </h5></div>
@@ -182,10 +186,6 @@
                                          <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-right: 3px;">Male</h5> </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-right: 3px;">+63 123 456 7890</h5> </h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>E-Mail: <h5 style="font-weight: normal; padding-right: 3px;">name@user.com</h5></h5></div>
-                                      </div>
-                                      <div class="col-5">
-                                          <img src="http://lorempixel.com/150/150/">
-
                                       </div>
                                     </div>
                                   
