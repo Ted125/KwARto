@@ -63,9 +63,9 @@ class furniture_stock{
         $this->setFurnitureId($furnituredId);
         $result = null;
         if($connection){
-            $query = "SELECT x.stockId, x.status, x.dateAdded, x.dateUpdated, x.addedBy, x.updatedBy, x.furnitureId 
-            FROM furniture_stock x, furniture y
-            WHERE x.furnitureId = 'y.".$this->getFurnitureId()."' && x.status = 'available'  order by x.dateAdded limit 1
+            $query = "SELECT *
+            FROM furniture_stock 
+            WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available' 
             ";
             $result = mysqli_query($connection, $query);
             mysqli_close($connection);
@@ -85,7 +85,7 @@ class furniture_stock{
             if($avail != null){
                 $query = "UPDATE furniture_stocks 
                           SET status = 'on hold', customerId = '".$_SESSION['userId']."'
-                          WHERE stockId = '".$avail[0]."'
+                          WHERE stockId = '".$avail[0]."' && order by dateAdded limit 1
                          ";
                 $result = mysqli_query($connection, $query);
                 mysqli_close($connection);
