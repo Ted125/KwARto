@@ -42,9 +42,17 @@
                 <div class="content">
                   <form id="register-form">
                     <div class="form-group">
-                      <input id="register-username" type="text" name="registerUsername" required class="input-material">
-                      <label for="register-username" class="label-material">User Name</label>
+                      <input id="register-fname" type="text" name="registerFname" required class="input-material">
+                      <label for="register-fname" class="label-material">First Name</label>
                     </div>
+                    <div class="form-group">
+                      <input id="register-mname" type="text" name="registerMname" required class="input-material">
+                      <label for="register-mname" class="label-material">Middle Name</label>
+                    </div>
+                    <div class="form-group">
+                      <input id="register-lname" type="text" name="registerLname" required class="input-material">
+                      <label for="register-lname" class="label-material">Last Name</label>
+                    </div>                    
                     <div class="form-group">
                       <input id="register-email" type="email" name="registerEmail" required class="input-material">
                       <label for="register-email" class="label-material">Email Address</label>
@@ -52,6 +60,10 @@
                     <div class="form-group">
                       <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
                       <label for="register-passowrd" class="label-material">Password</label>
+                    </div>
+                    <div class="form-group">
+                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                      <label for="register-passowrd" class="label-material">Confirm Password</label>
                     </div>
                     <div class="form-group terms-conditions">
                       <input id="license" type="checkbox" class="checkbox-template">
