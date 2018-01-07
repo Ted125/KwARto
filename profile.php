@@ -2,6 +2,7 @@ n<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
+<?php session_start();?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -22,54 +23,8 @@ n<!DOCTYPE html>
 
 <div class="super_container">
 
-	<header class="header trans_300">
-		<div class="top_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="index.php">home</a></li>
-								<li><a href="categories.php">categories</a></li>
-								<li><a href="about.php">about us</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-
-								</li>
-								<li class="checkout">
-									<a href="cart.php">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	<!-- NAVBAR HERE -->
+	<?php include('Access/Navbar.php');?>
 	
 
 	<div class="container single_product_container">
@@ -108,7 +63,7 @@ n<!DOCTYPE html>
 						<h3>Account Information</h3>
 						<div class="row">
 							<div class="col-lg-4 text-center">
-								<img src="http://via.placeholder.com/300">
+								<img <?php echo 'src='.$_SESSION['image'].'';?> >
 								<div class="red_button add_to_cart_button" style="margin-top: 10px;"><a href="#">Change Photo</a></div>
 							</div>
 							<div class="col-lg-8">
@@ -117,31 +72,31 @@ n<!DOCTYPE html>
 							          <div class="form-group">
 							            <label class="col-lg-3 control-label">First name:</label>
 							            <div class="col-lg-8">
-							              <input class="form-control" type="text" value="Jane">
+							              <input class="form-control" type="text" <?php echo 'value='.$_SESSION['firstName'].'';?> >
 							            </div>
 							          </div>
 							          <div class="form-group">
 							            <label class="col-lg-3 control-label">Last name:</label>
 							            <div class="col-lg-8">
-							              <input class="form-control" type="text" value="Doe">
+							              <input class="form-control" type="text" <?php echo 'value='.$_SESSION['lastName'].'';?> >
 							            </div>
 							          </div>
 							          <div class="form-group">
 							            <label class="col-lg-3 control-label">Address:</label>
 							            <div class="col-lg-8">
-							              <input class="form-control" type="text" value="123 St. ABC City, Some Country">
+							              <input class="form-control" type="text" <?php echo 'value='.$_SESSION['address'].'';?> >
 							            </div>
 							          </div>
 							          <div class="form-group">
 							            <label class="col-lg-3 control-label">Birthdate:</label>
 							            <div class="col-lg-8">
-							              <input class="form-control" type="date" value="">
+							              <input class="form-control" type="date" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
 							            </div>
 							          </div>
 							          <div class="form-group">
 							            <label class="col-lg-3 control-label">Email:</label>
 							            <div class="col-lg-8">
-							              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
+							              <input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 							            </div>
 							          </div>
 							          <div class="form-group">
@@ -159,7 +114,7 @@ n<!DOCTYPE html>
 							          <div class="form-group">
 							            <label class="col-md-3 control-label">Password:</label>
 							            <div class="col-md-8">
-							              <input class="form-control" type="password" disabled="" value="11111122333">
+							              <input class="form-control" type="password" disabled="" value="**********">
 							            </div>
 							          </div>							          
 							          <div class="form-group">
@@ -394,7 +349,7 @@ n<!DOCTYPE html>
 							<div class="form-group">
 				            <label class="col-lg-3 control-label">Email:</label>
 				            <div class="col-lg-8">
-				              <input class="form-control" disabled="" type="text" value="janedoe@gmail.com">
+				              <input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 				            </div>
 				          </div>
 				          <div class="form-group">
@@ -436,7 +391,7 @@ n<!DOCTYPE html>
 					        <div class="form-group" >
 					            <label class="col-md-3 control-label"></label>
 					            <div class="col-md-8 text-right">
-					              <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button>
+					              <a href="Controllers/Logout.php"> <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button></a>
 									<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">

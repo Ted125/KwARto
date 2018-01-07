@@ -40,7 +40,7 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form id="register-form">
+                  <form id="register-form" method="post" action="Controllers/Register.php">
                     <div class="form-group">
                       <input id="register-username" type="text" name="registerUsername" required class="input-material">
                       <label for="register-username" class="label-material">User Name</label>
@@ -52,6 +52,26 @@
                     <div class="form-group">
                       <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
                       <label for="register-passowrd" class="label-material">Password</label>
+                    </div>
+                     <div class="form-group">
+                      <input id="register-fName" type="text" name="registerFName" required class="input-material">
+                      <label for="register-fName" class="label-material">First Name</label>
+                    </div>
+                     <div class="form-group">
+                      <input id="register-mName" type="text" name="registerMName" required class="input-material">
+                      <label for="register-mName" class="label-material">Middle Name</label>
+                    </div>
+                     <div class="form-group">
+                      <input id="register-lName" type="text" name="registerLName" required class="input-material">
+                      <label for="register-lName" class="label-material">Last Name</label>
+                    </div>
+                     <div class="form-group">
+                      <input id="register-bDay" type="date" name="registerBDay" required class="input-material">
+                      <label for="register-bDay" class="label-material"></label>
+                    </div>
+                     <div class="form-group">
+                      <input id="register-phone" type="text" name="registerPhone" required class="input-material">
+                      <label for="register-phone" class="label-material">Phone Number</label>
                     </div>
                     <div class="form-group terms-conditions">
                       <input id="license" type="checkbox" class="checkbox-template">
