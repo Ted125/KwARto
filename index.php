@@ -524,7 +524,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Year End Sale</h4>
 							<span class="blog_meta">8:00 AM | dec 01, 2017</span>
-							<a class="blog_more" href="#">See More</a>
+							<a class="blog_more" href="news.php">See More</a>
 						</div>
 					</div>
 				</div>
@@ -534,7 +534,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Clearance Sale</h4>
 							<span class="blog_meta">4:00 PM | Jan 01, 2017</span>
-							<a class="blog_more" href="#">See more</a>
+							<a class="blog_more" href="news.php">See more</a>
 						</div>
 					</div>
 				</div>
@@ -544,7 +544,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Christmas Sale</h4>
 							<span class="blog_meta">3:00 PM | Dec 01, 2017</span>
-							<a class="blog_more" href="#">See more</a>
+							<a class="blog_more" href="news.php">See more</a>
 						</div>
 					</div>
 				</div>
