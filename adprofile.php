@@ -130,6 +130,22 @@
                             <input type="text" class="form-control" value="Smith">
                           </div>
                         </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Gender</label>
+                          <div class="col-sm-9">
+                            <div class="dropdown">
+                              <button class="btn form-control col-lg-3 btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Male
+                              </button>
+                              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Male</a>
+                                <a class="dropdown-item" href="#">Female</a>
+                                <a class="dropdown-item" href="#">Other</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div class="line"></div>
 
                         <div class="form-group row">
