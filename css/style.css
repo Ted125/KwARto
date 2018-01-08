@@ -75,60 +75,7 @@ input[type="submit"],#PPMiniCart .minicart-submit,.w3ls_vegetables ul li a,input
 .agileits_header{
 	background:white;
 }
-.w3l_offers{
-	float:left;
-}
-.w3l_offers a{
-	font-size: 1.2em;
-    color: #fff;
-    text-decoration: none;
-    padding: .5em 3em;
-    background: #D42D2D;
-	display:block;
-}
-.w3l_search{
-	float: left;
-    width: 27%;
-    margin:.1em 0 0em 10em;
-}
-.w3l_search input[type="text"]{
-	outline: none;
-    padding: 10px;
-    color: #212121;
-    font-size: 14px;
-    width: 85%;
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-}
-.w3l_search input[type="submit"]{
-	outline: none;
-    padding: 10px 0 9px;
-    width: 15%;
-    border: 1px solid;
-    position: relative;
-}
-.w3l_header_right{
-	float: left;
-    padding-left: 10em;
-}
-.w3l_header_right ul li {
-    list-style-type: none;
-}
-.w3l_header_right1 ul{
-    list-style-type: none;
-}
-.w3l_header_right1{
-	float:right;
-}
-.w3l_header_right1 h2 a{
-	font-size: .74em;
-    color: #fff;
-    padding: .5em 1.5em;
-    background: #D42D2D;
-    display: block;
-	text-decoration:none;
-}
+
 ul.dropdown-menu.drp-mnu {
     right: 0;
     min-width: 130px;
@@ -183,7 +130,6 @@ ul.dropdown-menu.drp-mnu li a i {
 	display:inline-block;
 	color:#212121;
 	font-family: 'Ubuntu', sans-serif;
-/*-- w3layouts --*/
 	margin-right:2em;
 }
 .logo_products_left1 ul.phone_email li a{
@@ -270,85 +216,17 @@ ul.dropdown-menu.drp-mnu li a i {
     background-color: #D42D2D;
     border: none;
 }
-.w3ls_vegetables_menu {
-    left: 13%;
-    border: none;
-    padding: 1em;
-}
-.w3ls_vegetables ul li {
-    list-style-type: none;
-}
-.w3ls_vegetables ul  {
-    list-style-type: none;
-}
-.w3ls_vegetables ul li:first-child {
-    margin-bottom:.5em;
-}
-.w3ls_vegetables ul li a {
-    color: #212121;
-/*-- w3layouts --*/
-    display: block;
+
+.linkmenu {
     text-decoration: none;
-}
-.w3ls_vegetables ul li a:hover{
-	color:#D42D2D;
+    color: black;
 }
 
-.backdrop {
-    background-image:url(https://s-media-cache-ak0.pinimg.com/originals/28/8c/5b/288c5bc0ca810db4f86e9a71f99e417f.jpg);
-    padding-left: 200px;
-    padding-right: 200px;
+.linkmenu:hover {
+    text-decoration: none;
+    color: red;
 }
 
-.w3l_banner_nav_right_banner1,.w3l_banner_nav_right_banner,.w3l_banner_nav_right_banner2{
-	min-height:500px;
-	text-align: right;
-	padding:10em 17em 0 0;
-	margin-bottom: 5em;
-}
-.w3l_banner_nav_right_banner{
-	background:url(../images/1.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner1{
-	background:url(../images/2.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner2{
-	background:url(../images/3.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.w3l_banner_nav_right_banner h3,.w3l_banner_nav_right_banner1 h3,.w3l_banner_nav_right_banner2 h3{
-	font-size: 2em;
-    color: #fff;
-    font-weight: 300;
-    text-transform: uppercase;
-	margin-bottom: 1em;
-}
-.w3l_banner_nav_right_banner h3 span,.w3l_banner_nav_right_banner1 h3 span{
-	display:block;
-	font-weight:600;
-	line-height:2em;
-}
-.w3l_banner_nav_right_banner2 h3 i{
-/*-- agileits --*/
-	display:block;
-	font-weight:600;
-	line-height:2em;
-	color:#D42D2D;
-}
 .more a{
 	padding:10px 30px;
 	background:#D42D2D;
@@ -364,6 +242,12 @@ ul.dropdown-menu.drp-mnu li a i {
     width: 20%;
     text-align: center;
     margin-left:59em;
+}
+
+.backdrop {
+    background-image:url(https://s-media-cache-ak0.pinimg.com/originals/28/8c/5b/288c5bc0ca810db4f86e9a71f99e417f.jpg);
+    padding-left: 200px; 
+    padding-right: 200px;
 }
 /* Saqui */
 .button--saqui {
@@ -412,79 +296,6 @@ ul.dropdown-menu.drp-mnu li a i {
 	transform: rotate3d(0, 0, 1, 0deg);
 }
 /*-- //banner --*/
-/*-- banner_bottom --*/
-.banner_bottom,.top-brands,.fresh-vegetables,.w3l_banner_nav_right_banner3_btm,.testimonials,.team,.newsletter-top-serv-btm,.w3ls_w3l_banner_nav_right_grid_sub{
-	padding:5em 0 !important;
-}
-.wthree_banner_bottom_left {
-    padding-left: 0;
-}
-.wthree_banner_bottom_left_grid{
-	position:relative;
-}
-.wthree_banner_bottom_left_grid_pos{
-	position: absolute;
-    top: 15%;
-    right: 5%;
-}
-.wthree_banner_bottom_left_grid_pos h4{
-	font-size: 1.5em;
-    color: #000000;
-}
-.wthree_banner_bottom_left_grid_pos h4 span{
-	display: block;
-    line-height: 1;
-    width: 80px;
-    height: 80px;
-    background: #D42D2D;
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    padding-top: 1.2em;
-    margin: 0.5em auto 0;
-}
-.wthree_banner_btm_pos{
-	width:100%;
-	position:absolute;
-	top:5%;
-	padding: 0 2em;
-}
-.wthree_banner_btm_pos h3{
-	text-transform:capitalize;
-	font-size:1.5em;
-	color:#212121;
-	font-weight:300;
-}
-.wthree_banner_btm_pos h3 span{
-	color: #D42D2D;
-    font-weight: 600;
-    display: block;
-    line-height:1.8em;
-    padding-left: 7em;
-}
-.wthree_banner_btm_pos h3 i{
-	color: #D42D2D;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-style: normal;
-}
-.wthree_banner_btm_pos1{
-	position:absolute;
-	top: 50%;
-    left: 12%;
-}
-.wthree_banner_btm_pos1 h3{
-	text-transform:uppercase;
-	color:#212121;
-	font-size:2em;
-}
-.wthree_banner_btm_pos1 h3 span{
-	display: block;
-    font-weight: 300;
-    line-height: 1.5em;
-    color: #D42D2D;
-}
-/*-- //banner_bottom --*/
 /*-- top-brands --*/
 .tag {
     position: absolute;
@@ -498,11 +309,9 @@ ul.dropdown-menu.drp-mnu li a i {
 	position:relative;
 	font-size: 2.5em;
 }
-
-.page_login {
+.page_login { 
     background-image: url(http://www.newlifeoffice.com/wp-content/uploads/2014/03/full01.jpg);
 }
-
 .top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.page_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
 	content: '';
     background: #D42D2D;
@@ -566,6 +375,89 @@ ul.dropdown-menu.drp-mnu li a i {
 .btn-danger.my-cart-btn:focus {
     outline: none;
 }
+
+.question-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 20%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
+.tabadmin {
+    background-color: #D42D2D;
+    color: white!important;
+}
+
+.tabadmin:focus {
+    background-color: #D42D2D;
+    color: white!important;
+}
+
+.section-basic {
+    padding-top: 0;
+}
+
+.section-images {
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .section-navbars .navbar-collapse {
+        display: none !important;
+    }
+}
+
+.reviews {
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+.profile-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 60%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
+.prof-labels {
+    color: #D42D2D!important;
+}
+
+.prof-items {
+    color: black;
+}
+
+.change-pw-btn {
+    font-size: 14px;
+    color: #fff;
+    background: #D42D2D;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 40%;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+}
+
 .snipcart-details input.button {
     font-size: 14px;
     color: #fff;
@@ -1798,7 +1690,7 @@ h2.typoh2{
 		display: none;
 	}
 }
-.typo,.privacy,.faq,.services,.events,.mail,.agileinfo_single,.w3_login{
+.typo,.privacy,.faq,.services,.events,.mail,.agileinfo_single,.page_login{
     padding: 5em;
 }
 /*--//Typography --*/
@@ -2731,7 +2623,7 @@ input.checkbox:checked:after {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     margin: 3em auto 0;
 }
-.w3_login_module{
+.login_module{
 	min-height: 475px;
 }
 .form-module .toggle {
@@ -2786,7 +2678,7 @@ input.checkbox:checked:after {
     font-weight: 400;
     line-height: 1;
 }
-.form-module input[type="text"],.form-module input[type="password"],.form-module input[type="email"] {
+.form-module input[type="text"],.form-module input[type="password"],input[type="date"],.form-module input[type="email"] {
   outline: none;
   display: block;
   width: 100%;
@@ -2965,7 +2857,7 @@ input.checkbox:checked:after {
 	.snipcart-details {
 		width: 88%;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 5em 3em;
 	}
 	.events_bottom_left1_grid {
@@ -3032,7 +2924,7 @@ input.checkbox:checked:after {
 	.top_brand_left {
 		padding-left: 0;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 2.3em;
 	}
 	.banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
@@ -3096,7 +2988,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner_pet {
 		padding: 3em 0 0 3em !important;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 4em 3em;
 	}
 	.w3agile_event_grid_right h4 {
@@ -3161,7 +3053,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner3_btml h4 {
 		font-size: 1.3em;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 2em;
 	}
 	.w3ls_w3l_banner_nav_right_grid1 h6 {
@@ -3569,7 +3461,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner7 {
 		background-position: -140px 0px;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 3em 2em;
 	}
 	.w3l_banner_nav_right_banner_pet a, .w3ls_service_grids1_right a {
@@ -4006,7 +3898,7 @@ input.checkbox:checked:after {
 	.wthree_banner_bottom_left {
 		width: 90%;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.8em;
 	}
 	.top_brand_left,.w3ls_w3l_banner_left {
@@ -4107,7 +3999,7 @@ input.checkbox:checked:after {
 	.w3ls_w3l_banner_nav_right_grid {
 		padding: 0 1em 2em;
 	}
-	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
+	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .page_login {
 		padding: 2em 1em;
 	}
 	.w3l_fruit {
@@ -4196,7 +4088,7 @@ input.checkbox:checked:after {
 	.form-module .toggle .tooltip {
 		display: none;
 	}
-	.w3_login {
+	.page_login {
 		padding-bottom: 0;
 	}
 	.agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -4351,7 +4243,7 @@ input.checkbox:checked:after {
 	.form-module .form {
 		padding: 20px;
 	}
-	.w3_login_module {
+	.login_module {
 		min-height: 433px;
 	}
 	.agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -4461,7 +4353,7 @@ input.checkbox:checked:after {
 	.view p {
 		padding: 10px 10px 0px;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.6em;
 	}
 	.w3ls_service_grids {
@@ -4649,7 +4541,7 @@ input.checkbox:checked:after {
 	.agile_about_grid_left ol {
 		padding-left: 15px;
 	}
-	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
+	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .page_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 		font-size: 1.49em;
 	}
 	.agileits_team_grids {
@@ -4770,7 +4662,7 @@ input.checkbox:checked:after {
 		padding: 10px;
 		font-size: 13px;
 	}
-	.w3_login_module {
+	.login_module {
 		min-height: 375px;
 	}
 	.form-module {
@@ -4789,15 +4681,11 @@ input.checkbox:checked:after {
     margin: 0em 2em;
 
 }
-
 .items-bread .item-right{
     margin:0em 0em 0em 17em;
 }
 .w3ls_logo_products_right{
     display:inline-block;
-}
-.w3l_search1{
-    
 }
 .field{
     width: 100%;
