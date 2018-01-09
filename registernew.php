@@ -40,26 +40,18 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form id="register-form" method="post" action="Controllers/Register.php">
+                  <form id="register-form">
                     <div class="form-group">
-                      <input id="register-fName" type="text" name="registerFName" required class="input-material">
-                      <label for="register-fName" class="label-material">First Name</label>
-                    </div>
-                     <div class="form-group">
-                      <input id="register-mName" type="text" name="registerMName" required class="input-material">
-                      <label for="register-mName" class="label-material">Middle Name</label>
-                    </div>
-                     <div class="form-group">
-                      <input id="register-lName" type="text" name="registerLName" required class="input-material">
-                      <label for="register-lName" class="label-material">Last Name</label>
+                      <input id="register-fname" type="text" name="registerFname" required class="input-material">
+                      <label for="register-fname" class="label-material">First Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="register-bDay" type="date" name="registerBDay" required class="input-material">
-                      <label for="register-bDay" class="label-material"></label>
+                      <input id="register-mname" type="text" name="registerMname" required class="input-material">
+                      <label for="register-mname" class="label-material">Middle Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="register-phone" type="text" name="registerPhone" required class="input-material">
-                      <label for="register-phone" class="label-material">Phone Number</label>
+                      <input id="register-lname" type="text" name="registerLname" required class="input-material">
+                      <label for="register-lname" class="label-material">Last Name</label>
                     </div>                    
                     <div class="form-group">
                       <input id="register-email" type="email" name="registerEmail" required class="input-material">
@@ -68,6 +60,10 @@
                     <div class="form-group">
                       <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
                       <label for="register-passowrd" class="label-material">Password</label>
+                    </div>
+                    <div class="form-group">
+                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                      <label for="register-passowrd" class="label-material">Confirm Password</label>
                     </div>
                     <div class="form-group terms-conditions">
                       <input id="license" type="checkbox" class="checkbox-template">
