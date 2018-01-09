@@ -1,7 +1,4 @@
 <?php 
-require("SQL_Connect.php");
-require("Database.php");
-
 class user_details{
     private $userId;
     private $username;
@@ -45,6 +42,8 @@ class user_details{
             $this->setUsername($_POST['registerUsername']);
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
+            $this->setUserStatus("active");
+            $this->setImage('Resources/Images/Profile/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
@@ -59,6 +58,7 @@ class user_details{
             userStatus,
             email, 
             mobileNumber,
+            image,
             addedBy
             )
             VALUES
@@ -68,6 +68,7 @@ class user_details{
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
             '".$this->getMobileNumber()."',
+            '".$this->getImage()."',
             '".$this->getAddedBy()."'
             )";
             echo $create;
@@ -89,6 +90,8 @@ class user_details{
     }
 
     public function updateUser($field, $newData){
+        include("Database.php");
+
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -212,6 +215,8 @@ class user_details{
     }
 
     public function login($sessionEmail, $sessionPassword){
+        require("Database.php");
+
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -241,7 +246,8 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, dateAdded, firstName, middleName, lastName, birthdate 
+          $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate 
+
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;

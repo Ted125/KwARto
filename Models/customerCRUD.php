@@ -1,7 +1,4 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
-
 class customer extends user_details{
     private $customerId;
     private $firstName;
@@ -33,6 +30,7 @@ class customer extends user_details{
     }
 
     public function createCustomer(){
+        include("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -73,6 +71,8 @@ class customer extends user_details{
     }
 
     public function updateCustomer($field, $newData){
+        include("Database.php");
+        
         $this->setUserType($_SESSION['userType']);
         $this->setUserId($_SESSION['userId']);
         if(isset($_SESSION) && strcmp($this->getUserType(),'customer') == 0){
