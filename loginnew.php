@@ -53,8 +53,8 @@
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="registernew.php" class="signup">Signup</a>
                   <br><br>
                   <div>
-                    <a id="fblogin" href="#" style="background-color: #007bff; border-color: #007bff" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
-                    <a id="glogin" href="#" style="background-color: #28a745; border-color: #28a745" class="btn btn-primary"><i class="fa fa-google-plus"></i> Login with Google</a>
+                    <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
+                    <a id="glogin" href="#" style="background-color: #dd4935; border-color: #dd4935" class="btn btn-primary"><i class="fa fa-google-plus"></i> Login with Google</a>
                   </div>
                 </div>
               </div>
