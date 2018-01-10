@@ -109,12 +109,7 @@
                       <ul class="tree">
                         <li><a style="background-color: #d42d2d; color: white;" data-toggle="modal" data-target="#myModalcat1" >Furniture Items</a>
                           <ul>
-                            <li> <a>Bedroom</a>
-                              <ul>
-                                <li><a>Extra Child</a></li>
-                                <li><a>Just in case</a></li>
-                              </ul>
-                            </li>
+                            <li><a>Bedroom</a></li>
                             <li><a>Dining Room</a></li>
                             <li><a>Kids Furniture</a></li>
                             <li><a>Living Room</a></li>
