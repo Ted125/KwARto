@@ -164,6 +164,7 @@ n<!DOCTYPE html>
 							<li class="tab active" data-active-tab="tab_1"><span>Description</span></li>
 							<li class="tab" data-active-tab="tab_2"><span>Additional Information</span></li>
 							<li class="tab" data-active-tab="tab_3"><span>Reviews (2)</span></li>
+							<li class="tab" data-active-tab="tab_4"><span>Questions (2)</span></li>
 						</ul>
 					</div>
 				</div>
@@ -221,12 +222,10 @@ n<!DOCTYPE html>
 
 					<div id="tab_3" class="tab_container">
 						<div class="row">
-
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title">
 									<h4>Reviews (2)</h4>
 								</div>
-
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
@@ -269,11 +268,10 @@ n<!DOCTYPE html>
 							</div>
 
 							<div class="col-lg-6 add_review_col">
-
 								<div class="add_review">
 									<form id="review_form" action="post">
 										<div>
-											<h1>Leave a Question/Comment</h1>
+											<h1>Leave a Comment/Review</h1>
 											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
 											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
 										</div>
@@ -293,12 +291,76 @@ n<!DOCTYPE html>
 										</div>
 									</form>
 								</div>
-
 							</div>
-
 						</div>
 					</div>
 
+					<div id="tab_4" class="tab_container">
+						<div class="row">
+							<div class="col-lg-6 reviews_col">
+								<div class="tab_title reviews_title">
+									<h4>Questions (2)</h4>
+								</div>
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Dec 2017</div>
+										<div class="user_name">John Doe</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSruM7uxCIoXQsS1XUPMYs28dMEV2uyS-RyGsfklPlsELI99Djd"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Dec 2017</div>
+										<div class="user_name">Jane Doe</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 add_review_col">
+								<div class="add_review">
+									<form id="review_form" action="post">
+										<div>
+											<h1>Leave a Question</h1>
+											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+										</div>
+										<div>
+											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
+										</div>
+										<div class="text-left text-sm-right">
+											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
