@@ -136,7 +136,7 @@
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Users List</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                       <table class="table table-striped table-hover">
                         <thead>
                           <tr>
@@ -237,6 +237,36 @@
                                   </div>
                                 </div>
                               </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                             </td>
                           </tr>
                           <tr>
@@ -313,6 +343,36 @@
                                   </div>
                                 </div>
                               </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                             </td>
                           </tr>
                           <tr>
@@ -389,6 +449,36 @@
                                   </div>
                                 </div>
                               </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                             </td>
                           </tr>
                           <tr>
@@ -465,6 +555,36 @@
                                   </div>
                                 </div>
                               </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                             </td>
                           </tr>
                         </tbody>
