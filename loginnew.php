@@ -43,8 +43,8 @@
                 <div class="content">
                   <form id="login-form" method="post">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
-                      <label for="login-username" class="label-material">User Name</label>
+                      <input id="login-email" type="text" name="loginEmail" required="" class="input-material">
+                      <label for="login-email" class="label-material">E-mail Address</label>
                     </div>
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
