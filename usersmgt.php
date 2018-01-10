@@ -116,15 +116,15 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr data-toggle="modal" data-target="#myModal">
+                          <tr>
                             <th scope="row">1</th>
-                            <td>John</td>
-                            <td>Smith</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">John</td>
+                            <td data-toggle="modal" data-target="#rowModal">Smith</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -142,9 +142,9 @@
                                 </div>
                               </div>
 
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -165,9 +165,9 @@
   
 
                             <!-- Modal Contents for Row -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="rowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
-                                <div class="modal-content">
+                                <div class="modal-content " style="width: 600px;">
                                   <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -180,19 +180,15 @@
                                           <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
                                       </div>
                                       <div class="col-7">
-                                         <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-right: 3px;">John</h5>  </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-right: 3px;">Smithers</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Last Name: <h5 style="font-weight: normal; padding-right: 3px;">Smith</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-right: 3px;">Male</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-right: 3px;">+63 123 456 7890</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail: <h5 style="font-weight: normal; padding-right: 3px;">name@user.com</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-left: 5px;">John</h5>  </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-left: 5px;">Smithers</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Last Name: <h5 style="font-weight: normal; padding-left: 5px;">Smith</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-left: 5px;">Male</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-left: 5px;">+63 123 456 7890</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">name@user.com</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Current Address: <h5 style="font-weight: normal; margin-left: 5px;">123 Internet Street, Long Address, Somewhere City, Cty</h5></h5></div>
                                       </div>
                                     </div>
-                                  
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
                                   </div>
                                 </div>
                               </div>
@@ -200,13 +196,13 @@
                           </tr>
                           <tr>
                             <th scope="row">2</th>
-                            <td>Jane</td>
-                            <td>Doe</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Jane</td>
+                            <td data-toggle="modal" data-target="#rowModal">Doe</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -224,9 +220,9 @@
                                 </div>
                               </div>
 
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -247,13 +243,13 @@
                           </tr>
                           <tr>
                             <th scope="row">3</th>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">John</td>
+                            <td data-toggle="modal" data-target="#rowModal">Doe</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -271,9 +267,9 @@
                                 </div>
                               </div>
 
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -294,13 +290,13 @@
                           </tr>
                           <tr>
                             <th scope="row">4</th>
-                            <td>Adam</td>
-                            <td>Williams</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Adam</td>
+                            <td data-toggle="modal" data-target="#rowModal">Williams</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Approve</button>
+                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -318,9 +314,9 @@
                                 </div>
                               </div>
 
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Reject</button>
+                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Reject</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -365,13 +361,13 @@
                         <tbody>
                           <tr>
                             <th scope="row">1</th>
-                            <td>Leonille Christie</td>
-                            <td>Lavador</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Leonille Christie</td>
+                            <td data-toggle="modal" data-target="#rowModal">Lavador</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
+                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -392,13 +388,13 @@
                           </tr>
                           <tr>
                             <th scope="row">2</th>
-                            <td>Jon Miguel</td>
-                            <td>Lindo</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Jon Miguel</td>
+                            <td data-toggle="modal" data-target="#rowModal">Lindo</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
+                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -419,13 +415,13 @@
                           </tr>
                           <tr>
                             <th scope="row">3</th>
-                            <td>Christian Ted</td>
-                            <td>Ochoa</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Christian Ted</td>
+                            <td data-toggle="modal" data-target="#rowModal">Ochoa</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
+                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -446,13 +442,13 @@
                           </tr>
                           <tr>
                             <th scope="row">4</th>
-                            <td>Roald</td>
-                            <td>Galano</td>
-                            <td>name@user.com</td>
+                            <td data-toggle="modal" data-target="#rowModal">Roald</td>
+                            <td data-toggle="modal" data-target="#rowModal">Galano</td>
+                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
                             <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
+                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
                               <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
