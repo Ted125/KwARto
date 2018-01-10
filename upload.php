@@ -144,9 +144,10 @@
                         <div style="margin-top: 5px;">
                           <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                           <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                        </div>
+                        <div style="margin-top: 5px;">
                           <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          
-
+                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         </div>
                         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
                         <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
@@ -160,6 +161,17 @@
                         <div class="form-group">       
                           <label>Description</label>
                           <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here"></textarea>
+                        </div>
+                        <div class="form-group">       
+                          <label>Category</label>
+                          <select name="account" class="form-control">
+                            <option>Furniture Items</option>
+                            <option>Bed + Bath</option>
+                            <option>Decor Items</option>
+                            <option>Houseware</option>
+                            <option>Window Treatments</option>
+                            <option>Lighting</option>
+                          </select>
                         </div>
                         <div class="form-group">       
                           <label>Length</label>
@@ -198,9 +210,32 @@
                           <label>Discount</label>
                           <input type="text" placeholder="0.00" class="form-control">
                         </div>
+                        <div class="form-group">       
+                          <label>3D Model</label>
+                          <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button>
+                        </div>
                         <div class="form-group text-right">
-                          <p>Are you sure you want to upload this product?</p>       
-                          <input type="submit" value="Upload" class="btn btn-primary">
+                          <p>Please review the information above.</p> 
+
+                          <button type="button" data-toggle="modal" data-target="#upBtn" class="btn btn-primary">Complete</button>
+                              <!-- Modal-->
+                              <div id="upBtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to upload this product?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </div>
                       </form>
                     </div>
