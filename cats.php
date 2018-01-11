@@ -205,7 +205,6 @@
                                 <a class="dropdown-item" href="#">Houseware</a>
                                 <a class="dropdown-item" href="#">Window Treatments</a>
                                 <a class="dropdown-item" href="#">Lighting</a>
-                                <a class="dropdown-item" href="#">Deals</a>
                               </div>
                             </div>
                         </div>
