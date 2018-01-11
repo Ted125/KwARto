@@ -87,12 +87,6 @@ n<!DOCTYPE html>
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-lg-3 control-label">Address:</label>
-													<div class="col-lg-8">
-														<input class="form-control" type="text" <?php echo 'value='.$_SESSION['address'].'';?> >
-													</div>
-												</div>
-												<div class="form-group">
 													<label class="col-lg-3 control-label">Birthdate:</label>
 													<div class="col-lg-8">
 														<input class="form-control" type="date" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
@@ -102,18 +96,6 @@ n<!DOCTYPE html>
 													<label class="col-lg-3 control-label">Email:</label>
 													<div class="col-lg-8">
 														<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="col-lg-3 control-label">Gender:</label>
-													<div class="col-lg-8">
-														<div class="ui-select">
-															<select id="user_time_zone" class="form-control">
-																<option value="Hawaii">Male</option>
-																<option value="Alaska">Female</option>
-																<option value="Alaska">Other</option>
-															</select>
-														</div>
 													</div>
 												</div>
 												<div class="form-group">
