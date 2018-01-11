@@ -73,35 +73,35 @@ n<!DOCTYPE html>
 									</div>
 									<div class="col-lg-8">
 										<div class="product_details">
-											<form class="form-horizontal" role="form">
+											<form class="form-horizontal" role="form" action = "Controllers/UpdateCustomer.php" method="POST">
 												<div class="form-group">
 													<label class="col-lg-3 control-label">First name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" <?php echo 'value='.$_SESSION['firstName'].'';?> >
+														<input class="form-control" type="text" name = "firstName" <?php echo 'value='.$_SESSION['firstName'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Last name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" <?php echo 'value='.$_SESSION['lastName'].'';?> >
+														<input class="form-control" type="text" name = "lastName" <?php echo 'value='.$_SESSION['lastName'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Birthdate:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="date" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
+														<input class="form-control" type="date" name = "birthdate" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Email:</label>
 													<div class="col-lg-8">
-														<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
+														<input class="form-control" disabled="" name = "email" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-3 control-label">Password:</label>
 													<div class="col-md-8">
-														<input class="form-control" type="password" disabled="" value="**********">
+														<input class="form-control" type="password" disabled="" name = "password" value="**********">
 													</div>
 												</div>							          
 												<div class="form-group">
@@ -119,9 +119,9 @@ n<!DOCTYPE html>
 
 																	</div>
 																	<div class="modal-footer">
-																		<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
+																		<input type = 'Submit' value ='Save Changes' class="btn btn-danger"/>
 																		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-																	</div>
+																	</div> 
 																</div>
 															</div>
 														</div>
