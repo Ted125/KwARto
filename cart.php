@@ -57,7 +57,7 @@ n<!DOCTYPE html>
 					<tbody class="text-center">
 					<tr class="">
 					<td class="">1</td>
-					<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
+					<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
 					<td class="">
 						<div class="" style="text-align: -webkit-center"> 
 							<div class="form-group form-group-options">
@@ -76,33 +76,50 @@ n<!DOCTYPE html>
 					<td class="">Comfy Chair</td>
 					<td class="">P850.00</td>
 					<td class="" style="text-align:  center;">	
-						<div class="red_button" style="width: 150px"><a href="wishlist.php">move to wishlist</a></div><br>
-						<div class="red_button" data-toggle="modal" data-target="#myModal2" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
-
-					  <!-- Modal-->
-					  <div id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to remove this item?</p>
-							</div>
-							<div class="modal-footer">
-							  <button type="button" class="btn red_button" style="color: white;">Yes</button>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-					  </div>
-
+						<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
+							  <!-- Modal-->
+							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+									<div role="document" class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+										</div>
+										<div class="modal-body">
+										  <p>Are you sure you want to move this item to your wishlist?</p>
+										</div>
+										<div class="modal-footer">
+										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+										</div>
+									  </div>
+									</div>
+							  	</div>
+							  	<br>
+								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+							  <!-- Modal-->
+							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+									<div role="document" class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+										</div>
+										<div class="modal-body">
+										  <p>Are you sure you want to remove this item from your cart?</p>
+										</div>
+										<div class="modal-footer">
+										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+										</div>
+									  </div>
+									</div>
+							  	</div>
 					</td>
 				</tr>
 						<tr class="">
 							<td class="">2</td>
-							<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
+							<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
 							<td class="">
 								<div class="" style="text-align: -webkit-center"> 
 									<div class="form-group form-group-options">
@@ -121,34 +138,52 @@ n<!DOCTYPE html>
 							<td class="">Swivel Chair</td>
 							<td class="">P540.00</td>
 							<td class="" style="text-align:  center;">	
-								<div class="red_button" style="width: 150px;"><a href="wishlist.php">move to wishlist</a></div><br>
-								<div class="red_button" data-toggle="modal" data-target="#myModal3" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
-
-					  <!-- Modal-->
-					  <div id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to remove this item?</p>
-							</div>
-							<div class="modal-footer">
-							  <button type="button" class="btn red_button" style="color: white;">Yes</button>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-					  </div>
-
+								<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
+							  <!-- Modal-->
+							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+									<div role="document" class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+										</div>
+										<div class="modal-body">
+										  <p>Are you sure you want to move this item to your wishlist?</p>
+										</div>
+										<div class="modal-footer">
+										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+										</div>
+									  </div>
+									</div>
+							  	</div>
+							  	<br>
+								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+							  <!-- Modal-->
+							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+									<div role="document" class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+										</div>
+										<div class="modal-body">
+										  <p>Are you sure you want to remove this item from your cart?</p>
+										</div>
+										<div class="modal-footer">
+										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+										</div>
+									  </div>
+									</div>
+							  	</div>
 							</td>
 						</tr>
 				</tbody></table>
 
 				<div style="margin-top: 20px;" class="text-right">				
-					<h5>Subtotal: <span style="color: #d42d2d">P1,390.00</span> + 7% Transaction Fee</h5>
+					<h5>Subtotal: <span style="color: #d42d2d">P1,390.00</span> + 7% Fee</h5>
+					<h5>Transaction Fee: <span style="color: #d42d2d">P97.30</h5>
 					<h4>Your total balance is: <span style="color: #d42d2d">P1,487.30</span></h4>
 					<div class="red_button" style="width: 150px"><a href="payment.php">Proceed to Checkout</a></div>
 				</div>

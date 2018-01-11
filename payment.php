@@ -49,6 +49,7 @@ n<!DOCTYPE html>
 								<li><a href="categories.php">categories</a></li>
 								<li><a href="about.php">about us</a></li>
 								<li><a href="contact.php">contact</a></li>
+								<li><a href="wishlist.php">Wishlist</a></li>
 							</ul>
 							<ul class="navbar_user">
 
