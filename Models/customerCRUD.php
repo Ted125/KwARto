@@ -82,7 +82,7 @@ class customer extends user_details{
 
                 $create = "UPDATE customer
                            SET  '".$field."' = '".$newData."'
-                           WHERE customer.userId = '".$this->getUserId()."'";
+                           WHERE customer.userId = ".$this->getUserId()."";
                 $result = mysqli_query($connection, $create);
                 mysqli_close($connection);
             }else{
@@ -90,6 +90,34 @@ class customer extends user_details{
             }
         }else{
             echo 'no session';
+        }
+    }
+
+    public function updateCustomerMult($fName, $lName, $bDay){
+        include("Database.php");
+        
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'customer') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+
+                $create = "UPDATE customer
+                           SET  firstName = '".$fName."', lastName = '".$lName."', birthdate = '".$bDay."'
+                           WHERE customer.userId = ".$this->getUserId()."";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'no session';
+            return null;
         }
     }
 

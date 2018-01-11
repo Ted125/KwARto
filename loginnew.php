@@ -41,6 +41,11 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
+                  <?php
+                    if(isset($_GET['error'])){
+                      echo '<p id="error-msg" class="text text-danger">*Username or Password Invalid. Please Try Again.</p>';
+                    }
+                  ?>
                   <form id="login-form" method="post" action="Controllers/Login.php">
                     <div class="form-group">
                       <input id="login-email" type="text" name="loginEmail" required="" class="input-material">

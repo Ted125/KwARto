@@ -85,6 +85,9 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
+            if(strcmp($field, 'password') == 0){
+                $newData = md5($newData);
+            }
             $create = "UPDATE user_details
                 SET 
                 ".$field." = '".$newData."'
