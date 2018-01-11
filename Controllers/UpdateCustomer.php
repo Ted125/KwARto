@@ -1,14 +1,17 @@
 <?php
-  //require_once("../Models/userDetails.php");
+  require_once("../Models/userDetails.php");
   require_once("../Models/customerCRUD.php");
   //require_once("../Models/sellerDetails.php");
 
   session_start();
 
   $customer = new customer();
-  $verify = $customer->Debug($_POST['field'], $_POST['newData']);
+  $verify = $customer->updateCustomer($_POST['field'], $_POST['newData']);
 
-  if($verify != null){
+  /*$user = new user_details();
+  $verify2 = $user->updateUser($_POST['field'], $_POST['newData']);
+  */
+  if($verify != null && $verify2 != null){
     $_SESSION[$_POST['field']] = $_POST['newData'];
 
   } else {
