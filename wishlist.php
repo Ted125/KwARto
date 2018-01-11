@@ -47,6 +47,7 @@
 								<li><a href="categories.php">categories</a></li>
 								<li><a href="about.php">about us</a></li>
 								<li><a href="contact.php">contact</a></li>
+								<li><a href="wishlist.php">wishlist</a></li>
 							</ul>
 							<ul class="navbar_user">
 
@@ -104,7 +105,7 @@
         <tbody class="text-center">
             <tr class="">
                 <td class="">1</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
+                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
                 <td class="">
                 Comfy Chair
                 </td>
@@ -126,7 +127,7 @@
             </tr>
             <tr class="">
                 <td class="">2</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
+                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
                 <td class="">
                 Swivel Chair
                 </td>
