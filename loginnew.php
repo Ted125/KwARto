@@ -45,8 +45,6 @@
                     <div class="form-group">
                       <input id="login-email" type="text" name="loginEmail" required="" class="input-material">
                       <label for="login-email" class="label-material">E-mail Address</label>
-                      <input id="login-username" type="text" name="loginEmail" required="" class="input-material">
-                      <label for="login-username" class="label-material">Email</label>
                     </div>
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
