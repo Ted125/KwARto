@@ -1,7 +1,6 @@
 <?php 
 class user_details{
     private $userId;
-    private $username;
     private $password;
     private $userType;
     private $userStatus;
@@ -39,7 +38,6 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
-            $this->setUsername($_POST['registerUsername']);
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
             $this->setUserStatus("active");
@@ -52,7 +50,6 @@ class user_details{
             }
             $create = "INSERT INTO user_details
             ( 
-            username,
             password, 
             userType, 
             userStatus,
@@ -62,8 +59,7 @@ class user_details{
             addedBy
             )
             VALUES
-            ('".$this->getUsername()."',
-            '".$this->getPassword()."',
+            ('".$this->getPassword()."',
             '".$this->getUserType()."',
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
@@ -73,12 +69,6 @@ class user_details{
             )";
             echo $create;
             $result = mysqli_query($connection, $create);
-            // $select = "SELECT * 
-            // FROM  user_details 
-            // WHERE userName='".$this->getUsername()."'";//there must be other way
-            // $qry = mysqli_query($connection, $select);
-            // $row = mysqli_fetch_array($qry);
-            // $this->setUserId($row[0]);
 
             $this->setUserId($connection->insert_id);
             mysqli_close($connection);
@@ -246,7 +236,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate 
+          $query = "SELECT user_details.userId AS userId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate 
 
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
@@ -280,7 +270,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, username, email, userType, mobileNumber, dateAdded 
+          $query = "SELECT userId, email, userType, mobileNumber, dateAdded 
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -314,7 +304,6 @@ class user_details{
             //$result = NULL;
             $query ="SELECT
             userId,
-            username,
             userType,
             userStatus,
             email,
@@ -342,7 +331,6 @@ class user_details{
             //$result = NULL;
             $query ="SELECT
             userId,
-            username,
             userType,
             userStatus,
             email,
@@ -370,14 +358,6 @@ class user_details{
 
     public function setUserId($userId){
         $this->userId = $userId;
-    }
-
-    public function getUsername(){
-        return $this->username; 
-    }
-
-    public function setUsername($username){
-        $this->username = $username;
     }
 
     public function getPassword(){

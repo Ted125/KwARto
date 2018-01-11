@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2018 at 02:22 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.0.26
+-- Generation Time: Jan 11, 2018 at 06:41 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -590,7 +590,6 @@ INSERT INTO `seller` (`sellerId`, `name`, `description`, `userId`) VALUES
 
 CREATE TABLE `user_details` (
   `userId` int(11) NOT NULL,
-  `username` varchar(256) DEFAULT NULL,
   `password` varchar(512) NOT NULL,
   `userType` enum('admin','customer','seller') NOT NULL DEFAULT 'customer',
   `userStatus` enum('inactive','active','banned') NOT NULL DEFAULT 'inactive',
@@ -607,15 +606,15 @@ CREATE TABLE `user_details` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`userId`, `username`, `password`, `userType`, `userStatus`, `email`, `mobileNumber`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
-(1, 'admin', 'admin', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2017-12-25 15:08:22', NULL, NULL),
-(2, 'seller', 'seller', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2017-12-26 01:01:03', NULL, NULL),
-(3, 'customer', 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL),
-(4, NULL, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2017-12-28 14:52:22', NULL, NULL),
-(5, NULL, 'julie', 'customer', 'active', 'julie@gmail.com', '12345', NULL, '2017-12-28 16:14:04', '2017-12-28 16:14:04', NULL, NULL),
-(6, NULL, 'geralt', 'customer', 'active', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2017-12-28 16:25:24', NULL, NULL),
-(7, NULL, 'letters', 'customer', 'active', 'letters@gmail.com', '1234567890', NULL, '2017-12-28 16:29:07', '2017-12-28 16:29:07', NULL, NULL),
-(8, NULL, 'snake', 'customer', 'active', 'snake@gmail.com', '55555', NULL, '2017-12-28 16:31:33', '2017-12-28 16:31:33', NULL, NULL);
+INSERT INTO `user_details` (`userId`, `password`, `userType`, `userStatus`, `email`, `mobileNumber`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
+(1, 'admin', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2017-12-25 15:08:22', NULL, NULL),
+(2, 'seller', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2017-12-26 01:01:03', NULL, NULL),
+(3, 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL),
+(4, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2017-12-28 14:52:22', NULL, NULL),
+(5, 'julie', 'customer', 'active', 'julie@gmail.com', '12345', NULL, '2017-12-28 16:14:04', '2017-12-28 16:14:04', NULL, NULL),
+(6, 'geralt', 'customer', 'active', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2017-12-28 16:25:24', NULL, NULL),
+(7, 'letters', 'customer', 'active', 'letters@gmail.com', '1234567890', NULL, '2017-12-28 16:29:07', '2017-12-28 16:29:07', NULL, NULL),
+(8, 'snake', 'customer', 'active', 'snake@gmail.com', '55555', NULL, '2017-12-28 16:31:33', '2017-12-28 16:31:33', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -809,115 +808,96 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
   MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
 --
 -- AUTO_INCREMENT for table `furniture`
 --
 ALTER TABLE `furniture`
   MODIFY `furnitureId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `furniture_image`
 --
 ALTER TABLE `furniture_image`
   MODIFY `furnitureImageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `furniture_package`
 --
 ALTER TABLE `furniture_package`
   MODIFY `packId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `furniture_specification`
 --
 ALTER TABLE `furniture_specification`
   MODIFY `specId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `furniture_stock`
 --
 ALTER TABLE `furniture_stock`
   MODIFY `stockId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
   MODIFY `notificationId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
   MODIFY `orderItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
 --
 -- AUTO_INCREMENT for table `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `orderStatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
   MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
   MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
   MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
   MODIFY `sellerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `warranty`
 --
 ALTER TABLE `warranty`
   MODIFY `warrantyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
   MODIFY `wishlistId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --
