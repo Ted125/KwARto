@@ -13,7 +13,7 @@
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
 
-	<div class="main_slider" style="background-image:url(http://www.iasc2015.org/l/2017/10/06/red-sofa-furniture-design-red-sofa-near-white-vase-n-orange-background-wallpaper_b740487bc8b1df8f.jpg)">
+	<div class="main_slider" style="background-image:url(./images/indexbanner.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
@@ -31,21 +31,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(https://cdn.decoist.com/wp-content/uploads/2015/01/Dark-gray-accent-wall-and-pops-of-black-anchor-the-lovely-room.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg1.jpg)">
 						<div class="banner_category">
 							<a href="categories.php">Bedroom</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(http://dreamstop.com/wp-content/uploads/2013/07/office-dream-meaning.jpeg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg2.jpg)">
 						<div class="banner_category">
 							<a href="categories.php">Home Office</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(https://st.hzcdn.com/simgs/d7411574036680db_4-7159/contemporary-living-room.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg3.jpg)">
 						<div class="banner_category">
 							<a href="categories.php">Living Room</a>
 						</div>
@@ -85,7 +85,7 @@
 						<div class="product-item homeoff">
 							<div class="product discount product_filter">
 								<div class="product_image">
-									<img src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" style="padding-top: 20px; max-height: 240px;" alt="">
+									<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
@@ -100,7 +100,7 @@
 						<div class="product-item living">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="http://www.ikea.com/PIAimages/0312397_PE429728_S5.JPG" style="padding-top: 20px; max-height: 240px;" alt="">
+									<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -115,7 +115,7 @@
 						<div class="product-item bedroom">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zUdS4n5O_unZ0F9RkYZfLcOOgkiIQicSvGXOPmuivALtHIGF" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item3.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_info">
@@ -129,7 +129,7 @@
 						<div class="product-item bedroom">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://ashleyfurniture.scene7.com/is/image/AshleyFurniture/B188-22-SD-P1-KO?$AFHS-Grid-1X$" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item4.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
 								<div class="favorite favorite_left"></div>
@@ -144,7 +144,7 @@
 						<div class="product-item dining">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="http://www.vikingcasual.com/media/ecom/prodsm/T-418%20Square%20Floral%20Table%2064%20x%2064.jpg" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item5.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_info">
@@ -158,7 +158,7 @@
 						<div class="product-item dining">
 							<div class="product discount product_filter">
 								<div class="product_image">
-									<img src="https://www.patiowarehouse.co.za/wp-content/uploads/2017/10/YorkB-6Seater-400x400.jpg" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
@@ -173,7 +173,7 @@
 						<div class="product-item bedroom">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://i.pinimg.com/736x/42/7d/09/427d09befbe59e3d47f29eebd63e762b--bedroom-desk-bedroom-office.jpg" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_info">
@@ -187,7 +187,7 @@
 						<div class="product-item dining">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://images.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw997b1142/images/2503656/2503656_1.jpg?sw=1600&sh=1600&impolicy=Bypass" style="padding-top: 20px;">
+									<img src="./images/index/item8.jpg" style="padding-top: 20px;">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_info">
@@ -201,7 +201,7 @@
 						<div class="product-item homeoff">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://www.cultfurniture.com/images/products/medium/1486046910-20134200.jpg" style="max-height: 240px; padding-top: 20px;">
+									<img src="./images/index/item9.jpg" style="max-height: 240px; padding-top: 20px;">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
@@ -215,7 +215,7 @@
 						<div class="product-item homeacc">
 							<div class="product product_filter">
 								<div class="product_image">
-									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXx4epDpWIT7a-4AYBLk5xDhaJ_ZpboHnMc5jFbcnSygD98Tnp" style="padding-top: 20px; max-height: 240px;">
+									<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
 								</div>
 								<div class="favorite"></div>
 								<div class="product_info">
@@ -236,7 +236,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<div class="deal_ofthe_week_img">
-						<img src="https://www.knoll.com/media/328/93/Thumb_aa-residential-chaise-lounge-880,3.png" alt="">
+						<img src="./images/index/dealsbg.png" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6 text-right deal_ofthe_week_col">
@@ -287,7 +287,7 @@
 								<div class="product-item homeoff">
 									<div class="product discount">
 										<div class="product_image">
-											<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXx4epDpWIT7a-4AYBLk5xDhaJ_ZpboHnMc5jFbcnSygD98Tnp" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_info">
@@ -302,7 +302,7 @@
 								<div class="product-item homeacc">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://i.pinimg.com/736x/42/7d/09/427d09befbe59e3d47f29eebd63e762b--bedroom-desk-bedroom-office.jpg" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_info">
@@ -317,7 +317,7 @@
 								<div class="product-item homeacc">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://www.patiowarehouse.co.za/wp-content/uploads/2017/10/YorkB-6Seater-400x400.jpg" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite favorite_left"></div>
 										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
@@ -333,7 +333,7 @@
 								<div class="product-item dining">
 									<div class="product">
 										<div class="product_image">
-											<img src="http://www.ikea.com/PIAimages/0312397_PE429728_S5.JPG" style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -349,7 +349,7 @@
 								<div class="product-item women men">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 										</div>
 										<div class="favorite favorite_left"></div>
 										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
@@ -366,7 +366,7 @@
 								<div class="product-item homeoff">
 									<div class="product discount">
 										<div class="product_image">
-											<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXx4epDpWIT7a-4AYBLk5xDhaJ_ZpboHnMc5jFbcnSygD98Tnp" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_info">
@@ -381,7 +381,7 @@
 								<div class="product-item homeacc">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://i.pinimg.com/736x/42/7d/09/427d09befbe59e3d47f29eebd63e762b--bedroom-desk-bedroom-office.jpg" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_info">
@@ -396,7 +396,7 @@
 								<div class="product-item homeacc">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://www.patiowarehouse.co.za/wp-content/uploads/2017/10/YorkB-6Seater-400x400.jpg" style="padding-top: 20px; max-height: 240px;">
+											<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
 										</div>
 										<div class="favorite favorite_left"></div>
 										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
@@ -412,7 +412,7 @@
 								<div class="product-item dining">
 									<div class="product">
 										<div class="product_image">
-											<img src="http://www.ikea.com/PIAimages/0312397_PE429728_S5.JPG" style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 										</div>
 										<div class="favorite"></div>
 										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -428,7 +428,7 @@
 								<div class="product-item women men">
 									<div class="product">
 										<div class="product_image">
-											<img src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 										</div>
 										<div class="favorite favorite_left"></div>
 										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
@@ -465,7 +465,7 @@
 			<div class="row blogs_container">
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(https://i0.wp.com/belovedbd.com/wp-content/uploads/2017/08/Eid-ul-Adha-2017-in-Bangladesh.jpg?fit=940%2C630&ssl=1)"></div>
+						<div class="blog_background" style="background-image:url(./images/index/news1.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Year End Sale</h4>
 							<span class="blog_meta">8:00 AM | dec 01, 2017</span>
@@ -475,7 +475,7 @@
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(http://www.carters.com/on/demandware.static/-/Sites-Carters-Library/default/dwb2fa8876/images/carters/slots/clearance/carters_mobile_destinationpage_clearance.jpg)"></div>
+						<div class="blog_background" style="background-image:url(./images/index/news2.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Clearance Sale</h4>
 							<span class="blog_meta">4:00 PM | Jan 01, 2017</span>
@@ -485,7 +485,7 @@
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(http://cdn.crownmediadev.com/6d/c3/140f713445c58a1fca4466288f10/bigstock-decorated-christmas-tree-close-76005554-1.jpg)"></div>
+						<div class="blog_background" style="background-image:url(./images/index/news3.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Christmas Sale</h4>
 							<span class="blog_meta">3:00 PM | Dec 01, 2017</span>

@@ -24,7 +24,7 @@
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
 
-	<div class="main_slider" style="background-image:url(https://wallpaperscraft.com/image/furniture_room_style_70008_1920x1080.jpg)">
+	<div class="main_slider" style="background-image:url(./images/about/aboutbg.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
@@ -50,7 +50,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(http://intersiec.com/wp-content/uploads/2017/11/room-painting-design-images-breathtaking-50-beautiful-wall-ideas-and-designs-for-living-home-1.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/about/i1.jpg)">
 						<div class="banner_category" style="opacity: 0.8; margin-left: 20px; margin-right:  20px; min-height: 100px;">
 							<a><h5>Mission</h5>
 							<p style="color: #555">This is our mission for our company or website or application whichever it is</p></a>
@@ -58,7 +58,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(http://madlonsbigbear.com/wp-content/uploads/imgp/red-room-with-white-furniture-7-5734.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/about/i2jpg)">
 						<div class="banner_category" style="opacity: 0.8; margin-left: 20px; margin-right:  20px; min-height: 100px;">
 							<a><h5>Vision</h5>
 							<p style="color: #555">This is our vision for our company or website or application whichever it is</p></a>
@@ -66,7 +66,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(http://www.englishtraditions.com/blog/wp-content/uploads/2014/09/851101b90e331142_2292-w660-h439-b0-p0-traditional-family-room.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(./images/about/i3.jpg)">
 						<div class="banner_category" style="opacity: 0.8; margin-left: 20px; margin-right:  20px; min-height: 100px;">
 							<a><h5>Core Values</h5>
 							<p style="color: #555">This is our core values for our company or website or application whichever it is</p></a>
