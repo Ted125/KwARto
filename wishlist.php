@@ -39,7 +39,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
+							<a href="index.php"><img style="max-width: 150px;" src="images/newlogo.png"></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
