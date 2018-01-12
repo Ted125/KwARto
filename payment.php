@@ -98,38 +98,38 @@ n<!DOCTYPE html>
 					</div>
 				</div>
 			</div>
-			<div class="row blogs_container">
-				<div class="col-lg-4 blog_item_col">
-					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(https://rpsstudio.co/assets/images/icons/cash.svg)"></div>
-						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Cash On Delivery</h4>
-							<span class="blog_meta">Pay to courier upon receiving</span>
-							<a class="" data-toggle="modal" data-target="#myModal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+			<div class="row blogs_container text-center">
+					<div class="col-lg-4 blog_item_col" style="margin-left: 16%;">
+						<div class="blog_item">
+							<div class="blog_background" style="background-image:url(./images/payment/cash.jpg)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Cash On Delivery</h4>
+								<span class="blog_meta">Pay to courier upon receiving</span>
+								<a class="" data-toggle="modal" data-target="#myModal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+							</div>
+						</div>
+					</div><!-- 
+					<div class="col-lg-4 blog_item_col">
+						<div class="blog_item">
+							<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Credit or Debit Card</h4>
+								<span class="blog_meta">Visa | Mastercard</span>
+								<a class="" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-lg-4 blog_item_col">
+						<div class="blog_item">
+							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Paypal</h4>
+								<span class="blog_meta">You will be redirected</span>
+								<a class="" style="text-decoration: none; color: #d42d2d;" href="https://www.paypal.com/PH">Select</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 blog_item_col">
-					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
-						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Credit or Debit Card</h4>
-							<span class="blog_meta">Visa | Mastercard</span>
-							<a class="" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 blog_item_col">
-					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(https://www.sketchappsources.com/resources/source-image/PayPalCard.png)"></div>
-						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Paypal</h4>
-							<span class="blog_meta">You will be redirected</span>
-							<a class="" style="text-decoration: none; color: #d42d2d;" href="https://www.paypal.com/PH">Select</a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 		
