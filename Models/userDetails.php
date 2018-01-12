@@ -225,7 +225,7 @@ class user_details{
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "seller") == 0){
-                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                        return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     }
                 }
             }

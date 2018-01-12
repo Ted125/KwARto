@@ -41,7 +41,13 @@
     $_SESSION['lastName'] = $verify['lastName'];
     $_SESSION['birthdate'] = $verify['birthdate'];
     $_SESSION['image'] = $verify['image'];
-    header( "Location: http://localhost/capstone-project/" );
+
+    switch($_SESSION['userType']){
+      case "customer" : header( "Location: http://localhost/capstone-project/" ); break;
+      case "seller" : header( "Location: http://localhost/capstone-project/manuindex.php" ); break;
+      case "admin"    : header( "Location: http://localhost/capstone-project/admindex.php" );
+    }
+    
   } else {
       	//inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";

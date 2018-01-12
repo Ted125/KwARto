@@ -32,7 +32,7 @@
                     echo '<li><a href="loginnew.php"><i class="fa fa-search" aria-hidden="true">Hello Guest</i></a></li>';
                   } else {
                     echo '<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                          <li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i>Hello, '.$_SESSION['username'].'</a></li>
+                          <li><a href="profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a></li>
                           <li data-toggle="modal" data-target="#myModal" class="project-title d-flex align-items-center checkout">
                             <!-- MODAL CONTENT BELOW -->
                             <a href="#">
