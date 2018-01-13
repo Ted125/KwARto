@@ -1,10 +1,6 @@
 <?php 
-require("SQL_Connect.php");
-require("Database.php");
-
 class user_details{
     private $userId;
-    private $username;
     private $password;
     private $userType;
     private $userStatus;
@@ -42,9 +38,10 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
-            $this->setUsername($_POST['registerUsername']);
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
+            $this->setUserStatus("active");
+            $this->setImage('Resources/Images/Profile/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
@@ -53,31 +50,25 @@ class user_details{
             }
             $create = "INSERT INTO user_details
             ( 
-            username,
             password, 
             userType, 
             userStatus,
             email, 
             mobileNumber,
+            image,
             addedBy
             )
             VALUES
-            ('".$this->getUsername()."',
-            '".$this->getPassword()."',
+            ('".$this->getPassword()."',
             '".$this->getUserType()."',
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
             '".$this->getMobileNumber()."',
+            '".$this->getImage()."',
             '".$this->getAddedBy()."'
             )";
             echo $create;
             $result = mysqli_query($connection, $create);
-            // $select = "SELECT * 
-            // FROM  user_details 
-            // WHERE userName='".$this->getUsername()."'";//there must be other way
-            // $qry = mysqli_query($connection, $select);
-            // $row = mysqli_fetch_array($qry);
-            // $this->setUserId($row[0]);
 
             $this->setUserId($connection->insert_id);
             mysqli_close($connection);
@@ -89,9 +80,14 @@ class user_details{
     }
 
     public function updateUser($field, $newData){
+        include("Database.php");
+
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
+            if(strcmp($field, 'password') == 0){
+                $newData = md5($newData);
+            }
             $create = "UPDATE user_details
                 SET 
                 ".$field." = '".$newData."'
@@ -212,6 +208,8 @@ class user_details{
     }
 
     public function login($sessionEmail, $sessionPassword){
+        require("Database.php");
+
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -227,7 +225,7 @@ class user_details{
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "seller") == 0){
-                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                        return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     }
                 }
             }
@@ -241,7 +239,8 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, username, email, userType, mobileNumber, dateAdded, firstName, middleName, lastName, birthdate 
+          $query = "SELECT user_details.userId AS userId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate 
+
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -274,7 +273,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, username, email, userType, mobileNumber, dateAdded 
+          $query = "SELECT userId, email, userType, mobileNumber, dateAdded 
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -308,7 +307,6 @@ class user_details{
             //$result = NULL;
             $query ="SELECT
             userId,
-            username,
             userType,
             userStatus,
             email,
@@ -336,7 +334,6 @@ class user_details{
             //$result = NULL;
             $query ="SELECT
             userId,
-            username,
             userType,
             userStatus,
             email,
@@ -364,14 +361,6 @@ class user_details{
 
     public function setUserId($userId){
         $this->userId = $userId;
-    }
-
-    public function getUsername(){
-        return $this->username; 
-    }
-
-    public function setUsername($username){
-        $this->username = $username;
     }
 
     public function getPassword(){
