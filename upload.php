@@ -152,19 +152,19 @@
                         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
                         <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
                       </div>
-                      <form class="form-horizontal col-lg-8">
+                      <form class="form-horizontal col-lg-8" action="Controllers/CreateFurniture.php" >
                        
                         <div class="form-group">
                           <label>Product Name</label>
-                          <input type="text" placeholder="Product Name" class="form-control">
+                          <input type="text" placeholder="Product Name" class="form-control" name="name">
                         </div>
                         <div class="form-group">       
                           <label>Description</label>
-                          <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here"></textarea>
+                          <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="description"></textarea>
                         </div>
                         <div class="form-group">       
                           <label>Category</label>
-                          <select name="account" class="form-control">
+                          <select name="account" class="form-control" name="category">
                             <option>Furniture Items</option>
                             <option>Bed + Bath</option>
                             <option>Decor Items</option>
@@ -175,23 +175,23 @@
                         </div>
                         <div class="form-group">       
                           <label>Length</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="length">
                         </div>
                         <div class="form-group">       
                           <label>Width</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="width">
                         </div>
                         <div class="form-group">       
                           <label>Height</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="height">
                         </div>
                         <div class="form-group">       
                           <label>Warranty ID</label>
-                          <input type="text" placeholder="" class="form-control">
+                          <input type="text" placeholder="" class="form-control" name="warrantyId">
                         </div>
                         <div class="form-group">       
                           <label>Unit</label>
-                          <select name="account" class="form-control">
+                          <select name="account" class="form-control" name="sizeUnit">
                             <option>millimeter/s</option>
                             <option>centimeter/s</option>
                             <option>inch/es</option>
@@ -200,15 +200,15 @@
                         </div>
                         <div class="form-group">       
                           <label>Price</label>
-                          <input type="text" placeholder="0.00" class="form-control">
+                          <input type="text" placeholder="0.00" class="form-control" name="price">
                         </div>
                         <div class="form-group">       
                           <label>Quantity</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="quantity">
                         </div>
                         <div class="form-group">       
                           <label>Discount</label>
-                          <input type="text" placeholder="0.00" class="form-control">
+                          <input type="text" placeholder="0.00" class="form-control" name="discount">
                         </div>
                         <div class="form-group">       
                           <label>3D Model</label>
