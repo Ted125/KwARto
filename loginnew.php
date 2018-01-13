@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+  if(isset($_SESSION)){
+  session_unset();
+  session_destroy();
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">

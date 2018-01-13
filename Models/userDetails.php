@@ -209,7 +209,6 @@ class user_details{
 
     public function login($sessionEmail, $sessionPassword){
         require("Database.php");
-
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -225,7 +224,7 @@ class user_details{
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "seller") == 0){
-                        return $this->LoginAdmin($sessionEmail, $sessionPassword);
+                        return $this->LoginSeller($sessionEmail, $sessionPassword);
                     }
                 }
             }
