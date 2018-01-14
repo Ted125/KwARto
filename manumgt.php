@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
+  }
+?>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +67,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -117,144 +123,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td data-toggle="modal" data-target="#mrowModal">Furniture City</td>
-                            <td data-toggle="modal" data-target="#mrowModal">Mandaue City, Cebu</td>
-                            <td data-toggle="modal" data-target="#mrowModal">name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                            
-                            <!-- Modal Contents for Row -->
-                            <div class="modal fade" id="mrowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content " style="width: 600px;">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="row">
-                                      <div class="col-5">
-                                          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
-                                      </div>
-                                      <div class="col-7">
-                                         <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-left: 5px;">John</h5>  </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-left: 5px;">Smithers</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Last Name: <h5 style="font-weight: normal; padding-left: 5px;">Smith</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-left: 5px;">Male</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-left: 5px;">+63 123 456 7890</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">name@user.com</h5></h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Current Address: <h5 style="font-weight: normal; margin-left: 5px;">123 Internet Street, Long Address, Somewhere City, Cty</h5></h5></div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Furniture Labs</td>
-                            <td>H. Cortes, Mandaue City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Uratex Foams</td>
-                            <td>Paknaan Corner, Mandaue City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>Vertigo Chairs and Co.</td>
-                            <td>Talisay City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          <?php include("Controllers/DisplaySellers.php");?>
                         </tbody>
                       </table>
                     </div>

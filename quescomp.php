@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -62,7 +68,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>

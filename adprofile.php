@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
+  }
+?>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +67,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -152,14 +158,14 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value="+63 123 456 7890">
+                            <input type="text" class="form-control" value=<?php echo $_SESSION['mobileNumber'];?>>
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" disabled="" value="email@address.com">
+                            <input type="text" class="form-control" disabled="" value=<?php echo $_SESSION['email'];?>>
                             <span class="help-block-none">We'll never share your e-mail address.</span>
                           </div>
                         </div>

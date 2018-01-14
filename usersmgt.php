@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
+  }
+?>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +67,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -360,114 +366,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td data-toggle="modal" data-target="#rowModal">Leonille Christie</td>
-                            <td data-toggle="modal" data-target="#rowModal">Lavador</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td data-toggle="modal" data-target="#rowModal">Jon Miguel</td>
-                            <td data-toggle="modal" data-target="#rowModal">Lindo</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td data-toggle="modal" data-target="#rowModal">Christian Ted</td>
-                            <td data-toggle="modal" data-target="#rowModal">Ochoa</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td data-toggle="modal" data-target="#rowModal">Roald</td>
-                            <td data-toggle="modal" data-target="#rowModal">Galano</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          <?php include("Controllers/DisplayUsers.php");?>
                         </tbody>
                       </table>
                     </div>

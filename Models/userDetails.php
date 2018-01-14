@@ -298,20 +298,86 @@ class user_details{
         return $row;
       }
 
+    public function loginSeller($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $row = null;
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT userId, email, userType, mobileNumber, dateAdded 
+          FROM user_details
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+          }else{
+            echo 'not found';
+          }
+        }
+        return $row;
+      }
+
     public function displayAllUsers(){
+        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            userId,
+            user_details.userId AS userId,
             userType,
             userStatus,
             email,
             mobileNumber,
-            dateAdded
-            FROM  user_details
+            dateAdded,
+            firstName,
+            lastName
+            FROM  user_details INNER JOIN customer
+            WHERE user_details.userId = customer.userId;
+            ";
+            $result = mysqli_query($connection, $query);
+        
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function displayAllSellers(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            user_details.userId AS userId,
+            userType,
+            userStatus,
+            email,
+            mobileNumber,
+            dateAdded,
+            name
+            FROM  user_details INNER JOIN seller
+            WHERE user_details.userId = seller.userId;
             ";
             $result = mysqli_query($connection, $query);
         

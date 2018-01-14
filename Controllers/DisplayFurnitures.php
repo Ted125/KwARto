@@ -1,14 +1,14 @@
 <?php
-  require_once("Models/userDetails.php");
+  require_once("Models/furnitureCRUD.php");
 
   //session_start();
   
-  $user = new user_details();
-  $verify = $user->DisplayAllUsers();
+  $furn = new furniture();
+  $verify = $furn->DisplayAllFurnitures();
   $count = 1;
   if($verify != null){
     while($row = $verify->fetch_assoc()){
-      include("C:/xampp/htdocs/Capstone-Project/Access/AdminViewUsers.php");
+      include("C:/xampp/htdocs/Capstone-Project/Access/AdminViewFurnitures.php");
       $count++;
 
     }

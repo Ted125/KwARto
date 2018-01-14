@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-  require("Controllers/Login.php");
-  if(!isset($_SESSION) && strcmp($_SESSION['userType'],'admin') != 0){
-      header("Location:home.php"); break;
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
   }
 ?>
 <html>
