@@ -1,6 +1,6 @@
 <?php
   //echo $_SERVER['DOCUMENT_ROOT'];
-  require_once($_SERVER['DOCUMENT_ROOT'] . "/Capstone/Models/userDetails.php");
+  require_once($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Models/userDetails.php");
   //require_once("../Models/userDetails.php");
   //require_once("../Models/customerCRUD.php");
   //require_once("../Models/sellerDetails.php");
