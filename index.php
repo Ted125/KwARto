@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>KwARto | Web Application</title>
+<title>KwARto | Home</title>
 <!-- HEAD TAG HERE WITH THE NECESSARY CSS LINKS AND PLUGINS -->
 <?php include('Access/Header.php');?>
 </head>
@@ -73,10 +73,10 @@
 
 								require("Controllers/LoadSubordinateCategories.php");
 
-								if($result != null){
+								if($subordinateCategoriesResult != null){
 									$i = 1;
 
-									while($row = mysqli_fetch_assoc($result)){
+									while($row = mysqli_fetch_assoc($subordinateCategoriesResult)){
 										if($i == 1){
 											$i++;
 							?>
@@ -91,13 +91,6 @@
 									}
 								}
 							?>
-							<!--
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".bedroom">bedroom</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".dining">dining room</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".homeacc">home accents</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".homeoff">home office</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".living">living room</li> -->
 						</ul>
 					</div>
 				</div>
@@ -121,8 +114,8 @@
 
 							require("Controllers/SearchFurniture.php");
 
-							if($result != null){
-								while($row = mysqli_fetch_assoc($result)){
+							if($searchFurnitureResult != null){
+								while($row = mysqli_fetch_assoc($searchFurnitureResult)){
 									$_POST["categoryId"] = $row["categoryId"];
 
 									require("Controllers/LoadSinglePath.php");
@@ -148,16 +141,16 @@
 
 												require("Controllers/LoadAllFurnitureImages.php");
 
-												if($res != null){
-													$r = mysqli_fetch_assoc($res);
+												if($furnitureImagesResult != null){
+													$r = mysqli_fetch_assoc($furnitureImagesResult);
 											?>
 
-											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
 											<?php
 												}else{
 													// set to a default image
 											?>
-											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+											<img src="" style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
 											<?php
 												}
 											?>
@@ -172,22 +165,22 @@
 										?>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.php"><?php echo $row["name"]; ?></a></h6>
+											<h6 class="product_name"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId']?>"><?php echo $row["name"]; ?></a></h6>
 											<div class="product_price">
 											<?php
 												$price = $row["price"];
 												$discount = $row["discount"];
 
 												if($discount > 0){
-													echo "Php " . ($price * (1 - $discount / 100));
+													echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
 												}else{
-													echo "Php " . $price;
+													echo "Php " . number_format($price);
 												}
 											?>
 											<?php
 												if($row["discount"] > 0){
 											?>
-											<span><?php echo "Php " . $row["price"]; ?></span>
+											<span><?php echo "Php " . number_format($row["price"], 2); ?></span>
 											<?php
 												}
 											?>

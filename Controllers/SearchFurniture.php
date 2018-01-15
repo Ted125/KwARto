@@ -103,6 +103,6 @@
         $query .= " ORDER BY node.lft ASC";
       }
 
-      $result = mysqli_query($connection, $query);
+      $searchFurnitureResult = mysqli_query($connection, $query);
   }
 ?>

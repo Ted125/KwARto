@@ -8,6 +8,6 @@
     $id = $_POST["furnitureId"];
 
     $query = "SELECT * FROM furniture_image WHERE furnitureId = " . $id;
-    $res = mysqli_query($connection, $query);
+    $furnitureImagesResult = mysqli_query($connection, $query);
   }
 ?>

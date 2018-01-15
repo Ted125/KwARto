@@ -14,7 +14,5 @@
               AND node.categoryId = " . $categoryId .
               " ORDER BY parent.lft";
     $singlePathResult = mysqli_query($connection, $query);
-
-    return $singlePathResult;
   }
 ?>

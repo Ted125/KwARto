@@ -26,8 +26,6 @@
               GROUP BY node.name
               HAVING depth = 1
               ORDER BY node.lft";
-    $result = mysqli_query($connection, $query);
-
-    return $result;
+    $subordinateCategoriesResult = mysqli_query($connection, $query);
   }
 ?>

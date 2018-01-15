@@ -1,7 +1,16 @@
-n<!DOCTYPE html>
+<?php
+	$furnitureId = $_GET["singleFurnitureId"];
+
+	$_POST["furnitureId"] = $furnitureId;
+
+	require("Controllers/LoadFurnitureDetails.php");
+
+	$row = mysqli_fetch_assoc($furnitureDetailsResult);
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<title>KwARto | Web Application</title>
+<title>KwARto | Furniture</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -29,7 +38,7 @@ n<!DOCTYPE html>
 					<div class="col-md-12 text-center">
 						<div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -73,7 +82,7 @@ n<!DOCTYPE html>
 
 	<div class="fs_menu_overlay"></div>
 
-	
+
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -96,15 +105,38 @@ n<!DOCTYPE html>
 						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 							<div class="single_product_thumbnails">
 								<ul>
-									<li ><img src="http://wingsberthouse.com/wp-content/uploads/2017/12/exquisite-medici-tufted-leather-accent-chair-contemporary-armchairs-and-of-red.jpg" alt="" data-image="http://wingsberthouse.com/wp-content/uploads/2017/12/exquisite-medici-tufted-leather-accent-chair-contemporary-armchairs-and-of-red.jpg"></li>
-									<li class="active"><img src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt="" data-image="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg"></li>
-									<li><img src="https://images-na.ssl-images-amazon.com/images/I/51FYlVPQXYL._SL1000_.jpg" alt="" data-image="https://images-na.ssl-images-amazon.com/images/I/51FYlVPQXYL._SL1000_.jpg"></li>
+									<?php
+										$_POST["furnitureId"] = $row["furnitureId"];
+
+										require("Controllers/LoadAllFurnitureImages.php");
+
+										$firstImage;
+
+										if($furnitureImagesResult != null){
+											$imageCount = 0;
+
+											while($r = mysqli_fetch_assoc($furnitureImagesResult)){
+												$imageCount ++;
+
+												if($imageCount == 1){
+													$firstImage = "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"];
+									?>
+													<li class="active"><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
+									<?php
+												}else{
+									?>
+													<li><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
+									<?php
+												}
+											}
+										}
+									?>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg)"></div>
+								<div class="single_product_image_background" style="background-image:url(<?php echo $firstImage; ?>)"></div>
 							</div>
 						</div>
 					</div>
@@ -113,34 +145,74 @@ n<!DOCTYPE html>
 			<div class="col-lg-5">
 				<div class="product_details">
 					<div class="product_details_title">
-						<h2>Comfy Chair</h2>
-						<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+						<h2><?php echo $row["name"]; ?></h2>
+						<p><?php echo $row["description"]; ?></p>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>
 					</div>
-					<div class="original_price">P999.99</div>
-					<div class="product_price">$850.00</div>
+					<?php
+						if($row["discount"] > 0){
+					?>
+					<div class="original_price"><?php echo number_format($row["price"], 2); ?></div>
+					<?php
+						}
+					?>
+					<div class="product_price">
+					<?php
+						$price = $row["price"];
+						$discount = $row["discount"];
+
+						if($discount > 0){
+							echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
+						}else{
+							echo "Php " . number_format($price, 2);
+						}
+					?>
+					</div>
 					<ul class="star_rating">
-						<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+						<?php
+							$_POST["furnitureId"] = $row["furnitureId"];
+
+							require("Controllers/GetAverageRating.php");
+
+							$averageRating = 0;
+
+							if($averageRatingResult != null){
+								$averageRatingRow = mysqli_fetch_assoc($averageRatingResult);
+
+								if($averageRatingRow["average"] != null){
+									$averageRating = $averageRatingRow["average"];
+								}
+							}
+
+							for($i = 0; $i < 5; $i++){
+								if($averageRating >= 1){
+						?>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<?php
+								}else if($averageRating > 0){
+						?>
+									<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+						<?php
+								}else{
+						?>
+									<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
+						<?php
+								}
+
+								$averageRating -= 1;
+							}
+						?>
 					</ul>
 					<div class="product_color">
-						<span>Select Color:</span>
-						<ul>
-							<li style="background: #d42d2d"></li>
-							<li style="background: #252525"></li>
-							<li style="background: #444444"></li>
-						</ul>
+						<span>Color: <?php echo $row["color"]; ?></span>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<span>Quantity:</span>
 						<div class="quantity_selector">
 							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-							<span id="quantity_value">1</span>
+							<span id="quantity_value">0</span>
 							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 						</div>
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
