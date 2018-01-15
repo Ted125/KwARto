@@ -40,7 +40,7 @@ class user_details{
         if($connection){
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
-            $this->setUserStatus("active");
+            $this->setUserStatus("inactive");
             $this->setImage('Resources/Images/Profile/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);

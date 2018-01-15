@@ -54,7 +54,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -84,7 +84,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li class="active"> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -119,39 +119,6 @@
                         <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
                       </div>
                       <form class="form-horizontal col-lg-8">
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">First Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" value="John">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Middle Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" value="Smithers">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Last Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" value="Smith">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Gender</label>
-                          <div class="col-sm-9">
-                            <div class="dropdown">
-                              <button class="btn form-control col-lg-3 btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Male
-                              </button>
-                              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Male</a>
-                                <a class="dropdown-item" href="#">Female</a>
-                                <a class="dropdown-item" href="#">Other</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         
                         <div class="line"></div>
 
