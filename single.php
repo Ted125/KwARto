@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	$furnitureId = $_GET["singleFurnitureId"];
 
 	$_POST["furnitureId"] = $furnitureId;
@@ -176,7 +178,7 @@
 							<?php
 									}else{
 							?>
-										<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 							<?php
 									}
 
@@ -488,11 +490,6 @@
 								<div class="add_review">
 									<form id="review_form" action="post">
 										<div>
-											<h1>Leave a Comment/Review</h1>
-											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
-										</div>
-										<div>
 											<h1>Leave a Rating</h1>
 											<ul class="user_star_rating">
 												<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -583,14 +580,15 @@
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form id="review_form" method="post" action= "Controllers/AddQuestion.php">
 										<div>
 											<h1>Leave a Question</h1>
-											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
 										</div>
 										<div>
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
+											<input type = "hidden" name = "furnitureId" value = <?php echo $row["furnitureId"]; ?>>
+											<input type = "hidden" name = "customerId" value = <?php echo $_SESSION["customerId"]; ?>>
+											<input type = "hidden" name = "active" value = "true">
+											<textarea id="review_message" class="input_review" name="question"  placeholder="Your Question" rows="4" required data-error="Please leave us a question."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
