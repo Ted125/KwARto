@@ -33,7 +33,7 @@
 		      <input type="text" placeholder="What are you looking for?" name="search" style="width:700px; font-size: 1.5em; padding:10px;">
 		      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.5em;"></i></button>
 		    </form>
-		  </div>	
+		 </div>	
 	</div>
 
 	<div class="banner">
@@ -571,8 +571,8 @@
 										<td class="">Comfy Chair</td>
 										<td class="">P850.00</td>
 										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 200px"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
+											<div class="red_button" style="width: 150px;"><a href="#">move to wishlist</a></div><br>
+											<div class="red_button" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
 										</td>
 									</tr>
 									<tr class="">
@@ -596,8 +596,8 @@
 										<td class="">Swivel Chair</td>
 										<td class="">P540.00</td>
 										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 200px;"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
+											<div class="red_button" style="width: 150px;;"><a href="#">move to wishlist</a></div><br>
+											<div class="red_button" style="width: 150px;background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
 										</td>
 									</tr>
 							</tbody></table>

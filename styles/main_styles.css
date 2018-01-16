@@ -590,7 +590,7 @@ section
 }
 .checkout a
 {
-	background: #eceff6;
+	/*background: #eceff6;*/
 	border-radius: 50%;
 }
 .checkout_items

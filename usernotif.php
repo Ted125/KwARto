@@ -45,6 +45,7 @@ n<!DOCTYPE html>
 				<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 					<tbody class="text-center">
 					<tr class="">
+						<!-- Image should link to the image of the item to be received -->
 					<td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td>
 					<td class="">System Message</td>
 					<td class="">Have you received your item?</td>

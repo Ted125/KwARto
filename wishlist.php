@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		<h3>My Wishlist</h3>
+		<h3><i class="fa fa-list-alt" aria-hidden="true"></i> My Wishlist</h3>
 		<div class="row">        
         <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
         <thead>
