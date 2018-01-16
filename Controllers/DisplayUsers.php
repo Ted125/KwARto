@@ -5,12 +5,20 @@
   
   $user = new user_details();
   $verify = $user->DisplayAllUsers();
-  $count = 1;
+
   if($verify != null){
     while($row = $verify->fetch_assoc()){
-      include("Access/AdminViewUsers.php");
-      $count++;
-
+      echo "
+        <tr>
+            <th>".$row['userId']."</th>
+            <th>".$row['username']."</th>
+            <th>".$row['userType']."</th>
+            <th>".$row['userStatus']."</th>
+            <th>".$row['email']."</th>
+            <th>".$row['mobileNumber']."</th>
+            <th>".$row['dateAdded']."</th>
+        </tr>
+      ";
     }
   } else {
       	//inform user that the input is not valid

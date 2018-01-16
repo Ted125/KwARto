@@ -11,7 +11,7 @@
   /*$user = new user_details();
   $verify2 = $user->updateUser($_POST['field'], $_POST['newData']);
   */
-  if($verify != null){
+  if($verify != null && $verify2 != null){
     $_SESSION[$_POST['field']] = $_POST['newData'];
 
   } else {
