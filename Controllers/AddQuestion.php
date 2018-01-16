@@ -16,7 +16,7 @@
     if($result){
       header("Location: ../single.php?singleFurnitureId=" . $furnitureId);
     }else{
-      echo "false";
+      echo "Error uploading question!";
     }
   }
 ?>
