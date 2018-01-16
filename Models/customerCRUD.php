@@ -82,7 +82,7 @@ class customer extends user_details{
 
                 $create = "UPDATE customer
                            SET  '".$field."' = '".$newData."'
-                           WHERE customer.userId = '".$this->getUserId()."'";
+                           WHERE customer.userId = ".$this->getUserId()."";
                 $result = mysqli_query($connection, $create);
                 mysqli_close($connection);
             }else{
@@ -90,6 +90,34 @@ class customer extends user_details{
             }
         }else{
             echo 'no session';
+        }
+    }
+
+    public function updateCustomerMult($fName, $lName, $bDay){
+        include("Database.php");
+        
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'customer') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+
+                $create = "UPDATE customer
+                           SET  firstName = '".$fName."', lastName = '".$lName."', birthdate = '".$bDay."'
+                           WHERE customer.userId = ".$this->getUserId()."";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'no session';
+            return null;
         }
     }
 
@@ -114,7 +142,34 @@ class customer extends user_details{
         $row = mysqli_query($mysqli, $query);
         $result = mysqli_fetch_array($row);
 
-        return result;
+        return $result;
+    }
+
+    public function readAllCustomers($rownum){
+        $offset = 0;
+        $offset = ($rownum - 1) * 10;
+        $query = "  SELECT
+                    c.firstName,
+                    c.middleName,
+                    c.lastName,
+                    c.birthdate,
+                    u.username,
+                    u.userType,
+                    u.status,
+                    u.gender,
+                    u.email,
+                    u.mobileNumber,
+                    u.image,
+                    u.address
+                    FROM customer c inner join user_details u  on u.userId = c.userId
+                    order by u.userId
+                    Limit 10
+                    OFFSET '".."'
+                ";
+        $rows = mysqli_query($mysqli, $query);
+        $result = mysql_fetch_array($row);
+    
+        return $result;
     }
 
     /***************** SETTERS AND GETTERS ****************/

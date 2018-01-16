@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+  require("Models/userDetails.php"); 
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:logginnew.php");
+  }
+?>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +55,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -61,7 +68,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -78,7 +85,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -118,52 +125,81 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
-                            <td data-toggle="modal" data-target="#rowModal">John</td>
-                            <td data-toggle="modal" data-target="#rowModal">Smith</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
-                              <!-- Modal-->
-                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to approve this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
+                          <?php
+                            $db = new Database();
+                            $connection = $db->Connect();
+                            $result = null;
+                            if($connection){  
+                              $query = "SELECT
+                              c.firstName,
+                              c.middleName,
+                              c.lastName,
+                              c.birthdate,
+                              u.username,
+                              u.userType,
+                              u.status,
+                              u.gender,
+                              u.email,
+                              u.mobileNumber,
+                              u.image,
+                              u.address
+                              u.userId
+                              FROM  customer c inner join user_details u on u.userId = c.userId
+                              WHERE u.status = 'inactive'
+                              ";
+                              $result = mysqli_query($connection, $query); 
+                              mysqli_close($connection);
+                            }
+                            while($appRow = mysqli_fetch_array($result)){
+                              echo'
+                              <th scope="row">"'.$appRow[12].'"</th>
+                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[0].'" "'.$appRow[1].'"</td>
+                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[2].'"</td>
+                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[8].'"</td>
+                              <td>
+                                <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
+                                <!-- Modal-->
+                                <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                  <div role="document" class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Are you sure you want to approve this user?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <form  method = "post" action = "Controllers/Activate.php">
+                                        <input type = "hidden" name ="'.$appRow[12].'"/>
+                                        <input type = "submit" class="btn btn-primary" value = "Yes"/>
+                                        </form>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
 
-                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
-                              <!-- Modal-->
-                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to reject this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
+                                <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
+                                <!-- Modal-->
+                                <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                  <div role="document" class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Are you sure you want to reject this user?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <button type="button" class="btn btn-primary">Yes</button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </td>
-  
+                              </td>
 
                             <!-- Modal Contents for Row -->
                             <div class="modal fade" id="rowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -195,147 +231,10 @@
                               </div>
                             </div>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td data-toggle="modal" data-target="#rowModal">Jane</td>
-                            <td data-toggle="modal" data-target="#rowModal">Doe</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
-                              <!-- Modal-->
-                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to approve this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
 
-                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
-                              <!-- Modal-->
-                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to reject this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td data-toggle="modal" data-target="#rowModal">John</td>
-                            <td data-toggle="modal" data-target="#rowModal">Doe</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
-                              <!-- Modal-->
-                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to approve this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <button type="button" data-toggle="modal" data-target="#rejModal" class="btn btn-primary">Reject</button>
-                              <!-- Modal-->
-                              <div id="rejModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to reject this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td data-toggle="modal" data-target="#rowModal">Adam</td>
-                            <td data-toggle="modal" data-target="#rowModal">Williams</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
-                              <!-- Modal-->
-                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to approve this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Reject</button>
-                              <!-- Modal-->
-                              <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to reject this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          ';
+                            }
+                          ?>
                         </tbody>
                       </table>
                     </div>
@@ -360,114 +259,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td data-toggle="modal" data-target="#rowModal">Leonille Christie</td>
-                            <td data-toggle="modal" data-target="#rowModal">Lavador</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td data-toggle="modal" data-target="#rowModal">Jon Miguel</td>
-                            <td data-toggle="modal" data-target="#rowModal">Lindo</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td data-toggle="modal" data-target="#rowModal">Christian Ted</td>
-                            <td data-toggle="modal" data-target="#rowModal">Ochoa</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td data-toggle="modal" data-target="#rowModal">Roald</td>
-                            <td data-toggle="modal" data-target="#rowModal">Galano</td>
-                            <td data-toggle="modal" data-target="#rowModal">name@user.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="banModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this user?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          <?php include("Controllers/DisplayUsers.php");?>
                         </tbody>
                       </table>
                     </div>

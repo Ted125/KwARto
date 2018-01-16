@@ -1,4 +1,4 @@
-<?php 
+<?php
 class user_details{
     private $userId;
     private $password;
@@ -11,7 +11,7 @@ class user_details{
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
-    
+
     const DB_TABLE = "user_table";
     const DB_TABLE_PK = "userId";
 
@@ -25,35 +25,35 @@ class user_details{
     /***************** FUNCTIONS ****************/
     public function debug($field, $newData){
         $create = "UPDATE user_details
-                SET 
+                SET
                 ".$field." = '".$newData."'
-                WHERE 
+                WHERE
                 user_details.userId = ".$_SESSION['userId']."";
         echo $create;
 
         /*sample code here*/
     }
 
-    public function createUser($userType){
+    public function createUser($userType){//Create Customer
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
-            $this->setUserStatus("active");
+            $this->setUserStatus("inactive");
             $this->setImage('Resources/Images/Profile/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
             if(isset($_SESSION)){
-               $this->setAddedBy($_SESSION['userId']); 
+               $this->setAddedBy($_SESSION['userId']);
             }
             $create = "INSERT INTO user_details
-            ( 
-            password, 
-            userType, 
+            (
+            password,
+            userType,
             userStatus,
-            email, 
+            email,
             mobileNumber,
             image,
             addedBy
@@ -85,13 +85,16 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
+            if(strcmp($field, 'password') == 0){
+                $newData = md5($newData);
+            }
             $create = "UPDATE user_details
-                SET 
+                SET
                 ".$field." = '".$newData."'
-                WHERE 
+                WHERE
                 user_details.userId = ".$_SESSION['userId']."";
             $result = mysqli_query($connection, $create);
-            
+
             if(mysqli_affected_rows($connection) > 0){
                 mysqli_close($connection);
                 return true;
@@ -120,14 +123,14 @@ class user_details{
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserId($_POST['userId']);
             $update = "UPDATE user_details
-                       SET userStatus = 'active' 
+                       SET userStatus = 'active'
                        WHERE userId = '".$this->getUserId()."'
                       ";
             $result = mysqli_query($mysqli, $update);
         }else{
             echo 'no session or only admins can activate a user';
         }
-        return $result;            
+        return $result;
     }
 
     public function deactiveUser(){
@@ -135,7 +138,7 @@ class user_details{
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             setUserId($_POST['userId']);
             $update = "UPDATE user_details
-                       SET userStatus = 'inactive' 
+                       SET userStatus = 'inactive'
                        WHERE userId = '".getUserId()."'
                       ";
             $result = mysqli_query($mysqli, $update);
@@ -156,16 +159,16 @@ class user_details{
                 $table = "customer";
             }else if(strcmp($this->getUserType(), 'seller' ) == 0){
                 $table = "seller";
-            }	
+            }
             if($table != "user_details"){
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
                     // Getting seller or customer ID
-                    $select = "SELECT * 
+                    $select = "SELECT *
                                FROM  '".$table."' x, user_details y
                                WHERE x.userId = 'y.".$this->getUserId()."'";
-                    
+
                     $qry = mysqli_query($mysqli, $select);
                     $row = mysqli_fetch_array($qry);
                     $id = $row[0];
@@ -173,7 +176,7 @@ class user_details{
                     // Actual deletion of customer or seller
                     $delete1 = "DELETE
                                 FROM '".$table." ' x, user_details y
-                                WHERE userID = 'x.".$id."' && y.userStatus = 'inactive' 
+                                WHERE userID = 'x.".$id."' && y.userStatus = 'inactive'
                                 ";
 
                     $result1 = mysqli_query($mysqli, $delete1);
@@ -189,7 +192,7 @@ class user_details{
             // Deletion from user_details
             $delete2 = "DELETE
                         FROM user_details
-                        WHERE userID = '".$this->getUserId()."' && userStatus = 'inactive' 
+                        WHERE userID = '".$this->getUserId()."' && userStatus = 'inactive'
                         ";
             $result2 = mysqli_query($mysqli, $delete2);
             if(mysqli_num_rows($result2) == 1){
@@ -206,7 +209,6 @@ class user_details{
 
     public function login($sessionEmail, $sessionPassword){
         require("Database.php");
-
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -222,7 +224,7 @@ class user_details{
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "seller") == 0){
-                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                        return $this->LoginSeller($sessionEmail, $sessionPassword);
                     }
                 }
             }
@@ -236,13 +238,14 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate 
+          $query = "SELECT user_details.userId AS userId, customerId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
 
-          FROM user_details INNER JOIN customer ON customer.userId = user_details.userId 
+          FROM user_details INNER JOIN customer ON customer.userId = user_details.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
           echo "||".$query;
           $rowcount = 0;
+
           if($result = mysqli_query($connection, $query)){
             //return number of result
             $rowcount=mysqli_num_rows($result);
@@ -250,7 +253,9 @@ class user_details{
           } else {
             echo "Connection Error";
           }
+
           mysqli_close($connection);
+          
           if($rowcount == 1){
             // header('Location: ' . "www.google.com");
             // echo "<h1>LOGGED IN!</h1>";
@@ -270,7 +275,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, email, userType, mobileNumber, dateAdded 
+          $query = "SELECT userId, email, userType, mobileNumber, dateAdded
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -296,29 +301,95 @@ class user_details{
         return $row;
       }
 
+    public function loginSeller($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $row = null;
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, name, description
+          FROM user_details INNER JOIN seller ON user_details.userId = seller.userId
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+          }else{
+            echo 'not found';
+          }
+        }
+        return $row;
+      }
+
     public function displayAllUsers(){
+        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            userId,
+            user_details.userId AS userId,
             userType,
             userStatus,
             email,
             mobileNumber,
-            dateAdded
-            FROM  user_details
+            dateAdded,
+            firstName,
+            lastName
+            FROM  user_details INNER JOIN customer
+            WHERE user_details.userId = customer.userId;
             ";
             $result = mysqli_query($connection, $query);
-        
+
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
-        }        
+        }
+        return $result;
+    }
+
+    public function displayAllSellers(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            user_details.userId AS userId,
+            userType,
+            userStatus,
+            email,
+            mobileNumber,
+            dateAdded,
+            name
+            FROM  user_details INNER JOIN seller
+            WHERE user_details.userId = seller.userId;
+            ";
+            $result = mysqli_query($connection, $query);
+
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }
         return $result;
     }
 
@@ -340,13 +411,13 @@ class user_details{
             WHERE userId = '".$this->getUserId()."'
             ";
             $result = mysqli_query($connection, $query);
-                  
+
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
-        }        
+        }
         return $result;
     }
 
