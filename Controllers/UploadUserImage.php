@@ -31,5 +31,5 @@ if (move_uploaded_file($_FILES['newData']['tmp_name'], $uploadfile)) {
    echo $uploadfile;
 }
 
-header( "Location: http://localhost/capstone-project/profile.php" );
+//header( "Location: http://localhost/capstone-project/profile.php" );
 ?> 
