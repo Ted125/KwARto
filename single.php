@@ -476,6 +476,8 @@
 										<p class = "review_body"><?php echo $reviewRow["body"]; ?></p>
 									</div>
 								</div>
+								<hr>
+								<br>
 								<?php
 										}
 									}
@@ -516,45 +518,67 @@
 								<div class="tab_title reviews_title">
 									<h4>Questions (<?php echo $questionCount; ?>)</h4>
 								</div>
+								<?php
+									$_POST["furnitureId"] = $row["furnitureId"];
+
+									require("Controllers/LoadAllFurnitureQuestions.php");
+
+									if($questionResult != null){
+										while($questionRow = mysqli_fetch_assoc($questionResult)){
+								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">John Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
+										<p class = "question"><?php echo $questionRow["question"]; ?></p>
+										<div class="user_name">Asked by <?php echo $questionRow["customerName"]; ?></div>
+										<div class="review_date">Asked on
+										<?php
+											$date = strtotime($questionRow["datePosted"]);
 
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSruM7uxCIoXQsS1XUPMYs28dMEV2uyS-RyGsfklPlsELI99Djd"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
+											echo date("F j, Y", $date);
+										?>
 										</div>
 									</div>
-									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">Jane Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
 								</div>
+								<?php
+									$_POST["questionId"] = $questionRow["questionId"];
+
+									require("Controllers/LoadQuestionAnswer.php");
+
+									if($answerResult != null){
+										$answerRow = mysqli_fetch_assoc($answerResult);
+
+										if(isset($answerRow["answer"])){
+								?>
+											<br>
+											<div class="user_review_container d-flex flex-column flex-sm-row">
+												<div class="user">
+													<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+												</div>
+												<div class="review">
+													<p class = "question"><?php echo $answerRow["answer"]; ?></p>
+													<div class="user_name">Answered by <?php echo $answerRow["sellerName"]; ?></div>
+													<div class="review_date">Answered on
+													<?php
+														$date = strtotime($answerRow["dateAnswered"]);
+
+														echo date("F j, Y", $date);
+													?>
+													</div>
+												</div>
+											</div>
+								<?php
+										}
+									}
+								?>
+								<hr>
+								<br>
+								<?php
+										}
+									}
+								?>
 							</div>
 
 							<div class="col-lg-6 add_review_col">
