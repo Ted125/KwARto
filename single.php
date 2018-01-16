@@ -214,9 +214,9 @@
 								require("Controllers/GetStock.php");
 
 								if($stockResult != null){
-									$row = mysqli_fetch_assoc($stockResult);
+									$stockRow = mysqli_fetch_assoc($stockResult);
 
-									$stock = $row["num"];
+									$stock = $stockRow["num"];
 
 									if($stock > 0){
 										echo "Only " . $stock . " items available.";
@@ -242,17 +242,81 @@
 
 	<!-- Tabs -->
 
-	<div class="tabs_section_container">
+<?php
+	// Get Review Count
+	$_POST["furnitureId"] = $row["furnitureId"];
 
+	require("Controllers/GetReviewCount.php");
+
+	$reviewCount = 0;
+
+	if($reviewCountResult != null){
+		$rCountRow = mysqli_fetch_assoc($reviewCountResult);
+		$reviewCount = $rCountRow["num"];
+	}
+
+	// Get Question Count
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/GetQuestionCount.php");
+
+	$questionCount = 0;
+
+	if($questionCountResult != null){
+		$qCountRow = mysqli_fetch_assoc($questionCountResult);
+		$questionCount = $qCountRow["num"];
+	}
+
+	// Load images in main details tab
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadAllFurnitureImages.php");
+
+	$images = [];
+
+	if($furnitureImagesResult != null){
+		while($r = mysqli_fetch_assoc($furnitureImagesResult)){
+			$images[] = $r["image"];
+		}
+	}
+
+	// Load Specifications
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadAllFurnitureSpecifications.php");
+
+	$specs = [];
+
+	if($specResult != null){
+		while($sRow = mysqli_fetch_assoc($specResult)){
+			$specs[] = $sRow["specification"];
+		}
+	}
+
+	// Load Package Details
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadFurniturePackage.php");
+
+	$packDetails = [];
+
+	if($packResult != null){
+		while($pRow = mysqli_fetch_assoc($packResult)){
+			$packDetails[] = $pRow["item"];
+		}
+	}
+?>
+
+	<div class="tabs_section_container">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="tabs_container">
 						<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-							<li class="tab active" data-active-tab="tab_1"><span>Description</span></li>
-							<li class="tab" data-active-tab="tab_2"><span>Additional Information</span></li>
-							<li class="tab" data-active-tab="tab_3"><span>Reviews (2)</span></li>
-							<li class="tab" data-active-tab="tab_4"><span>Questions (2)</span></li>
+							<li class="tab active" data-active-tab="tab_1"><span>Main Details</span></li>
+							<li class="tab" data-active-tab="tab_2"><span>Additional Details</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>Reviews (<?php echo $reviewCount; ?>)</span></li>
+							<li class="tab" data-active-tab="tab_4"><span>Questions (<?php echo $questionCount; ?>)</span></li>
 						</ul>
 					</div>
 				</div>
@@ -266,31 +330,66 @@
 						<div class="row">
 							<div class="col-lg-5 desc_col">
 								<div class="tab_title">
-									<h4>Description</h4>
+									<h4>Main Details</h4>
 								</div>
 								<div class="tab_text_block">
-									<h2>Comfy</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Description</h2>
+									<p><?php echo $row["description"]; ?></p>
 								</div>
+
+								<?php
+									if(isset($images[1])){
+								?>
 								<div class="tab_image">
-									<img src="https://st.hzcdn.com/simgs/a4214f8106a6cc77_4-3302/contemporary-armchairs-and-accent-chairs.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[1]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 								<div class="tab_text_block">
-									<h2>Stylish</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Specifications</h2>
+									<ul>
+									<?php
+											foreach($specs as $s){
+									?>
+												<li><?php echo $s; ?></li>
+									<?php
+											}
+									?>
+									</ul>
 								</div>
 							</div>
 							<div class="col-lg-5 offset-lg-2 desc_col">
+								<?php
+									if(isset($images[0])){
+								?>
 								<div class="tab_image">
-									<img src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red4.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[0]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 								<div class="tab_text_block">
-									<h2>Top Quality</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Package Details</h2>
+									<ul>
+									<?php
+											foreach($packDetails as $p){
+									?>
+												<li><?php echo $p; ?></li>
+									<?php
+											}
+									?>
+									</ul>
 								</div>
+								<?php
+									if(isset($images[2])){
+								?>
 								<div class="tab_image desc_last">
-									<img src="http://www.lafurniturestore.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/-/a-728-b.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[2]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 							</div>
 						</div>
 					</div>
