@@ -391,26 +391,26 @@
 								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="http://i.imgur.com/4ybg2jx.jpg"></div>
 									</div>
 									<div class="review">
 										<div class="user_rating">
-											<ul class="star_rating">
+											<ul class="star_rating remove-left">
 												<?php
 													$reviewRating = $reviewRow["rating"];
 
 													for($i = 0; $i < 5; $i++){
 														if($reviewRating >= 1){
 												?>
-															<li><i class="fa fa-star" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star star_size" aria-hidden="true"></i></li>
 												<?php
 														}else if($reviewRating > 0){
 												?>
-															<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star-half-empty star_size" aria-hidden="true"></i></li>
 												<?php
 														}else{
 												?>
-															<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star-o star_size" aria-hidden="true"></i></li>
 												<?php
 														}
 
@@ -486,12 +486,12 @@
 								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://memestatic.fjcdn.com/pictures/Pupper_acae76_6455162.jpg"></div>
 									</div>
 									<div class="review">
 										<p class = "question"><?php echo $questionRow["question"]; ?></p>
 										<div class="user_name">Asked by <?php echo $questionRow["customerName"]; ?></div>
-										<div class="review_date">Asked on
+										<div class="review_date" style="margin-top: -20px;">Asked on
 										<?php
 											$date = strtotime($questionRow["datePosted"]);
 

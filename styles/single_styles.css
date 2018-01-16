@@ -1039,6 +1039,15 @@ section
 	line-height: 30px;
 	margin-top: 2px;
 }
+.star_size
+{
+	font-size: 20px!important;
+	margin-left: 0px;
+}
+.remove-left
+{
+	margin-left: 0px!important;
+}
 .star_rating
 {
 	display: inline-block;
@@ -1294,13 +1303,25 @@ section
 .review_date
 {
 	color: #d42d2d;
-	margin-top: -4px;
+	font-size: 0.9em;
+	margin-top: 2px;
 }
 .user_name
 {
-	font-size: 16px;
 	font-weight: 500;
 	margin-bottom: 18px;
+	font-size: 0.9em;
+	color: #51545f;
+	margin-top: 2px;
+}
+.review_title 
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.review_body 
+{
+	color: black;
 }
 .review p
 {
