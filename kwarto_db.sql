@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2018 at 05:21 AM
+-- Generation Time: Jan 16, 2018 at 10:33 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.0.26
 
@@ -550,7 +550,10 @@ INSERT INTO `question` (`questionId`, `question`, `answer`, `active`, `datePoste
 (9, 'Am I being ignored?', NULL, 1, '2017-12-28 13:05:03', NULL, 1, 1),
 (10, 'Are you guys going to answer my question or nah??', NULL, 1, '2017-12-28 13:07:48', NULL, 1, 1),
 (11, 'Do you make other furniture aside from tables?', NULL, 1, '2017-12-28 14:05:22', NULL, 1, 1),
-(12, 'Is this useful in the military???', NULL, 1, '2017-12-28 16:32:20', NULL, 6, 1);
+(12, 'Is this useful in the military???', NULL, 1, '2017-12-28 16:32:20', NULL, 6, 1),
+(13, 'Is this the first question?', NULL, 1, '2018-01-16 08:24:53', NULL, 1, 4),
+(14, 'do you know da wae?', NULL, 1, '2018-01-16 08:25:59', NULL, 1, 4),
+(15, 'Where is de kween???', NULL, 1, '2018-01-16 08:54:51', NULL, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -586,7 +589,8 @@ INSERT INTO `review` (`reviewId`, `rating`, `likes`, `title`, `body`, `dateAdded
 (7, 4, 0, 'Table is good', 'The table lives up to my expectations', '2017-12-28 14:17:45', '2017-12-28 14:17:45', 3, 3, 1, 1),
 (8, 5, 0, 'Cute', 'The table is so cute!', '2017-12-28 16:23:53', '2017-12-28 16:23:53', 5, 5, 1, 3),
 (9, 5, 0, 'Useful Everywhere It Seems', 'Wow I never thought I could hide underneath it to sneak past the Soviets LOL ! Great product!', '2017-12-28 16:33:06', '2017-12-28 16:33:06', 8, 8, 1, 6),
-(10, 2, 0, 'Broken Frame', 'The product arrived with chipped off materials. I immediately asked for a refund.', '2018-01-11 12:51:42', '2018-01-11 12:51:42', 3, 3, 4, 1);
+(10, 2, 0, 'Broken Frame', 'The product arrived with chipped off materials. I immediately asked for a refund.', '2018-01-11 12:51:42', '2018-01-11 12:51:42', 3, 3, 4, 1),
+(15, 5, 0, 'Very satisfied!', 'I love the bed!', '2018-01-16 09:15:38', '2018-01-16 09:15:38', 3, 3, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -656,9 +660,9 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`userId`, `username`, `password`, `userType`, `userStatus`, `email`, `mobileNumber`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
-(1, 'admin', 'admin', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2017-12-25 15:08:22', NULL, NULL),
-(2, 'seller', 'seller', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2017-12-26 01:01:03', NULL, NULL),
-(3, 'customer', 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2018-01-15 05:24:28', NULL, NULL),
+(2, 'seller', '64c9ac2bb5fe46c3ac32844bb97be6bc', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2018-01-15 05:02:04', NULL, NULL),
+(3, 'customer', '91ec1f9324753048c0096d036a694f86', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2018-01-15 05:23:55', NULL, NULL),
 (4, NULL, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2017-12-28 14:52:22', NULL, NULL),
 (5, NULL, 'julie', 'customer', 'active', 'julie@gmail.com', '12345', NULL, '2017-12-28 16:14:04', '2017-12-28 16:14:04', NULL, NULL),
 (6, NULL, 'geralt', 'customer', 'active', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2017-12-28 16:25:24', NULL, NULL),
@@ -941,13 +945,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `search_history`
