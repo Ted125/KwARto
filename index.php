@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>KwARto | Home</title>
+<title>KwARto | Web Application</title>
 <!-- HEAD TAG HERE WITH THE NECESSARY CSS LINKS AND PLUGINS -->
 <?php include('Access/Header.php');?>
 </head>
@@ -68,29 +68,12 @@
 				<div class="col text-center">
 					<div class="new_arrivals_sorting">
 						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-							<?php
-								$_POST["categoryId"] = 1;
-
-								require("Controllers/LoadSubordinateCategories.php");
-
-								if($subordinateCategoriesResult != null){
-									$i = 1;
-
-									while($row = mysqli_fetch_assoc($subordinateCategoriesResult)){
-										if($i == 1){
-											$i++;
-							?>
-										<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter= <?php echo "." . $row["categoryId"]; ?>><?php echo $row["name"]; ?></li>
-							<?php
-										}else{
-							?>
-										<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter= <?php echo "." . $row["categoryId"]; ?>><?php echo $row["name"]; ?></li>
-
-							<?php
-										}
-									}
-								}
-							?>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".bedroom">bedroom</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".dining">dining room</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".homeacc">home accents</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".homeoff">home office</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".living">living room</li>
 						</ul>
 					</div>
 				</div>
@@ -99,102 +82,149 @@
 				<div class="col">
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
-						<?php
-							$_POST["categoryId"] = 1;
-							$_POST["sellerId"] = -1;
-							$_POST["minPrice"] = -1;
-							$_POST["maxPrice"] = -1;
-							$_POST["minDiscount"] = -1;
-							$_POST["maxDiscount"] = -1;
-							$_POST["minRating"] = -1;
-							$_POST["maxRating"] = -1;
-							$_POST["name"] = "";
-							$_POST["sortValue"] = "arrival";
-							$_POST["sortOrder"] = "descending";
-
-							require("Controllers/SearchFurniture.php");
-
-							if($searchFurnitureResult != null){
-								while($row = mysqli_fetch_assoc($searchFurnitureResult)){
-									$_POST["categoryId"] = $row["categoryId"];
-
-									require("Controllers/LoadSinglePath.php");
-
-									$ancestorCategoryId = 1;
-									$ancestorCount = 0;
-
-									while($ancestorRow = mysqli_fetch_assoc($singlePathResult)){
-										$ancestorCategoryId = $ancestorRow["categoryId"];
-										$ancestorCount++;
-
-										if($ancestorCount == 2){
-											break;
-										}
-									}
-						?>
-
-								<div class="product-item <?php echo $ancestorCategoryId ?>">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<?php
-												$_POST["furnitureId"] = $row["furnitureId"];
-
-												require("Controllers/LoadAllFurnitureImages.php");
-
-												if($furnitureImagesResult != null){
-													$r = mysqli_fetch_assoc($furnitureImagesResult);
-											?>
-
-											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
-											<?php
-												}else{
-													// set to a default image
-											?>
-											<img src="" style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
-											<?php
-												}
-											?>
-										</div>
-										<div class="favorite favorite_left"></div>
-										<?php
-											if($row["discount"] > 0){
-										?>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span><?php echo "-" . $row["discount"] . "%"; ?></span></div>
-										<?php
-											}
-										?>
-
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId']?>"><?php echo $row["name"]; ?></a></h6>
-											<div class="product_price">
-											<?php
-												$price = $row["price"];
-												$discount = $row["discount"];
-
-												if($discount > 0){
-													echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
-												}else{
-													echo "Php " . number_format($price);
-												}
-											?>
-											<?php
-												if($row["discount"] > 0){
-											?>
-											<span><?php echo "Php " . number_format($row["price"], 2); ?></span>
-											<?php
-												}
-											?>
-											</div>
-										</div>
-									</div>
-									<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						<div class="product-item homeoff">
+							<div class="product discount product_filter">
+								<div class="product_image">
+									<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
 								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Swivel Chair (Black)</a></h6>
+									<div class="product_price">P540.00<span>P600.00</span></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
 
-						<?php
-								}
-							}
-						?>
+						<div class="product-item living">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Leatherette Sofa</a></h6>
+									<div class="product_price">P3,610.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
 
+						<div class="product-item bedroom">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item3.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Modern Chic Bed</a></h6>
+									<div class="product_price">P2,220.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item bedroom">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item4.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Small Bedroom Desk</a></h6>
+									<div class="product_price">P2,000.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item dining">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item5.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Dining Table, Floral</a></h6>
+									<div class="product_price">P1,950.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item dining">
+							<div class="product discount product_filter">
+								<div class="product_image">
+									<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="#single.php">Dining Room Set (White)</a></h6>
+									<div class="product_price">P4,500<span>P5,000.00</span></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item bedroom">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Blue Bedroom Desk</a></h6>
+									<div class="product_price">P1,500.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item dining">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item8.jpg" style="padding-top: 20px;">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Round Table</a></h6>
+									<div class="product_price">P1,400.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item homeoff">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item9.jpg" style="max-height: 240px; padding-top: 20px;">
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Turbo Thermal Label Chair</a></h6>
+									<div class="product_price">P500.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+
+						<div class="product-item homeacc">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.php">Floral Divider</a></h6>
+									<div class="product_price">P1,180.00</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -331,7 +361,7 @@
 								</div>
 							</div>
 
-
+							
 							<div class="owl-item product_slider_item">
 								<div class="product-item homeoff">
 									<div class="product discount">
@@ -531,11 +561,11 @@
                           <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 								<thead>
 									<tr style="text-align: center;">
-										<th>Item No.</th>
+										<th>Item No.</th>	
 										<th>Product</th>
 										<th>Quantity</th>
 										<th>Product Name</th>
-
+									
 										<th>Price</th>
 										<th>Action</th>
 									</tr>
@@ -545,7 +575,7 @@
 										<td class="">1</td>
 										<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
 										<td class="">
-											<div class="" style="text-align: -webkit-center">
+											<div class="" style="text-align: -webkit-center"> 
 												<div class="form-group form-group-options">
 						                            <div class="input-group input-group-option" style="width: 130px;">
 						                                <span class="input-group-addon input-group-addon-remove btn">
@@ -561,7 +591,7 @@
 										</td>
 										<td class="">Comfy Chair</td>
 										<td class="">P850.00</td>
-										<td class="" style="text-align:  center;">
+										<td class="" style="text-align:  center;">	
 											<div class="red_button" style="width: 200px"><a href="#">move to wishlist</a></div><br>
 											<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 										</td>
@@ -570,7 +600,7 @@
 										<td class="">2</td>
 										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
 										<td class="">
-											<div class="" style="text-align: -webkit-center">
+											<div class="" style="text-align: -webkit-center"> 
 												<div class="form-group form-group-options">
 						                            <div class="input-group input-group-option" style="width: 130px;">
 						                                <span class="input-group-addon input-group-addon-remove btn">
@@ -586,7 +616,7 @@
 										</td>
 										<td class="">Swivel Chair</td>
 										<td class="">P540.00</td>
-										<td class="" style="text-align:  center;">
+										<td class="" style="text-align:  center;">	
 											<div class="red_button" style="width: 200px;"><a href="#">move to wishlist</a></div><br>
 											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 										</td>

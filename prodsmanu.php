@@ -148,7 +148,445 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php include("Controllers/SellerDisplayFurnitures.php");?>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Comfy Chair</td>
+                            <td>42</td>
+                            <td>890.00</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+                              <!-- Modal-->
+                                <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Update Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        <div class="form-group">
+                                          <label>Name</label>
+                                          <input type="text" value="Comfy Chair" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Description</label>
+                                          <textarea class="form-control" rows="3" id="description">This is the description of the product. There are three rows for this space</textarea>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label style="margin-bottom: 0px;">Product Images</label><br>
+                                          <p class="small">Maximum number of images is 5</p>
+                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                                          <button type="button" data-dismiss="modal" class="btn btn-primary">Update Photos</button>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Width</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Height</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Warranty</label>
+                                          <select name="account" class="form-control">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Unit</label>
+                                          <select name="account" class="form-control">
+                                            <option>millimeter/s</option>
+                                            <option>centimeter/s</option>
+                                            <option>inch/es</option>
+                                            <option>meter/s</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Price</label>
+                                          <input type="text" value="890.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Quantity</label>
+                                          <input type="text" value="42" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Discount</label>
+                                          <input type="text" value="0.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                          <input type="submit" value="Save changes" class="btn btn-primary">
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Wooden Stool</td>
+                            <td>123</td>
+                            <td>499.50</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Update Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        <div class="form-group">
+                                          <label>Name</label>
+                                          <input type="text" value="Comfy Chair" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Description</label>
+                                          <textarea class="form-control" rows="3" id="description">This is the description of the product. There are three rows for this space</textarea>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Width</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Height</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Warranty ID</label>
+                                          <input type="text" value="123091" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Unit</label>
+                                          <select name="account" class="form-control">
+                                            <option>millimeter/s</option>
+                                            <option>centimeter/s</option>
+                                            <option>inch/es</option>
+                                            <option>meter/s</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Price</label>
+                                          <input type="text" value="890.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Quantity</label>
+                                          <input type="text" value="42" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Discount</label>
+                                          <input type="text" value="0.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                          <input type="submit" value="Save changes" class="btn btn-primary">
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Water Bed</td>
+                            <td>66</td>
+                            <td>2,301.45</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Update Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        <div class="form-group">
+                                          <label>Name</label>
+                                          <input type="text" value="Comfy Chair" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Description</label>
+                                          <textarea class="form-control" rows="3" id="description">This is the description of the product. There are three rows for this space</textarea>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Width</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Height</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Warranty ID</label>
+                                          <input type="text" value="123091" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Unit</label>
+                                          <select name="account" class="form-control">
+                                            <option>millimeter/s</option>
+                                            <option>centimeter/s</option>
+                                            <option>inch/es</option>
+                                            <option>meter/s</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Price</label>
+                                          <input type="text" value="890.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Quantity</label>
+                                          <input type="text" value="42" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Discount</label>
+                                          <input type="text" value="0.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                          <input type="submit" value="Save changes" class="btn btn-primary">
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Modern Chair</td>
+                            <td>48</td>
+                            <td>999.00</td>
+                            <td>
+                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+                              <!-- Modal-->
+                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Update Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        <div class="form-group">
+                                          <label>Name</label>
+                                          <input type="text" value="Comfy Chair" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Description</label>
+                                          <textarea class="form-control" rows="3" id="description">This is the description of the product. There are three rows for this space</textarea>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Width</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Height</label>
+                                          <input type="text" value="100" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Warranty ID</label>
+                                          <input type="text" value="123091" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Unit</label>
+                                          <select name="account" class="form-control">
+                                            <option>millimeter/s</option>
+                                            <option>centimeter/s</option>
+                                            <option>inch/es</option>
+                                            <option>meter/s</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Price</label>
+                                          <input type="text" value="890.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Quantity</label>
+                                          <input type="text" value="42" class="form-control">
+                                        </div>
+                                        <div class="form-group">       
+                                          <label>Discount</label>
+                                          <input type="text" value="0.00" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                          <input type="submit" value="Save changes" class="btn btn-primary">
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
+                              <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        
+                                        <div class="form-group">       
+                                          <label>Length</label>
+                                          <input type="text" value="10" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <p>Are you sure you want to update these changes?</p>       
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                      <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

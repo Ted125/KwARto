@@ -1,15 +1,9 @@
 <!DOCTYPE html>
-<?php
-  if(isset($_SESSION)){
-  session_unset();
-  session_destroy();
-  }
-?>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Bootstrap Material Admin by Bootstrapious.com</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -23,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-
+ 
     <!-- Favicon-->
     <link rel="icon" type="image/png" href=" images/icon.png" />
   </head>
@@ -47,12 +41,7 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <?php
-                    if(isset($_GET['error'])){
-                      echo '<p id="error-msg" class="text text-danger">*Username or Password Invalid. Please Try Again.</p>';
-                    }
-                  ?>
-                  <form id="login-form" method="post" action= "Controllers/Login.php">
+                  <form id="login-form" method="post" action="Controllers/Login.php">
                     <div class="form-group">
                       <input id="login-email" type="text" name="loginEmail" required="" class="input-material">
                       <label for="login-email" class="label-material">E-mail Address</label>
@@ -74,7 +63,7 @@
           </div>
         </div>
       </div>
-
+      
     </div>
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

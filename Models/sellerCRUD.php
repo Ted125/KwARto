@@ -81,33 +81,6 @@
         }
     }
 
-    public function readAllSellers($rownum){
-        $offset = 0;
-        $offset = ($rownum - 1) * 10;
-        $query = "  SELECT
-                    s.sellerId
-                    s.name,
-                    s.description,
-                    s.userId,
-                    u.username,
-                    u.userType,
-                    u.status,
-                    u.gender,
-                    u.email,
-                    u.mobileNumber,
-                    u.image,
-                    u.address
-                    FROM seller s inner join user_details u on u.userId = s.userId
-                    order by u.userId
-                    Limit 10
-                    OFFSET '".."'
-                ";
-        $rows = mysqli_query($mysqli, $query);
-        $result = mysql_fetch_array($row);
-    
-        return $result;
-    }
-
     /************ SETTERS AND GETTERS ************/
 
     public function getSellerId(){

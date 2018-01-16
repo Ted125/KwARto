@@ -73,23 +73,23 @@ n<!DOCTYPE html>
 									</div>
 									<div class="col-lg-8">
 										<div class="product_details">
-											<form class="form-horizontal" role="form" action = "Controllers/UpdateCustomerMult.php" method="POST">
+											<form class="form-horizontal" role="form" action = "Controllers/UpdateCustomer.php" method="POST">
 												<div class="form-group">
 													<label class="col-lg-3 control-label">First name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" name = "updateFName" <?php echo 'value='.$_SESSION['firstName'].'';?> >
+														<input class="form-control" type="text" name = "firstName" <?php echo 'value='.$_SESSION['firstName'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Last name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" name = "updateLName" <?php echo 'value='.$_SESSION['lastName'].'';?> >
+														<input class="form-control" type="text" name = "lastName" <?php echo 'value='.$_SESSION['lastName'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Birthdate:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="date" name = "updateBDay" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
+														<input class="form-control" type="date" name = "birthdate" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
@@ -311,98 +311,69 @@ n<!DOCTYPE html>
 							<h3>Account Settings</h3>
 							<div  style="padding-left: 80px; margin-top: 20px;">
 								<h5>Change Password:</h5>
-								<form class="form-horizontal" role="form" action = "Controllers/UpdateUser.php" method="POST">
-									<div class="form-group">
-										<label class="col-md-3 control-label">Password:</label>
-										<div class="col-md-8">
-											<input class="form-control" type="password" disabled="" value="11111122333">
-										</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Password:</label>
+									<div class="col-md-8">
+										<input class="form-control" type="password" disabled="" value="11111122333">
 									</div>
+								</div>
 
-									<div class="form-group">
-										<label class="col-md-6 control-label">Change Password:</label>
-										<div class="col-md-8">
-											<input class="form-control" type="hidden" name="field" value="password">
-											<input class="form-control" type="password" placeholder="New Password" name="newData">
-										</div>
+								<div class="form-group">
+									<label class="col-md-6 control-label">Change Password:</label>
+									<div class="col-md-8">
+										<input class="form-control" type="password" placeholder="********">
 									</div>
+								</div>
 
-									<div class="form-group">
-										<label class="col-md-6 control-label">Confirm New Password:</label>
-										<div class="col-md-8">
-											<input class="form-control" type="password" placeholder="Confirm New Password">
-										</div>
+								<div class="form-group">
+									<label class="col-md-6 control-label">Confirm New Password:</label>
+									<div class="col-md-8">
+										<input class="form-control" type="password" placeholder="********">
 									</div>
-
-									<div class="form-group" style="margin-bottom: 0px;">
-										<label class="col-md-3 control-label"></label>
-										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsavePass">CHANGE PASSWORD</button>
-											<div class="modal fade" id="myModalsavePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
-														</div>
-														<div class="modal-body text-left">
-															Are you sure you want to continue?
-														</div>
-														<div class="modal-footer">
-															<input type = 'Submit' value ='Save Changes' class="btn btn-danger"/>
-															<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
+								</div>
 
 								<h5>Change E-mail Address:</h5>
-								<form class="form-horizontal" role="form" action = "Controllers/UpdateUser.php" method="POST">
-									<div class="form-group">
-										<label class="col-lg-3 control-label">Email:</label>
-										<div class="col-lg-8">
-											<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
-										</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Email:</label>
+									<div class="col-lg-8">
+										<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 									</div>
-									<div class="form-group">
-										<label class="col-lg-3 control-label">Change Email:</label>
-										<div class="col-lg-8">
-											<input class="form-control" type="hidden" name="field" value="email">
-											<input class="form-control" type="text" placeholder="email@email.com" name="newData">
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Change Email:</label>
+									<div class="col-lg-8">
+										<input class="form-control" type="text" placeholder="email@email.com">
 									</div>
-									<div class="form-group">
-										<label class="col-lg-3 control-label">Confirm New Email:</label>
-										<div class="col-lg-8">
-											<input class="form-control" type="text" placeholder="email@email.com">
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Confirm New Email:</label>
+									<div class="col-lg-8">
+										<input class="form-control" type="text" placeholder="email@email.com">
 									</div>
+								</div>
 
-									<div class="form-group" style="margin-bottom: 0px;">
-										<label class="col-md-3 control-label"></label>
-										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsaveEmail">CHANGE EMAIL</button>
-											<div class="modal fade" id="myModalsaveEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
-														</div>
-														<div class="modal-body text-left">
-															Are you sure you want to continue?
-														</div>
-														<div class="modal-footer">
-															<input type = 'Submit' value ='Save Changes' class="btn btn-danger"/>
-															<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-														</div>
+								<div class="form-group" style="margin-bottom: 0px;">
+									<label class="col-md-3 control-label"></label>
+									<div class="col-md-8 text-right">
+										<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsave">SAVE CHANGES</button>
+										<div class="modal fade" id="myModalsave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+													</div>
+													<div class="modal-body text-left">
+														Are you sure you want to continue?
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-danger" data-dismiss="modal">Save Changes</button>
+														<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</form>
+								</div>
 
 								<div class="form-group" >
 									<label class="col-md-3 control-label"></label>
