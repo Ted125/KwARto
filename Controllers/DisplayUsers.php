@@ -8,7 +8,7 @@
   $count = 1;
   if($verify != null){
     while($row = $verify->fetch_assoc()){
-      include("C:/xampp/htdocs/Capstone-Project/Access/AdminViewUsers.php");
+      include("Access/AdminViewUsers.php");
       $count++;
 
     }

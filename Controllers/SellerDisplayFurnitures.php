@@ -1,19 +1,19 @@
 <?php
-  require_once("Models/userDetails.php");
+  require_once("Models/furnitureCRUD.php");
 
   //session_start();
   
-  $user = new user_details();
-  $verify = $user->DisplayAllSellers();
+  $furn = new furniture();
+  $verify = $furn->DisplayAllFurnitures();
   $count = 1;
   if($verify != null){
     while($row = $verify->fetch_assoc()){
-      include("Access/AdminViewSellers.php");
+      include("Access/SellerViewFurnitures.php");
       $count++;
 
     }
   } else {
-      	//inform user that the input is not valid
+        //inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
     echo "Invalid credentials or not activated";
   }

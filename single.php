@@ -146,11 +146,46 @@
 				<div class="product_details">
 					<div class="product_details_title">
 						<h2><?php echo $row["name"]; ?></h2>
-						<p><?php echo $row["description"]; ?></p>
 					</div>
-					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-						<span class="ti-truck"></span><span>Cash On Delivery</span>
+
+					<div>
+						<ul class="star_rating">
+							<?php
+								$_POST["furnitureId"] = $row["furnitureId"];
+
+								require("Controllers/GetAverageRating.php");
+
+								$averageRating = 0;
+
+								if($averageRatingResult != null){
+									$averageRatingRow = mysqli_fetch_assoc($averageRatingResult);
+
+									if($averageRatingRow["average"] != null){
+										$averageRating = $averageRatingRow["average"];
+									}
+								}
+
+								for($i = 0; $i < 5; $i++){
+									if($averageRating >= 1){
+							?>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<?php
+									}else if($averageRating > 0){
+							?>
+										<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+							<?php
+									}else{
+							?>
+										<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
+							<?php
+									}
+
+									$averageRating -= 1;
+								}
+							?>
+						</ul>
 					</div>
+
 					<?php
 						if($row["discount"] > 0){
 					?>
@@ -170,53 +205,34 @@
 						}
 					?>
 					</div>
-					<ul class="star_rating">
-						<?php
-							$_POST["furnitureId"] = $row["furnitureId"];
 
-							require("Controllers/GetAverageRating.php");
+					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+						<p>
+							<?php
+								$_POST["furnitureId"] = $row["furnitureId"];
 
-							$averageRating = 0;
+								require("Controllers/GetStock.php");
 
-							if($averageRatingResult != null){
-								$averageRatingRow = mysqli_fetch_assoc($averageRatingResult);
+								if($stockResult != null){
+									$stockRow = mysqli_fetch_assoc($stockResult);
 
-								if($averageRatingRow["average"] != null){
-									$averageRating = $averageRatingRow["average"];
+									$stock = $stockRow["num"];
+
+									if($stock > 0){
+										echo "Only " . $stock . " items available.";
+									}else{
+										echo "Out of stock!";
+									}
 								}
-							}
-
-							for($i = 0; $i < 5; $i++){
-								if($averageRating >= 1){
-						?>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<?php
-								}else if($averageRating > 0){
-						?>
-									<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
-						<?php
-								}else{
-						?>
-									<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
-						<?php
-								}
-
-								$averageRating -= 1;
-							}
-						?>
-					</ul>
-					<div class="product_color">
-						<span>Color: <?php echo $row["color"]; ?></span>
+							?>
+						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<span>Quantity:</span>
-						<div class="quantity_selector">
-							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-							<span id="quantity_value">0</span>
-							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+					</div>
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+						<span class="ti-truck"></span><span>Cash On Delivery</span>
 					</div>
 				</div>
 			</div>
@@ -226,17 +242,81 @@
 
 	<!-- Tabs -->
 
-	<div class="tabs_section_container">
+<?php
+	// Get Review Count
+	$_POST["furnitureId"] = $row["furnitureId"];
 
+	require("Controllers/GetReviewCount.php");
+
+	$reviewCount = 0;
+
+	if($reviewCountResult != null){
+		$rCountRow = mysqli_fetch_assoc($reviewCountResult);
+		$reviewCount = $rCountRow["num"];
+	}
+
+	// Get Question Count
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/GetQuestionCount.php");
+
+	$questionCount = 0;
+
+	if($questionCountResult != null){
+		$qCountRow = mysqli_fetch_assoc($questionCountResult);
+		$questionCount = $qCountRow["num"];
+	}
+
+	// Load images in main details tab
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadAllFurnitureImages.php");
+
+	$images = [];
+
+	if($furnitureImagesResult != null){
+		while($r = mysqli_fetch_assoc($furnitureImagesResult)){
+			$images[] = $r["image"];
+		}
+	}
+
+	// Load Specifications
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadAllFurnitureSpecifications.php");
+
+	$specs = [];
+
+	if($specResult != null){
+		while($sRow = mysqli_fetch_assoc($specResult)){
+			$specs[] = $sRow["specification"];
+		}
+	}
+
+	// Load Package Details
+	$_POST["furnitureId"] = $row["furnitureId"];
+
+	require("Controllers/LoadFurniturePackage.php");
+
+	$packDetails = [];
+
+	if($packResult != null){
+		while($pRow = mysqli_fetch_assoc($packResult)){
+			$packDetails[] = $pRow["item"];
+		}
+	}
+?>
+
+	<div class="tabs_section_container">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="tabs_container">
 						<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-							<li class="tab active" data-active-tab="tab_1"><span>Description</span></li>
-							<li class="tab" data-active-tab="tab_2"><span>Additional Information</span></li>
-							<li class="tab" data-active-tab="tab_3"><span>Reviews (2)</span></li>
-							<li class="tab" data-active-tab="tab_4"><span>Questions (2)</span></li>
+							<li class="tab active" data-active-tab="tab_1"><span>Main Details</span></li>
+							<li class="tab" data-active-tab="tab_2"><span>Additional Details</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>Reviews (<?php echo $reviewCount; ?>)</span></li>
+							<li class="tab" data-active-tab="tab_4"><span>Questions (<?php echo $questionCount; ?>)</span></li>
 						</ul>
 					</div>
 				</div>
@@ -250,31 +330,66 @@
 						<div class="row">
 							<div class="col-lg-5 desc_col">
 								<div class="tab_title">
-									<h4>Description</h4>
+									<h4>Main Details</h4>
 								</div>
 								<div class="tab_text_block">
-									<h2>Comfy</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Description</h2>
+									<p><?php echo $row["description"]; ?></p>
 								</div>
+
+								<?php
+									if(isset($images[1])){
+								?>
 								<div class="tab_image">
-									<img src="https://st.hzcdn.com/simgs/a4214f8106a6cc77_4-3302/contemporary-armchairs-and-accent-chairs.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[1]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 								<div class="tab_text_block">
-									<h2>Stylish</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Specifications</h2>
+									<ul>
+									<?php
+											foreach($specs as $s){
+									?>
+												<li><?php echo $s; ?></li>
+									<?php
+											}
+									?>
+									</ul>
 								</div>
 							</div>
 							<div class="col-lg-5 offset-lg-2 desc_col">
+								<?php
+									if(isset($images[0])){
+								?>
 								<div class="tab_image">
-									<img src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red4.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[0]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 								<div class="tab_text_block">
-									<h2>Top Quality</h2>
-									<p>This is the description for the comfy chair which will be visible to all who wish to purchase this item. This item is made out of real materials that are all high grade and very nice.</p>
+									<h2>Package Details</h2>
+									<ul>
+									<?php
+											foreach($packDetails as $p){
+									?>
+												<li><?php echo $p; ?></li>
+									<?php
+											}
+									?>
+									</ul>
 								</div>
+								<?php
+									if(isset($images[2])){
+								?>
 								<div class="tab_image desc_last">
-									<img src="http://www.lafurniturestore.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/-/a-728-b.jpg" alt="">
+									<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $images[2]; ?> alt="">
 								</div>
+								<?php
+									}
+								?>
 							</div>
 						</div>
 					</div>
@@ -283,11 +398,24 @@
 						<div class="row">
 							<div class="col additional_info_col">
 								<div class="tab_title additional_info_title">
-									<h4>Additional Information</h4>
+									<h4>Additional Details</h4>
 								</div>
-								<p>COLORS:<span>Red, Black, Orange</span></p>
-								<p>SIZE:<span>26" x 53"</span></p>
-								<p>MATERIAL:<span>Synthetic Leather/Leatherette</span></p>
+								<?php
+									if(isset($row["model"])){
+								?>
+								<p>MODEL:<span><?php echo $row["model"]; ?></span></p>
+								<?php
+									}
+								?>
+								<?php
+									if(isset($row["color"])){
+								?>
+								<p>COLOR:<span><?php echo $row["color"]; ?></span></p>
+								<?php
+									}
+								?>
+								<p>SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p>
+								<p>WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p>
 							</div>
 						</div>
 					</div>
@@ -296,47 +424,62 @@
 						<div class="row">
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title">
-									<h4>Reviews (2)</h4>
+									<h4>Reviews (<?php echo $reviewCount; ?>)</h4>
 								</div>
+								<?php
+									$_POST["furnitureId"] = $row["furnitureId"];
+
+									require("Controllers/LoadAllReviews.php");
+
+									if($reviewResult != null){
+										while($reviewRow = mysqli_fetch_assoc($reviewResult)){
+								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">John Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<?php
+													$reviewRating = $reviewRow["rating"];
 
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSruM7uxCIoXQsS1XUPMYs28dMEV2uyS-RyGsfklPlsELI99Djd"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+													for($i = 0; $i < 5; $i++){
+														if($reviewRating >= 1){
+												?>
+															<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<?php
+														}else if($reviewRating > 0){
+												?>
+															<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+												<?php
+														}else{
+												?>
+															<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+												<?php
+														}
+
+														$reviewRating -= 1;
+													}
+												?>
 											</ul>
 										</div>
-									</div>
-									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">Jane Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<div class = "review_title"><?php echo $reviewRow["title"]; ?></div>
+										<div class="review_date">Posted on
+										<?php
+											$date = strtotime($reviewRow["dateAdded"]);
+
+											echo date("F j, Y", $date);
+										?>
+										</div>
+										<div class="user_name">By <?php echo $reviewRow["firstName"] . " " . $reviewRow["lastName"]; ?></div>
+										<p class = "review_body"><?php echo $reviewRow["body"]; ?></p>
 									</div>
 								</div>
+								<?php
+										}
+									}
+								?>
 							</div>
 
 							<div class="col-lg-6 add_review_col">
@@ -371,7 +514,7 @@
 						<div class="row">
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title">
-									<h4>Questions (2)</h4>
+									<h4>Questions (<?php echo $questionCount; ?>)</h4>
 								</div>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">

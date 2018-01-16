@@ -1,4 +1,4 @@
-<?
+<?php
 
 //require("SQL_Connect.php");
 //include("Database.php");
@@ -159,11 +159,34 @@ public function displayAllFurnitures(){
     if($connection){
             //$result = NULL;
         $query ="SELECT
-        name,
+        furniture.furnitureId AS furnitureId,
+        seller.name AS sellerName,
+        furniture.name AS furnitureName,
+        seller.description AS sellerDesc,
+        furniture.description AS furnitureDesc,
+        warrantyId,
+        model,
+        color,
+        weight,
+        weightUnit,
+        length,
+        width,
+        height,
+        sizeUnit,
+        packageLength,
+        packageWidth,
+        packageHeight,
+        packageSizeUnit,
         price,
-        status
-        FROM  furniture INNER JOIN furniture_stock
-        WHERE furniture.furnitureId = furniture_stock.furnitureId;
+        modelName,
+        discount,
+        saleStart,
+        saleEnd,
+        live,
+        categoryId,
+        furniture.sellerId AS sellerId,
+        versionOf
+        FROM  furniture INNER JOIN seller ON furniture.sellerId = seller.sellerId
         ";
         $result = mysqli_query($connection, $query);
         
@@ -448,7 +471,7 @@ public function deleteFurniture($furnitureId){
     }
 
     public function setSellerId($sellerId){
-        $this->sellerId = $sellerId
+        $this->sellerId = $sellerId;
     }
 
     public function getVersionOf(){
@@ -456,7 +479,7 @@ public function deleteFurniture($furnitureId){
     }
 
     public function setVersionOf($versionOf){
-        $this->versionOf = $versionOf
+        $this->versionOf = $versionOf;
     }
 
 }

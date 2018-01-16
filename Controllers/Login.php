@@ -16,12 +16,16 @@
     $_SESSION['dateAdded'] = $verify['dateAdded'];
 
     if(strcmp($verify['userType'], 'customer') == 0){
+      $_SESSION['customerId'] = $verify['customerId'];
       $_SESSION['firstName'] = $verify['firstName'];
       $_SESSION['middleName'] = $verify['middleName'];
       $_SESSION['lastName'] = $verify['lastName'];
       $_SESSION['birthdate'] = $verify['birthdate'];
       $_SESSION['image'] = $verify['image'];
-      $_SESSION['customerId'] = $verify['customerId'];
+    } else if(strcmp($verify['userType'], 'seller') == 0){
+      $_SESSION['sellerId'] = $verify['sellerId'];
+      $_SESSION['name'] = $verify['name'];
+      $_SESSION['description'] = $verify['description'];
     }
 
     switch($_SESSION['userType']){
@@ -42,6 +46,6 @@
     session_unset();
     session_destroy();
     echo "Invalid credentials or not activated";
-    header("Location: ..loginnew.php");
+    header("Location: ../loginnew.php?error=1");
   }
 ?>

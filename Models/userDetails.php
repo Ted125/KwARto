@@ -34,7 +34,7 @@ class user_details{
         /*sample code here*/
     }
 
-    public function createUser($userType){
+    public function createUser($userType){//Create Customer
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
@@ -238,7 +238,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
+          $query = "SELECT user_details.userId AS userId, customerId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
 
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
@@ -308,8 +308,8 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, email, userType, mobileNumber, dateAdded
-          FROM user_details
+          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, name, description
+          FROM user_details INNER JOIN seller ON user_details.userId = seller.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
           echo "||".$query;
