@@ -33,7 +33,7 @@
 
 <div class="super_container">
 		<!-- NAVBAR HERE -->
-	<?php include('Access/Navbar.php');?>	
+	<?php include('Access/Navbar.php');?>
 
 	<div class="fs_menu_overlay"></div>
 
@@ -461,7 +461,7 @@
 												<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
 											</ul>
 											<input id = "review_title" class = "form_input input_name" type = "text" name = "title" placeholder = "Review Title" required = "required" data-error = "Review title is required.">
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
+											<textarea id="review_message" class="input_review" name="body"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
