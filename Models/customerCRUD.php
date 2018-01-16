@@ -142,7 +142,34 @@ class customer extends user_details{
         $row = mysqli_query($mysqli, $query);
         $result = mysqli_fetch_array($row);
 
-        return result;
+        return $result;
+    }
+
+    public function readAllCustomers($rownum){
+        $offset = 0;
+        $offset = ($rownum - 1) * 10;
+        $query = "  SELECT
+                    c.firstName,
+                    c.middleName,
+                    c.lastName,
+                    c.birthdate,
+                    u.username,
+                    u.userType,
+                    u.status,
+                    u.gender,
+                    u.email,
+                    u.mobileNumber,
+                    u.image,
+                    u.address
+                    FROM customer c inner join user_details u  on u.userId = c.userId
+                    order by u.userId
+                    Limit 10
+                    OFFSET '".."'
+                ";
+        $rows = mysqli_query($mysqli, $query);
+        $result = mysql_fetch_array($row);
+    
+        return $result;
     }
 
     /***************** SETTERS AND GETTERS ****************/

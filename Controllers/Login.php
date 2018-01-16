@@ -21,6 +21,7 @@
       $_SESSION['lastName'] = $verify['lastName'];
       $_SESSION['birthdate'] = $verify['birthdate'];
       $_SESSION['image'] = $verify['image'];
+      $_SESSION['customerId'] = $verify['customerId'];
     }
 
     switch($_SESSION['userType']){
