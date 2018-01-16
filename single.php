@@ -424,47 +424,62 @@
 						<div class="row">
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title">
-									<h4>Reviews (2)</h4>
+									<h4>Reviews (<?php echo $reviewCount; ?>)</h4>
 								</div>
+								<?php
+									$_POST["furnitureId"] = $row["furnitureId"];
+
+									require("Controllers/LoadAllReviews.php");
+
+									if($reviewResult != null){
+										while($reviewRow = mysqli_fetch_assoc($reviewResult)){
+								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">John Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<?php
+													$reviewRating = $reviewRow["rating"];
 
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSruM7uxCIoXQsS1XUPMYs28dMEV2uyS-RyGsfklPlsELI99Djd"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+													for($i = 0; $i < 5; $i++){
+														if($reviewRating >= 1){
+												?>
+															<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<?php
+														}else if($reviewRating > 0){
+												?>
+															<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+												<?php
+														}else{
+												?>
+															<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+												<?php
+														}
+
+														$reviewRating -= 1;
+													}
+												?>
 											</ul>
 										</div>
-									</div>
-									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">Jane Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<div class = "review_title"><?php echo $reviewRow["title"]; ?></div>
+										<div class="review_date">Posted on
+										<?php
+											$date = strtotime($reviewRow["dateAdded"]);
+
+											echo date("F j, Y", $date);
+										?>
+										</div>
+										<div class="user_name">By <?php echo $reviewRow["firstName"] . " " . $reviewRow["lastName"]; ?></div>
+										<p class = "review_body"><?php echo $reviewRow["body"]; ?></p>
 									</div>
 								</div>
+								<?php
+										}
+									}
+								?>
 							</div>
 
 							<div class="col-lg-6 add_review_col">
@@ -499,7 +514,7 @@
 						<div class="row">
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title">
-									<h4>Questions (2)</h4>
+									<h4>Questions (<?php echo $questionCount; ?>)</h4>
 								</div>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
