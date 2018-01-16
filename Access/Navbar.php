@@ -25,14 +25,26 @@
                 <li><a href="about.php">about us</a></li>
                 <li><a href="contact.php">contact</a></li>
                 <li><a href="wishlist.php">wishlist</a></li>
-              </ul>
-              <ul class="navbar_user row">
+                
                 <?php 
                   if(!isset($_SESSION['userId'])){
-                    echo '<li><a href="loginnew.php"><i class="fa fa-search" aria-hidden="true">Hello Guest</i></a></li>';
+                    echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else {
-                    echo '<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                          <li><a href="profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a></li>
+                    echo '
+                          <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-exclamation"></i><span class="">  Notifications</span></a>
+                            <ul aria-labelledby="notifications" class="dropdown-menu">
+                              <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="">System</h6><span style="font-size: 0.8em;">Have you received your item?</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="">System</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages</strong></a></li>
+                            </ul>
+                          </li>     
+                          <li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i>Hello, '.$_SESSION['username'].'</a></li>
                           <li data-toggle="modal" data-target="#myModal" class="project-title d-flex align-items-center checkout">
                             <!-- MODAL CONTENT BELOW -->
                             <a href="#">
@@ -42,6 +54,24 @@
                           </li>';
                   }
                 ?>
+                <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>   -->
+              </ul>
+              <ul class="navbar_user row">
+                <!-- <?php 
+                  if(!isset($_SESSION['userId'])){
+                    echo '<li><a href="loginnew.php"><i class="fa fa-search" aria-hidden="true">Login</i></a></li>';
+                  } else {
+                    echo '
+                          <li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i>Hello, '.$_SESSION['username'].'</a></li>
+                          <li data-toggle="modal" data-target="#myModal" class="project-title d-flex align-items-center checkout">
+                            <!-- MODAL CONTENT BELOW -->
+                            <a href="#">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                              <span id="checkout_items" class="checkout_items">2</span>
+                             </a>
+                          </li>';
+                  }
+                ?> -->
               </ul>
             </nav>
           </div>
