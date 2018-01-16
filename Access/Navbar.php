@@ -25,23 +25,36 @@
                 <li><a href="about.php">about us</a></li>
                 <li><a href="contact.php">contact</a></li>
                 <li><a href="wishlist.php">wishlist</a></li>
-              </ul>
-              <ul class="navbar_user row">
                 <?php 
                   if(!isset($_SESSION['userId'])){
-                    echo '<li><a href="loginnew.php"><i class="fa fa-search" aria-hidden="true">Hello Guest</i></a></li>';
+                    echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else {
-                    echo '<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                          <li><a href="profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a></li>
-                          <li data-toggle="modal" data-target="#myModal" class="project-title d-flex align-items-center checkout">
+                    echo ' <li data-toggle="modal" data-target="#myModal" class="align-items-center checkout">
                             <!-- MODAL CONTENT BELOW -->
                             <a href="#">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                              <span id="checkout_items" class="checkout_items">2</span>
                              </a>
-                          </li>';
+                          </li>
+
+                          <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a>
+
+                          <ul aria-labelledby="notifications" class="dropdown-menu">
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="">System Message</h6><span style="font-size: 0.8em;">Have you received your item?</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="">System Message</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="loginnew.php" class="dropdown-item all-notifications" style="padding-left:120px;"> <strong>Logout</strong></a></li>
+                            </ul>
+                          </li>
+                          ';
                   }
                 ?>
+              </ul>
+              <ul class="navbar_user row">
               </ul>
             </nav>
           </div>
