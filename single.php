@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	$furnitureId = $_GET["singleFurnitureId"];
 
 	$_POST["furnitureId"] = $furnitureId;
@@ -30,55 +32,8 @@
 <body>
 
 <div class="super_container">
-
-	<header class="header trans_300">
-		<div class="top_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="index.php">home</a></li>
-								<li><a href="categories.php">categories</a></li>
-								<li><a href="about.php">about us</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-
-								</li>
-								<li class="checkout">
-									<a href="cart.php">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+		<!-- NAVBAR HERE -->
+	<?php include('Access/Navbar.php');?>	
 
 	<div class="fs_menu_overlay"></div>
 
@@ -176,7 +131,7 @@
 							<?php
 									}else{
 							?>
-										<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 							<?php
 									}
 
@@ -476,6 +431,8 @@
 										<p class = "review_body"><?php echo $reviewRow["body"]; ?></p>
 									</div>
 								</div>
+								<hr>
+								<br>
 								<?php
 										}
 									}
@@ -484,21 +441,24 @@
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form id="review_form" method="post" action= "Controllers/AddReview.php">
 										<div>
-											<h1>Leave a Comment/Review</h1>
-											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
-										</div>
-										<div>
-											<h1>Leave a Rating</h1>
-											<ul class="user_star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											<h1>Leave a Review</h1>
+											<br>
+											<input type = "hidden" name = "furnitureId" value = <?php echo $row["furnitureId"]; ?>>
+											<input type = "hidden" name = "customerId" value = <?php echo $_SESSION["customerId"]; ?>>
+											<input type = "hidden" name = "addedBy" value = <?php echo $_SESSION["userId"]; ?>>
+											<input type = "hidden" name = "updatedBy" value = <?php echo $_SESSION["userId"]; ?>>
+											<input type = "hidden" name = "likes" value = 0>
+											<input id = "ratingValue" type = "hidden" value = 4 name = "rating">
+											<ul id = "reviewStars" class="user_star_rating">
+												<li id = "1Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "2Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "3Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "4Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
 											</ul>
+											<input id = "review_title" class = "form_input input_name" type = "text" name = "title" placeholder = "Review Title" required = "required" data-error = "Review title is required.">
 											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
@@ -516,57 +476,80 @@
 								<div class="tab_title reviews_title">
 									<h4>Questions (<?php echo $questionCount; ?>)</h4>
 								</div>
+								<?php
+									$_POST["furnitureId"] = $row["furnitureId"];
+
+									require("Controllers/LoadAllFurnitureQuestions.php");
+
+									if($questionResult != null){
+										while($questionRow = mysqli_fetch_assoc($questionResult)){
+								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">John Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
+										<p class = "question"><?php echo $questionRow["question"]; ?></p>
+										<div class="user_name">Asked by <?php echo $questionRow["customerName"]; ?></div>
+										<div class="review_date">Asked on
+										<?php
+											$date = strtotime($questionRow["datePosted"]);
 
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSruM7uxCIoXQsS1XUPMYs28dMEV2uyS-RyGsfklPlsELI99Djd"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
+											echo date("F j, Y", $date);
+										?>
 										</div>
 									</div>
-									<div class="review">
-										<div class="review_date">27 Dec 2017</div>
-										<div class="user_name">Jane Doe</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
 								</div>
+								<?php
+									$_POST["questionId"] = $questionRow["questionId"];
+
+									require("Controllers/LoadQuestionAnswer.php");
+
+									if($answerResult != null){
+										$answerRow = mysqli_fetch_assoc($answerResult);
+
+										if(isset($answerRow["answer"])){
+								?>
+											<br>
+											<div class="user_review_container d-flex flex-column flex-sm-row">
+												<div class="user">
+													<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+												</div>
+												<div class="review">
+													<p class = "question"><?php echo $answerRow["answer"]; ?></p>
+													<div class="user_name">Answered by <?php echo $answerRow["sellerName"]; ?></div>
+													<div class="review_date">Answered on
+													<?php
+														$date = strtotime($answerRow["dateAnswered"]);
+
+														echo date("F j, Y", $date);
+													?>
+													</div>
+												</div>
+											</div>
+								<?php
+										}
+									}
+								?>
+								<hr>
+								<br>
+								<?php
+										}
+									}
+								?>
 							</div>
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form id="review_form" method="post" action= "Controllers/AddQuestion.php">
 										<div>
 											<h1>Leave a Question</h1>
-											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
 										</div>
 										<div>
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
+											<input type = "hidden" name = "furnitureId" value = <?php echo $row["furnitureId"]; ?>>
+											<input type = "hidden" name = "customerId" value = <?php echo $_SESSION["customerId"]; ?>>
+											<input type = "hidden" name = "active" value = "true">
+											<textarea id="review_message" class="input_review" name="question"  placeholder="Your Question" rows="4" required data-error="Please leave us a question."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
@@ -693,3 +676,26 @@
 </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#1Star").click(function(){
+        $("#ratingValue").val(1);
+    });
+
+		$("#2Star").click(function(){
+        $("#ratingValue").val(2);
+    });
+
+		$("#3Star").click(function(){
+        $("#ratingValue").val(3);
+    });
+
+		$("#4Star").click(function(){
+        $("#ratingValue").val(4);
+    });
+
+		$("#5Star").click(function(){
+        $("#ratingValue").val(5);
+    });
+});
+</script>
