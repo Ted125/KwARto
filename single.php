@@ -398,11 +398,24 @@
 						<div class="row">
 							<div class="col additional_info_col">
 								<div class="tab_title additional_info_title">
-									<h4>Additional Information</h4>
+									<h4>Additional Details</h4>
 								</div>
-								<p>COLORS:<span>Red, Black, Orange</span></p>
-								<p>SIZE:<span>26" x 53"</span></p>
-								<p>MATERIAL:<span>Synthetic Leather/Leatherette</span></p>
+								<?php
+									if(isset($row["model"])){
+								?>
+								<p>MODEL:<span><?php echo $row["model"]; ?></span></p>
+								<?php
+									}
+								?>
+								<?php
+									if(isset($row["color"])){
+								?>
+								<p>COLOR:<span><?php echo $row["color"]; ?></span></p>
+								<?php
+									}
+								?>
+								<p>SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p>
+								<p>WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p>
 							</div>
 						</div>
 					</div>
