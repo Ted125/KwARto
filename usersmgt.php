@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
-  require("Models/userDetails.php"); 
+  include_once("Models/userDetails.php");
+  include_once("Models/sellerCRUD.php"); 
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
-      header("Location:logginnew.php");
+      header("Location:loginnew.php");
   }
 ?>
  <head>
@@ -117,8 +118,8 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
+                            <th>Description</th>
                             <th>E-mail Address</th>
                             <th>Action</th>
                           </tr>
@@ -126,36 +127,15 @@
                         <tbody>
                           <tr>
                           <?php
-                            $db = new Database();
-                            $connection = $db->Connect();
-                            $result = null;
-                            if($connection){  
-                              $query = "SELECT
-                              c.firstName,
-                              c.middleName,
-                              c.lastName,
-                              c.birthdate,
-                              u.username,
-                              u.userType,
-                              u.status,
-                              u.gender,
-                              u.email,
-                              u.mobileNumber,
-                              u.image,
-                              u.address
-                              u.userId
-                              FROM  customer c inner join user_details u on u.userId = c.userId
-                              WHERE u.status = 'inactive'
-                              ";
-                              $result = mysqli_query($connection, $query); 
-                              mysqli_close($connection);
-                            }
-                            while($appRow = mysqli_fetch_array($result)){
+                            $seller = new seller();
+                            $result = $seller->readAllPendingSellers();
+                            if($result != null){
+                              while($appRow = mysqli_fetch_array($result)){
                               echo'
-                              <th scope="row">"'.$appRow[12].'"</th>
-                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[0].'" "'.$appRow[1].'"</td>
+                              <th scope="row">'.$appRow[9].'</th>
+                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[1].'"</td>
                               <td data-toggle="modal" data-target="#rowModal">"'.$appRow[2].'"</td>
-                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[8].'"</td>
+                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[6].'"</td>
                               <td>
                                 <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                                 <!-- Modal-->
@@ -171,8 +151,8 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                        <form  method = "post" action = "Controllers/Activate.php">
-                                        <input type = "hidden" name ="'.$appRow[12].'"/>
+                                        <form  method = "post" action = "Controllers/ActivateUser.php">
+                                        <input type = "hidden" name ="userId" value = "'.$appRow[9].'"/>
                                         <input type = "submit" class="btn btn-primary" value = "Yes"/>
                                         </form>
                                       </div>
@@ -234,6 +214,9 @@
 
                           ';
                             }
+                          }else{
+                            echo "No entries found";
+                          }
                           ?>
                         </tbody>
                       </table>
@@ -259,7 +242,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php include("Controllers/DisplayUsers.php");?>
+                          <?php include_once("Controllers/DisplayUsers.php");?>
                         </tbody>
                       </table>
                     </div>

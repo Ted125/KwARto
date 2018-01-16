@@ -130,12 +130,12 @@ class customer extends user_details{
         c.birthdate,
         u.username,
         u.userType,
-        u.status,
+        u.userstatus,
         u.gender,
         u.email,
         u.mobileNumber,
         u.image,
-        u.address
+        u.userId
         FROM  customer c, user_details u
         WHERE c.customerId ='".$this->getCustomerId()."' && c.userId = u.userId
         ";
@@ -161,13 +161,14 @@ class customer extends user_details{
                     u.mobileNumber,
                     u.image,
                     u.address
+                    u.userId
                     FROM customer c inner join user_details u  on u.userId = c.userId
                     order by u.userId
                     Limit 10
                     OFFSET '".."'
                 ";
         $rows = mysqli_query($mysqli, $query);
-        $result = mysql_fetch_array($row);
+        $result = mysql_fetch_array($rows);
     
         return $result;
     }

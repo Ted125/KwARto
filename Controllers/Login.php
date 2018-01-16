@@ -14,7 +14,6 @@
     $_SESSION['userType'] = $verify['userType'];
     $_SESSION['mobileNumber'] = $verify['mobileNumber'];
     $_SESSION['dateAdded'] = $verify['dateAdded'];
-
     if(strcmp($verify['userType'], 'customer') == 0){
       $_SESSION['customerId'] = $verify['customerId'];
       $_SESSION['firstName'] = $verify['firstName'];

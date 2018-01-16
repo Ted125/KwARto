@@ -106,7 +106,7 @@ class user_details{
     }
 
     public function createAdmin(){
-        $result;
+        $result = null;
         $this->setUserType($_SESSION['userType']);
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserStatus('active');
@@ -118,17 +118,24 @@ class user_details{
         return $result;
     }
 
-    public function activateUser(){
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
-            $this->setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-                       SET userStatus = 'active'
-                       WHERE userId = '".$this->getUserId()."'
-                      ";
-            $result = mysqli_query($mysqli, $update);
+    public function activateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'active'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can activate a user';
+            }
         }else{
-            echo 'no session or only admins can activate a user';
+            echo 'no connection';
         }
         return $result;
     }
@@ -335,7 +342,7 @@ class user_details{
       }
 
     public function displayAllUsers(){
-        require("Database.php");
+        require_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;

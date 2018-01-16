@@ -2,7 +2,7 @@
 <?php
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
-      header("Location:index.php");
+      header("Location:loginnew.php");
   }
 ?>
 <html>

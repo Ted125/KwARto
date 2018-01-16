@@ -1,6 +1,5 @@
-<?php require_once("SQL_Connect.php");;
-    
-    Connect();
+<?php 
+include("Database.php");
 
     class seller extends user_details{
         private $sellerId;
@@ -9,12 +8,11 @@
 
         const DB_TABLE = "seller";
         const DB_TABLE_PK = "sellerId";
-    }
     
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-
+        parent::__construct();
     }
 
     /***************** FUNCTIONS *****************/
@@ -52,13 +50,13 @@
             echo $create;
             $result = mysqli_query($connection, $create);
         }else{
-            echo 'no connection'
+            echo 'no connection';
         }
-        return result;
+        return $result;
     }
 
     public function updateSeller($field, $newData){
-        $this->setUserType($_SESSION['userType'];
+        $this->setUserType($_SESSION['userType']);
         $this->setUserId($_SESSION['userId']);
         if(isset($_SESSION)){
             if(!strcmp($this->getUserType(),'customer') == 0){
@@ -82,29 +80,52 @@
     }
 
     public function readAllSellers($rownum){
-        $offset = 0;
-        $offset = ($rownum - 1) * 10;
-        $query = "  SELECT
-                    s.sellerId
+    $offset = 0;
+    $offset = ($rownum - 1) * 10;
+    $query = "  SELECT
+                    s.sellerId,
                     s.name,
                     s.description,
                     s.userId,
-                    u.username,
                     u.userType,
-                    u.status,
-                    u.gender,
+                    u.userStatus,
                     u.email,
                     u.mobileNumber,
                     u.image,
-                    u.address
+                    u.userId   
                     FROM seller s inner join user_details u on u.userId = s.userId
                     order by u.userId
                     Limit 10
-                    OFFSET '".."'
+                    OFFSET '".$offset."'
                 ";
-        $rows = mysqli_query($mysqli, $query);
-        $result = mysql_fetch_array($row);
+    $rows = mysqli_query($mysqli, $query);
+    $result = mysql_fetch_array($row);
     
+        return $result;
+    }
+
+    public function readAllPendingSellers(){
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "  SELECT
+                        s.sellerId,
+                        s.name,
+                        s.description,
+                        s.userId,
+                        u.userType,
+                        u.userStatus,
+                        u.email,
+                        u.mobileNumber,
+                        u.image,
+                        u.userId        
+                        FROM seller s inner join user_details u on u.userId = s.userId
+                        where u.userStatus = 'inactive'
+                    ";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);
+        }
         return $result;
     }
 
@@ -133,4 +154,6 @@
     public function setDescription(){
         $this->description = $description;
     }
+
+}
 ?>
