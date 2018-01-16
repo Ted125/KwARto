@@ -91,7 +91,9 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(<?php echo $firstImage; ?>)"></div>
+								<div class="single_product_image_background">
+									<img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>">
+								</div>
 							</div>
 						</div>
 					</div>
