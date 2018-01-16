@@ -119,13 +119,13 @@ n<!DOCTYPE html>
 							<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Credit or Debit Card</h4>
-								<span class="blog_meta">Major cards accepted</span>
+								<span class="blog_meta">Only major cards accepted</span>
 								<a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 blog_item_col">
-						<div class="blog_item">
+						<div class="blog_item"> 
 							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Paypal</h4>
