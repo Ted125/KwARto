@@ -39,7 +39,7 @@ n<!DOCTYPE html>
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
+							<a href="index.php"><img style="max-width: 150px;" src="images/newlogo.png"></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
@@ -96,15 +96,15 @@ n<!DOCTYPE html>
 						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 							<div class="single_product_thumbnails">
 								<ul>
-									<li ><img src="http://wingsberthouse.com/wp-content/uploads/2017/12/exquisite-medici-tufted-leather-accent-chair-contemporary-armchairs-and-of-red.jpg" alt="" data-image="http://wingsberthouse.com/wp-content/uploads/2017/12/exquisite-medici-tufted-leather-accent-chair-contemporary-armchairs-and-of-red.jpg"></li>
-									<li class="active"><img src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt="" data-image="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg"></li>
-									<li><img src="https://images-na.ssl-images-amazon.com/images/I/51FYlVPQXYL._SL1000_.jpg" alt="" data-image="https://images-na.ssl-images-amazon.com/images/I/51FYlVPQXYL._SL1000_.jpg"></li>
+									<li ><img src="" alt="" data-image="./images/single/front2.jpg"></li>
+									<li class="active"><img src="./images/single/front.jpg" alt="" data-image="./images/single/front.jpg"></li>
+									<li><img src="./images/single/back.jpg"></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg)"></div>
+								<div class="single_product_image_background" style="background-image:url(./images/single/front.jpg)"></div>
 							</div>
 						</div>
 					</div>
