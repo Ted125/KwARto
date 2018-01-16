@@ -50,7 +50,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.php"><img style="max-width: 150px;" src="images/newlogo.png"></a>
+							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
@@ -488,16 +488,24 @@
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form id="review_form" method="post" action= "Controllers/AddReview.php">
 										<div>
-											<h1>Leave a Rating</h1>
-											<ul class="user_star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											<h1>Leave a Review</h1>
+											<br>
+											<input type = "hidden" name = "furnitureId" value = <?php echo $row["furnitureId"]; ?>>
+											<input type = "hidden" name = "customerId" value = <?php echo $_SESSION["customerId"]; ?>>
+											<input type = "hidden" name = "addedBy" value = <?php echo $_SESSION["userId"]; ?>>
+											<input type = "hidden" name = "updatedBy" value = <?php echo $_SESSION["userId"]; ?>>
+											<input type = "hidden" name = "likes" value = 0>
+											<input id = "ratingValue" type = "hidden" value = 4 name = "rating">
+											<ul id = "reviewStars" class="user_star_rating">
+												<li id = "1Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "2Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "3Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "4Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
 											</ul>
+											<input id = "review_title" class = "form_input input_name" type = "text" name = "title" placeholder = "Review Title" required = "required" data-error = "Review title is required.">
 											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
@@ -715,3 +723,26 @@
 </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#1Star").click(function(){
+        $("#ratingValue").val(1);
+    });
+
+		$("#2Star").click(function(){
+        $("#ratingValue").val(2);
+    });
+
+		$("#3Star").click(function(){
+        $("#ratingValue").val(3);
+    });
+
+		$("#4Star").click(function(){
+        $("#ratingValue").val(4);
+    });
+
+		$("#5Star").click(function(){
+        $("#ratingValue").val(5);
+    });
+});
+</script>
