@@ -37,7 +37,15 @@
 					</ul>
 				</div>
 
+				<div class="search-container text-right">
+				    <form action="/action_page.php">
+				      <input type="text" placeholder="What are you looking for?" name="search" style="width:400px; font-size: 1em; padding:10px;">
+				      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.3em;"></i></button>
+				    </form>
+				</div>	
+
 				<div class="sidebar">
+
 					<div class="sidebar_section">
 						<div class="sidebar_title">
 							<h5>Product Categories</h5>
@@ -66,6 +74,17 @@
 						</div>
 						<p>
 							<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="slider-range"></div>
+						<div class="filter_button"><span>filter</span></div>
+					</div>
+
+					<div class="sidebar_section">
+						<div class="sidebar_title">
+							<h5>Filter by Rating</h5>
+						</div>
+						<p>
+							<input type="text" id="star" readonly style="border:0; color:#f6931f; font-weight:bold;">
 						</p>
 						<div id="slider-range"></div>
 						<div class="filter_button"><span>filter</span></div>

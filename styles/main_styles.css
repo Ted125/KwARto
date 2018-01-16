@@ -142,6 +142,27 @@ h6::selection
 	font-weight: 500;
 	color: #777777 !important;
 }
+.search-container button:hover {
+  	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  	-webkit-font-smoothing: antialiased;
+  	text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    float: none;
+  }
+  input[type=text], .search-container button {
+    float: none;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
 .form-control
 {
 	color: #db5246;

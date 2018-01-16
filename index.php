@@ -27,6 +27,15 @@
 		</div>
 	</div>
 
+	<div class="banner text-center">
+		<div class="search-container">
+		    <form action="/action_page.php">
+		      <input type="text" placeholder="What are you looking for?" name="search" style="width:700px; font-size: 1.5em; padding:10px;">
+		      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.5em;"></i></button>
+		    </form>
+		  </div>	
+	</div>
+
 	<div class="banner">
 		<div class="container">
 			<div class="row">
