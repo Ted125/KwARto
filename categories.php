@@ -15,8 +15,6 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/single_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
 </head>
 
@@ -87,12 +85,12 @@
 						</div>
 						<!-- option 1 -->
 						<input id = "ratingValue" type = "hidden" value = 4 name = "rating">
-						<ul id = "reviewStars" class="user_star_rating row">
-							<li id = "1Star"><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "2Star"><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "3Star"><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "4Star"><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
+						<ul id = "reviewStars" class="user_star_rating row" style="margin-left: 20%; font-size: 1.5em;">
+							<li id = "1Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "2Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "3Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "4Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "5Star"><i style="color: red;" class="fa fa-star-o" aria-hidden="true"></i></li>
 						</ul>
 						<!-- option 2 -->
 						<div class="input-group spinner">
@@ -177,7 +175,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price">P540.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -192,7 +190,7 @@
 											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price">P610.00</div>
+												<div class="product_price" style="font-size: 14px;">P610.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -206,7 +204,7 @@
 											<div class="favorite"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price">P2,220.00</div>
+												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -221,7 +219,7 @@
 											<div class="favorite favorite_left"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price">P300.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -236,7 +234,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price">P540.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -251,7 +249,7 @@
 											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price">P610.00</div>
+												<div class="product_price" style="font-size: 14px;">P610.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -265,7 +263,7 @@
 											<div class="favorite"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price">P2,220.00</div>
+												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -280,7 +278,7 @@
 											<div class="favorite favorite_left"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price">P300.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -295,7 +293,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price">P540.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -310,7 +308,7 @@
 											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price">P610.00</div>
+												<div class="product_price" style="font-size: 14px;">P610.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -324,7 +322,7 @@
 											<div class="favorite"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price">P2,220.00</div>
+												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
@@ -339,7 +337,7 @@
 											<div class="favorite favorite_left"></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price">P300.00<span>P600.00</span></div>
+												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
