@@ -404,6 +404,23 @@ jQuery(document).ready(function($)
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
     }
 
+    function initStarSlider()
+    {
+		$( "#slider-range" ).slider(
+		{
+			range: true,
+			min: 0,
+			max: 1000,
+			values: [ 0, 580 ],
+			slide: function( event, ui )
+			{
+				$( "#star" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			}
+		});
+			
+		$( "#star" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    }
+
     /* 
 
 	8. Init Checkboxes

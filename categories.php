@@ -15,6 +15,8 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
 </head>
 
@@ -83,10 +85,24 @@
 						<div class="sidebar_title">
 							<h5>Filter by Rating</h5>
 						</div>
-						<p>
-							<input type="text" id="star" readonly style="border:0; color:#f6931f; font-weight:bold;">
-						</p>
-						<div id="slider-range"></div>
+						<!-- option 1 -->
+						<input id = "ratingValue" type = "hidden" value = 4 name = "rating">
+						<ul id = "reviewStars" class="user_star_rating row">
+							<li id = "1Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "2Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "3Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "4Star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
+						</ul>
+						<!-- option 2 -->
+						<div class="input-group spinner">
+					    <input type="text" class="form-control" value="0">
+					    <div class="input-group-btn-vertical">
+					      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+					      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+					    </div>
+					  </div>
+
 						<div class="filter_button"><span>filter</span></div>
 					</div>
 
@@ -95,11 +111,11 @@
 							<h5>Filter by Shops</h5>
 						</div>
 						<ul class="checkboxes">
-							<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Taobao</span></li>
-							<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Mandaue Foam</span></li>
-							<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Furniture City</span></li>
-							<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Furniture Labs</span></li>
-							<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orion</span></li>
+							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Taobao</span></li>
+							<li class="active"><i class="fa fa-check-circle" aria-hidden="true"></i><span>Mandaue Foam</span></li>
+							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Furniture City</span></li>
+							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Furniture Labs</span></li>
+							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Orion</span></li>
 						</ul>
 						<div class="show_more">
 							<span><span>+</span>Show More</span>
