@@ -32,8 +32,8 @@
 				<div class="breadcrumbs d-flex flex-row align-items-center">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Categories</a></li>
-						<li class="active"><a href="index.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Living Room</a></li>
+						<li><a href="categories.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Categories</a></li>
+						<li class="active"><a href="categories.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Living Room</a></li>
 					</ul>
 				</div>
 
@@ -43,8 +43,16 @@
 							<h5>Product Categories</h5>
 						</div>
 						<ul class="sidebar_categories">
-							<li><a href="#">Bedroom</a></li>
-							<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Living Room</a></li>
+							<li><a href="#">Bed and Bath</a></li>
+							<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Furniture Items</a>
+								<div class="sidebar_categories" style="padding-left: 20px;">
+									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Mattress</a></ul>
+									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Pillows</a></ul>
+									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Bedsheets</a></ul>
+									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Throws and Blankets</a></ul>
+									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Bathware</a></ul>
+								</div>
+							</li>
 							<li><a href="#">Dining Room</a></li>
 							<li><a href="#">Home Accents</a></li>
 							<li><a href="#">Home Office</a></li>
