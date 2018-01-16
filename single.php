@@ -146,11 +146,46 @@
 				<div class="product_details">
 					<div class="product_details_title">
 						<h2><?php echo $row["name"]; ?></h2>
-						<p><?php echo $row["description"]; ?></p>
 					</div>
-					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-						<span class="ti-truck"></span><span>Cash On Delivery</span>
+
+					<div>
+						<ul class="star_rating">
+							<?php
+								$_POST["furnitureId"] = $row["furnitureId"];
+
+								require("Controllers/GetAverageRating.php");
+
+								$averageRating = 0;
+
+								if($averageRatingResult != null){
+									$averageRatingRow = mysqli_fetch_assoc($averageRatingResult);
+
+									if($averageRatingRow["average"] != null){
+										$averageRating = $averageRatingRow["average"];
+									}
+								}
+
+								for($i = 0; $i < 5; $i++){
+									if($averageRating >= 1){
+							?>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<?php
+									}else if($averageRating > 0){
+							?>
+										<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+							<?php
+									}else{
+							?>
+										<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
+							<?php
+									}
+
+									$averageRating -= 1;
+								}
+							?>
+						</ul>
 					</div>
+
 					<?php
 						if($row["discount"] > 0){
 					?>
@@ -170,53 +205,34 @@
 						}
 					?>
 					</div>
-					<ul class="star_rating">
-						<?php
-							$_POST["furnitureId"] = $row["furnitureId"];
 
-							require("Controllers/GetAverageRating.php");
+					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+						<p>
+							<?php
+								$_POST["furnitureId"] = $row["furnitureId"];
 
-							$averageRating = 0;
+								require("Controllers/GetStock.php");
 
-							if($averageRatingResult != null){
-								$averageRatingRow = mysqli_fetch_assoc($averageRatingResult);
+								if($stockResult != null){
+									$row = mysqli_fetch_assoc($stockResult);
 
-								if($averageRatingRow["average"] != null){
-									$averageRating = $averageRatingRow["average"];
+									$stock = $row["num"];
+
+									if($stock > 0){
+										echo "Only " . $stock . " items available.";
+									}else{
+										echo "Out of stock!";
+									}
 								}
-							}
-
-							for($i = 0; $i < 5; $i++){
-								if($averageRating >= 1){
-						?>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-						<?php
-								}else if($averageRating > 0){
-						?>
-									<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
-						<?php
-								}else{
-						?>
-									<li><i class="fa fa-star-0" aria-hidden="true"></i></li>
-						<?php
-								}
-
-								$averageRating -= 1;
-							}
-						?>
-					</ul>
-					<div class="product_color">
-						<span>Color: <?php echo $row["color"]; ?></span>
+							?>
+						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<span>Quantity:</span>
-						<div class="quantity_selector">
-							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-							<span id="quantity_value">0</span>
-							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+					</div>
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+						<span class="ti-truck"></span><span>Cash On Delivery</span>
 					</div>
 				</div>
 			</div>
