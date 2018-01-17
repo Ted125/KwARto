@@ -1,12 +1,13 @@
 <tr>
+  <?php include('Controllers/SellerGetAvailableStock.php');?>
   <th scope="row"><?php echo $count;?></th>
   <td><?php echo $row['furnitureName'];?></td>
-  <td>42</td>
+  <td><?php echo $stock['available_stock'];?></td>
   <td><?php echo $row['price'];?></td>
   <td>
-    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+    <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary">Edit</button>
     <!-- Modal-->
-    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
         <div class="modal-content">
           <div class="modal-header">
@@ -17,7 +18,7 @@
             <form>
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" value=<?php echo $row['furnitureName'];?> class="form-control">
+                <input type="text" value="<?php echo $row['furnitureName'];?>" class="form-control">
               </div>
               <div class="form-group">       
                 <label>Description</label>
@@ -70,7 +71,7 @@
               </div>
               <div class="form-group">       
                 <label>Quantity</label>
-                <input type="text" value="42" class="form-control">
+                <input type="text" value=<?php echo $stock['available_stock'];?> class="form-control">
               </div>
               <div class="form-group">       
                 <label>Discount</label>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <?php session_start();?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>KwARto | Web Application</title>
@@ -82,7 +83,7 @@
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -110,7 +111,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -152,19 +153,19 @@
                         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
                         <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
                       </div>
-                      <form class="form-horizontal col-lg-8">
+                      <form class="form-horizontal col-lg-8" method="post" action="Controllers/SellerUploadFurniture.php">
                        
                         <div class="form-group">
                           <label>Product Name</label>
-                          <input type="text" placeholder="Product Name" class="form-control">
+                          <input type="text" placeholder="Product Name" class="form-control" name="newName">
                         </div>
                         <div class="form-group">       
                           <label>Description</label>
-                          <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here"></textarea>
+                          <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc"></textarea>
                         </div>
                         <div class="form-group">       
                           <label>Category</label>
-                          <select name="account" class="form-control">
+                          <select class="form-control" name="newCategory">
                             <option>Furniture Items</option>
                             <option>Bed + Bath</option>
                             <option>Decor Items</option>
@@ -174,24 +175,59 @@
                           </select>
                         </div>
                         <div class="form-group">       
-                          <label>Length</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <label>Model</label>
+                          <input type="text" placeholder="0" class="form-control" name="newModel">
                         </div>
                         <div class="form-group">       
-                          <label>Width</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <label>Model Name</label>
+                          <input type="text" placeholder="0" class="form-control" name="newModelName">
+                        </div>
+                        <div class="form-group">       
+                          <label>Category</label>
+                          <input type="text" placeholder="0" class="form-control" name="newCategoryId">
+                        </div>
+                        <div class="form-group">       
+                          <label>Version Of</label>
+                          <input type="text" placeholder="0" class="form-control" name="newVersionOf">
                         </div>
                         <div class="form-group">       
                           <label>Height</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="newHeight">
+                        </div>
+                        <div class="form-group">       
+                          <label>Color</label>
+                          <input type="text" placeholder="0" class="form-control" name="newColor">
+                        </div>
+                        <div class="form-group">       
+                          <label>Weight</label>
+                          <input type="text" placeholder="0" class="form-control" name="newWeight">
+                        </div>
+                        <div class="form-group">       
+                          <label>Weight Unit</label>
+                          <select class="form-control" name="newWeightUnit">
+                            <option>kilo/s</option>
+                            <option>pound/s</option>
+                          </select>
+                        </div>
+                        <div class="form-group">       
+                          <label>Length</label>
+                          <input type="text" placeholder="0" class="form-control" name="newLength">
+                        </div>
+                        <div class="form-group">       
+                          <label>Width</label>
+                          <input type="text" placeholder="0" class="form-control" name="newWidth">
+                        </div>
+                        <div class="form-group">       
+                          <label>Height</label>
+                          <input type="text" placeholder="0" class="form-control" name="newHeight">
                         </div>
                         <div class="form-group">       
                           <label>Warranty ID</label>
-                          <input type="text" placeholder="" class="form-control">
+                          <input type="text" placeholder="" class="form-control" name="newWar">
                         </div>
                         <div class="form-group">       
-                          <label>Unit</label>
-                          <select name="account" class="form-control">
+                          <label>Size Unit</label>
+                          <select class="form-control" name="newSizeUnit">
                             <option>millimeter/s</option>
                             <option>centimeter/s</option>
                             <option>inch/es</option>
@@ -200,19 +236,22 @@
                         </div>
                         <div class="form-group">       
                           <label>Price</label>
-                          <input type="text" placeholder="0.00" class="form-control">
+                          <input type="text" placeholder="0.00" class="form-control" name="newPrice">
                         </div>
                         <div class="form-group">       
                           <label>Quantity</label>
-                          <input type="text" placeholder="0" class="form-control">
+                          <input type="text" placeholder="0" class="form-control" name="newQuantity">
                         </div>
                         <div class="form-group">       
                           <label>Discount</label>
-                          <input type="text" placeholder="0.00" class="form-control">
+                          <input type="text" placeholder="0.00" class="form-control" name="newDiscount">
                         </div>
                         <div class="form-group">       
                           <label>3D Model</label>
-                          <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button>
+                          <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+                          <input type="file" name="newData" />
+                          <input type="hidden" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
+                          <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
                         </div>
                         <div class="form-group text-right">
                           <p>Please review the information above.</p> 
@@ -230,8 +269,9 @@
                                       <p>Are you sure you want to upload this product?</p>
                                     </div>
                                     <div class="modal-footer">
+                                      
                                       <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
+                                      <input class="btn btn-primary" type="submit" value="Upload" />
                                     </div>
                                   </div>
                                 </div>

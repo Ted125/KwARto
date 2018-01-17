@@ -1,7 +1,8 @@
 <?php
 //require('Models/Database.php');
 session_start();
-$uploaddir = 'C:/xampp/htdocs/Capstone-Project/Resources/Images/Profile/';
+mkdir('C:/xampp/htdocs/Capstone-Project/Resources/Images/Users/'.$_SESSION['userId'].'');
+$uploaddir = 'C:/xampp/htdocs/Capstone-Project/Resources/Images/Users/'.$_SESSION['userId'].'/';
 $fileExtension = '.jpg';
 //$uploadfile = $uploaddir . basename('dummyname') . $fileExtension;
 $uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //image naame will be the id of user
@@ -9,7 +10,7 @@ $uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //
 if (move_uploaded_file($_FILES['newData']['tmp_name'], $uploadfile)) {
   echo "File is valid, and was successfully uploaded.\n";
 
-  $_POST['newData'] = 'Resources/Images/Profile/' . basename($_SESSION['userId']) . $fileExtension;
+  $_POST['newData'] = 'Resources/Images/Profile/Users/'.$_SESSION['userId'].'/'. basename($_SESSION['userId']) . $fileExtension;
 
   echo "FIELD: ".$_POST['field'];
   echo "NEWDATA: ".$_POST['newData']; 

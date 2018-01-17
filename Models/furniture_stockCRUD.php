@@ -1,7 +1,7 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
-include("userDetails.php");
+// require("SQL_Connect.php");
+// include("Database.php");
+// include("userDetails.php");
 
 class furniture_stock{
     private $stockId;
@@ -128,10 +128,10 @@ class furniture_stock{
     public function displayAvailableFurnitureStock($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT(*) AS sold_stock 
+            $query ="SELECT COUNT(*) AS available_stock 
             FROM furniture_stock 
             WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available'
             ";
