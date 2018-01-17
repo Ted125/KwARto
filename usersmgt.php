@@ -7,6 +7,12 @@
       header("Location:loginnew.php");
   }
 ?>
+<style>
+    #pendingpics{
+    height: 200px;
+    width: 200px;
+    }
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -118,25 +124,27 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Company Name</th>
                             <th>Description</th>
                             <th>E-mail Address</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
                           <?php
                             $seller = new seller();
                             $result = $seller->readAllPendingSellers();
                             if($result != null){
+                              $count = 0;
                               while($appRow = mysqli_fetch_array($result)){
+                              $count++;
                               echo'
-                              <th scope="row">'.$appRow[9].'</th>
-                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[1].'"</td>
-                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[2].'"</td>
-                              <td data-toggle="modal" data-target="#rowModal">"'.$appRow[6].'"</td>
-                              <td>
+                              <tr>
+                              <th scope="row">'.$count.'</th>
+                              <td data-toggle="modal" data-target="#rowModal'.$appRow['userId'].'">'.$appRow['name'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$appRow['userId'].'">'.$appRow['description'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$appRow['userId'].'">'.$appRow['email'].'</td>
+                              <td> 
                                 <button type="button" data-toggle="modal" data-target="#confModal" class="btn btn-primary">Approve</button>
                                 <!-- Modal-->
                                 <div id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
@@ -152,7 +160,7 @@
                                       <div class="modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
                                         <form  method = "post" action = "Controllers/ActivateUser.php">
-                                        <input type = "hidden" name ="userId" value = "'.$appRow[9].'"/>
+                                        <input type = "hidden" name ="userId" value = '.$appRow['userId'].' />
                                         <input type = "submit" class="btn btn-primary" value = "Yes"/>
                                         </form>
                                       </div>
@@ -182,7 +190,7 @@
                               </td>
 
                             <!-- Modal Contents for Row -->
-                            <div class="modal fade" id="rowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="rowModal'.$appRow['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content " style="width: 600px;">
                                   <div class="modal-header">
@@ -194,16 +202,18 @@
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-5">
-                                          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
+                                          <img src="Resources/Images/Profile/3.jpg" id = "pendingpics">
                                       </div>
                                       <div class="col-7">
-                                         <div class="row" style="padding-left: 20px;"><h5>First Name: <h5  style="font-weight: normal; padding-left: 5px;">John</h5>  </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Middle Name: <h5 style="font-weight: normal; padding-left: 5px;">Smithers</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Last Name: <h5 style="font-weight: normal; padding-left: 5px;">Smith</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Gender: <h5 style="font-weight: normal; padding-left: 5px;">Male</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number:<h5 style="font-weight: normal; padding-left: 5px;">+63 123 456 7890</h5> </h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">name@user.com</h5></h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Current Address: <h5 style="font-weight: normal; margin-left: 5px;">123 Internet Street, Long Address, Somewhere City, Cty</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$appRow['userId'].'</h5>  </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Seller ID: <h5 style="font-weight: normal; padding-left: 5px;">'.$appRow['sellerId'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Company Name: <h5 style="font-weight: normal; padding-left: 5px;">'.$appRow['name'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;">'.$appRow['userType'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>User Status:<h5 style="font-weight: normal; padding-left: 5px;">'.$appRow['userStatus'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['email'].'</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Mobile Number: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['mobileNumber'].'</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['dateAdded'].'</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['addedBy'].'</h5></h5></div>
                                       </div>
                                     </div>
                                   </div>
@@ -236,13 +246,96 @@
                           <tr>
                             <th>#</th>
                             <th>First Name</th>
+                            <th>Middle Name</th>
                             <th>Last Name</th>
                             <th>E-mail Address</th>
+                            <th>User Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <?php include_once("Controllers/DisplayUsers.php");?>
+                        <?php
+                            $user = new user_details();
+                            $result = $user->displayAllUsers();
+                            if($result != null){
+                              $count = 0;
+                              while($row = mysqli_fetch_array($result)){
+                              $count++;
+                              $color = "#333333";
+                              if(strcmp($row['userStatus'], 'inactive') != 0){
+                                 $color=(strcmp($row['userStatus'], 'active') == 0)?"#9ACD32":"#FF0000";
+                              }
+                              echo'
+                              <tr>
+                              <th scope="row">'.$count.'</th>
+                              <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['firstName'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['middleName'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['lastName'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['email'].'</td>
+                              <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'" style = "color:'.$color.'">'.$row['userStatus'].'</td>
+                              <td>
+                                <button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Ban</button>
+                                <!-- Modal-->
+                                <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                  <div role="document" class="modal-dialog">  
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Are you sure you want to ban this user?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <form  method = "post" action = "Controllers/DeactivateUser.php">
+                                        <input type = "hidden" name = "userId" value = '.$row['userId'].' />
+                                        <input type = "submit" class="btn btn-primary" value = "Yes"/>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              </tr>
+                            <!-- Modal Contents for Row -->
+                            <div class="modal fade" id="rowModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content " style="width: 600px;">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="row">
+                                      <div class="col-5">
+                                          <img src="Resources/Images/Profile/3.jpg" id = "pendingpics">
+                                      </div>
+                                      <div class="col-7">
+                                         <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$row['userId'].'</h5>  </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Customer ID: <h5 style="font-weight: normal; padding-left: 5px;">'.$row['customerId'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Name: <h5 style="font-weight: normal; padding-left: 5px;">'.$row['lastName'].", ".$row['firstName']." ".$row['middleName'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;">'.$row['userType'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Email:<h5 style="font-weight: normal; padding-left: 5px;">'.$row['email'].'</h5> </h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Phone Number: <h5 style="font-weight: normal; margin-left: 5px;">'.$row['mobileNumber'].'</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Birthdate: <h5 style="font-weight: normal; margin-left: 5px;">'.$row['birthdate'].'</h5></h5></div>
+                                         <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">'.$row  ['dateAdded'].'</h5></h5></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </tr>
+
+                          ';
+                            }
+                          }else{
+                            echo "No entries found";
+                          }
+                          ?>
                         </tbody>
                       </table>
                     </div>

@@ -122,9 +122,10 @@ class user_details{
         include_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
+        $result = null;
         if($connection){
             $this->setUserType($_SESSION['userType']);
-            if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+            if(strcmp($this->getUserType(),'admin') == 0){
                 $this->setUserId($userId);
                 $update = "UPDATE user_details
                         SET userStatus = 'active'
@@ -140,18 +141,27 @@ class user_details{
         return $result;
     }
 
-    public function deactiveUser(){
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
-            setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-                       SET userStatus = 'inactive'
-                       WHERE userId = '".getUserId()."'
-                      ";
-            $result = mysqli_query($mysqli, $update);
+    public function deactivateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'banned'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can deactivate a user';
+            }
         }else{
-            echo 'no session or only admins can deactivate a user';
+            echo 'no connection';
         }
+        return $result;
     }
 
     public function deleteUser($userId){
@@ -349,16 +359,20 @@ class user_details{
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            user_details.userId AS userId,
-            userType,
-            userStatus,
-            email,
-            mobileNumber,
-            dateAdded,
-            firstName,
-            lastName
-            FROM  user_details INNER JOIN customer
-            WHERE user_details.userId = customer.userId;
+            u.userId,
+            c.customerId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.dateAdded,
+            c.firstName,
+            c.middleName,
+            c.lastName,
+            c.birthdate,
+            u.image
+            FROM  user_details u INNER JOIN customer c
+            WHERE u.userId = c.userId;
             ";
             $result = mysqli_query($connection, $query);
 

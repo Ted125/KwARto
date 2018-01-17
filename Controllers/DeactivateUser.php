@@ -4,13 +4,13 @@
   session_start();
   
   $user = new user_details();
-  $verify = $user->activateUser($_POST['userId']);
+  $verify = $user->deactivateUser($_POST['userId']);
   if($verify != null){
       header("refresh:0;../usersmgt.php");
   } else {
       	//inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
-    echo "Activate failed";
+    echo "Deactivate failed";
   }
 
  //header( "Location: http://localhost/capstone-project/" );

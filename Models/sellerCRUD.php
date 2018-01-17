@@ -92,6 +92,8 @@ include("Database.php");
                     u.email,
                     u.mobileNumber,
                     u.image,
+                    u.dateAdded,
+                    u.addedBy,
                     u.userId   
                     FROM seller s inner join user_details u on u.userId = s.userId
                     order by u.userId
@@ -119,6 +121,8 @@ include("Database.php");
                         u.email,
                         u.mobileNumber,
                         u.image,
+                        u.dateAdded,
+                        u.addedBy,
                         u.userId        
                         FROM seller s inner join user_details u on u.userId = s.userId
                         where u.userStatus = 'inactive'

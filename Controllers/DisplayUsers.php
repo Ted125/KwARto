@@ -4,7 +4,7 @@
   //session_start();
   
   $user = new user_details();
-  $verify = $user->DisplayAllUsers();
+  $verify = $user->displayAllUsers();
   $count = 1;
   if($verify != null){
     while($row = $verify->fetch_assoc()){
