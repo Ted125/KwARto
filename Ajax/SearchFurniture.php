@@ -17,15 +17,16 @@
     $sortValue = $_POST["sortValue"];
     $sortOrder = $_POST["sortOrder"];
 
-    $query = "SELECT f.*
+    $query = "SELECT f.*, i.image AS imageName, AVG(r.rating) AS averageRating
               FROM
               (
               category AS node
               JOIN furniture AS f ON node.categoryId = f.categoryId
               LEFT JOIN review AS r ON f.furnitureId = r.furnitureId
+              LEFT JOIN furniture_image AS i ON f.furnitureId = i.furnitureId
               LEFT JOIN
                 (
-              		SELECT * from furniture_stock WHERE status = 'available'
+              		SELECT * FROM furniture_stock WHERE status = 'available'
               	) AS s ON f.furnitureId = s.furnitureId
               ),
               category AS parent
