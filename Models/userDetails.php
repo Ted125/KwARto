@@ -371,7 +371,7 @@ class user_details{
             c.lastName,
             c.birthdate,
             u.image
-            FROM  user_details u INNER JOIN customer c
+            FROM  user_details u INNER JOIN customer c 
             WHERE u.userId = c.userId;
             ";
             $result = mysqli_query($connection, $query);
@@ -398,9 +398,12 @@ class user_details{
             u.userStatus,
             u.email,
             u.mobileNumber,
+            u.image,
             u.dateAdded,
+            u.addedBy,
             s.description,
-            s.name
+            s.name,
+            s.sellerId
             FROM  user_details u INNER JOIN seller s
             WHERE u.userId = s.userId && u.userStatus != 'inactive';
             ";

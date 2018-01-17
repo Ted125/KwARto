@@ -5,6 +5,12 @@
       header("Location:index.php");
   }
 ?>
+<style>
+    #pendingpics{
+    height: 200px;
+    width: 200px;
+    }
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

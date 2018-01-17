@@ -28,6 +28,7 @@
           <form  method = "post" action = "Controllers/DeactivateUser.php">
           <input type = "hidden" name ="userId" value = "<?php echo $row['userId'];?>" />
           <input type = "submit" class="btn btn-primary" value = "Yes"/>
+          </form>
           </div>
         </div>
       </div>
@@ -47,18 +48,18 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-5">
-              <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif">
+              <img src="<?php echo $row['image'];?>" id = "pendingpics"">
             </div>
             <div class="col-7">
-             <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">John</h5>  </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>Seller ID: <h5 style="font-weight: normal; padding-left: 5px;">Smithers</h5> </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>Company Name: <h5 style="font-weight: normal; padding-left: 5px;">Smith</h5> </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;">Male</h5> </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>User Status:<h5 style="font-weight: normal; padding-left: 5px;">+63 123 456 7890</h5> </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">name@user.com</h5></h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>Phone Number: <h5 style="font-weight: normal; margin-left: 5px;">123123</h5></h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">123123</h5></h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">123123</h5></h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;"></h5><?php echo $row['userId'];?></h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>Seller ID: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['sellerId'];?></h5> </h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>Company Name: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['name'];?></h5> </h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userType'];?></h5> </h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>User Status:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userStatus'];?></h5> </h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['email'];?></h5></h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>Phone Number: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['mobileNumber'];?></h5></h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['dateAdded'];?></h5></h5></div>
+             <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">12<?php echo $row['addedBy'];?>3123</h5></h5></div>
            </div>
          </div>
        </div>
