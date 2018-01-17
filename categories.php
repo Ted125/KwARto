@@ -152,12 +152,12 @@
 									<input id = "searchSortValue" type = "text" value = "">
 									<input id = "searchSortOrder" type = "text" value = "">
 								</form>
-								<div id = "searchResultsContainer" class="product-grid">
+								<div id = "searchResultsContainer" class="product-grid row">
 								</div>
 
 								<!-- Product Sorting -->
-
-								<div class="product_sorting_container product_sorting_container_bottom clearfix">
+								<!-- pagination -->
+								<!-- <div class="product_sorting_container product_sorting_container_bottom clearfix">
 									<span class="showing_results">Showing 1–12 of 50 results</span>
 									<div class="pages d-flex flex-row align-items-center">
 										<div class="page_current">
@@ -172,7 +172,7 @@
 										<div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
 									</div>
 
-								</div>
+								</div> -->
 
 							</div>
 						</div>
