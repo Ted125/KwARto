@@ -467,7 +467,7 @@ function Search(){
     },
     success: function(result) {
 			result.forEach(function(item){
-				var furniture = "<div class='product-item men'><div class='product discount product_filter'><div class='product_image'><img src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
+				var furniture = "<div class='product-item men'><div class='product discount product_filter'><div class='product_image'><img  style='height:200px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
 
 				if(item.discount > 0){
 					furniture += "<div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-" + item.discount + "%</span></div>";
@@ -481,7 +481,7 @@ function Search(){
 					furniture += "<div class='product_price' style='font-size: 14px;'> Php&nbsp;" + item.price + "</div></div></div>";
 				}
 
-				furniture += "<div class='product_rating' style='font-size: 14px;'>";
+				furniture += "<div class='text-center product_rating' style='color: #fac451; font-size: 14px;'>";
 
 				var averageRating = item.averageRating
 
@@ -497,7 +497,7 @@ function Search(){
 
 				furniture += "</div>";
 
-				furniture += "<div class='red_button add_to_cart_button'><a href='#'>add to cart</a></div></div>";
+				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0;'><a href='#'>add to cart</a></div></div>";
 				$("#searchResultsContainer").append(furniture);
 			});
     },
