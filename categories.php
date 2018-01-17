@@ -42,7 +42,7 @@
 				      <input type="text" placeholder="What are you looking for?" name="search" style="width:400px; font-size: 1em; padding:10px;">
 				      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.3em;"></i></button>
 				    </form>
-				</div>	
+				</div>
 
 				<div class="sidebar">
 
@@ -50,21 +50,7 @@
 						<div class="sidebar_title">
 							<h5>Product Categories</h5>
 						</div>
-						<ul class="sidebar_categories">
-							<li><a href="#">Bed and Bath</a></li>
-							<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Furniture Items</a>
-								<div class="sidebar_categories" style="padding-left: 20px;">
-									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Mattress</a></ul>
-									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Pillows</a></ul>
-									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Bedsheets</a></ul>
-									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Throws and Blankets</a></ul>
-									<ul><a style=" text-decoration: none; color: #51545f;" href="#"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span> Bathware</a></ul>
-								</div>
-							</li>
-							<li><a href="#">Dining Room</a></li>
-							<li><a href="#">Home Accents</a></li>
-							<li><a href="#">Home Office</a></li>
-							<li><a href="#">All</a></li>
+						<ul id = "searchCategories" class="sidebar_categories">
 						</ul>
 					</div>
 
@@ -73,9 +59,20 @@
 							<h5>Filter by Price</h5>
 						</div>
 						<p>
-							<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+							<input type="text" id="amountPrice" readonly style="border:0; color:#f6931f; font-weight:bold;">
 						</p>
-						<div id="slider-range"></div>
+						<div id="price-slider-range"></div>
+						<div class="filter_button"><span>filter</span></div>
+					</div>
+
+					<div class="sidebar_section">
+						<div class="sidebar_title">
+							<h5>Filter by Discount</h5>
+						</div>
+						<p>
+							<input type="text" id="amountDiscount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="discount-slider-range"></div>
 						<div class="filter_button"><span>filter</span></div>
 					</div>
 
@@ -83,24 +80,10 @@
 						<div class="sidebar_title">
 							<h5>Filter by Rating</h5>
 						</div>
-						<!-- option 1 -->
-						<input id = "ratingValue" type = "hidden" value = 4 name = "rating">
-						<ul id = "reviewStars" class="user_star_rating row" style="margin-left: 20%; font-size: 1.5em;">
-							<li id = "1Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "2Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "3Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "4Star"><i style="color: red;" class="fa fa-star" aria-hidden="true"></i></li>
-							<li id = "5Star"><i style="color: red;" class="fa fa-star-o" aria-hidden="true"></i></li>
-						</ul>
-						<!-- option 2 -->
-						<div class="input-group spinner">
-					    <input type="text" class="form-control" value="0">
-					    <div class="input-group-btn-vertical">
-					      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-					      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-					    </div>
-					  </div>
-
+						<p>
+							<input type="text" id="amountRating" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+						<div id="rating-slider-range"></div>
 						<div class="filter_button"><span>filter</span></div>
 					</div>
 
@@ -108,16 +91,8 @@
 						<div class="sidebar_title">
 							<h5>Filter by Shops</h5>
 						</div>
-						<ul class="checkboxes">
-							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Taobao</span></li>
-							<li class="active"><i class="fa fa-check-circle" aria-hidden="true"></i><span>Mandaue Foam</span></li>
-							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Furniture City</span></li>
-							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Furniture Labs</span></li>
-							<li><i class="fa fa-circle-o" aria-hidden="true"></i><span>Orion</span></li>
+						<ul id = "sellerOptions">
 						</ul>
-						<div class="show_more">
-							<span><span>+</span>Show More</span>
-						</div>
 						<div class="filter_button"><span>filter</span></div>
 					</div>
 				</div>
@@ -163,185 +138,21 @@
 									</div>
 
 								</div>
-
-								<div class="product-grid">
-
-									<div class="product-item men">
-										<div class="product discount product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P610.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item accessories">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-50%</span></div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item men">
-										<div class="product discount product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P610.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item accessories">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-50%</span></div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-									
-									<div class="product-item men">
-										<div class="product discount product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Comfy Chair (Red)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P540.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Round Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P610.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item women">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="favorite"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Sophisticated Centerpiece Table</a></h6>
-												<div class="product_price" style="font-size: 14px;">P2,220.00</div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-
-									<div class="product-item accessories">
-										<div class="product product_filter">
-											<div class="product_image">
-												<img src="./images/p300.png" alt="">
-											</div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-50%</span></div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="single.php">Light LED Desk Lamp (Yellow)</a></h6>
-												<div class="product_price" style="font-size: 14px;">P300.00<span>P600.00</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
+								<!-- Search Filters Container -->
+								<form>
+									<input id = "searchCategoryId" type = "text" value = "1">
+									<input id = "searchSellerId" type = "text" value = "-1">
+									<input id = "searchMinPrice" type = "text" value = "-1">
+									<input id = "searchMaxPrice" type = "text" value = "-1">
+									<input id = "searchMinDiscount" type = "text" value = "-1">
+									<input id = "searchMaxDiscount" type = "text" value = "-1">
+									<input id = "searchMinRating" type = "text" value = "-1">
+									<input id = "searchMaxRating" type = "text" value = "-1">
+									<input id = "searchName" type = "text" value = "">
+									<input id = "searchSortValue" type = "text" value = "">
+									<input id = "searchSortOrder" type = "text" value = "">
+								</form>
+								<div id = "searchResultsContainer" class="product-grid">
 								</div>
 
 								<!-- Product Sorting -->
@@ -484,3 +295,178 @@
 </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+	//LoadCategoryTree();
+	LoadSellers();
+	Search();
+
+	$("#amount").val("Php 0 - Php 100000");
+	$("#amountDiscount").val("0 % - 100 %");
+	$("#amountRating").val("1 star - 5 stars");
+
+	$("#searchCategories").on("click", ".searchCategory", function(){
+		$("#searchCategoryId").val($(this).attr("name"));
+		$("#activeSearchCategory").removeClass("active");
+		$("#activeSearchCategory").removeAttr("id");
+		$(this).addClass("active");
+		$(this).attr("id", "activeSearchCategory");
+	});
+
+	$("#price-slider-range").slider({
+		range: true,
+		min: 0,
+		max: 100000,
+		values: [0, 100000],
+		slide: function(event, ui) {
+			$("#amountPrice").val("Php " + ui.values[0] + " - Php " + ui.values[1]);
+			$("#searchMinPrice").val(ui.values[0]);
+			$("#searchMaxPrice").val(ui.values[1]);
+		}
+	});
+
+	$("#discount-slider-range").slider({
+		range: true,
+		min: 0,
+		max: 100,
+		values: [0, 100],
+		slide: function(event, ui) {
+			$("#amountDiscount").val(ui.values[0] + " % - " + ui.values[1] + " %");
+			$("#searchMinDiscount").val(ui.values[0]);
+			$("#searchMaxDiscount").val(ui.values[1]);
+		}
+	});
+
+	$("#rating-slider-range").slider({
+		range: true,
+		min: 1,
+		max: 5,
+		values: [0, 5],
+		step: 1,
+		slide: function(event, ui) {
+			if(ui.values[1] == 1){
+				$("#amountRating").val(ui.values[0] + " star - " + ui.values[1] + " star");
+			}else if(ui.values[0] == 1){
+				$("#amountRating").val(ui.values[0] + " star - " + ui.values[1] + " stars");
+			}else{
+				$("#amountRating").val(ui.values[0] + " stars - " + ui.values[1] + " stars");
+			}
+
+			$("#searchMinRating").val(ui.values[0]);
+			$("#searchMaxRating").val(ui.values[1]);
+		}
+	});
+
+	$("#sellerOptions").on("click", ".sellerOption", function(){
+		$("#searchSellerId").val($(this).attr("name"));
+		$(".active i").removeClass("fa fa-check-circle");
+		$(".active i").addClass("fa fa-circle-o");
+		$(".active").removeClass("active");
+		$(this).addClass("active");
+		$(this).find("i").removeClass("fa fa-circle-o");
+		$(this).find("i").addClass("fa fa-check-circle");
+	});
+
+	$(".filter_button").on("click", function(){
+		Search();
+	});
+});
+
+function LoadCategoryTree(){
+	$("#searchCategories").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/LoadAllCategories.php",
+		dataType: "json",
+    data: {
+
+    },
+    success: function(result) {
+			result.forEach(function(item){
+				var listItem = "";
+
+				if(item.depth == 0){
+					listItem += "<li id = 'activeSearchCategory' class = 'active searchCategory' name = '" + item.categoryId + "'>";
+				}else{
+					listItem += "<li class = 'searchCategory' name = '" + item.categoryId + "'>";
+				}
+
+				for(var i = 0; i < item.depth; i++){
+					listItem += "&emsp;";
+				}
+
+				if(item.depth == 0){
+					listItem += "<span><i class='fa fa-angle-double-right' aria-hidden='true'></i></span>";
+				}else if(parseInt(item.lft) + 1 != parseInt(item.rgt)){
+					listItem += "<span><i class='fa fa-angle-right' aria-hidden='true'></i></span>";
+				}
+
+
+				listItem += "<a href='#'>&nbsp;" + item.name + "</a></li>";
+				$("#searchCategories").append(listItem);
+			});
+    },
+    error: function(result) {
+
+    }
+	});
+}
+
+function LoadSellers(){
+	$("#sellerOptions").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/LoadAllSellers.php",
+		dataType: "json",
+    data: {
+
+    },
+    success: function(result) {
+			var defaultItem = "<li class = 'active sellerOption' name = '-1'><i class='fa fa-check-circle' aria-hidden='true'></i>&nbsp;<span>Any Seller</span></li>";
+			$("#sellerOptions").append(defaultItem);
+
+			result.forEach(function(item){
+				var listItem = "<li class = 'sellerOption' name = '" + item.sellerId + "'><i class='fa fa-circle-o' aria-hidden='true'></i>&nbsp;<span>" + item.name + "</span></li>";
+				$("#sellerOptions").append(listItem);
+			});
+    },
+    error: function(result) {
+
+    }
+	});
+}
+
+function Search(){
+	$("#searchResultsContainer").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/SearchFurniture.php",
+		dataType: "json",
+    data: {
+			"categoryId" : $("#searchCategoryId").val(),
+			"sellerId" : $("#searchSellerId").val(),
+			"minPrice" : $("#searchMinPrice").val(),
+			"maxPrice" : $("#searchMaxPrice").val(),
+			"minDiscount" : $("#searchMinDiscount").val(),
+			"maxDiscount" : $("#searchMaxDiscount").val(),
+			"minRating" : $("#searchMinRating").val(),
+			"maxRating" : $("#searchMaxRating").val(),
+			"name" : $("#searchName").val(),
+			"sortValue" : $("#searchSortValue").val(),
+			"sortOrder" : $("#searchSortOrder").val()
+    },
+    success: function(result) {
+			result.forEach(function(item){
+				var furniture = "<div class='product-item men'><div class='product discount product_filter'><div class='product_image'><img src='./images/p300.png' alt=''></div><div class='favorite favorite_left'></div><div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-10%</span></div><div class='product_info'><h6 class='product_name'><a href='single.php'>" + item.name + "</a></h6><div class='product_price' style='font-size: 14px;'>P540.00<span>P600.00</span></div></div></div><div class='red_button add_to_cart_button'><a href='#'>add to cart</a></div></div>";
+				$("#searchResultsContainer").append(furniture);
+			});
+    },
+    error: function(result) {
+
+    }
+	});
+}
+</script>
