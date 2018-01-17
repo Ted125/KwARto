@@ -393,15 +393,16 @@ class user_details{
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            user_details.userId AS userId,
-            userType,
-            userStatus,
-            email,
-            mobileNumber,
-            dateAdded,
-            name
-            FROM  user_details INNER JOIN seller
-            WHERE user_details.userId = seller.userId;
+            u.userId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.dateAdded,
+            s.description,
+            s.name
+            FROM  user_details u INNER JOIN seller s
+            WHERE u.userId = s.userId && u.userStatus != 'inactive';
             ";
             $result = mysqli_query($connection, $query);
 

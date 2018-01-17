@@ -117,9 +117,10 @@
                           <tr>
                             <th>#</th>
                             <th>Company Name</th>
-                            <th>Address</th>
+                            <th>Description</th>
                             <th>E-mail Address</th>
-                            <th>Action</th>
+                            <th>Status</th>
+                            <th>Action</th> 
                           </tr>
                         </thead>
                         <tbody>
