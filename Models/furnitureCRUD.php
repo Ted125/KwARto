@@ -2,7 +2,7 @@
 
 //require("SQL_Connect.php");
 //include("Database.php");
-//include("userDetails.php");
+include("userDetails.php");
 //include("furniture_imageCRUD.php");
 //include("furniture_specificationCRUD.php");
 //include("furniture_stockCRUD.php");
@@ -51,33 +51,33 @@ class furniture{
     /***************** FUNCTIONS ****************/
     
     public function createFurniture(){
+        include("Database.php");
         if(isset($_SESSION['userType'])){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
                     //$furniture = new furniture();
-                    $this->setName($_POST['name']);
-                    $this->setDescription($_POST['description']);
-                    $this->setWarrantyId($_POST['warrantyId']);
-                    $this->setModel($_POST['model']);
-                    $this->setColor($_POST['color']);              /* ok ra if null */
-                    $this->setWeight($_POST['weight']);             /* ok ra if null */
-                    $this->setWeightUnit($_POST['weightUnit']);      /* ok ra if null */
-                    $this->setLength($_POST['length']);
-                    $this->setWidth($_POST['width']);
-                    $this->setHeight($_POST['height']);
-                    $this->setSizeUnit($_POST['sizeUnit']);
-                    $this->setPrice($_POST['price']);
-                    $this->setModelName($_POST['modelName']);
-                    $this->setDiscount($_POST['discount']);
-                    $this->setSaleStart($_POST['saleStart']);
-                    $this->setSaleEnd($_POST['saleEnd']);
-                    $this->setCategoryId($_POST['categoryId']);
-                    $this->setSellerId($_SESSION['sellerId']);
-                    $this->setVersionOf($_POST['versionOf']);
+                    $this->setName($_POST['newName']);
+                    $this->setDescription($_POST['newDesc']);
+                    $this->setWarrantyId($_POST['newWar']);
+                    $this->setModel($_POST['newModel']);
+                    $this->setColor($_POST['newColor']);              /* ok ra if null */
+                    $this->setWeight($_POST['newWeight']);             /* ok ra if null */
+                    $this->setWeightUnit($_POST['newWeightUnit']);      /* ok ra if null */
+                    $this->setLength($_POST['newLength']);
+                    $this->setWidth($_POST['newWidth']);
+                    $this->setHeight($_POST['newHeight']);
+                    $this->setSizeUnit($_POST['newSizeUnit']);
+                    $this->setPrice($_POST['newPrice']);
+                    $this->setModelName($_POST['newModelName']);
+                    $this->setDiscount($_POST['newDiscount']);
+                    $this->setCategoryId($_POST['newCategoryId']);
+                    $this->setSellerId($_POST['newSellerId']);
+                    $this->setVersionOf($_POST['newVersionOf']);
                     $create = "INSERT INTO furniture
                     ( 
                     name,
@@ -94,8 +94,6 @@ class furniture{
                     price,
                     modelName,
                     discount,
-                    saleStart,
-                    saleEnd, 
                     categoryId,
                     sellerId,
                     versionOf
@@ -106,6 +104,7 @@ class furniture{
                     '".$this->getWarrantyId()."',
                     '".$this->getModel()."',
                     '".$this->getColor()."',
+                    '".$this->getWeight()."',
                     '".$this->getWeightUnit()."',
                     '".$this->getLength()."',
                     '".$this->getWidth()."',
@@ -115,10 +114,17 @@ class furniture{
                     '".$this->getModelName()."',
                     '".$this->getDiscount()."',
                     '".$this->getCategoryId()."',
-                    '".$this->getSellerId()."'
+                    '".$this->getSellerId()."',
                     '".$this->getVersionOf()."'
                 )";
+                echo $create;
                 $result = mysqli_query($connection, $create);   
+
+                $this->setFurnitureId($connection->insert_id);
+                mysqli_close($connection);
+                echo "<h1> after result in userDetails.php ".$this->getFurnitureId()."</h1>";
+                return $this->getFurnitureId();
+                echo "hello";
             }
         }else{
            echo 'only sellers can add furniture';
@@ -310,7 +316,7 @@ public function deleteFurniture($furnitureId){
         return $this->length;
     }
 
-    public function setLength(){
+    public function setLength($length){
         $this->length = $length;
     }
 
