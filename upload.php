@@ -21,7 +21,6 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
   </head>
   <body>
     <div class="page">
@@ -276,16 +275,15 @@
                   <div class="row setup-content-2" id="step-6">
                     <div class="col-lg-12 text-center">
                         <h3 class="font-bold pl-0 my-4"><strong>Upload Image</strong></h3>
-                        <img src="http://via.placeholder.com/300"><br>
+                        <img src="http://via.placeholder.com/300" id="blah" alt="your image"><br>
                       <div style="margin-top: 5px;">
+                        <!-- <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg"> -->
                       </div>    
-                        <label>Select file to upload:</label>
-                        <input type="file" name="image" />
-                      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
+                        <label>Select Base Photo to upload:</label>
+                        <input type='file' onchange="readURL(this);" style="margin-top: 10px;" type="file" name="image" />
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
                         <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
@@ -402,6 +400,22 @@
 
     $('div.setup-panel-2 div a.btn-tab1').trigger('click');
   });
+
+  //Preview Image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(300);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
   </script>
   </body>
 </html>
