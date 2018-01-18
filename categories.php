@@ -142,6 +142,11 @@
 									<input id = "searchSortValue" type = "hidden" value = "">
 									<input id = "searchSortOrder" type = "hidden" value = "">
 								</form>
+								<!-- Selected Furniture Form -->
+								<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+									<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+								</form>
+
 								<div id = "searchResultsContainer" class="product-grid row">
 								</div>
 
@@ -377,6 +382,12 @@ $(document).ready(function(){
 		$("#searchName").val($(this).find("input").val());
 		Search();
 	})
+
+	$("#searchResultsContainer").on("click", ".product_name", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
 });
 
 function LoadCategoryTree(){
@@ -473,7 +484,7 @@ function Search(){
 					furniture += "<div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-" + item.discount + "%</span></div>";
 				}
 
-				furniture += "<div class='product_info'><h6 class='product_name'><a href='single.php'>" + item.name + "</a></h6>";
+				furniture += "<div class='product_info'><h6 class='product_name' name='" + item.furnitureId + "'><a>" + item.name + "</a></h6>";
 
 				if(item.discount > 0){
 					furniture += "<div class='product_price' style='font-size: 14px;'>Php&nbsp;" + (item.price * (1 - item.discount / 100)) + "<span> Php&nbsp;" + item.price + "</span></div></div></div>";

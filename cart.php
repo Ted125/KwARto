@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <?php session_start();?>
@@ -25,7 +25,7 @@ n<!DOCTYPE html>
 
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
-	
+
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -45,11 +45,11 @@ n<!DOCTYPE html>
 				<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 					<thead>
 						<tr style="text-align: center;">
-							<th>Item No.</th>	
+							<th>Item No.</th>
 							<th>Product</th>
 							<th>Quantity</th>
 							<th>Product Name</th>
-						
+
 							<th>Price</th>
 							<th>Action</th>
 						</tr>
@@ -59,7 +59,7 @@ n<!DOCTYPE html>
 					<td class="">1</td>
 					<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
 					<td class="">
-						<div class="" style="text-align: -webkit-center"> 
+						<div class="" style="text-align: -webkit-center">
 							<div class="form-group form-group-options">
 								<div class="input-group input-group-option" style="width: 130px;">
 									<span class="input-group-addon input-group-addon-remove btn">
@@ -75,7 +75,7 @@ n<!DOCTYPE html>
 					</td>
 					<td class="">Comfy Chair</td>
 					<td class="">P850.00</td>
-					<td class="" style="text-align:  center;">	
+					<td class="" style="text-align:  center;">
 						<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
 							  <!-- Modal-->
 							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
@@ -121,7 +121,7 @@ n<!DOCTYPE html>
 							<td class="">2</td>
 							<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
 							<td class="">
-								<div class="" style="text-align: -webkit-center"> 
+								<div class="" style="text-align: -webkit-center">
 									<div class="form-group form-group-options">
 			                            <div class="input-group input-group-option" style="width: 130px;">
 			                                <span class="input-group-addon input-group-addon-remove btn">
@@ -137,7 +137,7 @@ n<!DOCTYPE html>
 							</td>
 							<td class="">Swivel Chair</td>
 							<td class="">P540.00</td>
-							<td class="" style="text-align:  center;">	
+							<td class="" style="text-align:  center;">
 								<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
 							  <!-- Modal-->
 							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
@@ -181,14 +181,14 @@ n<!DOCTYPE html>
 						</tr>
 				</tbody></table>
 
-				<div style="margin-top: 20px;" class="text-right">				
+				<div style="margin-top: 20px;" class="text-right">
 					<h5>Subtotal: <span style="color: #d42d2d">P1,390.00</span> + 7% Fee</h5>
 					<h5>Transaction Fee: <span style="color: #d42d2d">P97.30</h5>
 					<h4>Your total balance is: <span style="color: #d42d2d">P1,487.30</span></h4>
 					<div class="red_button" style="width: 150px"><a href="payment.php">Proceed to Checkout</a></div>
 				</div>
 
-				
+
 				<!-- MODAL CONTENTS -->
                 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                     <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
@@ -201,11 +201,11 @@ n<!DOCTYPE html>
                           <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 								<thead>
 									<tr style="text-align: center;">
-										<th>Item No.</th>	
+										<th>Item No.</th>
 										<th>Product</th>
 										<th>Quantity</th>
 										<th>Product Name</th>
-									
+
 										<th>Price</th>
 										<th>Action</th>
 									</tr>
@@ -215,7 +215,7 @@ n<!DOCTYPE html>
 								<td class="">1</td>
 								<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
 								<td class="">
-									<div class="" style="text-align: -webkit-center"> 
+									<div class="" style="text-align: -webkit-center">
 										<div class="form-group form-group-options">
 											<div class="input-group input-group-option" style="width: 130px;">
 												<span class="input-group-addon input-group-addon-remove btn">
@@ -231,7 +231,7 @@ n<!DOCTYPE html>
 								</td>
 								<td class="">Comfy Chair</td>
 								<td class="">P850.00</td>
-								<td class="" style="text-align:  center;">	
+								<td class="" style="text-align:  center;">
 									<div class="red_button" style="width: 150px"><a href="wishlist.php">move to wishlist</a></div><br>
 									<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 								</td>
@@ -240,7 +240,7 @@ n<!DOCTYPE html>
 										<td class="">2</td>
 										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
 										<td class="">
-											<div class="" style="text-align: -webkit-center"> 
+											<div class="" style="text-align: -webkit-center">
 												<div class="form-group form-group-options">
 						                            <div class="input-group input-group-option" style="width: 130px;">
 						                                <span class="input-group-addon input-group-addon-remove btn">
@@ -256,7 +256,7 @@ n<!DOCTYPE html>
 										</td>
 										<td class="">Swivel Chair</td>
 										<td class="">P540.00</td>
-										<td class="" style="text-align:  center;">	
+										<td class="" style="text-align:  center;">
 											<div class="red_button" style="width: 150px;"><a href="wishlist.php">move to wishlist</a></div><br>
 											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 										</td>
