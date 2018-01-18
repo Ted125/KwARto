@@ -292,7 +292,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, email, userType, mobileNumber, dateAdded
+          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -442,6 +442,36 @@ class user_details{
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
+        }
+        return $result;
+    }
+
+    public function countNewCustomers(){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setUserId($userId);
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as new_customers FROM user_details WHERE userType = 'customer'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
+        }
+        return $result;
+    }
+
+    public function countNewSellers(){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setUserId($userId);
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as new_sellers FROM user_details WHERE userType = 'seller'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
         }
         return $result;
     }

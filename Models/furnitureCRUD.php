@@ -188,6 +188,8 @@ class furniture{
             f.discount,
             f.saleStart,
             f.saleEnd,
+            f.dateAdded AS dateAddedFurniture,
+            f.dateUpdated AS dateUpdatedFurniture,
             f.live,
             f.status,
             c.name AS categoryName,
@@ -272,6 +274,7 @@ class furniture{
     }
 
     public function banFurniture($furnitureId){
+        require("Database.php");
         if(isset($_SESSION)){
             $user = new user_details();
             $user->setUserType($_SESSION['userType']);
@@ -282,7 +285,7 @@ class furniture{
                 if($connection){
                     $this->setFurnitureId($furnitureId);
                     $query = "UPDATE furniture
-                    SET status = '0'
+                    SET status = '0', live = '0'
                     WHERE furnitureId = '".$this->getFurnitureId()."'
                     ";
                     $result = mysqli_query($connection, $query);
@@ -299,6 +302,7 @@ class furniture{
     }   
 
     public function unbanFurniture($furnitureId){
+        require("Database.php");
         if(isset($_SESSION)){
             $user = new user_details();
             $user->setUserType($_SESSION['userType']);

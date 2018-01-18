@@ -75,7 +75,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
+              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -86,7 +86,7 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>                    
                     <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
@@ -158,7 +158,7 @@
                                         <p>Are you sure you want to approve this user?</p>
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
                                         <form  method = "post" action = "Controllers/ActivateUser.php">
                                         <input type = "hidden" name ="userId" value = '.$appRow['userId'].' />
                                         <input type = "submit" class="btn btn-primary" value = "Yes"/>

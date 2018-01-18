@@ -5,7 +5,7 @@
   
   $furn = new furniture();
 
-  if(strcmp($_POST['status'], '1') == 0){
+  if($_POST['live'] == 1){
     $verify = $furn->deactivateFurniture($_POST['furnitureId']);
   } else {
     $verify = $furn->activateFurniture($_POST['furnitureId']);

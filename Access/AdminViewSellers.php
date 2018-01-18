@@ -51,7 +51,7 @@
             <p>Are you sure you want to ban this manufacturer?</p>
           </div>
           <div class="modal-footer">
-          <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+          <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
           <form  method = "post" action = "Controllers/DeactivateUser.php">
           <input type = "hidden" name ="userId" value = "'.$row['userId'].'" />
           <input type = "submit" class="btn btn-primary" value = "Yes"/>
@@ -84,7 +84,6 @@
              <div class="row" style="padding-left: 20px;"><h5>Seller ID: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['sellerId'];?></h5> </h5></div>
              <div class="row" style="padding-left: 20px;"><h5>Company Name: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['name'];?></h5> </h5></div>
              <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userType'];?></h5> </h5></div>
-             <div class="row" style="padding-left: 20px;"><h5>User Status:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userStatus'];?></h5> </h5></div>
              <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['email'];?></h5></h5></div>
              <div class="row" style="padding-left: 20px;"><h5>Phone Number: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['mobileNumber'];?></h5></h5></div>
              <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['dateAdded'];?></h5></h5></div>
