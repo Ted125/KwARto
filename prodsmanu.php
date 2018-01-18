@@ -151,6 +151,7 @@
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Live</th>
                             <th>Action</th>
                           </tr>
                         </thead>

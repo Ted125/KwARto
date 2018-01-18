@@ -1,10 +1,21 @@
+<?php
+  $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
+  $live = ($row['live'] == 1)?"Yes":"No";
+  $status = ($row['live'] == 1)?"Live":"Not Live";
+  $act = ($row['live'] == 1)?"Deactivate":"Activate";
+?>
 <tr>
   <?php include('Controllers/SellerGetAvailableStock.php');?>
   <th scope="row"><?php echo $count;?></th>
   <td><?php echo $row['furnitureName'];?></td>
   <td><?php echo $stock['available_stock'];?></td>
   <td><?php echo $row['price'];?></td>
+  <td style = "color:<?php echo $color?>;" ><?php echo $live;?></td>
   <td>
+    <form method="post" action="">
+      <input type="hidden" value=<?php echo $row['live'];?> name="status" />
+      <button type="submit" class="btn btn-primary"><?php echo $act;?></button>
+    </form>
     <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary">Edit</button>
     <!-- Modal-->
     <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
@@ -16,6 +27,10 @@
           </div>
           <div class="modal-body">
             <form method="post" action="#">
+              <div class="form-group">
+                <label>Status</label><br>
+                <h2 style = "color:<?php echo $color?>;"><?php echo $status;?></h2>
+              </div>
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" value="<?php echo $row['furnitureName'];?>" class="form-control">
