@@ -91,9 +91,9 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background container">
-									<img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>">
-
+								<div class="single_product_image container">
+									<img class="single_product_image_background" style="background-size: contain;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>>
+									<!-- <img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>"> -->
 								</div>
 							</div>
 						</div>
@@ -683,6 +683,20 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
+
+	var thumbs = $('.single_product_thumbnails ul li');
+	var singleImage = $('.single_product_image_background');
+	var cnt =0;
+	thumbs.each(function()
+	{
+		var item = $(this);
+		if(cnt == 0){
+			var img = item.find('img').data('image');
+			singleImage.css('background-image', 'url(' + img + ')');
+			cnt++;
+		}
+	});
+
     $("#1Star").click(function(){
         $("#ratingValue").val(1);
     });
