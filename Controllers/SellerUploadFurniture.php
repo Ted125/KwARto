@@ -17,11 +17,21 @@ if ($verify != null || $verify >= 0) {
 
   $furnImg = new furniture_image();
   $fiName = $furnImg->countAllImages($uploaddir);
-  $uploadfile = $uploaddir . basename("1") . $fileExtension;    //image naame will be the id of user
-  
-  if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+  $uploadfile = $uploaddir . basename("1") . $fileExtension;
+
+  if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '\Capstone-Project\Resources\Models\\'.$verify.'\\')) {
+    mkdir($_SERVER['DOCUMENT_ROOT'] . '\Capstone-Project\Resources\Models\\'.$verify.'\\', 0777, true);
+  }
+  $uploaddir2 = $_SERVER['DOCUMENT_ROOT'] . '\Capstone-Project\Resources\Models\\'.$verify.'\\';
+  $fileExtension2 = '.asset';
+
+  $uploadfile2 = $uploaddir2 . basename($_FILES['model']['tmp_name']) . $fileExtension2;
+
+  if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile) && move_uploaded_file($_FILES['model']['tmp_name'], $uploadfile2)) {
     echo "NEWDATA: ".$_FILES['image']['tmp_name']; 
+    echo "NEWDATA: ".$_FILES['model']['tmp_name']; 
     echo $uploaddir;
+    echo $uploaddir2;
 
     
     $verify2 = $furnImg->createFurnitureImage($verify);

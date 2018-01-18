@@ -283,11 +283,11 @@
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg"> -->
                       </div>    
                         <label>Select Base Photo to upload:</label>
-                        <input type='file' onchange="readURL(this);" style="margin-top: 10px;" type="file" name="image" />
+                        <input onchange="readURL(this);" style="margin-top: 10px;" type="file" name="image" />
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-                        <input type="file" name="newData" />
+                        <label>Select 3D Model to upload:</label>
+                        <input style="margin-top: 10px;" type="file" name="model" />
                         <input type="hidden" class="btn btn-primary" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
                         <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
                       </div>
