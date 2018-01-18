@@ -1,9 +1,14 @@
+<?php
+  $color = "#333333";
+  $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
+  $live = ($row['live'] == 1)?"Yes":"No";
+?>
 <tr>
   <th scope="row"><?php echo $count;?></th>
-  <td><?php echo $row['name'];?></td>
-  <td>*MISSING QUANTITY FIELD, PLEASE NOTICE AND UPDATE SO I CAN ERASE & CHANGE THIS*</td>
+  <td><?php echo $row['furnitureName'];?></td>
+  <td></td>
   <td><?php echo $row['price'];?></td>
-  <td><?php echo $row['status'];?></td>
+  <td style = "color:<?php echo $color?>;" ;?><?php echo $live?></td>
   <td>
     <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban</button>
     <!-- Modal-->
