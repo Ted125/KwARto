@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	$furnitureId = $_GET["singleFurnitureId"];
+	$furnitureId = $_POST["singleFurnitureId"];
 
 	$_POST["furnitureId"] = $furnitureId;
 
