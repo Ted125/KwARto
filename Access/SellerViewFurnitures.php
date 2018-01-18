@@ -15,7 +15,7 @@
             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form method="post" action="#">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" value="<?php echo $row['furnitureName'];?>" class="form-control">
@@ -90,30 +90,33 @@
       </div>
     </div>
 
-    <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
-    <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary">Restock</button>
+    <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           </div>
-          <div class="modal-body">
-            <form>
-
+          <form role="form" method="post" action="Controllers/SellerRestock.php">
+            <div class="modal-body">
               <div class="form-group">       
-                <label>Length</label>
-                <input type="text" value="10" class="form-control">
+                <label>Quantity</label>
+                <input type="number" class="form-control" placeholder="Amount to Restock" name="quantityAmount">
+                <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
               </div>
-
               <div class="form-group">
                 <p>Are you sure you want to update these changes?</p>       
               </div>
-            </form>
-          </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Yes"  />
+              </div>
+            </div>
+          </form>
           <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-            <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+            <div class="form-group">
+              <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>  
+            </div>
           </div>
         </div>
       </div>

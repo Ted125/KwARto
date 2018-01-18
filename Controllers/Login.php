@@ -23,6 +23,7 @@
       $_SESSION['image'] = $verify['image'];
     } else if(strcmp($verify['userType'], 'seller') == 0){
       $_SESSION['sellerId'] = $verify['sellerId'];
+      $_SESSION['description'] = $verify['description'];
       $_SESSION['name'] = $verify['name'];
       $_SESSION['description'] = $verify['description'];
     }

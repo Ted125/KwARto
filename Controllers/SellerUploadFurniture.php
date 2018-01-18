@@ -33,5 +33,5 @@ if ($verify != null || $verify >= 0) {
 }
    
 
-//header( "Location: ../upload.php" );
+header( "Location: ../upload.php" );
 ?> 
