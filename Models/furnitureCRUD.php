@@ -192,7 +192,8 @@ class furniture{
             f.status,
             c.name AS categoryName,
             f.sellerId AS sellerId,
-            f.versionOf
+            f.versionOf,
+            fi.image AS thumbnailPic
             FROM  furniture f 
             INNER JOIN seller s ON f.sellerId = s.sellerId
             INNER JOIN category c ON f.categoryId = c.categoryId 
