@@ -123,7 +123,9 @@
                           <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Quantity</th>
+                            <th>Available</th>
+                            <th>Sold</th>
+                            <th>On Hold</th>
                             <th>Price</th>
                             <th>Live</th>
                             <th>Action</th>
