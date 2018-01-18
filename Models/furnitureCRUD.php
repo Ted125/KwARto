@@ -125,115 +125,189 @@ class furniture{
                 echo "<h1> after result in userDetails.php ".$this->getFurnitureId()."</h1>";
                 return $this->getFurnitureId();
                 echo "hello";
-            }
-        }else{
-           echo 'only sellers can add furniture';
-       }
-   }else{
-    echo 'no session found';
-    }
-return $result;
-}
-
-public function displayFurniture($furnitureId){
-    $db = new Database();
-    $connection = $db->Connect();
-    $this->setFurnitureId($furnitureId);
-    $result = null;
-    if($connection){
-            //$result = NULL;
-        $query ="SELECT *
-        FROM  furniture
-        WHERE furnitureId = '".$this->getFurnitureId()."'
-        ";
-        $result = mysqli_query($connection, $query);
-
-            //$row = mysqli_fetch_array($result);
-        mysqli_close($connection);
-            //$row = $result->fetch_assoc();
-    } else {
-        echo "Connection Error";
-    }        
-    return $result;
-}
-
-public function displayAllFurnitures(){
-    require("Database.php");
-    $db = new Database();
-    $connection = $db->Connect();
-    $result = null;
-    if($connection){
-            //$result = NULL;
-        $query ="SELECT
-        f.furnitureId AS furnitureId,
-        s.name AS sellerName,
-        f.name AS furnitureName,
-        s.description AS sellerDesc,
-        f.description AS furnitureDesc,
-        f.warrantyId,
-        f.model,
-        f.color,
-        f.weight,
-        f.weightUnit,
-        f.length,
-        f.width,
-        f.height,
-        f.sizeUnit,
-        f.packageLength,
-        f.packageWidth,
-        f.packageHeight,
-        f.packageSizeUnit,
-        f.price,
-        f.modelName,
-        f.discount,
-        f.saleStart,
-        f.saleEnd,
-        f.live,
-        f.categoryId,
-        f.sellerId AS sellerId,
-        f.versionOf
-        FROM  furniture f INNER JOIN seller s ON f.sellerId = s.sellerId 
-        ";
-        $result = mysqli_query($connection, $query);
-        
-            //$row = mysqli_fetch_array($result);
-        mysqli_close($connection);
-            //$row = $result->fetch_assoc();
-    } else {
-        echo "Connection Error";
-    }        
-    return $result;
-}
-
-public function deleteFurniture($furnitureId){
-    if(isset($_SESSION)){
-        $this->setUserType($_SESSION['userType']);
-        if(strcmp($this->getUserType(),'seller') == 0){
-            $result = NULL;
-            $db = new Database();
-            $connection = $db->Connect();
-            if($connection){
-                $this->setFurnitureId($furnitureId);
-                deleteAllFurnitureImage($this->getFurnitureId());
-                deleteAllFurniturePackage($this->getFurnitureId());
-                deleteAllFurnitureSpecification($this->getFurnitureId());
-                deleteAllFurnitureStock($this->getFurnitureId());
-                $delete = "DELETE
-                FROM furniture
-                WHERE furnitureId = '".$this->getFurnitureId()."'
-                ";
-                $result = mysqli_query($mysqli, $delete);
+                }
             }else{
-                echo 'no connection';
-            }
-        }else{
-            echo 'only sellers can delete their own furniture';
+            echo 'only sellers can add furniture';
         }
     }else{
-        echo 'no session';
-    }
+        echo 'no session found';
+        }
     return $result;
-}
+    }
+
+    public function displayFurniture($furnitureId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnitureId);
+        $result = null;
+        if($connection){
+                //$result = NULL;
+            $query ="SELECT *
+            FROM  furniture
+            WHERE furnitureId = '".$this->getFurnitureId()."'
+            ";
+            $result = mysqli_query($connection, $query);
+
+                //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+                //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function displayAllFurnitures(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+                //$result = NULL;
+            $query ="SELECT
+            f.furnitureId AS furnitureId,
+            s.name AS sellerName,
+            f.name AS furnitureName,
+            s.description AS sellerDesc,
+            f.description AS furnitureDesc,
+            f.warrantyId,
+            f.model,
+            f.color,
+            f.weight,
+            f.weightUnit,
+            f.length,
+            f.width,
+            f.height,
+            f.sizeUnit,
+            f.packageLength,
+            f.packageWidth,
+            f.packageHeight,
+            f.packageSizeUnit,
+            f.price,
+            f.modelName,
+            f.discount,
+            f.saleStart,
+            f.saleEnd,
+            f.live,
+            f.categoryId,
+            f.sellerId AS sellerId,
+            f.versionOf
+            FROM  furniture f INNER JOIN seller s ON f.sellerId = s.sellerId 
+            ";
+            $result = mysqli_query($connection, $query);
+            
+                //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+                //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function activateFurniture($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET live = '1'
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($mysqli, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can activate their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+    return $result;
+    }
+
+    public function deactivateFurniture($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET live = '0'
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($mysqli, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can activate their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+    return $result;
+    }
+
+    public function banFurniture($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET status = '0'
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only admins can ban furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }   
+
+    public function unbanFurniture($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET status = '1'
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only admins can unban furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
 
     /* IN PROGRESS SELECT THING
     SELECT *
