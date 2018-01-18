@@ -153,7 +153,7 @@
 									<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 								</form>
 
-								<div id = "searchResultsContainer" class="product-grid row">
+								<div id = "searchResultsContainer" class="product-grid row" style="margin-left: 20px;"></div>
 								</div>
 
 								<!-- Product Sorting -->
@@ -427,7 +427,7 @@ function LoadCategoryTree(){
 				}
 
 
-				listItem += "<a href='#'>&nbsp;" + item.name + "</a></li>";
+				listItem += "<a style='white-space:nowrap;' href='#'>&nbsp;" + item.name + "</a></li>";
 				$("#searchCategories").append(listItem);
 			});
     },

@@ -1086,7 +1086,7 @@ section
 	width: 100%;
 	height: 60px;
 	border-bottom: solid 1px #ebebeb;
-	margin-bottom: 58px;
+	/*margin-bottom: 58px;*/
 }
 .breadcrumbs ul li
 {
@@ -1145,7 +1145,7 @@ section
 }
 .sidebar_categories li a
 {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 40px;
 	color: #51545f;
 }
