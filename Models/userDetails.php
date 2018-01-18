@@ -1,21 +1,16 @@
-<?php require("SQL_Connect.php");
-include("Database.php");
-
+<?php
 class user_details{
     private $userId;
-    private $username;
     private $password;
     private $userType;
     private $userStatus;
-    private $gender;
     private $email;
     private $mobileNumber;
+    private $image;
     private $dateAdded;
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
-    private $image;
-    private $address;
 
     const DB_TABLE = "user_table";
     const DB_TABLE_PK = "userId";
@@ -28,210 +23,437 @@ class user_details{
     }
 
     /***************** FUNCTIONS ****************/
-    public function debug(){
-        echo "<h1>".$_POST["registerFName"]." in second class</h1>";
+    public function debug($field, $newData){
+        $create = "UPDATE user_details
+                SET
+                ".$field." = '".$newData."'
+                WHERE
+                user_details.userId = ".$_SESSION['userId']."";
+        echo $create;
 
         /*sample code here*/
     }
 
-    public function createUser($userType){
+    public function createUser($userType){//Create Customer
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
-            $this->setUsername($_POST['registerUsername']);
-            $this->setPassword($_POST['registerPassword']);
+            $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
-            $this->setGender("Other");
+            $this->setUserStatus("inactive");
+            $this->setImage('Resources/Images/Profile/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
-            $this->setAddress("Sample Address");
-            // if(isset($_SESSION)){
-            //     setAddedBy($_SESSION['userId']);
-            // }else{
-            //     setAddedBy("NULL");
-            // }
-            //setImage($_POST['image']);  i dont know if i should put an image sa creation.
+            $this->setAddedBy('NULL');
+            if(isset($_SESSION)){
+               $this->setAddedBy($_SESSION['userId']);
+            }
             $create = "INSERT INTO user_details
-            ( 
-            username,
-            password, 
-            userType, 
+            (
+            password,
+            userType,
             userStatus,
-            gender,
-            email, 
+            email,
             mobileNumber,
-            addedBy,
-            address
+            image,
+            addedBy
             )
             VALUES
-            ('".$this->getUsername()."','".$this->getPassword()."','".$this->getUserType()."','".$this->getUserStatus()."','
-            ".$this->getGender()."','".$this->getEmail()."','".$this->getMobileNumber()."','".$this->getAddedBy()."','".$this->getAddress()."')";
-
+            ('".$this->getPassword()."',
+            '".$this->getUserType()."',
+            '".$this->getUserStatus()."',
+            '".$this->getEmail()."',
+            '".$this->getMobileNumber()."',
+            '".$this->getImage()."',
+            '".$this->getAddedBy()."'
+            )";
+            echo $create;
             $result = mysqli_query($connection, $create);
 
-            // $select = "SELECT * 
-            // FROM  user_details 
-            // WHERE userName='".$this->getUsername()."'";//there must be other way
-            // $qry = mysqli_query($connection, $select);
-            // $row = mysqli_fetch_array($qry);
-            // $this->setUserId($row[0]);
-
-            $id = $connection->insert_id;
+            $this->setUserId($connection->insert_id);
             mysqli_close($connection);
-            echo "<h1> after result in userDetails.php ".$id."</h1>";
-            return $id;
+            echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
+            return $this->getUserId();
+        } else {
+            echo "Connection Error on User Details";
+        }
+    }
+
+    public function updateUser($field, $newData){
+        include("Database.php");
+
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            if(strcmp($field, 'password') == 0){
+                $newData = md5($newData);
+            }
+            $create = "UPDATE user_details
+                SET
+                ".$field." = '".$newData."'
+                WHERE
+                user_details.userId = ".$_SESSION['userId']."";
+            $result = mysqli_query($connection, $create);
+
+            if(mysqli_affected_rows($connection) > 0){
+                mysqli_close($connection);
+                return true;
+            } else {
+                mysqli_close($connection);
+                return false;
+            }
         }
     }
 
     public function createAdmin(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserStatus('active');
-            setUserType('admin');
-            createUser();
+        $result = null;
+        $this->setUserType($_SESSION['userType']);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+            $this->setUserStatus('active');
+            $this->setUserType('admin');
+            $result = $this->createUser($this->getUserType());
         }else{
-            echo 'only admins can create an admin';
+            echo 'no session or only admins can create other admins';
         }
+        return $result;
     }
 
-    public function activateUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-            SET userStatus = 'active' 
-            WHERE userId = '".getUserId()."'
-            ";
-            $result = mysqli_query($mysqli, $update);
+    public function activateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'active'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can activate a user';
+            }
         }else{
-            echo 'only admins can activate a user';
-        }            
-    }
-
-    public function deactiveUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-            SET userStatus = 'inactive' 
-            WHERE userId = '".getUserId()."'
-            ";
-            $result = mysqli_query($mysqli, $update);
-        }else{
-            echo 'only admins can deactivate a user';
+            echo 'no connection';
         }
+        return $result;
     }
 
-    public function deleteUser(){
-        if(isset($_SESSION) && getUserType($_SESSION['userType']) == 'admin'){
-            setUserId($_POST['userId']);
-            $db = "user_details";
+    public function deactivateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'banned'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can deactivate a user';
+            }
+        }else{
+            echo 'no connection';
+        }
+        return $result;
+    }
+
+    public function deleteUser($userId){
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($userId);
+        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+            $this->setUserId($userId);
+            $table = "user_details";
             $id = NULL;
-            if(getUserType($_POST['userType'] == 'customer')){
-                $db = "customer";
-            }else if(getUserType($_POST['userType'])){
-                $db = "seller";
-            }	
-            if($db != "user_details"){
-                $select = "SELECT * 
-                FROM  '".$db."' x, user_details y
-                WHERE x.userId = 'y.".getUserId()."'";
-                $qry = mysqli_query($mysqli, $select);
-                $row = mysqli_fetch_array($qry);
-                $id = $row[0];
+            $this->setUserType($_POST['userType']);
+            if(!strcmp($this->getUserType(),'customer') == 0){
+                $table = "customer";
+            }else if(strcmp($this->getUserType(), 'seller' ) == 0){
+                $table = "seller";
+            }
+            if($table != "user_details"){
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    // Getting seller or customer ID
+                    $select = "SELECT *
+                               FROM  '".$table."' x, user_details y
+                               WHERE x.userId = 'y.".$this->getUserId()."'";
 
-                $delete1 = "DELETE
-                FROM '".$db." ' x, user_details y
-                WHERE userID = 'x.".$id."' && y.userStatus = 'Not_Activated' 
-                ";
+                    $qry = mysqli_query($mysqli, $select);
+                    $row = mysqli_fetch_array($qry);
+                    $id = $row[0];
 
-                $result1 = mysqli_query($mysqli, $delete1);
-                if(mysqli_num_rows($result1) == 1){
-                    alert("Delete: Succesful");
+                    // Actual deletion of customer or seller
+                    $delete1 = "DELETE
+                                FROM '".$table." ' x, user_details y
+                                WHERE userID = 'x.".$id."' && y.userStatus = 'inactive'
+                                ";
+
+                    $result1 = mysqli_query($mysqli, $delete1);
+                    if(mysqli_num_rows($result1) == 1){
+                        echo 'Delete: Success';
+                    }else{
+                        echo 'Delete: Failed or Cancelled';
+                    }
                 }else{
-                    alert("Delete: Fail");
+                    echo 'no db connection';
                 }
             }
+            // Deletion from user_details
             $delete2 = "DELETE
-            FROM user_table
-            WHERE userID = '".getUserId()."' && userStatus = 'Not_Activated' 
-            ";
-
+                        FROM user_details
+                        WHERE userID = '".$this->getUserId()."' && userStatus = 'inactive'
+                        ";
             $result2 = mysqli_query($mysqli, $delete2);
             if(mysqli_num_rows($result2) == 1){
-                alert("Delete: Succesful");
+                echo 'Delete: Success';
             }else{
-                alert("Delete: Fail");
+                echo 'Delete: Failed or Cancelled';
             }
         }else{
-            echo 'only admins can deactivate a user';
+            echo 'only admins can delete a user';
         }
-
 
         return result;
     }
 
-    public function login($sessionId, $sessionPassword){     
-        setUsername($sessionId);
-        setPassword($sessionPassword);   
-        $result = NULL;
-        $connection = $this->Connect();
+    public function login($sessionEmail, $sessionPassword){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
         if($connection){
-            $query = "SELECT *
-            FROM user_details where email = '".getUsername()."' OR username = '".getUsername()."'
-            AND password = '".getPassword()."'
-            ";
-            $row = mysqli_query($mysqli, $query);
-            if(mysqli_num_rows($row) == 1){        
-                $result = mysqli_fetch_array($row);
-                setUserStatus($result['userStatus']);
-                if(getUserStatus() != 'active'){ 
-                    $result = NULL;
+            $query = "SELECT userType
+                      FROM user_details
+                      WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+            if($result = mysqli_query($connection, $query)){
+                $rowcount=mysqli_num_rows($result);
+                if($rowcount == 1){
+                    $row = $result->fetch_assoc();
+                    if(strcmp($row['userType'], "customer") == 0){
+                        return $this->LoginCustomer($sessionEmail, $sessionPassword);
+                    } else if(strcmp($row['userType'], "admin") == 0){
+                        return $this->LoginAdmin($sessionEmail, $sessionPassword);
+                    } else if(strcmp($row['userType'], "seller") == 0){
+                        return $this->LoginSeller($sessionEmail, $sessionPassword);
+                    }
                 }
             }
-        }else{
-            echo "no connection to db!";
         }
-        return result;
     }
 
-    public function readAdmin(){
-        $query ="SELECT
-        userId,
-        username,
-        userType,
-        `status`,
-        gender,
-        email,
-        mobileNumber,
-        `image`,
-        `address`
-        FROM  user_details
-        WHERE userId = '".getUserId()."'
-        ";
+    public function loginCustomer($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $row = null;
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT user_details.userId AS userId, customerId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
 
-        $row = mysqli_query($mysqli, $query);
-        if(mysqli_num_rows($row) == 1){        
-            $result = mysqli_fetch_array($row);
-            return result;
-        }else{
-            return NULL;
+          FROM user_details INNER JOIN customer ON customer.userId = user_details.userId
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+
+          mysqli_close($connection);
+          
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+          }else{
+            echo 'not found';
+          }
         }
+        return $row;
+    }
+
+      public function loginAdmin($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $row = null;
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT userId, email, userType, mobileNumber, dateAdded
+          FROM user_details
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+          }else{
+            echo 'not found';
+          }
+        }
+        return $row;
+      }
+
+    public function loginSeller($sessionEmail, $sessionPassword){
+        //require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $row = null;
+        if($connection){
+          //If possible please replace query name  with sql name, plox
+          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, name, description
+          FROM user_details INNER JOIN seller ON user_details.userId = seller.userId
+          WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
+          //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
+          echo "||".$query;
+          $rowcount = 0;
+          if($result = mysqli_query($connection, $query)){
+            //return number of result
+            $rowcount=mysqli_num_rows($result);
+            echo "ROWCOUNT=".$rowcount;
+          } else {
+            echo "Connection Error";
+          }
+          mysqli_close($connection);
+          if($rowcount == 1){
+            // header('Location: ' . "www.google.com");
+            // echo "<h1>LOGGED IN!</h1>";
+            //return the data from the Query
+            $row = $result->fetch_assoc();
+          }else{
+            echo 'not found';
+          }
+        }
+        return $row;
+      }
+
+    public function displayAllUsers(){
+        require_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            u.userId,
+            c.customerId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.dateAdded,
+            c.firstName,
+            c.middleName,
+            c.lastName,
+            c.birthdate,
+            u.image
+            FROM  user_details u INNER JOIN customer c 
+            WHERE u.userId = c.userId;
+            ";
+            $result = mysqli_query($connection, $query);
+
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }
+        return $result;
+    }
+
+    public function displayAllSellers(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            u.userId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.image,
+            u.dateAdded,
+            u.addedBy,
+            s.description,
+            s.name,
+            s.sellerId
+            FROM  user_details u INNER JOIN seller s
+            WHERE u.userId = s.userId && u.userStatus != 'inactive';
+            ";
+            $result = mysqli_query($connection, $query);
+
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }
+        return $result;
+    }
+
+    public function displayUser($userId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setUserId($userId);
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT
+            userId,
+            userType,
+            userStatus,
+            email,
+            mobileNumber,
+            dateAdded
+            FROM  user_details
+            WHERE userId = '".$this->getUserId()."'
+            ";
+            $result = mysqli_query($connection, $query);
+
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }
+        return $result;
     }
 
     /***************** SETTERS AND GETTERS ****************/
 
     public function getUserId(){
-        return $this->user_id;
+        return $this->userId;
     }
 
     public function setUserId($userId){
         $this->userId = $userId;
-    }
-
-    public function getUsername(){
-        return $this->username; 
-    }
-
-    public function setUsername($username){
-        $this->username = $username;
     }
 
     public function getPassword(){
@@ -258,14 +480,6 @@ class user_details{
         $this->userStatus = $userStatus;
     }
 
-    public function getGender(){
-        return $this->gender;
-    }
-
-    public function setGender($gender){
-        $this->gender = $gender;
-    }
-
     public function getEmail(){
         return $this->email;
     }
@@ -280,6 +494,14 @@ class user_details{
 
     public function setMobileNumber($mobileNumber){
         $this->mobileNumber = $mobileNumber;
+    }
+
+    public function getImage(){
+        return $this->image;
+    }
+
+    public function setImage($image){
+        $this->image = $image;
     }
 
     public function getDateAdded(){
@@ -314,20 +536,5 @@ class user_details{
         $this->updatedBy = $updatedBy;
     }
 
-    public function getImage(){
-        return $this->image;
-    }
-
-    public function setImage($image){
-        $this->image = $image;
-    }
-
-    public function getAddress(){
-        return $this->address;
-    }
-
-    public function setAddress($address){
-        $this->address = $address;
-    }
 }
 ?>

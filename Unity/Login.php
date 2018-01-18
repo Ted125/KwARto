@@ -1,28 +1,43 @@
 <?php
   require("Connect.php");
 
-  if($connection != null){
-    $email = $_GET['email'];
-    $password = $_GET['password'];
+  if($connection){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-    $query = "SELECT * FROM " . "user_table" . " WHERE email = '" . $email ."' AND userPassword = '" . $password . "';";
+    $query = "SELECT * FROM user_details WHERE email = '" . $email . "' AND password = '" . $password . "'";
     $result = mysqli_query($connection, $query);
 
-    if($result != null && mysqli_num_rows($result) == 1){
-
+    if($result != null){
       while($row = mysqli_fetch_assoc($result)){
-        echo $row['userID'] . "\n";
-        echo $row['userName'] . "\n";
-        echo $row['isActivated'] . "\n";
-        echo $row['userPassword'] . "\n";
-        echo $row['firstName'] . "\n";
-        echo $row['lastName'] . "\n";
-        echo $row['middleInitial'] . "\n";
-        echo $row['email'] . "\n";
-        echo $row['userPic'] . "\n";
+        echo $row["userId"] . "\n";
+
+        if($row["username"] != null){
+          echo $row["username"] . "\n";
+        }else{
+          echo $row["email"] . "\n";
+        }
+
+        echo $row["password"] . "\n";
+        echo $row["userType"] . "\n";
+        echo $row["userStatus"] . "\n";
+        echo $row["email"] . "\n";
+
+        if($row["mobileNumber"] != null){
+          echo $row["mobileNumber"] . "\n";
+        }else{
+          echo "None" . "\n";
+        }
+
+        if($row["image"] != null){
+          echo $row["image"] . "\n";
+        }else{
+          echo "None" . "\n";
+        }
+
+        echo $row["dateAdded"] . "\n";
+        echo $row["dateUpdated"] . "\n";
       }
-    }else{
-      return null;
     }
   }
 ?>

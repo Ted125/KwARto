@@ -119,10 +119,10 @@ $(document).ready(function () {
             }
         },
         data: {
-            labels: ["January", "February", "March", "April", "May"],
+            labels: ["A", "B", "C", "D", "E", "F", "G"],
             datasets: [
                 {
-                    label: "Total Sales",
+                    label: "Total Overdue",
                     fill: true,
                     lineTension: 0,
                     backgroundColor: "transparent",
@@ -150,7 +150,6 @@ $(document).ready(function () {
 
 
 
-    
     // ------------------------------------------------------- //
     // Pie Chart
     // ------------------------------------------------------ //
@@ -165,14 +164,14 @@ $(document).ready(function () {
         },
         data: {
             labels: [
-                "15-21",
-                "21-28",
-                "28-35",
-                "35+"
+                "First",
+                "Second",
+                "Third",
+                "Fourth"
             ],
             datasets: [
                 {
-                    data: [2, 2, 1, 3],
+                    data: [300, 50, 100, 60],
                     borderWidth: [0, 0, 0, 0],
                     backgroundColor: [
                         '#44b2d7',
@@ -189,6 +188,7 @@ $(document).ready(function () {
                 }]
         }
     });
+
 
     // ------------------------------------------------------- //
     // Bar Chart

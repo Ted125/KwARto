@@ -1,347 +1,355 @@
-<!DOCTYPE html>
-<html>
-
+n<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>KwARto | Web Application</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Colo Shop Template">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="icon" href="images/icon.png">
+</head>
 
-    <?php include'Access/Header.php'; ?>
+<body>
 
-  </head>
-  <style>
+<div class="super_container">
 
-    <?php include'Access/Style.php'; ?>
+	<!-- NAVBAR HERE -->
+	<?php include('Access/Navbar.php');?>	
+	
+	<div class="container single_product_container">
+		<div class="row">
+			<div class="col">
 
-  </style>
-  <body>
-<!-- header -->
-    <?php include'Access/Navbar.php'; ?>
-		<div>
-<!-- payment -->
-		<div class="privacy about backdrop">
-			<h3>Pay<span>ment</span></h3>
-			
-	         <div class="checkout-right">
-				<!--Horizontal Tab-->
-        <div id="parentHorizontalTab">
-            <ul class="resp-tabs-list hor_1">
-				<li>Cash on delivery</li>
-                <li>Credit/Debit</li>
-                <li>Pay Through Bank</li>
-                <li>Paypal Account</li>
-            </ul>
-            <div class="resp-tabs-container hor_1">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 10px;">
+					<ul>
+						<li><a href="index.php">Home</a></li>
+						<li class="active"><a href="payment.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Payment</a></li>
+					</ul>
+				</div>
 
-				<div>
-                                     <div class="vertical_post check_box_agile">
-										<h5>Cash On Delivery</h5>
-											<div class="checkbox">								
-												<div class="check_box_one cashon_delivery">
-													<label class="anim">
-																<input type="checkbox" class="checkbox">
-																 <span> We also accept Credit/Debit card on delivery. Please Check with the agent.</span> 
-															</label> 
-											</div>
-											
-									</div>
-								</div>
-                </div>
-                <div>
-                    <form action="#" method="post" class="creditly-card-form agileinfo_form">
-									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
-										<div class="credit-card-wrapper">
-											<div class="first-row form-group">
-												<div class="controls">
-													<label class="control-label">Name on Card</label>
-													<input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
-												</div>
-												<div class="w3_agileits_card_number_grids">
-													<div class="w3_agileits_card_number_grid_left">
-														<div class="controls">
-															<label class="control-label">Card Number</label>
-															<input class="number credit-card-number form-control" type="text" name="number"
-																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
-																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
-														</div>
-													</div>
-													<div class="w3_agileits_card_number_grid_right">
-														<div class="controls">
-															<label class="control-label">CVV</label>
-															<input class="security-code form-control"Â·
-																		  inputmode="numeric"
-																		  type="text" name="security-code"
-																		  placeholder="&#149;&#149;&#149;">
-														</div>
-													</div>
-													<div class="clear"> </div>
-												</div>
-												<div class="controls">
-													<label class="control-label">Expiration Date</label>
-													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
-												</div>
-											</div>
-											<button class="submit"><span>Make a payment </span></button>
-										</div>
-									</section>
-								</form>
-                </div>
-                <div>
-                                     <div class="vertical_post">
-									  <form action="#" method="post">
-										<h5>Select From Popular Banks</h5>
-										<div class="swit-radio">								
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio" checked=""><i></i>Bank of the Philippine Islands</label> </div></div>
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Chinabank</label> </div></div>
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Union Bank</label> </div></div>	
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Metro Bank</label> </div></div>	
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>BDO</label> </div></div>		
-											<div class="clearfix"></div>
-										</div>
-										<h5>Or SELECT OTHER BANK</h5>
-										<div class="section_room_pay">
-                                            <select class="year"><option value="">=== Other Banks ===</option><option value="ALB-NA">A Bank</option><option value="ADB-NA">B Bank</option><option value="BBK-NA">Bank of C</option><option value="BBC-NA">Bank of D</option></select>
-										</div>
-										<input type="submit" value="PAY NOW">
-									</form>
-								</div>
-                </div>
-                <div>
-                    <div id="tab4" class="tab-grid" style="display: block;">
-							<div class="row">
-                        <div class="col-md-6">
-                            <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p><a class="btn btn-primary">Checkout via Paypal</a>	
-                        </div>
-                        <div class="col-md-6">
-                            <form class="cc-form">
-                                <div class="clearfix">
-                                    <div class="form-group form-group-cc-number">
-                                        <label>Card Number</label>
-                                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text"><span class="cc-card-icon"></span>
-                                    </div>
-                                    <div class="form-group form-group-cc-cvc">
-                                        <label>CVV</label>
-                                        <input class="form-control" placeholder="xxxx" type="text">
-                                    </div>
-                                </div>
-                                <div class="clearfix">
-                                    <div class="form-group form-group-cc-name">
-                                        <label>Card Holder Name</label>
-                                        <input class="form-control" type="text">
-                                    </div>
-                                    <div class="form-group form-group-cc-date">
-                                        <label>Valid Through</label>
-                                        <input class="form-control" placeholder="mm/yy" type="text">
-                                    </div>
-                                </div>
-                                <div class="checkbox checkbox-small">
-                                    <label>
-                                        <input class="i-check" type="checkbox" checked="">Add to My Cards</label>
-                                </div>
-                                <input class="btn btn-primary submit" type="submit" class="submit" value="Proceed Payment">
-                            </form>
-                        </div>
-                    </div>
-                        
+			</div>
+		</div>
+
+	<div class="blogs">
+		<div class="container">
+			<h2><i class="fa fa-money" aria-hidden="true"></i> Payment</h2>
+			<br>
+			<h3>Ship to:</h3>
+	          <form>
+	          	<div class="form-group">
+	              <p>Please review all information before proceeding.</p>       
+	            </div>
+	            <div class="form-group">
+	              <label>Full Name</label>
+	              <input type="text" value="Juan de la Cruz" class="form-control">
+	            </div>
+	            <div class="form-group">       
+	              <label>Complete Address (House Number, Building and Street Name)</label>
+	              <textarea class="form-control" rows="3" id="address" >12B, ABC Blg, 123 Internet St.</textarea>
+	            </div>
+	            <div class="form-group">       
+	              <label>Province</label>
+	              <select name="account" class="form-control">
+	                <option>Province</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>City/Municipality</label>
+	              <select name="account" class="form-control">
+	                <option>City/Municipality</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>Barangay</label>
+	              <select name="account" class="form-control">
+	                <option>Barangay</option>
+	                <option>Option 2</option>
+	                <option>Option 3</option>
+	                <option>Option 4</option>
+	              </select>
+	            </div>
+	            <div class="form-group">       
+	              <label>Mobile Number</label>
+	              <input type="text" value="+63 912 345 6789" class="form-control">
+	            </div>
+	            <div class="form-check" style="margin-left: 20px;">
+				    <input type="checkbox" class="form-check-input" id="diffAd">
+				    <label class="form-check-label" for="diffAd">Bill to a different address</label>
+				</div>
+	        </form>
+
+	        
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">
+						<h3>Select Your Payment Method</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row blogs_container text-center">
+					<div class="col-lg-4 blog_item_col">
+						<div class="blog_item">
+							<div class="blog_background" style="background-image:url(./images/payment/cash.jpg)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Cash On Delivery</h4>
+								<span class="blog_meta">Pay to courier upon receiving</span>
+								<a class="" data-toggle="modal" data-target="#codmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+							</div>
 						</div>
-                </div>
-                
-            </div>
-        </div>
-	
-	<!--Plug-in Initialisation-->
-
-	<!-- // Pay -->
-	
-			 </div>
-
+					</div>
+					<div class="col-lg-4 blog_item_col">
+						<div class="blog_item">
+							<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Credit or Debit Card</h4>
+								<span class="blog_meta">Only major cards accepted</span>
+								<a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 blog_item_col">
+						<div class="blog_item"> 
+							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
+							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+								<h4 class="blog_title">Paypal</h4>
+								<span class="blog_meta">You will be redirected</span>
+								<a class="" style="text-decoration: none; color: #d42d2d;" href="https://www.paypal.com/PH">Select</a>
+							</div>
+						</div>
+					</div>
+				</div>
 		</div>
-<!-- //payment -->
-		</div>
-		<div class="clearfix"></div>
 	</div>
-<!-- //banner -->
-<!-- newsletter -->
-    <div class="newsletter">
-        <div class="container">
-            <div class="w3agile_newsletter_left">
-                <h3>sign up for our newsletter</h3>
-            </div>
-            <div class="w3agile_newsletter_right">
-                <form action="#" method="post">
-                    <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                    <input type="submit" value="subscribe now">
-                </form>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-    <!-- //newsletter -->
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="col-md-3 w3_footer_grid">
-                <h3>information</h3>
-                <ul class="w3_footer_grid_list">
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="mail.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 w3_footer_grid">
-                <h3>policy info</h3>
-                <ul class="w3_footer_grid_list">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">privacy policy</a></li>
-                    <li><a href="#">terms of use</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-            <div class="agile_footer_grids">
-                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
-                    <div class="w3_footer_grid_bottom">
-                        <h5>connect with us</h5>
-                        <ul class="agileits_social_icons">
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-    <!-- //footer -->
-<!-- js -->
-<script src="js/jquery-1.11.1.min.js"></script>
-<!-- easy-responsive-tabs -->    
-<link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css " />
-<script src="js/easyResponsiveTabs.js"></script>
-<!-- //easy-responsive-tabs --> 
-	<script type="text/javascript">
-    $(document).ready(function() {
-        //Horizontal Tab
-        $('#parentHorizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            tabidentify: 'hor_1', // The tab groups identifier
-            activate: function(event) { // Callback function if tab is switched
-                var $tab = $(this);
-                var $info = $('#nested-tabInfo');
-                var $name = $('span', $info);
-                $name.text($tab.text());
-                $info.show();
-            }
-        });
-    });
-</script>
-<!-- credit-card -->
-		<script type="text/javascript" src="js/creditly.js"></script>
-        <link rel="stylesheet" href="css/creditly.css" type="text/css" media="all" />
+		
+	</div>
+	
 
-		<script type="text/javascript">
-			$(function() {
-			  var creditly = Creditly.initialize(
-				  '.creditly-wrapper .expiration-month-and-year',
-				  '.creditly-wrapper .credit-card-number',
-				  '.creditly-wrapper .security-code',
-				  '.creditly-wrapper .card-type');
+	<div class="benefit">
+		<div class="container">
+			<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>free shipping</h6>
+							<p>Within the Philippines</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>cash on delivery</h6>
+							<p>Pay upon receiving your item</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>14 days return</h6>
+							<p>See return policy for details</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>Open Always</h6>
+							<p>24/7</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-			  $(".creditly-card-form .submit").click(function(e) {
-				e.preventDefault();
-				var output = creditly.validate();
-				if (output) {
-				  // Your validated credit card output
-				  console.log(output);
-				}
-			  });
-			});
-		</script>
-	<!-- //credit-card -->
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<h4>Newsletter</h4>
+						<p>Subscribe to our newsletter and get 20% off your first purchase</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<form action="post">
+						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!-- //js -->
-<!-- script-for sticky-nav -->
-	<script>
-	$(document).ready(function() {
-		 var navoffeset=$(".agileits_header").offset().top;
-		 $(window).scroll(function(){
-			var scrollpos=$(window).scrollTop(); 
-			if(scrollpos >=navoffeset){
-				$(".agileits_header").addClass("fixed");
-			}else{
-				$(".agileits_header").removeClass("fixed");
-			}
-		 });
-		 
-	});
-	</script>
-<!-- //script-for sticky-nav -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-<!-- start-smoth-scrolling -->
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
-    $(".dropdown").hover(            
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-            $(this).toggleClass('open');        
-        },
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-            $(this).toggleClass('open');       
-        }
-    );
-});
-</script>
-<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
-<script src="js/minicart.js"></script>
-<script>
-		paypal.minicart.render();
+	<!-- Footer -->
 
-		paypal.minicart.cart.on('checkout', function (evt) {
-			var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+						<ul class="footer_nav">
+							<li><a href="terms.php">Terms of Use</a></li>
+							<li><a href="privacy.php">Privacy Policy</a></li>
+							<li><a href="contact.php">Contact us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer_nav_container">
+						<div class="cr">©2018 All Rights Reserverd. <a href="#">KwARto</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- MODAL CONTENTS -->
+	<!-- CASH ON DELIVERY -->
+	<div id="codmodal" tabindex="-1" role="dialog" aria-labelledby="codmodal" aria-hidden="true" class="modal fade text-left">
+	    <div role="document" class="modal-dialog modal-bigger" >
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 id="codmodal" class="modal-title">CASH ON DELIVERY</h4>
+	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+	        </div>
+	        <div class="modal-body">
+	        	<p>Pay using our Cash On Delivery service. Full payment is done directly to the courier upon delivery. No partial down payments required</p>
 
-			// Count the number of each item in the cart
-			for (i = 0; i < len; i++) {
-				total += items[i].get('quantity');
-			}
+	        	<br>
+	        	<p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
+	        </div>
+	        <div class="modal-footer">
+	        	<a href="complete.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        </div>
+	    </div>
+  		</div>
+	</div>
+  	<!-- END OF CASH ON DELIVERY -->
 
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
-		});
+	<!-- CREDIT CARD -->
+	<div id="credmodal" tabindex="-1" role="dialog" aria-labelledby="credmodal" aria-hidden="true" class="modal fade text-left">
+	    <div role="document" class="modal-dialog modal-bigger" >
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 id="credmodal" class="modal-title">CREDIT OR DEBIT</h4>
+	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+	        </div>
+	        <div class="modal-body">
+	        	<form class="form-horizontal" role="form">
+			    <fieldset>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="card-holder-name">Name on Card</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="card-number">Card Number</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="expiry-month">Expiration Date</label>
+			        <div class="col-sm-12">
+			          <div class="row">
+			            <div class="col-xs-12">
+			              <select class="form-control col-sm-12" name="expiry-month" id="expiry-month" style="margin-left: 20px;">
+			                <option>January</option>
+			                <option value="01">January</option>
+			                <option value="02">February</option>
+			                <option value="03">March</option>
+			                <option value="04">April</option>
+			                <option value="05">May</option>
+			                <option value="06">June</option>
+			                <option value="07">July</option>
+			                <option value="08">August</option>
+			                <option value="09">September</option>
+			                <option value="10">October</option>
+			                <option value="11">November</option>
+			                <option value="12">December</option>
+			              </select>
+			            </div>
+			            <div class="col-xs-12">
+			              <select class="form-control" name="expiry-year" style="margin-left: 30px;">
+			                <option value="13">2018</option>
+			                <option value="14">2019</option>
+			                <option value="15">2020</option>
+			                <option value="16">2021</option>
+			                <option value="17">2022</option>
+			                <option value="18">2023</option>
+			                <option value="19">2024</option>
+			                <option value="20">2025</option>
+			                <option value="21">2026</option>
+			                <option value="22">2027</option>
+			                <option value="23">2028</option>
+			              </select>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-12 control-label" for="cvv">Card CVV</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+			        </div>
+			      </div>
+			    </fieldset>
+			  </form>
+			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
+	        </div>
+	        <div class="modal-footer">
+	        	<a href="complete.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        </div>
+	    </div>
+  		</div>
+	</div>
+  	<!-- END OF CASH ON DELIVERY -->
 
-	</script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="js/single_custom.js"></script>
 </body>
+
 </html>

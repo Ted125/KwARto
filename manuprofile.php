@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>kwARto 2018</title>
+    <title>KwARto | Web Application</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -82,7 +82,7 @@
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -110,7 +110,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li class="active"> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -141,15 +141,7 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img src="http://via.placeholder.com/300"><br>
-                        <div style="margin-top: 5px;">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                          
-
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Select Photo</button><br>
                       </div>
                       <form class="form-horizontal col-lg-8">
                         <div class="form-group row">
@@ -168,6 +160,21 @@
                           <label class="col-sm-3 form-control-label">Last Name</label>
                           <div class="col-sm-9">
                             <input type="text" class="form-control" value="Smith">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Gender</label>
+                          <div class="col-sm-9">
+                            <div class="dropdown">
+                              <button class="btn form-control col-lg-3 btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Male
+                              </button>
+                              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Male</a>
+                                <a class="dropdown-item" href="#">Female</a>
+                                <a class="dropdown-item" href="#">Other</a>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -225,7 +232,25 @@
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
                             <button type="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Save Changes</button>
+                              <!-- Modal-->
+                              <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to save changes?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="button" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                           </div>
                         </div>
                       </form>

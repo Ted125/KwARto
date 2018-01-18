@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:index.php");
+  }
+?>
+<style>
+    #pendingpics{
+    height: 200px;
+    width: 200px;
+    }
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +60,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -61,7 +73,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -71,12 +83,14 @@
                     <li><a href="usersmgt.php"> <i class="fa fa-user-circle-o"></i>Users Management</a></li>
                     <li class="active"><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
+                    <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -103,125 +117,20 @@
                       <h3 class="h4">Registered Users List</h3>
                     </div>
                     <div class="card-body">
+                      <h6 class="text-muted">* Click to see more details</h6>
                       <table class="table table-striped table-hover">
                         <thead>
                           <tr>
                             <th>#</th>
                             <th>Company Name</th>
-                            <th>Address</th>
+                            <th>Description</th>
                             <th>E-mail Address</th>
-                            <th>Action</th>
+                            <th>Status</th>
+                            <th>Action</th> 
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Furniture City</td>
-                            <td>Mandaue City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Furniture Labs</td>
-                            <td>H. Cortes, Mandaue City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Uratex Foams</td>
-                            <td>Paknaan Corner, Mandaue City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>Vertigo Chairs and Co.</td>
-                            <td>Talisay City, Cebu</td>
-                            <td>name@company.com</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ban</button>
-                              <!-- Modal-->
-                              <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure you want to ban this manufacturer?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          <?php include("Controllers/DisplaySellers.php");?>
                         </tbody>
                       </table>
                     </div>

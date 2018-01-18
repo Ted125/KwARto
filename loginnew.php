@@ -1,9 +1,15 @@
 <!DOCTYPE html>
+<?php
+  if(isset($_SESSION)){
+  session_unset();
+  session_destroy();
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+    <title>Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -17,7 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Favicon-->
     <link rel="icon" type="image/png" href=" images/icon.png" />
   </head>
@@ -41,23 +47,34 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form id="login-form" method="post">
+                  <?php
+                    if(isset($_GET['error'])){
+                      echo '<p id="error-msg" class="text text-danger">*Username or Password Invalid. Please Try Again.</p>';
+                    }
+                  ?>
+                  <form id="login-form" method="post" action= "Controllers/Login.php">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
-                      <label for="login-username" class="label-material">User Name</label>
+                      <input id="login-email" type="text" name="loginEmail" required="" class="input-material">
+                      <label for="login-email" class="label-material">E-mail Address</label>
                     </div>
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><a id="login" href="admindex.php" class="btn btn-primary">Login</a>
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="registernew.php" class="signup">Signup</a>
+                    </div>
+                    <input id="login" type="submit" class="btn btn-primary" value="Login">
+                  </form><a href="forgot.php" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="registernew.php" class="signup">Signup</a>
+                  <br><br>
+                  <div>
+                    <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
+                    <a id="glogin" href="#" style="background-color: #dd4935; border-color: #dd4935" class="btn btn-primary"><i class="fa fa-google-plus"></i> Login with Google</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
     </div>
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

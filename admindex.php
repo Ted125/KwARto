@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(strcmp($_SESSION['userType'],'admin') != 0){
+      header("Location:loginnew.php");
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,9 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
-    <!-- Web Icon -->
-    <link rel="shortcut icon" href=" images/icon.png">
+    <link rel="icon" href="images/icon.png">
    
   </head>
   <body>
@@ -49,7 +53,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -62,7 +66,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -72,12 +76,14 @@
                     <li><a href="usersmgt.php"> <i class="fa fa-user-circle-o"></i>Users Management</a></li>
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
+                    <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">

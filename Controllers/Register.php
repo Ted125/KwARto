@@ -1,7 +1,6 @@
 <?php
 require_once("../Models/userDetails.php");
 require_once("../Models/customerCRUD.php");
-require_once("../Models/User.php");
 
 session_start();
 
@@ -39,10 +38,10 @@ registerAddress
 if($verify != null){
 	//$_SESSION['userId'] = $verify['userId'];
     $_SESSION['username'] = $_POST["registerUsername"];
- 
 } else {
       	//inform user that the input is not valid
 	echo "Invalid credentials or not activated";
+	
 }
 header( "Location: http://localhost/capstone-project/" );
 ?>

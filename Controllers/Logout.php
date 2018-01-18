@@ -1,6 +1,8 @@
 <?php
   session_start();
-  $_SESSION['username'] = null;
+  session_unset();
+  session_destroy();
+  $_SESSION['userId'] = null;
 
-  header( "Location: http://localhost/capstone-project/" );
+  header("Location: ../home.php" );
 ?>

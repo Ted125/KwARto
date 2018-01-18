@@ -1,383 +1,64 @@
-<!-- Navigation -->
-<?php
-    session_start();
-  ?>
-<div class="logo_products">
-        <div class="container">
-            <div class="logo_products_left">
-                <img src="images/newlogo.png" href="index.html" style="max-height: 50px;">
-            </div>
-            <div class="logo_products_right1">
-                <div class="row">
-                  <div class="col-md-8">
+<header class="header trans_300">
 
-                    <form action="#" method="post">
-                      <input class="field" type="text" style="padding:5px;" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
-                    
-                  </form>
-                  </div>
-                  <div class="col-md-1">
-                    <button class="dropdown cart_details_drop" >
-                   
-                          <a href="#" class=" dropdown-toggle" data-toggle="dropdown">Cart</a>
-                          <div class="mega-dropdown-menu">
-                              <div class="w3ls_vegetables">
-                                  <ul class="dropdown-menu drp-mnu">
-                                      <li><span>0 items</span></li>
-                                      <li><span>0.00</span></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </button> 
-                  </div>
-
-                </div>
-            </div>
-            <div class="logo_products_left1">
-                <ul class="special_items items-bread">
-                    <li><a href="index.php">Home</a></li>            
-                    <li><a href="privacy.php">Privacy Policy</a></li>              
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="mail.php">Contact Us</a></li>
-                    <?php
-                      if(!isset($_SESSION['username'])){
-                                  //Session is empty
-                        echo "<li class='item-right'><button class='cart_details_drop'><a href='login.php' style='color: white;'><span>Login/Sign-Up</span></a></button></li> ";
-                      } else {
-                                  //Session is active
-                        echo "<li class='nav-item'>
-                        <p class='navtext' style='position: inherit;margin-left: 150px;'><b>Henlo</b>,
-                        <a href='#' id='username'>".$_SESSION['username']."</a>
-                        |
-                        <button class='cart_details_drop' style='position: absolute;right: 190px;top: 80px;'><a href='Controllers/Logout.php' id='logoutForm' style='color: white;'><span>Logout</span></a></button></li>
-                        </p>
-                        ";
-                      }
-
-                    ?>
-                    
-                </ul>
-
-            </div>
-            <div class="clearfix"> </div>
+    <div class="top_nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
+          </div>
+          
         </div>
+      </div>
     </div>
-    <!-- //header -->
-    <div class="products-breadcrumb">
-        <div class="container">
-            <ul>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FURNITURE <span ></span></a>
-                    <ul class="dropdown-menu proddrop">
-                        <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
+    <div class="main_nav_container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-right">
+            <div class="logo_container">
+              <a href="index.php"><img style="max-width: 150px;" src="images/newlogo.png"></a>
+            </div>
+            <nav class="navbar">
+              <ul class="navbar_menu">
+                <li><a href="index.php">home</a></li>
+                <li><a href="categories.php">categories</a></li>
+                <li><a href="about.php">about us</a></li>
+                <li><a href="contact.php">contact</a></li>
+                <li><a href="wishlist.php">wishlist</a></li>
+                <?php 
+                  if(!isset($_SESSION['userId'])){
+                    echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
+                  } else {
+                    echo ' <li data-toggle="modal" data-target="#myModal" class="align-items-center checkout">
+                            <!-- MODAL CONTENT BELOW -->
+                            <a href="#">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                             </a>
+                          </li>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
+                          <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BED & BATH <span ></span></a>
-                    <ul class="dropdown-menu proddrop">
-                      <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DECOR <span></span></a>
-                    <ul class="dropdown-menu proddrop">
-                        <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOUSEWARE <span ></span></a>
-                    <ul class="dropdown-menu proddrop">
-                        <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WINDOW TREAMENTS <span ></span></a>
-                    <ul class="dropdown-menu proddrop">
-                        <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LIGHTING <span ></span></a>
-                    <ul class="dropdown-menu proddrop">
-                        <table >
-                          <tbody style="width:100%;">
-                            <tr valign="top"> 
-                              <td width="30%"><div class="leftimg"><img src="http://via.placeholder.com/150x150"></div>
-                                <div class="leftcontent">
-                                  <strong>Furniture Here</strong>
-                                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                </div>
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                              <td class="rightmenu" width="45%">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong></p>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress</p>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress</p>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress</p>
-
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </ul>
-                </li>
-            </ul>
+                          <ul aria-labelledby="notifications" class="dropdown-menu">
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Have you received your item?</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                                  <div class="msg-body">
+                                    <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
+                                  </div></a></li>
+                              <li><a rel="nofollow" href="loginnew.php" class="dropdown-item all-notifications" style="padding-left:120px;"> <strong>Logout</strong></a></li>
+                            </ul>
+                          </li>
+                          ';
+                  }
+                ?>
+              </ul>
+              <ul class="navbar_user row">
+              </ul>
+            </nav>
+          </div>
         </div>
+      </div>
     </div>
+  </header>

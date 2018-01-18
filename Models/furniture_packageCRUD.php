@@ -1,6 +1,7 @@
 <?php 
 require("SQL_Connect.php");
 include("Database.php");
+include("userDetails.php");
 
 class furniture_package{
     private $packId;
@@ -18,7 +19,85 @@ class furniture_package{
 
     /***************** FUNCTIONS ****************/
 
+    public function createFurniturePackage($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    //$furniture = new furniture();
+                    $this->setItem($_POST['item']);
+                    $this->setFurnitureId($furnitureId);
+                    $create = "INSERT INTO furniture_package
+                    ( 
+                    status
+                    furnitureId
+                    )
+                    VALUES
+                    ('".$this->getSpecification()."',
+                    '".$this->getFurnitureId()."',
+                    )";
+                    
+                    $result = mysqli_query($connection, $create);   
+                }
+            }else{
+                 echo 'only sellers can add furniture items to the package';
+            }
+        }else{
+            echo 'no session found';
+        }
+        return $result;
+    }
 
+    public function displayFurniturePackage($furnitureId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setFurnitureId($furnituredId);
+        $result = null;
+        if($connection){
+            //$result = NULL;
+            $query ="SELECT *
+            FROM  furniture_package
+            WHERE furnitureId = '".$this->getFurnitureId()."'
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function deleteAllFurniturePackage($furnitureId){
+        if(isset($_SESSION)){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $delete = "DELETE
+                               FROM furniture_package
+                               WHERE furnitureId = '".$this->getFurnitureId()."'
+                              ";
+                    $result = mysqli_query($mysqli, $delete);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only sellers can delete their own furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
 
     /************ SETTERS AND GETTERS ************/
     
