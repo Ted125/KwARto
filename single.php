@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	$furnitureId = $_GET["singleFurnitureId"];
+	$furnitureId = $_POST["singleFurnitureId"];
 
 	$_POST["furnitureId"] = $furnitureId;
 
@@ -91,8 +91,9 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background">
+								<div class="single_product_image_background container">
 									<img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>">
+
 								</div>
 							</div>
 						</div>
@@ -186,7 +187,7 @@
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>
@@ -354,25 +355,27 @@
 					<div id="tab_2" class="tab_container">
 						<div class="row">
 							<div class="col additional_info_col">
-								<div class="tab_title additional_info_title">
-									<h4>Additional Details</h4>
-								</div>
+							<div class="tab_title additional_info_title">
+								<h4>Additional Details</h4>
+							</div>
+							<ul>
 								<?php
 									if(isset($row["model"])){
 								?>
-								<p>MODEL:<span><?php echo $row["model"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  MODEL:<span><?php echo $row["model"]; ?></span></p></li>
 								<?php
 									}
 								?>
 								<?php
 									if(isset($row["color"])){
 								?>
-								<p>COLOR:<span><?php echo $row["color"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  COLOR:<span><?php echo $row["color"]; ?></span></p></li>
 								<?php
 									}
 								?>
-								<p>SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p>
-								<p>WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p></li>
+								<li><p><i class="fa fa-circle"></i>  WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p></li>
+							</ul>
 							</div>
 						</div>
 					</div>

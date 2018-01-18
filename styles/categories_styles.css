@@ -1086,7 +1086,7 @@ section
 	width: 100%;
 	height: 60px;
 	border-bottom: solid 1px #ebebeb;
-	margin-bottom: 58px;
+	/*margin-bottom: 58px;*/
 }
 .breadcrumbs ul li
 {
@@ -1145,7 +1145,7 @@ section
 }
 .sidebar_categories li a
 {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 40px;
 	color: #51545f;
 }
@@ -1271,7 +1271,7 @@ section
 .product-item
 {
 	width: 25%;
-	height: 380px;
+	height: 350px;
 	cursor: pointer;
 }
 .product-item::after
@@ -1300,7 +1300,7 @@ section
 .product
 {
 	width: 100%;
-	height: 340px;
+	max-height: 200px;
 	border-right: solid 1px #e9e9e9;
 }
 .product_image
@@ -1319,7 +1319,7 @@ section
 }
 .product_name
 {
-	margin-top: 27px;
+	/*margin-top: 27px;*/
 }
 .product_name a
 {

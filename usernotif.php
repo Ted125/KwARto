@@ -46,7 +46,30 @@ n<!DOCTYPE html>
 					<tbody class="text-center">
 					<tr class="">
 						<!-- Image should link to the image of the item to be received -->
-					<td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td>
+					<td class=""><a href="#"><img data-toggle="modal" data-target="#notifimg" style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td>
+						<!-- Modal-->
+					  	<div id="notifimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+							<div role="document" class="modal-dialog">
+							  <div class="modal-content">
+								<div class="modal-header">
+								  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+								  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+								</div>
+								<div class="modal-body">
+								  <p><strong>Order ID:</strong> 123028</p>
+								  <p><strong>Order Amount:</strong> P2,250.00</p>
+								  <p><strong>Shipping/Delivery Fee:</strong> P100.00</p>
+								  <p><strong>Total Payment:</strong> P2,350.00</p>
+								  <p><strong>Mode of Payment:</strong> Cash On Delivery</p>
+								  <p><strong>Expected Arrival:</strong> January 20, 2018</p>
+								</div>
+								<div class="modal-footer">
+								  <a href="#"><button type="button" class="btn red_button" style="color: white;"> View Item</button></a>
+								  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+								</div>
+							  </div>
+							</div>
+					  	</div>
 					<td class="">System Message</td>
 					<td class="">Have you received your item?</td>
 					<td class="" style="text-align:  center;">	

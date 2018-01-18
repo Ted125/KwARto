@@ -90,7 +90,7 @@ n<!DOCTYPE html>
 		<div class="row">
 			<div style="padding-left: 50px;">
 				<div class="benefit_item d-flex flex-row align-items-center" style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Ability to Use the Services</h6>
 						<p>In order to accept this Agreement and to use the Services, you must be a resident of an Authorized Jurisdiction and be at least 18 years of age, or if you have parental consent, at least 15 years of age in Australia or 13 years of age in all other Authorized Jurisdictions ("Minimum Age"). The Services are not intended for users under the Minimum Age. You hereby affirmatively represent that (a) you are at least the Minimum Age in the applicable Authorized Jurisdiction; (b) you have the consent of your parent(s) to use the Services if you are under 18 years of age; (c) you have all the applicable rights and authority to grant KwARto the rights granted herein; and (d) you have read, understood, and agree to be bound by this Agreement. If you are not at least the Minimum Age, do not have parental consent, or you do not agree to all the terms and conditions of this Agreement, you may not use the Services.</p>
@@ -98,7 +98,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-user-secret" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Privacy</h6>
 						<p>KwARto's privacy policy explains the data we collect, use, store, and process while you use and access our Services. By using our Services, you have read, understood, and agree to the terms of our privacy policy, and you agree that we may use such data in accordance with the terms of our privacy policy. If you have any questions regarding our privacy policy, please contact us
@@ -106,7 +106,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-legal" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Compliance with Policies</h6>
 						<p>While using the Services, you agree that you will comply with all posted policies, including our Community and Content Policy and Intellectual Property Policy, as we may update from time to time. We may suspend or stop providing you with access to the Services if you fail to comply with our posted policies.</p>
@@ -114,7 +114,7 @@ n<!DOCTYPE html>
 				</div>
 					
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Payment, Fees, and Other Charges</h6>
 						<p>If you elect to access any paid component of the Services, such as becoming a subscriber, you agree to pay all fees and charges associated with that paid component on a timely basis. Unless otherwise stated, all fees and charges are due and payable in advance, are non-refundable, and are exclusive of any applicable federal, state, or local taxes. All such fees and charges (including any taxes and late fees, as applicable) will be charged to the payment method you provided when you elected to access that paid component of the Services. You agree to maintain a valid payment method during the term of your use of such Services.</p>
@@ -122,7 +122,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-archive" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Additional Terms and Conditions</h6>
 						<p>Some of the Services we offer may require additional terms and conditions. We will make those additional terms and conditions available to you with the relevant Services. If you use those Services, the terms and conditions that apply will become part of this Agreement between you and us.</p>
@@ -130,7 +130,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Advertising Content</h6>
 						<p>The Services may present advertisements for or links to third party websites, products, and/or services ("Third Party Ads"). We are not responsible for the availability of these Third Party Ads, or the images, messages, or other materials contained therein. Neither KwARto nor any of its affiliates will be liable for any errors in content or omissions in any Third Party Ads, nor responsible for any losses or damages of any sort incurred as a result of your participation with, use of, or reliance on the Third Party Ads, including any goods, products, or services offered by such Third Party Ads.</p>
@@ -138,11 +138,12 @@ n<!DOCTYPE html>
 				</div>
 
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-					<div class="benefit_content">
+					<div class="benefit_icon"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+					<div class="benefit_content col-lg-12">
 						<h6>Submissions & Feedback; Your Content</h6>
-						<p>KwARto is fortunate to have a vibrant and active user community that shares our passion for innovation, and our drive to constantly improve our Services. While our employees continually strive to develop and evaluate our own ideas, we pride ourselves on paying close attention to the feedback, comments, and suggestions we receive from our listeners. By submitting any ideas, feedback and/or proposals to KwARto regarding the Services ("Feedback"), you expressly acknowledge and agree that: (a) KwARto is not under any obligation to you, including any obligation of payment of compensation or confidentiality, with respect to the Feedback; and (b) KwARto may freely use, assign, transfer, distribute, exploit, and further develop and modify the Feedback for any purpose. To the extent any copyright or other intellectual property ownership interest vests in you with respect to the Feedback, you hereby grant KwARto a worldwide, non-exclusive, royalty-free, fully paid up, irrevocable, sublicensable, and perpetual right and license to make, use, copy, sell, distribute, otherwise exploit, and create derivative works of the Feedback. Further, you irrevocably release KwARto from any and all liability and claims that may result from or are related to the rights to the Feedback.</p>
+						<p>KwARto is fortunate to have a vibrant and active user community that shares our passion for innovation, and our drive to constantly improve our Services. While our employees continually strive to develop and evaluate our own ideas, we pride ourselves on paying close attention to the feedback, comments, and suggestions we receive from our listeners. By submitting any ideas, feedback and/or proposals to KwARto regarding the Services ("Feedback"), you expressly acknowledge and agree <br>that: (a) KwARto is not under any obligation to you, including any obligation of payment of compensation or confidentiality, with respect to the Feedback</p>
 					</div>
+					<br>
 				</div>				
 
 			</div>

@@ -90,14 +90,14 @@ n<!DOCTYPE html>
 		<div class="row">
 			<div style="padding-left: 50px;">
 				<div class="benefit_item d-flex flex-row align-items-center" >
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-users" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<p>When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address, mailing address, phone number, credit card information or other details to help you with your experience. </p>
 					</div>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>When do we collect information?</h6>
 						<p>We collect information from you when you register on our site, place an order, subscribe to a newsletter or enter information on our site.</p>
@@ -105,7 +105,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>How do we use your information?</h6>
 						<p>We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:
@@ -119,7 +119,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>How do we protect your information?</h6>
 						<p>We do not use vulnerability scanning and/or scanning to PCI standards.We do collect credit card information, but did not know PCI compliant scans are now required. We do not use Malware Scanning. Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology. We implement a variety of security measures when a user places an order enters, submits, or accesses their information to maintain the safety of your personal information. All transactions are processed through a gateway provider and are not stored or processed on our servers.</p>
@@ -127,7 +127,7 @@ n<!DOCTYPE html>
 				</div>
 					
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-low-vision" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Third-party disclosure</h6>
 						<p>We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
@@ -135,7 +135,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-server" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Do we use 'cookies'?</h6>
 						<p>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, we use cookies to help us remember and process the items in your shopping cart. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. We use cookies to:
@@ -146,7 +146,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-share-square-o" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Third-party links</h6>
 						<p>Occasionally, at our discretion, we may include or offer third-party products or services on our website. These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
@@ -154,7 +154,7 @@ n<!DOCTYPE html>
 				</div>
 
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-user-times" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>COPPA (Children Online Privacy Protection Act)</h6>
 						<p>When it comes to the collection of personal information from children under the age of 13 years old, the Children's Online Privacy Protection Act (COPPA) puts parents in control. The Federal Trade Commission, United States' consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children's privacy and safety online.'We do not specifically market to children under the age of 13 years old. Do we let third-parties, including ad networks or plug-ins collect PII from children under 13?</p>
@@ -162,7 +162,7 @@ n<!DOCTYPE html>
 				</div>
 
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-bar-chart-o" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Fair Information Practices</h6>
 						<p>The Fair Information Practices Principles form the backbone of privacy law in the United States and the concepts they include have played a significant role in the development of data protection laws around the globe. Understanding the Fair Information Practice Principles and how they should be implemented is critical to comply with the various privacy laws that protect personal information.</p>
@@ -170,7 +170,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>We collect your email address in order to:</h6>
 						<p> Send you additional information related to your product and/or service or Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.</p>
@@ -178,7 +178,7 @@ n<!DOCTYPE html>
 				</div>
 				
 				<div class="benefit_item d-flex flex-row align-items-center"  style="height: 150px;">
-					<div class="benefit_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class="benefit_icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
 					<div class="benefit_content">
 						<h6>Contacting Us</h6>
 						<p>If there are any questions regarding this privacy policy, you may contact us using the information below.<br>www.kwarto.com

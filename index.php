@@ -33,7 +33,7 @@
 		      <input type="text" placeholder="What are you looking for?" name="search" style="width:700px; font-size: 1.5em; padding:10px;">
 		      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.5em;"></i></button>
 		    </form>
-		 </div>	
+		 </div>
 	</div>
 
 	<div class="banner">
@@ -106,6 +106,10 @@
 			</div>
 			<div class="row">
 				<div class="col">
+					<!-- Selected Furniture Form -->
+					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+					</form>
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<?php
@@ -144,7 +148,7 @@
 
 								<div class="product-item <?php echo $ancestorCategoryId ?>">
 									<div class="product discount product_filter">
-										<div class="product_image">
+										<div class="product_image" style="min-height: 240px;">
 											<?php
 												$_POST["furnitureId"] = $row["furnitureId"];
 
@@ -154,12 +158,12 @@
 													$r = mysqli_fetch_assoc($furnitureImagesResult);
 											?>
 
-											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
 											<?php
 												}else{
 													// set to a default image
 											?>
-											<img src="" style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src="" style="padding-top: 20%; min-height: 240px; max-height: 240px;" alt="">
 											<?php
 												}
 											?>
@@ -174,7 +178,7 @@
 										?>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId']?>"><?php echo $row["name"]; ?></a></h6>
+											<h6 class="product_name" name = "<?php echo $row['furnitureId']?>"><a><?php echo $row["name"]; ?></a></h6>
 											<div class="product_price">
 											<?php
 												$price = $row["price"];
@@ -620,3 +624,12 @@
 </body>
 
 </html>
+<script = "text/javascript">
+$(document).ready(function(){
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+});
+</script>
