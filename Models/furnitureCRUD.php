@@ -213,6 +213,53 @@ class furniture{
         return $result;
     }
 
+    public function displayAllSellerFurnitures(){
+        require("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+                //$result = NULL;
+            $query ="SELECT distinct 
+                        f.furnitureId AS furnitureId, 
+                        f.name AS furnitureName, 
+                        f.description AS furnitureDesc, 
+                        f.model, 
+                        f.color, 
+                        f.weight, 
+                        f.weightUnit, 
+                        f.length, 
+                        f.width, 
+                        f.height, 
+                        f.sizeUnit, 
+                        f.packageLength, 
+                        f.packageWidth, 
+                        f.packageHeight, 
+                        f.packageSizeUnit, 
+                        f.price, 
+                        f.modelName, 
+                        f.discount, 
+                        f.saleStart, 
+                        f.saleEnd, 
+                        f.live, 
+                        f.status, 
+                        f.sellerId AS sellerId, 
+                        f.versionOf 
+                        FROM furniture f INNER JOIN seller s 
+                        WHERE f.sellerId = ".$_SESSION['sellerId']."
+
+            ";
+            $result = mysqli_query($connection, $query);
+            
+                //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+                //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
     public function activateFurniture($furnitureId){
         require("Database.php");
         if(isset($_SESSION['userType'])){

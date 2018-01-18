@@ -159,7 +159,7 @@
                       </div>
                   </div>
 
-                  <form role="form" class="col-lg-12" action="Controllers/SellerUploadFurniture.php" method="post">
+                  <form role="form" class="col-lg-12" action="Controllers/SellerUploadFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
                   <div class="row setup-content-2" id="step-4">
                   <div class="col-lg-12">
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
@@ -186,10 +186,6 @@
                       <div class="form-group">       
                         <label>Version Of</label>
                         <input type="text" placeholder="0" class="form-control" name="newVersionOf">
-                      </div>
-                      <div class="form-group">       
-                        <label>Height</label>
-                        <input type="text" placeholder="0" class="form-control" name="newHeight">
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
@@ -234,10 +230,6 @@
                       <div class="form-group">       
                         <label>Price</label>
                         <input type="text" placeholder="0.00" class="form-control" name="newPrice">
-                      </div>
-                      <div class="form-group">       
-                        <label>Quantity</label>
-                        <input type="text" placeholder="0" class="form-control" name="newQuantity">
                       </div>
                       <div class="form-group">       
                         <label>Discount</label>
@@ -290,7 +282,9 @@
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                      </div>
+                      </div>    
+                        <label>Select file to upload:</label>
+                        <input type="file" name="image" />
                       <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>

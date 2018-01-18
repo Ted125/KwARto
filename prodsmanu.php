@@ -141,7 +141,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Registered Users List</h3>
+                      <h3 class="h4">Registered Products</h3>
                     </div>
                     <div class="card-body text-center">
                       <table class="table table-striped table-hover">
@@ -151,6 +151,7 @@
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Restock Date</th>
                             <th>Live</th>
                             <th>Action</th>
                           </tr>

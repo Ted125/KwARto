@@ -140,14 +140,13 @@ class furniture_stock{
         $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT(*) AS available_stock 
+            $query ="SELECT COUNT(*) AS available_stock, dateUpdated
             FROM furniture_stock 
             WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available'
             ";
             $result = mysqli_query($connection, $query);
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
-            //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
         }        

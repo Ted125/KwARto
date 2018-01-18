@@ -10,14 +10,15 @@
   <td><?php echo $row['furnitureName'];?></td>
   <td><?php echo $stock['available_stock'];?></td>
   <td><?php echo $row['price'];?></td>
+  <td><?php echo $stock['dateUpdated'];?></td>
   <td style = "color:<?php echo $color?>;" ><?php echo $live;?></td>
   <td>
     <form method="post" action="Controllers/SellerToggleLive.php">
-      <input type="hidden" value=<?php echo $row['live'];?> name="status" />
+      <input type="hidden" value=<?php echo $row['live'];?> name="live" />
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
       <button type="submit" class="btn btn-primary"><?php echo $act;?></button>
     </form>
-    <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary">Edit</button>
+    <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary fa fa-list"></button>
     <!-- Modal-->
     <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
@@ -84,10 +85,6 @@
               <div class="form-group">       
                 <label>Price</label>
                 <input type="text" value=<?php echo $row['price'];?> class="form-control">
-              </div>
-              <div class="form-group">       
-                <label>Quantity</label>
-                <input type="text" value=<?php echo $stock['available_stock'];?> class="form-control">
               </div>
               <div class="form-group">       
                 <label>Discount</label>

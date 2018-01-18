@@ -1,7 +1,7 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
-include("userDetails.php");
+// require("SQL_Connect.php");
+// include("Database.php");
+// include("userDetails.php");
 
 class furniture_image{
     private $furnitureImageId;
@@ -11,7 +11,6 @@ class furniture_image{
     private $dateUpdated;
     private $addedBy;
     private $updatedBy;
-    private $furnitureId;
 
     const DB_TABLE = "furniture_image";
     const DB_TABLE_PK = "furnitureImageId";
@@ -24,32 +23,44 @@ class furniture_image{
 
     /***************** FUNCTIONS ****************/
 
-    public function createFurnitureImage($furnitureId){
-        if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+    public function createFurnitureImage($furnId){
+        if(isset($_SESSION['userType'])){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
+                    $this->setFurnitureId($furnId);
                     $ctr = 0;
-                    $result = mysqli_query($connection, "SELECT * FROM furniture_image WHERE furnitureId = '".$this->getFurnitureId()."'");
+                    $result = mysqli_query($connection, "SELECT COUNT(*) FROM furniture_image WHERE furnitureId = '".$this->getFurnitureId()."'");
                     $num_rows = mysqli_num_rows($result);
-                    $ctr = $num_rows + 1;
-                    $this->setImage("'".$this->getFurnitureId()."'_'".$ctr."'");
-                    $this->setFurnitureId($furnitureId);
-                    $this->setAddedBy($_SESSION['userId']);
-                    $this->setUpdatedBy($_SESSION['userId']);
+                    $ctr = $num_rows;
+                    $this->setImage($ctr.".jpg");
+                    if($ctr == 1){
+                        $this->setThumbnail('1');
+                    } else {
+                        $this->setThumbnail('0');
+                    }
+                    
+                    
+                    $this->setAddedBy($_SESSION['sellerId']);
+                    $this->setUpdatedBy($_SESSION['sellerId']);
                     $create = "INSERT INTO furniture_image
                     ( 
-                    status
+                    image,
+                    thumbnail,
+                    addedBy,
+                    updatedBy,
                     furnitureId
                     )
                     VALUES
-                    ('".$this->getStatus()."',
-                    '".$this->getFurnitureId()."',
+                    ('".$this->getImage()."',
+                    '".$this->getThumbnail()."',
                     '".$this->getAddedBy()."',
-                    '".$this->getUpdatedBy()."'
+                    '".$this->getUpdatedBy()."',
+                    '".$this->getFurnitureId()."'
                     )";
                     
                     $result = mysqli_query($connection, $create);   
@@ -113,7 +124,12 @@ class furniture_image{
         return $result;
     }
 
+    public function countAllImages($link){
+        $fi = new FilesystemIterator($link, FilesystemIterator::SKIP_DOTS);
+        printf("There were %d Files", iterator_count($fi));
 
+        return $fi;
+    }
     /************ SETTERS AND GETTERS ************/
     
     public function getFurnitureImageId(){
@@ -132,8 +148,20 @@ class furniture_image{
         $this->image = $image;
     }
 
+    public function getThumbnail(){
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail($thumbnail){
+        $this->thumbnail = $thumbnail;
+    }
+
     public function getFurnitureId(){
         return $this->furnitureId;
+    }
+
+    public function setFurnitureId($furnitureId){
+        $this->furnitureId = $furnitureId;
     }
 
     public function getDateAdded(){
@@ -168,9 +196,7 @@ class furniture_image{
         $this->updatedBy = $updatedBy;
     }
 
-    public function setFurnitureId($furnitureId){
-        $this->furnitureId = $furnitureId;
-    }
+    
 
 }
 
