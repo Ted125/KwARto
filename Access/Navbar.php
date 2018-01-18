@@ -1,3 +1,4 @@
+
 <header class="header trans_300">
 
     <div class="top_nav">
@@ -20,10 +21,18 @@
             </div>
             <nav class="navbar">
               <ul class="navbar_menu">
+                <li>
+                  <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="What are you looking for?" name="search" style="color: #d42d2d; width:350px; font-size: 1em; padding:10px;">
+          <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1em;"></i></button>
+        </form>
+     </div>
+                </li>
                 <li><a href="index.php">home</a></li>
                 <li><a href="categories.php">categories</a></li>
-                <li><a href="about.php">about us</a></li>
-                <li><a href="contact.php">contact</a></li>
+                <!-- <li><a href="about.php">about us</a></li> -->
+                <!-- <li><a href="contact.php">contact</a></li> -->
                 <li><a href="wishlist.php">wishlist</a></li>
                 <?php 
                   if(!isset($_SESSION['userId'])){
