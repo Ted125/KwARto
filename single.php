@@ -91,8 +91,9 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background">
+								<div class="single_product_image_background container">
 									<img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>">
+
 								</div>
 							</div>
 						</div>
@@ -186,7 +187,7 @@
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>

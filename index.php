@@ -148,7 +148,7 @@
 
 								<div class="product-item <?php echo $ancestorCategoryId ?>">
 									<div class="product discount product_filter">
-										<div class="product_image">
+										<div class="product_image" style="min-height: 240px;">
 											<?php
 												$_POST["furnitureId"] = $row["furnitureId"];
 
@@ -158,12 +158,12 @@
 													$r = mysqli_fetch_assoc($furnitureImagesResult);
 											?>
 
-											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
 											<?php
 												}else{
 													// set to a default image
 											?>
-											<img src="" style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src="" style="padding-top: 20%; min-height: 240px; max-height: 240px;" alt="">
 											<?php
 												}
 											?>
