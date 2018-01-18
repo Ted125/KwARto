@@ -484,7 +484,7 @@ function Search(){
     },
     success: function(result) {
 			result.forEach(function(item){
-				var furniture = "<div class='product-item men'><div class='product discount product_filter'><div class='product_image'><img  style='height:200px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
+				var furniture = "<div class='product-item men'><div class='product discount product_filter'><div class='product_image' style='min-height:240px;'><img  style='position: absolute;top: 25%;left: 25%;height: auto;width: 100%;margin: -15% 0 0 -25%;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
 
 				if(item.discount > 0){
 					furniture += "<div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-" + item.discount + "%</span></div>";

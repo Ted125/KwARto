@@ -148,7 +148,7 @@ class furniture_stock{
     public function displayOnHoldFurnitureStock($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
             $query ="SELECT COUNT(*) AS on_hold_stock 
@@ -169,7 +169,7 @@ class furniture_stock{
     public function displaySoldFurnitureStock($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
             $query ="SELECT COUNT(*) AS sold_stock 

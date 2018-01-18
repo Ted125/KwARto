@@ -5,6 +5,12 @@
       header("Location:index.php");
   }
 ?>
+<style>
+    #pendingpics{
+    height: 200px;
+    width: 200px;
+    }
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -117,9 +123,11 @@
                           <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Quantity</th>
+                            <th>Available</th>
+                            <th>Sold</th>
+                            <th>On Hold</th>
                             <th>Price</th>
-                            <th>Status</th>
+                            <th>Live</th>
                             <th>Action</th>
                           </tr>
                         </thead>

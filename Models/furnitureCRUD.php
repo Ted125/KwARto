@@ -5,7 +5,7 @@
 include("userDetails.php");
 //include("furniture_imageCRUD.php");
 //include("furniture_specificationCRUD.php");
-//include("furniture_stockCRUD.php");
+include("furniture_stockCRUD.php");
 //include("furniture_packageCRUD.php");
 
 class furniture{
@@ -165,34 +165,34 @@ public function displayAllFurnitures(){
     if($connection){
             //$result = NULL;
         $query ="SELECT
-        furniture.furnitureId AS furnitureId,
-        seller.name AS sellerName,
-        furniture.name AS furnitureName,
-        seller.description AS sellerDesc,
-        furniture.description AS furnitureDesc,
-        warrantyId,
-        model,
-        color,
-        weight,
-        weightUnit,
-        length,
-        width,
-        height,
-        sizeUnit,
-        packageLength,
-        packageWidth,
-        packageHeight,
-        packageSizeUnit,
-        price,
-        modelName,
-        discount,
-        saleStart,
-        saleEnd,
-        live,
-        categoryId,
-        furniture.sellerId AS sellerId,
-        versionOf
-        FROM  furniture INNER JOIN seller ON furniture.sellerId = seller.sellerId
+        f.furnitureId AS furnitureId,
+        s.name AS sellerName,
+        f.name AS furnitureName,
+        s.description AS sellerDesc,
+        f.description AS furnitureDesc,
+        f.warrantyId,
+        f.model,
+        f.color,
+        f.weight,
+        f.weightUnit,
+        f.length,
+        f.width,
+        f.height,
+        f.sizeUnit,
+        f.packageLength,
+        f.packageWidth,
+        f.packageHeight,
+        f.packageSizeUnit,
+        f.price,
+        f.modelName,
+        f.discount,
+        f.saleStart,
+        f.saleEnd,
+        f.live,
+        f.categoryId,
+        f.sellerId AS sellerId,
+        f.versionOf
+        FROM  furniture f INNER JOIN seller s ON f.sellerId = s.sellerId 
         ";
         $result = mysqli_query($connection, $query);
         

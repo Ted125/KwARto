@@ -91,8 +91,9 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background">
-									<img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>">
+								<div class="single_product_image container">
+									<img class="single_product_image_background" style="background-size: contain;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>>
+									<!-- <img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>"> -->
 								</div>
 							</div>
 						</div>
@@ -186,7 +187,7 @@
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>
@@ -682,6 +683,20 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
+
+	var thumbs = $('.single_product_thumbnails ul li');
+	var singleImage = $('.single_product_image_background');
+	var cnt =0;
+	thumbs.each(function()
+	{
+		var item = $(this);
+		if(cnt == 0){
+			var img = item.find('img').data('image');
+			singleImage.css('background-image', 'url(' + img + ')');
+			cnt++;
+		}
+	});
+
     $("#1Star").click(function(){
         $("#ratingValue").val(1);
     });
