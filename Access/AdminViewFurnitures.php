@@ -2,6 +2,7 @@
   $color = $cAvail = $cSold = $cHold = "#333333";
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
   $live = ($row['live'] == 1)?"Yes":"No";
+  $status = ($row['status'] == 1)?"Active":"Banned";
   $cAvail = ($qtyAvail['available_stock'] == 0)?"#FF0000":"#9ACD32";
   $cSold = ($qtySold['sold_stock'] == 0)?"#FF0000":"";
   $cHold = ($qtyHold['on_hold_stock'] == 0)?"#FF0000":"#DAA520";
@@ -39,7 +40,7 @@
   <!-- Modal Contents for Row -->
   <div class="modal fade" id="mrowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content " style="width: 600px;">
+        <div class="modal-content " style="width: 700px;">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Furniture Details</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -52,15 +53,22 @@
                 <img src="<?php echo $row['image'];?>" id = "pendingpics">
               </div>
               <div class="col-7">
-              <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;"></h5><?php echo $row['userId'];?></h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>Seller ID: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['sellerId'];?></h5> </h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>Company Name: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['name'];?></h5> </h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>User Type: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userType'];?></h5> </h5></div>
-              <div class="row" style="pFadding-left: 20px;"><h5>User Status:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['userStatus'];?></h5> </h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['email'];?></h5></h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>Phone Number: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['mobileNumber'];?></h5></h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['dateAdded'];?></h5></h5></div>
-              <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">12<?php echo $row['addedBy'];?>3123</h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Furniture ID: <h5  style="font-weight: normal; padding-left: 5px;"></h5><?php echo $row['furnitureId'];?></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Seller Name: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['sellerName'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Furniture Name: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['furnitureName'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Furniture Description: <h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['furnitureDesc'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Warranty Policy:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['warrantyName'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Model:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['model'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Model Name:<h5 style="font-weight: normal; padding-left: 5px;"><?php echo $row['modelName'];?></h5> </h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Weight: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['weight']." ".$row['weightUnit'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Size: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['length']."x".$row['width']."x".$row['height']." ".$row['sizeUnit'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Package Size: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['packageLength']."x".$row['packageWidth']."x".$row['packageHeight']." ".$row['packageSizeUnit'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Price: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['price'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Discount: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['discount'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Sale: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['saleStart']."-".$row['saleEnd'];?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Live: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $live;?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Status: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $status;?></h5></h5></div>
+              <div class="row" style="padding-left: 20px;"><h5>Category: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['categoryName'];?></h5></h5></div>
             </div>
           </div>
         </div>

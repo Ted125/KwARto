@@ -35,6 +35,7 @@ class furniture{
     private $saleStart;
     private $saleEnd;
     private $live;
+    private $status;
     private $categoryId;
     private $sellerId;
     private $versionOf;
@@ -168,9 +169,8 @@ class furniture{
             f.furnitureId AS furnitureId,
             s.name AS sellerName,
             f.name AS furnitureName,
-            s.description AS sellerDesc,
             f.description AS furnitureDesc,
-            f.warrantyId,
+            w.name AS warrantyName,
             f.model,
             f.color,
             f.weight,
@@ -189,10 +189,15 @@ class furniture{
             f.saleStart,
             f.saleEnd,
             f.live,
-            f.categoryId,
+            f.status,
+            c.name AS categoryName,
             f.sellerId AS sellerId,
             f.versionOf
-            FROM  furniture f INNER JOIN seller s ON f.sellerId = s.sellerId 
+            FROM  furniture f 
+            INNER JOIN seller s ON f.sellerId = s.sellerId
+            INNER JOIN category c ON f.categoryId = c.categoryId 
+            INNER JOIN warranty w ON w.warrantyId = f.warrantyId
+            INNER JOIN furniture_image fi ON fi.furnitureId = f.furnitureId AND fi.thumbnail = '1'
             ";
             $result = mysqli_query($connection, $query);
             
@@ -528,6 +533,14 @@ class furniture{
 
     public function setLive($live){
         $this->live = $live;
+    }
+
+    public function getStatus(){
+        return $this->status;
+    }
+
+    public function setStatus($live){
+        $this->status = $status;
     }
 
     public function getStockId(){
