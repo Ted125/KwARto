@@ -1,16 +1,19 @@
 <?php
-  $color = "#333333";
+  $color = $cAvail = $cSold = $cHold = "#333333";
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
   $live = ($row['live'] == 1)?"Yes":"No";
+  $cAvail = ($qtyAvail['available_stock'] == 0)?"#FF0000":"#9ACD32";
+  $cSold = ($qtySold['sold_stock'] == 0)?"#FF0000":"";
+  $cHold = ($qtyHold['on_hold_stock'] == 0)?"#FF0000":"#DAA520";
 ?>
 <tr>
   <th scope="row"><?php echo $count;?></th>
   <td data-toggle="modal" data-target="#mrowModal"><?php echo $row['furnitureName'];?></td>
-  <td data-toggle="modal" data-target="#mrowModal"><?php echo $qtyAvail['available_stock']?></td>
-  <td data-toggle="modal" data-target="#mrowModal"><?php echo $qtySold['sold_stock']?></td>
-  <td data-toggle="modal" data-target="#mrowModal"><?php echo $qtyHold['on_hold_stock']?></td>
+  <td data-toggle="modal" data-target="#mrowModal" style = "color:<?php echo $cAvail?>;"><?php echo $qtyAvail['available_stock']?></td>
+  <td data-toggle="modal" data-target="#mrowModal" style = "color:<?php echo $cSold?>;"><?php echo $qtySold['sold_stock']?></td>
+  <td data-toggle="modal" data-target="#mrowModal" style = "color:<?php echo $cHold?>;"><?php echo $qtyHold['on_hold_stock']?></td>
   <td data-toggle="modal" data-target="#mrowModal">P <?php echo $row['price'];?></td>
-  <td data-toggle="modal" data-target="#mrowModal" style = "color:<?php echo $color?>;" ;?><?php echo $live?></td>
+  <td data-toggle="modal" data-target="#mrowModal" style = "color:<?php echo $color?>;"><?php echo $live?></td>
   <td>
     <button type="button" data-toggle="modal" data-target="#banModal" class="btn btn-primary">Ban Furniture</button>
     <!-- Modal-->
