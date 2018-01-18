@@ -50,8 +50,14 @@
 						<div class="sidebar_title">
 							<h5>Product Categories</h5>
 						</div>
-						<ul id = "searchCategories" class="sidebar_categories">
-						</ul>
+						<!-- I am just a suggestion -->
+						<div class="text-center" style="color: #d42d2d">
+							<i class="fa fa-minus"></i><a href="#demo" style="color: black; text-decoration: none;" data-toggle="collapse">  Minimize Categories</a>
+						</div>
+						<div id="demo" class="collapse show">
+							<!-- I would apply collapse here but categories have no differentiation for parent/child/grandchild -->
+							<ul id = "searchCategories" class="sidebar_categories"></ul>					
+						</div>
 					</div>
 
 					<div class="sidebar_section">
