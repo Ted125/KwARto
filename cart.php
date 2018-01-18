@@ -40,8 +40,8 @@
 			</div>
 		</div>
 
-		<h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Order Summary</h2>
-		<h4>Your shopping cart contains: <span style="color: #d42d2d">2</span> Products</h4>
+		<h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Your Cart</h2>
+		<!-- <h4>Your shopping cart contains: <span style="color: #d42d2d">2</span> Products</h4> -->
 				<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 					<thead>
 						<tr style="text-align: center;">
@@ -59,12 +59,16 @@
 					</tbody></table>
 
 				<div style="margin-top: 20px;" class="text-right">
-					<h5>Subtotal: <span style="color: #d42d2d">P1,390.00</span> + 7% Fee</h5>
-					<h5>Transaction Fee: <span style="color: #d42d2d">P97.30</h5>
-					<h4>Your total balance is: <span style="color: #d42d2d">P1,487.30</span></h4>
+					<h5>Subtotal: <span id = "subtotalFeeText" style="color: #d42d2d" value = 0>Php 0</span> (Tax Inclusive)</h5>
+					<h5>Shipping Fee: <span id = "shippingFeeText" style="color: #d42d2d" value = 0>Php 0</h5>
+					<h4>Your total balance is: <span id = "totalFeeText" style="color: #d42d2d" value = 0>Php 0</span></h4>
 					<div class="red_button" style="width: 150px"><a href="payment.php">Proceed to Checkout</a></div>
 				</div>
 
+				<!-- Selected Furniture Form -->
+				<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+					<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+				</form>
 
 				<!-- MODAL CONTENTS -->
                 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
@@ -264,7 +268,38 @@
 <script type = "text/javascript">
 
 $(document).ready(function(){
-	LoadCartItems();
+	var fId = "<?php if(isset($_POST['furnitureId'])){
+		echo $_POST['furnitureId'];
+	}else{
+		echo '-1';
+	} ?>";
+
+	fId = parseInt(fId);
+
+	if(fId != -1){
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+		$.ajax({
+			type: "POST",
+			url: "Ajax/GetAvailableFurnitureStock.php",
+			dataType: "json",
+			data: {
+				"furnitureId" : fId
+			},
+			success: function(result) {
+				if(result[0] != null){
+					UpdateFurnitureStock("on_hold", customerId, result[0].stockId);
+				}else{
+					LoadCartItems();
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	}else{
+		LoadCartItems();
+	}
 
 	$("#cartItemsContainer").on("click", ".addCartItemButton", function(){
 		var furnitureId = $(this).closest(".cartItem").attr("name");
@@ -314,6 +349,23 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$("#cartItemsContainer").on("click", ".removeFromCartButton", function(){
+		var furnitureId = $(this).closest(".cartItem").attr("name");
+		RemoveFromCart(furnitureId);
+	});
+
+	$("#cartItemsContainer").on("click", ".productName", function(){
+		var id = $(this).closest(".cartItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#cartItemsContainer").on("click", ".productImage", function(){
+		var id = $(this).closest(".cartItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
 });
 
 function UpdateFurnitureStock(status, customerId, stockId){
@@ -349,18 +401,109 @@ function LoadCartItems(){
 		},
 		success: function(result) {
 			var count = 0;
+			var dimWeight = 0;
 
 			result.forEach(function(item){
 				count++;
+				dimWeight += parseInt(item.totalWeight);
 
-				var cartEntry = "<tr class='cartItem' name = '" + item.furnitureId + "'><td class=''>" + count + "</td><td class=''><a><img style='max-height: 140px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.image + "' alt=' ' class='img-responsive'></a></td><td class=''><div class='' style='text-align: -webkit-center'><div class='form-group form-group-options'><div class='input-group input-group-option' style='width: 130px;'><span class='removeCartItemButton input-group-addon input-group-addon-remove btn'><span class='fa fa-minus'></span></span><input type='text' class='cartItemQuantity form-control' style='text-align: center;' value='" + item.numItems + "'><span class='addCartItemButton input-group-addon btn'><span class='fa fa-plus'></span></span></div></div></div></td><td class=''>" + item.name + "</td><td class=''>Php&nbsp;";
+				var cartEntry = "<tr class='cartItem' name = '" + item.furnitureId + "'><td class=''>" + count + "</td><td class=''><a><img class='productImage' style='max-height: 140px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.image + "' alt=' ' class='img-responsive'></a></td><td class=''><div class='' style='text-align: -webkit-center'><div class='form-group form-group-options'><div class='input-group input-group-option' style='width: 130px;'><span class='removeCartItemButton input-group-addon input-group-addon-remove btn'><span class='fa fa-minus'></span></span><input type='text' class='cartItemQuantity form-control' style='text-align: center;' value='" + item.numItems + "'><span class='addCartItemButton input-group-addon btn'><span class='fa fa-plus'></span></span></div></div></div></td><td class='productName'>" + item.name + "</td><td class=''>Php&nbsp;";
 
-				 cartEntry += (item.price * (1 - item.discount / 100)).toString();
+				 cartEntry += (item.price * (1 - item.discount / 100)).toFixed(2).replace(/./g, function(c, i, a) {
+	 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	 			});
 
-				 cartEntry += "</td><td class='' style='text-align:  center;'><div class='red_button' data-toggle='modal' data-target='#cartdia1' style='width: 150px; margin-top: 10px;'><a href='#'>move to wishlist</a></div><br><div class='red_button' data-toggle='modal' data-target='#cartdia2' style='width: 150px; background-color: #444; margin-top: 10px;'><a href='#'>remove from list</a></div>";
+				 cartEntry += "</td><td class='' style='text-align:  center;'><div class='red_button' data-toggle='modal' data-target='#cartdia1' style='width: 150px; margin-top: 10px;'><a href='#'>move to wishlist</a></div><br><div class='removeFromCartButton red_button' data-toggle='modal' data-target='#cartdia2' style='width: 150px; background-color: #444; margin-top: 10px;'><a href='#'>remove from list</a></div>";
 
 				 $("#cartItemsContainer").append(cartEntry);
 			});
+
+			CalculateSubtotalFee(dimWeight);
+		},
+		error: function(result) {
+
+		}
+	});
+}
+
+function CalculateSubtotalFee(dimWeight){
+	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+	$.ajax({
+		type: "POST",
+		url: "Ajax/GetSubtotalCartPrice.php",
+		dataType: "json",
+		data: {
+			"customerId" : customerId
+		},
+		success: function(result) {
+			var subtotal = parseFloat(result[0].total);
+			var tax = 7;	// 7 %
+
+			$("#subtotalFeeText").attr("value", (subtotal + subtotal * (tax / 100)));
+
+			subtotal = (subtotal + subtotal * (tax / 100)).toFixed(2).replace(/./g, function(c, i, a) {
+			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+			});
+
+			$("#subtotalFeeText").text("Php " + subtotal);
+			CalculateShippingFee(dimWeight);
+		},
+		error: function(result) {
+			$("#subtotalFeeText").attr("value", 0);
+			$("#subtotalFeeText").text("Php 0");
+			CalculateShippingFee(dimWeight);
+		}
+	});
+}
+
+function CalculateShippingFee(totalWeight){
+	$.ajax({
+		type: "POST",
+		url: "Ajax/CalculateShippingFee.php",
+		data: {
+			"dimWeight" : totalWeight
+		},
+		success: function(result) {
+			$("#shippingFeeText").attr("value", result);
+
+			var shippingFee = parseFloat(result).toFixed(2).replace(/./g, function(c, i, a) {
+			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+			});
+
+			$("#shippingFeeText").text("Php " + shippingFee);
+			CalculateTotalFee();
+		},
+		error: function(result) {
+			$("#shippingFeeText").attr("value", 0);
+			$("#shippingFeeText").text("Php 0");
+			CalculateTotalFee();
+		}
+	});
+}
+
+function CalculateTotalFee(){
+	var subtotalFee = parseFloat($("#subtotalFeeText").attr("value"));
+	var shippingFee = parseFloat($("#shippingFeeText").attr("value"));
+
+	var totalFee = (subtotalFee + shippingFee).toFixed(2).replace(/./g, function(c, i, a) {
+			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	});
+	$("#totalFeeText").text("Php " + totalFee);
+}
+
+function RemoveFromCart(furnitureId){
+	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+	$.ajax({
+		type: "POST",
+		url: "Ajax/RemoveCartItem.php",
+		data: {
+			"furnitureId" : furnitureId,
+			"customerId" : customerId
+		},
+		success: function(result) {
+			LoadCartItems();
 		},
 		error: function(result) {
 

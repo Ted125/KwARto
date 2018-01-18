@@ -110,6 +110,10 @@
 					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
 						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 					</form>
+					<!-- Cart Form -->
+					<form id = "cartForm" action = "cart.php" method = "POST">
+						<input id = "cartItemField" type = "hidden" name = "furnitureId">
+					</form>
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<?php
@@ -200,7 +204,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+									<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 								</div>
 
 						<?php
@@ -630,6 +634,12 @@ $(document).ready(function(){
 		var id = $(this).attr("name");
 		$("#selectedFurnitureField").val(id);
 		$("#selectedFurnitureForm").submit();
+	});
+
+	$(".add_to_cart_button").on("click", function(){
+		var id = $(this).parent().find(".product_name").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
 	});
 });
 </script>
