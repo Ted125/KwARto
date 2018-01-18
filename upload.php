@@ -251,6 +251,10 @@
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Category Selection</strong></h3>
                           <div class="form-group">       
+                            <label>Category Name</label>
+                            <input type="text" placeholder="Enter Category Name..." class="form-control" name="newPrice">
+                          </div>
+                          <div class="form-group">       
                             <label>Category</label>
                             <select class="form-control" name="newCategory">
                               <option>Furniture Items</option>
