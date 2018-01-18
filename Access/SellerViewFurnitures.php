@@ -12,8 +12,9 @@
   <td><?php echo $row['price'];?></td>
   <td style = "color:<?php echo $color?>;" ><?php echo $live;?></td>
   <td>
-    <form method="post" action="">
+    <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="status" />
+      <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
       <button type="submit" class="btn btn-primary"><?php echo $act;?></button>
     </form>
     <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary">Edit</button>
@@ -28,8 +29,8 @@
           <div class="modal-body">
             <form method="post" action="#">
               <div class="form-group">
-                <label>Status</label><br>
-                <h2 style = "color:<?php echo $color?>;"><?php echo $status;?></h2>
+                <label>Live</label><br>
+                <h2 style = "color:<?php echo $color?>;"><?php echo $live;?></h2>
               </div>
               <div class="form-group">
                 <label>Name</label>

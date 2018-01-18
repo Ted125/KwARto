@@ -212,9 +212,11 @@ class furniture{
     }
 
     public function activateFurniture($furnitureId){
-        if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+        require("Database.php");
+        if(isset($_SESSION['userType'])){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
@@ -224,7 +226,9 @@ class furniture{
                     SET live = '1'
                     WHERE furnitureId = '".$this->getFurnitureId()."'
                     ";
-                    $result = mysqli_query($mysqli, $query);
+                    $result = mysqli_query($connection, $query);
+
+                    return $result;
                 }else{
                     echo 'no connection';
                 }
@@ -234,13 +238,15 @@ class furniture{
         }else{
             echo 'no session';
         }
-    return $result;
+    return null;
     }
 
     public function deactivateFurniture($furnitureId){
-        if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+        require("Database.php");
+        if(isset($_SESSION['userType'])){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
@@ -250,7 +256,9 @@ class furniture{
                     SET live = '0'
                     WHERE furnitureId = '".$this->getFurnitureId()."'
                     ";
-                    $result = mysqli_query($mysqli, $query);
+                    $result = mysqli_query($connection, $query);
+
+                    return $result;
                 }else{
                     echo 'no connection';
                 }
@@ -260,13 +268,14 @@ class furniture{
         }else{
             echo 'no session';
         }
-    return $result;
+    return null;
     }
 
     public function banFurniture($furnitureId){
         if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'admin') == 0){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'admin') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
@@ -276,7 +285,7 @@ class furniture{
                     SET status = '0'
                     WHERE furnitureId = '".$this->getFurnitureId()."'
                     ";
-                    $result = mysqli_query($mysqli, $delete);
+                    $result = mysqli_query($connection, $query);
                 }else{
                     echo 'no connection';
                 }
@@ -291,8 +300,9 @@ class furniture{
 
     public function unbanFurniture($furnitureId){
         if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'admin') == 0){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'admin') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
@@ -302,7 +312,7 @@ class furniture{
                     SET status = '1'
                     WHERE furnitureId = '".$this->getFurnitureId()."'
                     ";
-                    $result = mysqli_query($mysqli, $delete);
+                    $result = mysqli_query($connection, $query);
                 }else{
                     echo 'no connection';
                 }

@@ -1,11 +1,16 @@
 <?php
   require_once("../Models/furnitureCRUD.php");
 
-  //session_start();
+  session_start();
   
   $furn = new furniture();
 
-  $verify = $furn->activateFurniture();
+  if(strcmp($_POST['status'], '1') == 0){
+    $verify = $furn->deactivateFurniture($_POST['furnitureId']);
+  } else {
+    $verify = $furn->activateFurniture($_POST['furnitureId']);
+  }
+  
 
   if($verify != null){
     
@@ -16,5 +21,5 @@
     echo "Invalid credentials or not activated";
   }
 
- //header( "Location: http://localhost/capstone-project/" );
+  header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>
