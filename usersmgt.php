@@ -116,7 +116,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Pending Users List</h3>
+                      <h3 class="h4">Pending Manufacturers List</h3>
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
