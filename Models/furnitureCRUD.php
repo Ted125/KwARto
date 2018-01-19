@@ -273,7 +273,7 @@ class furniture{
                     $this->setFurnitureId($furnitureId);
                     $query = "UPDATE furniture
                     SET live = '1'
-                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    WHERE furnitureId = '".$this->getFurnitureId()."' AND status != 0
                     ";
                     $result = mysqli_query($connection, $query);
 

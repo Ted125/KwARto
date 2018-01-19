@@ -14,7 +14,7 @@
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-                <h6>User Name: <?php echo $row['name']?></h6>
+                <h6>Name: <?php echo $row['name']?></h6>
                 <h6>E-mail Address: <?php echo $row['email']?></h6>
                 <h6>Content:</h6><p style="margin-left: 20px;"><?php echo $row['body']?></p>
                 <?php //<h6>Write a response:</h6>

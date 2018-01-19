@@ -4,9 +4,12 @@
   $live = ($row['live'] == 1)?"Yes":"No";
   $scolor = ($row['status'] == 1)?"#9ACD32":"#FF0000";
   $status = ($row['status'] == 1)?"Approved":"Banned";
-  $cAvail = ($qtyAvail['available_stock'] == 0)?"#FF0000":"#9ACD32";
-  $cSold = ($qtySold['sold_stock'] == 0)?"#FF0000":"";
-  $cHold = ($qtyHold['on_hold_stock'] == 0)?"#FF0000":"#DAA520";
+  $cAvail = ($qtyAvail['available_stock'] == 0)?"#FF0000":"";
+  $cAvail = ($qtyAvail['available_stock'] > 5)?"#9ACD32":$cAvail;
+  $cSold = ($qtySold['sold_stock'] == 0)?"#FF0000":"DAA520";
+  $cSold = ($qtySold['sold_stock'] >= 20)?"#9ACD32":$cSold;
+  $cHold = ($qtyHold['on_hold_stock'] == 0)?"#9ACD32":"#DAA520";
+  $cHold = ($qtyHold['on_hold_stock'] > 20)?"#FF0000":$cHold;
 ?>
 <tr>
   <th scope="row"><?php echo $count;?></th>

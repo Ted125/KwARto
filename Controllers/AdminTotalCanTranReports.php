@@ -7,7 +7,7 @@
     if($connection){
         $query = "SELECT count(*) as pending_trans 
                   FROM customer_order 
-                  WHERE state = 'pending' OR paid = 0
+                  WHERE cancelled = 1
                   ";
         $result = mysqli_query($connection, $query);
         mysqli_close($connection);
