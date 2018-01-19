@@ -17,7 +17,8 @@ if ($verify != null || $verify >= 0) {
 
   $furnImg = new furniture_image();
   $fiName = $furnImg->countAllImages($uploaddir);
-  $uploadfile = $uploaddir . basename("1") . $fileExtension;
+  $uploadfile = $uploaddir . basename((string)$fiName) . $fileExtension;
+  echo "THE FILE NAME WILL BE ".$fiName;
 
   if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '\Capstone-Project\Resources\Models\\'.$verify.'\\')) {
     mkdir($_SERVER['DOCUMENT_ROOT'] . '\Capstone-Project\Resources\Models\\'.$verify.'\\', 0777, true);

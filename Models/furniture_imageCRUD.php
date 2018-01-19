@@ -128,7 +128,7 @@ class furniture_image{
         $fi = new FilesystemIterator($link, FilesystemIterator::SKIP_DOTS);
         printf("There were %d Files", iterator_count($fi));
 
-        return $fi;
+        return iterator_count($fi)+1;
     }
     /************ SETTERS AND GETTERS ************/
     
