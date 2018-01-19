@@ -28,7 +28,7 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                        <form  method = "post" action = "Controllers/activateUser.php">
+                                        <form  method = "post" action = "Controllers/ActivateUser.php">
                                         <input type = "hidden" name = "userId" value = '.$row['userId'].' />
                                         <input type = "submit" class="btn btn-primary" value = "Yes"/>
                                         </form>
