@@ -3,6 +3,8 @@
   $live = ($row['live'] == 1)?"Yes":"No";
   $status = ($row['live'] == 1)?"Live":"Not Live";
   $act = ($row['live'] == 1)?"Deactivate":"Activate";
+  $ban = ($row['status'] == 0)?"disabled":" ";
+  $ban_warn = ($row['status'] == 0)?"Banned": $act;
 ?>
 <tr>
   <?php include('Controllers/SellerGetAvailableStock.php');?>
@@ -16,7 +18,7 @@
     <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="live" />
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
-      <button type="submit" class="btn btn-primary"><?php echo $act;?></button>
+      <button type="submit" class="btn btn-primary" <?php echo $ban;?> ><?php echo $ban_warn;?></button>
     </form>
     <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary fa fa-list"></button>
     <!-- Modal-->
