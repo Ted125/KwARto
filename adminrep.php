@@ -114,10 +114,10 @@
                     <div class="icon bg-violet"><i class="icon-user"></i></div>
                     <div class="title"><span>New<br>Users</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminNewCustReports.php')?>%; height: 4px;" aria-valuenow="<?php include('Controllers/AdminNewCustReports.php')?>  " aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>29</strong></div>
+                    <div class="number"><strong><?php include('Controllers/AdminNewCustReports.php')?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -126,10 +126,10 @@
                     <div class="icon bg-red"><i class="icon-check"></i></div>
                     <div class="title"><span>Pending<br>Transactions</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminPendTranReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>70</strong></div>
+                    <div class="number"><strong><?php include('Controllers/AdminPendTranReports.php')?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -138,10 +138,10 @@
                     <div class="icon bg-green"><i class="icon-bill"></i></div>
                     <div class="title"><span>Added<br>Manufacturers</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminNewManuReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>40</strong></div>
+                    <div class="number"><strong><?php include('Controllers/AdminNewManuReports.php')?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -150,10 +150,10 @@
                     <div class="icon bg-orange"><i class="icon-padnote"></i></div>
                     <div class="title"><span>Pending<br>Manufacturers</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminPendManuReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>50</strong></div>
+                    <div class="number"><strong><?php include('Controllers/AdminPendManuReports.php')?></strong></div>
                   </div>
                 </div>
               </div>
@@ -177,19 +177,19 @@
                 <div class="statistics col-lg-4 col-12">
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-red"><i class="fa fa-bed"></i></div>
-                    <div class="text"><strong>234</strong><br><small>Added Products</small></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalProdReports.php')?></strong><br><small>Added Products</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-green"><i class="fa fa-rub"></i></div>
-                    <div class="text"><strong>152</strong><br><small>Completed Transactions</small></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalComTranReports.php')?></strong><br><small>Completed Transactions</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-orange"><i class="fa fa-mail-reply"></i></div>
-                    <div class="text"><strong>10</strong><br><small>Product Returns</small></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalCanTranReports.php')?></strong><br><small>Product Returns</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
-                    <div class="text"><strong>55</strong><br><small>User Reviews</small></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalReviewsReports.php')?></strong><br><small>User Reviews</small></div>
                   </div>
                 </div>
                 
@@ -211,153 +211,6 @@
                     </div>
                     <div class="card-body">
                       <canvas id="lineChartExample2"></canvas>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-12">
-                  <div class="card">
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">User Questions/Complaints</h3>
-                    </div>
-                    <div class="card-body">
-                      <table class="table table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>User Name</th>
-                            <th>E-mail Address</th>
-                            <th>Date Submitted</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>John Smith</td>
-                            <td>name@user.com</td>
-                            <td>December 01, 2017</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModalc1" class="btn btn-primary">View</button>
-                              <!-- Modal-->
-                              <div id="myModalc1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <h6>User Name: John Smith</h6>
-                                      <h6>E-mail Address: name@user.com</h6>
-                                      <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                      <h6>Write a response:</h6>
-                                      <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                      <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jane Does</td>
-                            <td>name@user.com</td>
-                            <td>December 02, 2017</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModalc2" class="btn btn-primary">View</button>
-                              <!-- Modal-->
-                              <div id="myModalc2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <h6>User Name: John Smith</h6>
-                                      <h6>E-mail Address: name@user.com</h6>
-                                      <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                      <h6>Write a response:</h6>
-                                      <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                      <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Adam Llemore</td>
-                            <td>name@user.com</td>
-                            <td>January 03, 2018</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModalc3" class="btn btn-primary">View</button>
-                              <!-- Modal-->
-                              <div id="myModalc3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <h6>User Name: John Smith</h6>
-                                      <h6>E-mail Address: name@user.com</h6>
-                                      <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                      <h6>Write a response:</h6>
-                                      <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                      <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>John Doe</td>
-                            <td>name@user.com</td>
-                            <td>January 02, 2018</td>
-                            <td>
-                              <button type="button" data-toggle="modal" data-target="#myModalc4" class="btn btn-primary">View</button>
-                              <!-- Modal-->
-                              <div id="myModalc4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                <div role="document" class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <h6>User Name: John Smith</h6>
-                                      <h6>E-mail Address: name@user.com</h6>
-                                      <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                      <h6>Write a response:</h6>
-                                      <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                      <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
                     </div>
                   </div>
                 </div> 

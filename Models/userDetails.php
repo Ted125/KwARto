@@ -419,6 +419,7 @@ class user_details{
     }
 
     public function displayUser($userId){
+        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $this->setUserId($userId);
@@ -447,9 +448,9 @@ class user_details{
     }
 
     public function countNewCustomers(){
+        require_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
-        $this->setUserId($userId);
         $result = null;
         if($connection){
             $query = "SELECT count(*) as new_customers FROM user_details WHERE userType = 'customer'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
@@ -462,12 +463,29 @@ class user_details{
     }
 
     public function countNewSellers(){
+        require_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
-        $this->setUserId($userId);
         $result = null;
         if($connection){
             $query = "SELECT count(*) as new_sellers FROM user_details WHERE userType = 'seller'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
+        }
+        return $result;
+    }
+
+    public function countPendingSellers(){
+        require_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as pend_sellers 
+                      FROM user_details 
+                      WHERE userStatus ='inactive'  AND userType = 'seller'";
             $result = mysqli_query($connection, $query);
             mysqli_close($connection);  
         }else{
