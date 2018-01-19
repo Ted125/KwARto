@@ -62,12 +62,19 @@
 					<h5>Subtotal: <span id = "subtotalFeeText" style="color: #d42d2d" value = 0>Php 0</span> (Tax Inclusive)</h5>
 					<h5>Shipping Fee: <span id = "shippingFeeText" style="color: #d42d2d" value = 0>Php 0</h5>
 					<h4>Your total balance is: <span id = "totalFeeText" style="color: #d42d2d" value = 0>Php 0</span></h4>
-					<div class="red_button" style="width: 150px"><a href="payment.php">Proceed to Checkout</a></div>
+					<div id = "checkoutButton" class="red_button" style="width: 150px"><a>Proceed to Checkout</a></div>
 				</div>
 
 				<!-- Selected Furniture Form -->
 				<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
 					<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+				</form>
+
+				<!-- Checkout Form -->
+				<form id = "checkoutForm" type = "hidden" action = "payment.php" method = "POST">
+					<input id = "inputSubtotalFee" type = "hidden" name = "subtotalFee">
+					<input id = "inputShippingFee" type = "hidden" name = "shippingFee">
+					<input id = "inputTotalFee" type = "hidden" name = "totalFee">
 				</form>
 
 				<!-- MODAL CONTENTS -->
@@ -366,6 +373,10 @@ $(document).ready(function(){
 		$("#selectedFurnitureField").val(id);
 		$("#selectedFurnitureForm").submit();
 	});
+
+	$("#checkoutButton").on("click", function(){
+		$("#checkoutForm").submit();
+	});
 });
 
 function UpdateFurnitureStock(status, customerId, stockId){
@@ -441,6 +452,7 @@ function CalculateSubtotalFee(dimWeight){
 			var tax = 7;	// 7 %
 
 			$("#subtotalFeeText").attr("value", (subtotal + subtotal * (tax / 100)));
+			$("#inputSubtotalFee").val(subtotal);
 
 			subtotal = (subtotal + subtotal * (tax / 100)).toFixed(2).replace(/./g, function(c, i, a) {
 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
@@ -466,6 +478,7 @@ function CalculateShippingFee(totalWeight){
 		},
 		success: function(result) {
 			$("#shippingFeeText").attr("value", result);
+			$("#inputShippingFee").val(result);
 
 			var shippingFee = parseFloat(result).toFixed(2).replace(/./g, function(c, i, a) {
 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
@@ -485,6 +498,8 @@ function CalculateShippingFee(totalWeight){
 function CalculateTotalFee(){
 	var subtotalFee = parseFloat($("#subtotalFeeText").attr("value"));
 	var shippingFee = parseFloat($("#shippingFeeText").attr("value"));
+
+	$("#inputTotalFee").val(subtotalFee + shippingFee);
 
 	var totalFee = (subtotalFee + shippingFee).toFixed(2).replace(/./g, function(c, i, a) {
 			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;

@@ -628,7 +628,7 @@
 </body>
 
 </html>
-<script = "text/javascript">
+<script type = "text/javascript">
 $(document).ready(function(){
 	$(".product_name").on("click", function(){
 		var id = $(this).attr("name");

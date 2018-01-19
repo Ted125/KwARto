@@ -1,4 +1,7 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
@@ -25,8 +28,8 @@ n<!DOCTYPE html>
 <div class="super_container">
 
 	<!-- NAVBAR HERE -->
-	<?php include('Access/Navbar.php');?>	
-	
+	<?php include('Access/Navbar.php');?>
+
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -40,6 +43,24 @@ n<!DOCTYPE html>
 
 			</div>
 		</div>
+	<form id = "addOrderForm" action = "Controllers/AddOrder.php" method = "post">
+		<input id = "inputOrderNumber" name = "orderNumber" type = "hidden">
+		<input id = "inputShippingContactPerson" name = "shippingContactPerson" type = "hidden">
+		<input id = "inputShippingAddress" name = "shippingAddress" type = "hidden">
+		<input id = "inputShippingLocationId" name = "shippingLocationId" type = "hidden">
+		<input id = "inputShippingContactNumber" name = "shippingContactNumber" type = "hidden">
+		<input id = "inputBillingContactPerson" name = "billingContactPerson" type = "hidden">
+		<input id = "inputBillingAddress" name = "billingAddress" type = "hidden">
+		<input id = "inputBillingLocationId" name = "billingLocationId" type = "hidden">
+		<input id = "inputBillingContactNumber" name = "billingContactNumber" type = "hidden">
+		<input id = "inputDiscount" name = "discount" type = "hidden">
+		<input id = "inputTax" name = "tax" type = "hidden">
+		<input id = "inputSubtotalFee" name = "subtotalFee" type = "hidden">
+		<input id = "inputShippingFee" name = "shippingFee" type = "hidden">
+		<input id = "inputTotalFee" name = "totalFee" type = "hidden">
+		<input id = "inputCustomerId" name = "customerId" type = "hidden">
+		<input id = "inputPaymentId" name = "paymentId" type = "hidden">
+	</form>
 
 	<div class="blogs">
 		<div class="container">
@@ -48,54 +69,42 @@ n<!DOCTYPE html>
 			<h3>Ship to:</h3>
 	          <form>
 	          	<div class="form-group">
-	              <p>Please review all information before proceeding.</p>       
+	              <p>Please review all information before proceeding.</p>
 	            </div>
 	            <div class="form-group">
-	              <label>Full Name</label>
-	              <input type="text" value="Juan de la Cruz" class="form-control">
+	              <label>Contact Person</label>
+	              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
 	            </div>
-	            <div class="form-group">       
-	              <label>Complete Address (House Number, Building and Street Name)</label>
-	              <textarea class="form-control" rows="3" id="address" >12B, ABC Blg, 123 Internet St.</textarea>
-	            </div>
-	            <div class="form-group">       
-	              <label>Province</label>
-	              <select name="account" class="form-control">
-	                <option>Province</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
-	              <label>City/Municipality</label>
-	              <select name="account" class="form-control">
-	                <option>City/Municipality</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
-	              <label>Barangay</label>
-	              <select name="account" class="form-control">
-	                <option>Barangay</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
+							<div class="form-group">
 	              <label>Mobile Number</label>
-	              <input type="text" value="+63 912 345 6789" class="form-control">
+	              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
+	            </div>
+	            <div class="form-group">
+	              <label>Complete Address</label>
+	              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
+	            </div>
+	            <div class="form-group">
+	              <label>Province</label>
+	              <select id = "selectProvince" name="account" class="form-control">
+	              </select>
+	            </div>
+	            <div class="form-group">
+	              <label>City/Municipality</label>
+	              <select id = "selectCity" name="account" class="form-control">
+	              </select>
+	            </div>
+	            <div class="form-group">
+	              <label>Barangay</label>
+	              <select id = "selectBarangay" name="account" class="form-control">
+	              </select>
 	            </div>
 	            <div class="form-check" style="margin-left: 20px;">
-				    <input type="checkbox" class="form-check-input" id="diffAd">
-				    <label class="form-check-label" for="diffAd">Bill to a different address</label>
+				    <!-- <input type="checkbox" class="form-check-input" id="diffAd">
+				    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
 				</div>
 	        </form>
 
-	        
+
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title">
@@ -125,7 +134,7 @@ n<!DOCTYPE html>
 						</div>
 					</div>
 					<div class="col-lg-4 blog_item_col">
-						<div class="blog_item"> 
+						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Paypal</h4>
@@ -137,9 +146,9 @@ n<!DOCTYPE html>
 				</div>
 		</div>
 	</div>
-		
+
 	</div>
-	
+
 
 	<div class="benefit">
 		<div class="container">
@@ -238,7 +247,7 @@ n<!DOCTYPE html>
 			</div>
 		</div>
 	</footer>
-	
+
 	<!-- MODAL CONTENTS -->
 	<!-- CASH ON DELIVERY -->
 	<div id="codmodal" tabindex="-1" role="dialog" aria-labelledby="codmodal" aria-hidden="true" class="modal fade text-left">
@@ -255,7 +264,7 @@ n<!DOCTYPE html>
 	        	<p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
 	        </div>
 	        <div class="modal-footer">
-	        	<a href="complete.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        	<a><button id = "codPlaceOrderButton" class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
 	        </div>
 	    </div>
   		</div>
@@ -335,12 +344,12 @@ n<!DOCTYPE html>
 			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
 	        </div>
 	        <div class="modal-footer">
-	        	<a href="complete.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        	<a><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
 	        </div>
 	    </div>
   		</div>
 	</div>
-  	<!-- END OF CASH ON DELIVERY -->
+  	<!-- END OF CREDIT CARD -->
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
@@ -353,3 +362,135 @@ n<!DOCTYPE html>
 </body>
 
 </html>
+<script type = "text/javascript">
+	$(document).ready(function(){
+		LoadProvinces(-1);
+
+		$("#selectProvince").on("click", ".provinceOption", function(){
+			LoadCities($("#selectProvince").find(":selected").val());
+		});
+
+		$("#selectCity").on("click", ".cityOption", function(){
+			LoadBarangays($("#selectCity").find(":selected").val());
+		});
+
+		$("#codPlaceOrderButton").on("click", function(){
+			PlaceOrder();
+		});
+	});
+
+	function LoadProvinces(parentLocationId){
+		$("#selectProvince").empty();
+
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectProvince").show();
+				$("#selectProvince option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'provinceOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectProvince").append(option);
+				});
+
+				$("#selectProvince option:first").prop("selected", "selected");
+				LoadCities($("#selectProvince").find(":selected").val());
+	    },
+	    error: function(result) {
+				$("#selectProvince").hide();
+	    }
+		});
+	}
+
+	function LoadCities(parentLocationId){
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectCity").show();
+				$("#selectCity option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'cityOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectCity").append(option);
+				});
+
+				$("#selectCity option:first").prop("selected", "selected");
+				LoadBarangays($("#selectCity").find(":selected").val());
+	    },
+	    error: function(result) {
+				$("#selectCity").hide();
+	    }
+		});
+	}
+
+	function LoadBarangays(parentLocationId){
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectBarangay").show();
+				$("#selectBarangay option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'barangayOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectBarangay").append(option);
+				});
+
+				$("#selectBarangay option:first").prop("selected", "selected");
+	    },
+	    error: function(result) {
+				$("#selectBarangay").hide();
+	    }
+		});
+	}
+
+	function PlaceOrder(){
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+		var subtotalFee = "<?php echo $_POST['subtotalFee']; ?>";
+		var shippingFee = "<?php echo $_POST['shippingFee']; ?>";
+		var totalFee = "<?php echo $_POST['totalFee']; ?>";
+
+		GenerateOrderNumber();
+
+		$("#inputShippingContactPerson").val($("#shipContactPerson").val());
+		$("#inputShippingContactNumber").val($("#shipContactNumber").val());
+		$("#inputShippingAddress").val($("#shipAddress").val());
+		$("#inputShippingLocationId").val($("#selectBarangay").find(":selected").val());
+
+		$("#inputBillingContactPerson").val($("#shipContactPerson").val());
+		$("#inputBillingContactNumber").val($("#shipContactNumber").val());
+		$("#inputBillingAddress").val($("#shipAddress").val());
+		$("#inputBillingLocationId").val($("#selectBarangay").find(":selected").val());
+
+		$("#inputDiscount").val(0);
+		$("#inputTax").val(7);
+
+		$("#inputSubtotalFee").val(subtotalFee);
+		$("#inputShippingFee").val(shippingFee);
+		$("#inputTotalFee").val(totalFee);
+
+		$("#inputCustomerId").val(customerId);
+		$("#inputPaymentId").val(1);
+
+		$("#addOrderForm").submit();
+	}
+
+	function GenerateOrderNumber(){
+		var milliseconds = (new Date).getTime().toString();
+		$("#inputOrderNumber").val(milliseconds);
+	}
+</script>
