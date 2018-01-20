@@ -1669,3 +1669,28 @@ section
 {
 	color: #d42d2d;
 }
+
+.nav2
+{
+	margin: 10px 50px 10px 50px;
+}
+
+.nav2 a
+{
+	color: #d42d2d;
+}
+
+.rightmenu a  {
+  color: #212529;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.rightmenu a strong {
+  color: #d42d2d;
+  text-decoration: none;
+}
+
+.leftcontent strong {
+	color: #d42d2d;
+}
