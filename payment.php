@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+	<?php include('Access/Header.php');?>
 <link rel="icon" href="images/icon.png">
 </head>
 
@@ -493,4 +494,18 @@
 		var milliseconds = (new Date).getTime().toString();
 		$("#inputOrderNumber").val(milliseconds);
 	}
+</script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
 </script>

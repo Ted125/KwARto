@@ -17,6 +17,7 @@ n<!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -338,6 +339,20 @@ n<!DOCTYPE html>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/single_custom.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
 </body>
 
 </html>

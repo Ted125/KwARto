@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -236,6 +237,7 @@
 							<li><a href="terms.php">Terms of Use</a></li>
 							<li><a href="privacy.php">Privacy Policy</a></li>
 							<li><a href="contact.php">Contact us</a></li>
+							<li><a href="about.php">About us</a></li>
 						</ul>
 					</div>
 				</div>
@@ -526,43 +528,18 @@ function RemoveFromCart(furnitureId){
 	});
 }
 </script>
-			<!-- Modal
-				<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-				<div role="document" class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-						<h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-						<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure you want to move this item to your wishlist?</p>
-					</div>
-					<div class="modal-footer">
-						<a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-						<button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-					</div>
-					</div>
-				</div>
-				</div>
-				<br>
-			<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-			Modal
-				<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-				<div role="document" class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-						<h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-						<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure you want to remove this item from your cart?</p>
-					</div>
-					<div class="modal-footer">
-						<a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-						<button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-					</div>
-					</div>
-				</div>
-				</div>
-</td>
-</tr> -->
+
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
