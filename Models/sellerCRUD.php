@@ -100,6 +100,7 @@
     }
 
     public function readAllPendingSellers(){
+        include_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;
