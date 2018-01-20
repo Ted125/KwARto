@@ -2,25 +2,28 @@
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
   $live = ($row['live'] == 1)?"Yes":"No";
   $status = ($row['live'] == 1)?"Live":"Not Live";
-  $act = ($row['live'] == 1)?"Deactivate":"Activate";
+  $act = ($row['live'] == 1)?"fa fa-arrow-down":"fa fa-arrow-up";
   $ban = ($row['status'] == 0)?"disabled":" ";
-  $ban_warn = ($row['status'] == 0)?"Banned": $act;
+  $ban_warn = ($row['status'] == 0)?"fa fa-times": $act;
 ?>
 <tr>
   <?php include('Controllers/SellerGetAvailableStock.php');?>
-  <th scope="row"><?php echo $count;?></th>
-  <td><?php echo $row['furnitureName'];?></td>
-  <td><?php echo $stock['available_stock'];?></td>
-  <td><?php echo $row['price'];?></td>
-  <td><?php echo $stock['dateUpdated'];?></td>
-  <td style = "color:<?php echo $color?>;" ><?php echo $live;?></td>
+  <?php include('Controllers/SellerGetOnHoldStock.php');?>
+  <?php include('Controllers/SellerGetSoldStock.php');?>
+  <th scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?> ><?php echo $count;?></th>
+  <td align="left" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $row['furnitureName'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['available_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockO['on_hold_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockS['sold_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo "P".$row['price'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
+  <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td>
   <td>
     <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="live" />
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
-      <button type="submit" class="btn btn-primary" <?php echo $ban;?> ><?php echo $ban_warn;?></button>
+      <button type="submit" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button>
     </form>
-    <button type="button" data-toggle="modal" data-target=<?php echo "#modal".$count;?> class="btn btn-primary fa fa-list"></button>
     <!-- Modal-->
     <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
@@ -105,7 +108,7 @@
       </div>
     </div>
 
-    <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary">Restock</button>
+    <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
     <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
         <div class="modal-content">

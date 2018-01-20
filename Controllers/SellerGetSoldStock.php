@@ -4,9 +4,9 @@
   //session_start();
   
   $user = new furniture_stock();
-  $temp = $user->displayAvailableFurnitureStock($row['furnitureId']);
+  $temp = $user->displaySoldFurnitureStock($row['furnitureId']);
   if($temp != null){
-    $stockA = $temp->fetch_assoc();
+    $stockS = $temp->fetch_assoc();
   } else {
       	//inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
