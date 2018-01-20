@@ -50,10 +50,6 @@
                       <label for="register-name" class="label-material">Company Description</label>
                     </div>
                      <div class="form-group">
-                      <input id="register-bDay" type="date" name="registerBDay" required class="input-material">
-                      <label for="register-bDay" class="label-material"></label>
-                    </div>
-                     <div class="form-group">
                       <input id="register-phone" type="text" name="registerPhone" required class="input-material">
                       <label for="register-phone" class="label-material">Phone Number</label>
                     </div>                    
@@ -66,10 +62,10 @@
                       <label for="register-passowrd" class="label-material">Password</label>
                     </div>
                     <div class="form-group terms-conditions">
-                      <input id="license" type="checkbox" class="checkbox-template">
+                      <input id="license" type="checkbox" class="checkbox-template" onclick="disableElement()">
                       <label for="license">I agree to the terms and policies</label>
                     </div>
-                    <input id="register" type="submit" value="Register" class="btn btn-primary">
+                    <button id="register" type="submit" class="btn btn-primary" disabled>Register</button>
                   </form>
                 </div>
               </div>
@@ -88,5 +84,15 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script>
+      function disableElement() {
+          if (document.getElementById('license').checked) 
+          {
+            document.getElementById("register").disabled = false;
+          } else {
+            document.getElementById("register").disabled = true;
+          }
+      }
+    </script>
   </body>
 </html>
