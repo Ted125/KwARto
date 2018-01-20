@@ -62,7 +62,7 @@
 					<h5>Subtotal: <span id = "subtotalFeeText" style="color: #d42d2d" value = 0>Php 0</span> (Tax Inclusive)</h5>
 					<h5>Shipping Fee: <span id = "shippingFeeText" style="color: #d42d2d" value = 0>Php 0</h5>
 					<h4>Your total balance is: <span id = "totalFeeText" style="color: #d42d2d" value = 0>Php 0</span></h4>
-					<div id = "checkoutButton" class="red_button" style="width: 150px"><a>Proceed to Checkout</a></div>
+					<div id = "checkoutButton" class="red_button" style="width: 180px"><a style="color: white;">Proceed to Checkout</a></div>
 				</div>
 
 				<!-- Selected Furniture Form -->
