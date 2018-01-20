@@ -15,7 +15,10 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/styledrop.css">
 <link rel="icon" href="images/icon.png">
+
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -304,6 +307,20 @@ $(document).ready(function(){
 	LoadCategoryTree();
 	LoadSellers();
 	Search();
+
+	// secondary navbar js
+
+  	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+
 
 	$("#amount").val("Php 0 - Php 100000");
 	$("#amountDiscount").val("0 % - 100 %");

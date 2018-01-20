@@ -4877,13 +4877,4 @@ input.checkbox:checked:after {
     padding:1em 1em;
 }
 
-.rightmenu a strong {
-  color: #d42d2d;
-  text-decoration: none;
-}
-
-.rightmenu a  {
-  color: black;
-  text-decoration: none;
-}
 
