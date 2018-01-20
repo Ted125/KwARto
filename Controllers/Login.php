@@ -9,11 +9,14 @@
   $verify = $user->login($_POST['loginEmail'], md5($_POST['loginPassword']));
 
   if($verify != null){
-    $_SESSION['userId'] = $verify['userId'];
-    $_SESSION['email'] = $verify['email'];
-    $_SESSION['userType'] = $verify['userType'];
-    $_SESSION['mobileNumber'] = $verify['mobileNumber'];
-    $_SESSION['dateAdded'] = $verify['dateAdded'];
+    if(strcmp($verify['userType'], 'admin') == 0){
+      $_SESSION['username'] = $verify['username'];
+    }
+      $_SESSION['userId'] = $verify['userId'];
+      $_SESSION['email'] = $verify['email'];
+      $_SESSION['userType'] = $verify['userType'];
+      $_SESSION['mobileNumber'] = $verify['mobileNumber'];
+      $_SESSION['dateAdded'] = $verify['dateAdded'];
     if(strcmp($verify['userType'], 'customer') == 0){
       $_SESSION['customerId'] = $verify['customerId'];
       $_SESSION['firstName'] = $verify['firstName'];
@@ -23,6 +26,7 @@
       $_SESSION['image'] = $verify['image'];
     } else if(strcmp($verify['userType'], 'seller') == 0){
       $_SESSION['sellerId'] = $verify['sellerId'];
+      $_SESSION['description'] = $verify['description'];
       $_SESSION['name'] = $verify['name'];
       $_SESSION['description'] = $verify['description'];
     }

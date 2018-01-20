@@ -21,7 +21,6 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
   </head>
   <body>
     <div class="page">
@@ -159,7 +158,7 @@
                       </div>
                   </div>
 
-                  <form role="form" class="col-lg-12" action="Controllers/SellerUploadFurniture.php" method="post">
+                  <form role="form" class="col-lg-12" action="Controllers/SellerUploadFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
                   <div class="row setup-content-2" id="step-4">
                   <div class="col-lg-12">
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
@@ -188,10 +187,6 @@
                         <input type="text" placeholder="0" class="form-control" name="newVersionOf">
                       </div>
                       <div class="form-group">       
-                        <label>Height</label>
-                        <input type="text" placeholder="0" class="form-control" name="newHeight">
-                      </div>
-                      <div class="form-group">       
                         <label>Color</label>
                         <input type="text" placeholder="0" class="form-control" name="newColor">
                       </div>
@@ -202,8 +197,8 @@
                       <div class="form-group">       
                         <label>Weight Unit</label>
                         <select class="form-control" name="newWeightUnit">
-                          <option>kilo/s</option>
-                          <option>pound/s</option>
+                          <option>kg</option>
+                          <option>lb</option>
                         </select>
                       </div>
                       <div class="form-group">       
@@ -225,19 +220,15 @@
                       <div class="form-group">       
                         <label>Size Unit</label>
                         <select class="form-control" name="newSizeUnit">
-                          <option>millimeter/s</option>
-                          <option>centimeter/s</option>
-                          <option>inch/es</option>
-                          <option>meter/s</option>
+                          <option>mm</option>
+                          <option>cm</option>
+                          <option>in</option>
+                          <option>m</option>
                         </select>
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
                         <input type="text" placeholder="0.00" class="form-control" name="newPrice">
-                      </div>
-                      <div class="form-group">       
-                        <label>Quantity</label>
-                        <input type="text" placeholder="0" class="form-control" name="newQuantity">
                       </div>
                       <div class="form-group">       
                         <label>Discount</label>
@@ -284,18 +275,19 @@
                   <div class="row setup-content-2" id="step-6">
                     <div class="col-lg-12 text-center">
                         <h3 class="font-bold pl-0 my-4"><strong>Upload Image</strong></h3>
-                        <img src="http://via.placeholder.com/300"><br>
+                        <img src="http://via.placeholder.com/300" id="blah" alt="your image"><br>
                       <div style="margin-top: 5px;">
+                        <!-- <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
                         <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                      </div>
-                      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photos</button><br>
+                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg"> -->
+                      </div>    
+                        <label>Select Base Photo to upload:</label>
+                        <input onchange="readURL(this);" style="margin-top: 10px;" type="file" name="image" />
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-                        <input type="file" name="newData" />
+                        <label>Select 3D Model to upload:</label>
+                        <input style="margin-top: 10px;" type="file" name="model" />
                         <input type="hidden" class="btn btn-primary" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
                         <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
                       </div>
@@ -408,6 +400,22 @@
 
     $('div.setup-panel-2 div a.btn-tab1').trigger('click');
   });
+
+  //Preview Image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(300);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
   </script>
   </body>
 </html>

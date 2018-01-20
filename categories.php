@@ -15,7 +15,10 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/styledrop.css">
 <link rel="icon" href="images/icon.png">
+
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -56,7 +59,7 @@
 						</div>
 						<div id="demo" class="collapse show">
 							<!-- I would apply collapse here but categories have no differentiation for parent/child/grandchild -->
-							<ul id = "searchCategories" class="sidebar_categories"></ul>					
+							<ul id = "searchCategories" class="sidebar_categories"></ul>
 						</div>
 					</div>
 
@@ -152,7 +155,10 @@
 								<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
 									<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 								</form>
-
+								<!-- Cart Form -->
+								<form id = "cartForm" action = "cart.php" method = "POST">
+									<input id = "cartItemField" type = "hidden" name = "furnitureId">
+								</form>
 								<div id = "searchResultsContainer" class="product-grid row" style="margin-left: 20px;"></div>
 								</div>
 
@@ -302,6 +308,20 @@ $(document).ready(function(){
 	LoadSellers();
 	Search();
 
+	// secondary navbar js
+
+  	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+
+
 	$("#amount").val("Php 0 - Php 100000");
 	$("#amountDiscount").val("0 % - 100 %");
 	$("#amountRating").val("1 star - 5 stars");
@@ -393,6 +413,12 @@ $(document).ready(function(){
 		var id = $(this).attr("name");
 		$("#selectedFurnitureField").val(id);
 		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#searchResultsContainer").on("click", ".add_to_cart_button", function(){
+		var id = $(this).parent().find(".product_name").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
 	});
 });
 
@@ -514,7 +540,7 @@ function Search(){
 
 				furniture += "</div>";
 
-				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0;'><a href='#'>add to cart</a></div></div>";
+				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0;'><a>add to cart</a></div></div>";
 				$("#searchResultsContainer").append(furniture);
 			});
     },

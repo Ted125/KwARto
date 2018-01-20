@@ -133,6 +133,21 @@ include("Database.php");
         return $result;
     }
 
+    public function countAllPendingSellers(){
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "  SELECT count (*) AS pending_sellers  
+                        FROM seller s inner join user_details u on u.userId = s.userId
+                        where u.userStatus = 'inactive'
+                    ";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);
+        }
+        return $result;
+    }
+
     /************ SETTERS AND GETTERS ************/
 
     public function getSellerId(){

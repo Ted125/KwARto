@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
 <link rel="icon" href="images/icon.png">
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -240,6 +241,21 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/contact_custom.js"></script>
+
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
 </body>
 
 </html>

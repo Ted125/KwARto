@@ -110,6 +110,10 @@
 					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
 						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 					</form>
+					<!-- Cart Form -->
+					<form id = "cartForm" action = "cart.php" method = "POST">
+						<input id = "cartItemField" type = "hidden" name = "furnitureId">
+					</form>
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<?php
@@ -200,7 +204,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+									<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 								</div>
 
 						<?php
@@ -531,89 +535,6 @@
 
 </div>
 
-<!-- MODAL CONTENTS -->
-
-<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-                    <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-                          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body">
-                          <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
-								<thead>
-									<tr style="text-align: center;">
-										<th>Item No.</th>
-										<th>Product</th>
-										<th>Quantity</th>
-										<th>Product Name</th>
-
-										<th>Price</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody class="text-center">
-									<tr class="">
-										<td class="">1</td>
-										<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
-										<td class="">
-											<div class="" style="text-align: -webkit-center">
-												<div class="form-group form-group-options">
-						                            <div class="input-group input-group-option" style="width: 130px;">
-						                                <span class="input-group-addon input-group-addon-remove btn">
-						                                    <span class="fa fa-minus"></span>
-						                                </span>
-						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-						                                <span class="input-group-addon btn">
-						                                    <span class="fa fa-plus"></span>
-						                                </span>
-						                            </div>
-				                        		</div>
-											</div>
-										</td>
-										<td class="">Comfy Chair</td>
-										<td class="">P850.00</td>
-										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 150px;"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-										</td>
-									</tr>
-									<tr class="">
-										<td class="">2</td>
-										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
-										<td class="">
-											<div class="" style="text-align: -webkit-center">
-												<div class="form-group form-group-options">
-						                            <div class="input-group input-group-option" style="width: 130px;">
-						                                <span class="input-group-addon input-group-addon-remove btn">
-						                                    <span class="fa fa-minus"></span>
-						                                </span>
-						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-						                                <span class="input-group-addon btn">
-						                                    <span class="fa fa-plus"></span>
-						                                </span>
-						                            </div>
-				                        		</div>
-											</div>
-										</td>
-										<td class="">Swivel Chair</td>
-										<td class="">P540.00</td>
-										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 150px;;"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 150px;background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-										</td>
-									</tr>
-							</tbody></table>
-                        </div>
-                        <div class="modal-footer">
-                        	<a href="cart.php" class="btn red_button button" style="color: white;" >Checkout</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -624,12 +545,29 @@
 </body>
 
 </html>
-<script = "text/javascript">
+<script type = "text/javascript">
 $(document).ready(function(){
 	$(".product_name").on("click", function(){
 		var id = $(this).attr("name");
 		$("#selectedFurnitureField").val(id);
 		$("#selectedFurnitureForm").submit();
 	});
+
+	$(".add_to_cart_button").on("click", function(){
+		var id = $(this).parent().find(".product_name").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
+
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
 });
 </script>

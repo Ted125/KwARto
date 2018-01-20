@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+  //require("Controllers/Login.php");
+  session_start();
+  if(strcmp($_SESSION['userType'],'seller') != 0){
+      header("Location:index.php");
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -95,7 +102,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Company Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
@@ -134,7 +141,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Registered Users List</h3>
+                      <h3 class="h4">Registered Products</h3>
                     </div>
                     <div class="card-body text-center">
                       <table class="table table-striped table-hover">
@@ -142,8 +149,12 @@
                           <tr>
                             <th>#</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
+                            <th>ea. Available</th>
+                            <th>ea. On-Hold</th>
+                            <th>ea. Sold</th>
                             <th>Price</th>
+                            <th>Restock Date</th>
+                            <th>Live</th>
                             <th>Action</th>
                           </tr>
                         </thead>

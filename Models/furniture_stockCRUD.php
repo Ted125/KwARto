@@ -23,10 +23,13 @@ class furniture_stock{
 
     /***************** FUNCTIONS ****************/
     
-    public function createFurnitureStock($furnitureId){
-        if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+    public function createFurnitureStock($furnitureId, $quantityAmount){
+        include("userDetails.php");
+        include("Database.php");
+        if(isset($_SESSION['userType'])){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
@@ -34,12 +37,15 @@ class furniture_stock{
                     //$furniture = new furniture();
                     $this->setStatus('available');
                     $this->setFurnitureId($furnitureId);
-                    $this->setAddedBy($_SESSION['userId']);
-                    $this->setUpdatedBy($_SESSION['userId']);
+                    $this->setAddedBy($_SESSION['sellerId']);
+                    $this->setUpdatedBy($_SESSION['sellerId']);
+
                     $create = "INSERT INTO furniture_stock
                     ( 
-                    status
-                    furnitureId
+                    status,
+                    furnitureId,
+                    addedBy,
+                    updatedBy
                     )
                     VALUES
                     ('".$this->getStatus()."',
@@ -48,7 +54,10 @@ class furniture_stock{
                     '".$this->getUpdatedBy()."'
                     )";
                     
-                    $result = mysqli_query($connection, $create);   
+                    for($x = 0; $x < $quantityAmount; $x++){
+                        $result = mysqli_query($connection, $create); 
+                    }
+                      
                 }
             }else{
                  echo 'only sellers can add furniture stock';
@@ -56,7 +65,7 @@ class furniture_stock{
         }else{
             echo 'no session found';
         }
-        return $result;
+        return $quantityAmount;
     }
 
     public function checkFurnitureStock($furnitureId){
@@ -131,14 +140,13 @@ class furniture_stock{
         $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
-            $query ="SELECT COUNT(*) AS available_stock 
+            $query ="SELECT COUNT(*) AS available_stock, dateUpdated
             FROM furniture_stock 
             WHERE furnitureId = '".$this->getFurnitureId()."' && status = 'available'
             ";
             $result = mysqli_query($connection, $query);
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
-            //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
         }        

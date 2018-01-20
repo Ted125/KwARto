@@ -528,7 +528,7 @@ section
 .navbar
 {
 	width: auto;
-	height: 100px;
+	height: 80px;
 	float: right;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -811,7 +811,7 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	margin-top: 150px;
+	margin-top: 100px;
 }
 .main_slider_content
 {
@@ -1667,5 +1667,30 @@ section
 }
 .footer_social ul li a:hover
 {
+	color: #d42d2d;
+}
+
+.nav2
+{
+	margin: 10px 50px 10px 50px;
+}
+
+.nav2 a
+{
+	color: #d42d2d;
+}
+
+.rightmenu a  {
+  color: #212529;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.rightmenu a strong {
+  color: #d42d2d;
+  text-decoration: none;
+}
+
+.leftcontent strong {
 	color: #d42d2d;
 }

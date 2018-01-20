@@ -68,7 +68,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
+              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -79,7 +79,7 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li class="active"><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
+                    <li class="active"><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
@@ -92,310 +92,41 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Complaints & Questions</h2>
+              <h2 class="no-margin-bottom">Comments & Feedback</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
-              <li class="breadcrumb-item active">Complaints & Questions</li>
+              <li class="breadcrumb-item active">Comments & Feedback</li>
             </ul>
           </div>
           <section style="background-color: #faf6f6">
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header d-flex align-items-center">
-                  <h3 class="h4">User Questions</h3>
+                  <h3 class="h4">Comments and Feedback</h3>
                 </div>
                 <div class="card-body">
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>User Name</th>
+                        <th>Name</th>
                         <th>E-mail Address</th>
                         <th>Date Submitted</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>John Smith</td>
-                        <td>name@user.com</td>
-                        <td>December 01, 2017</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc1" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jane Does</td>
-                        <td>name@user.com</td>
-                        <td>December 02, 2017</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc2" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Adam Llemore</td>
-                        <td>name@user.com</td>
-                        <td>January 03, 2018</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc3" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>John Doe</td>
-                        <td>name@user.com</td>
-                        <td>January 02, 2018</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc4" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      <?php include("Controllers/DisplayAdminComments.php")?>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div> 
 
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header d-flex align-items-center">
-                  <h3 class="h4">User Complaints</h3>
-                </div>
-                <div class="card-body">
-                  <table class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>User Name</th>
-                        <th>E-mail Address</th>
-                        <th>Date Submitted</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>John Smith</td>
-                        <td>name@user.com</td>
-                        <td>December 01, 2017</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc1" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jane Does</td>
-                        <td>name@user.com</td>
-                        <td>December 02, 2017</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc2" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Adam Llemore</td>
-                        <td>name@user.com</td>
-                        <td>January 03, 2018</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc3" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>John Doe</td>
-                        <td>name@user.com</td>
-                        <td>January 02, 2018</td>
-                        <td>
-                          <button type="button" data-toggle="modal" data-target="#myModalc4" class="btn btn-primary">View</button>
-                          <!-- Modal-->
-                          <div id="myModalc4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                            <div role="document" class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 id="exampleModalLabel" class="modal-title">User Question/Comment</h4>
-                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                  <h6>User Name: John Smith</h6>
-                                  <h6>E-mail Address: name@user.com</h6>
-                                  <h6>Content:</h6><p style="margin-left: 20px;">Hello! I am a user and this is my question or my comment. I hope you will respond or do something about this. Thank you.</p>
-                                  <h6>Write a response:</h6>
-                                  <textarea class="input_ph input_message" placeholder="Write a response" rows="3" style="width: 100%;"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-                                  <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div> 
           </section>
           <!-- Page Footer-->
           <footer class="main-footer">

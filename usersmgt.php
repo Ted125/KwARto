@@ -75,7 +75,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
+              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -86,7 +86,7 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>                    
                     <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
@@ -116,7 +116,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Pending Users List</h3>
+                      <h3 class="h4">Pending Manufacturers List</h3>
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
@@ -158,7 +158,7 @@
                                         <p>Are you sure you want to approve this user?</p>
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
                                         <form  method = "post" action = "Controllers/ActivateUser.php">
                                         <input type = "hidden" name ="userId" value = '.$appRow['userId'].' />
                                         <input type = "submit" class="btn btn-primary" value = "Yes"/>
@@ -273,8 +273,34 @@
                               <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['lastName'].'</td>
                               <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['email'].'</td>
                               <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'" style = "color:'.$color.'">'.$row['userStatus'].'</td>
-                              <td>
-                                <button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Ban</button>
+                              <td>';
+                              if(strcmp($row['userStatus'], 'banned') == 0){
+                                echo 
+                                '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
+                                <!-- Modal-->
+                                <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                  <div role="document" class="modal-dialog">  
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Are you sure you want to unban this user?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                        <form  method = "post" action = "Controllers/activateUser.php">
+                                        <input type = "hidden" name = "userId" value = '.$row['userId'].' />
+                                        <input type = "submit" class="btn btn-primary" value = "Yes"/>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>';
+                              }else{
+                                echo
+                                '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Ban</button>
                                 <!-- Modal-->
                                 <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                   <div role="document" class="modal-dialog">  
@@ -296,8 +322,11 @@
                                     </div>
                                   </div>
                                 </div>
-                              </td>
-                              </tr>
+                              ';
+                              }
+                              echo
+                              '</td>
+                             </tr>
                             <!-- Modal Contents for Row -->
                             <div class="modal fade" id="rowModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">

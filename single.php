@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -52,6 +53,11 @@
 
 			</div>
 		</div>
+		
+		<!-- Cart Form -->
+		<form id = "cartForm" action = "cart.php" method = "POST">
+			<input id = "cartItemField" type = "hidden" name = "furnitureId">
+		</form>
 
 		<div class="row">
 			<div class="col-lg-7">
@@ -186,7 +192,7 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
@@ -683,6 +689,11 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
+	$(".add_to_cart_button").on("click", function(){
+		var id = "<?php echo $_POST['furnitureId']; ?>";
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
 
 	var thumbs = $('.single_product_thumbnails ul li');
 	var singleImage = $('.single_product_image_background');
@@ -716,5 +727,19 @@ $(document).ready(function(){
 		$("#5Star").click(function(){
         $("#ratingValue").val(5);
     });
+});
+</script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
 });
 </script>
