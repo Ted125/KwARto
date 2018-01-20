@@ -65,7 +65,7 @@ class furniture_stock{
         }else{
             echo 'no session found';
         }
-        //return $result;
+        return $quantityAmount;
     }
 
     public function checkFurnitureStock($furnitureId){

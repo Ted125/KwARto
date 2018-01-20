@@ -197,8 +197,8 @@
                       <div class="form-group">       
                         <label>Weight Unit</label>
                         <select class="form-control" name="newWeightUnit">
-                          <option>kilo/s</option>
-                          <option>pound/s</option>
+                          <option>kg</option>
+                          <option>lb</option>
                         </select>
                       </div>
                       <div class="form-group">       
@@ -220,10 +220,10 @@
                       <div class="form-group">       
                         <label>Size Unit</label>
                         <select class="form-control" name="newSizeUnit">
-                          <option>millimeter/s</option>
-                          <option>centimeter/s</option>
-                          <option>inch/es</option>
-                          <option>meter/s</option>
+                          <option>mm</option>
+                          <option>cm</option>
+                          <option>in</option>
+                          <option>m</option>
                         </select>
                       </div>
                       <div class="form-group">       

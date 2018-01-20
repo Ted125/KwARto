@@ -149,7 +149,9 @@
                           <tr>
                             <th>#</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
+                            <th>ea. Available</th>
+                            <th>ea. On-Hold</th>
+                            <th>ea. Sold</th>
                             <th>Price</th>
                             <th>Restock Date</th>
                             <th>Live</th>
