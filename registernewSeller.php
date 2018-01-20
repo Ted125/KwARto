@@ -66,7 +66,7 @@
                       <label for="license">I agree to the terms and policies</label>
                     </div>
                     <button id="register" type="submit" class="btn btn-primary" disabled>Register</button>
-                  </form>
+                  </form><small>Already have an account? </small><a href="loginnew.php" class="signup">Login</a>
                 </div>
               </div>
             </div>
