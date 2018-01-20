@@ -38,9 +38,9 @@
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else {
                     echo '<li><a href="wishlist.php">wishlist</a></li>
-                          <li data-toggle="modal" data-target="#myModal" class="align-items-center checkout">
+                          <li class="align-items-center checkout">
                             <!-- MODAL CONTENT BELOW -->
-                            <a href="#">
+                            <a href="cart.php">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                              </a>
                           </li>
