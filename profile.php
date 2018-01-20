@@ -49,7 +49,7 @@ n<!DOCTYPE html>
 							<div class="tabs_container">
 								<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
 									<li class="tab active" data-active-tab="tab_1"><span>Account Information</span></li>
-									<li class="tab" data-active-tab="tab_2"><span>Transaction History</span></li>
+									<li class="tab" data-active-tab="tab_2"><span>Shipping & Billing Address</span></li>
 									<li class="tab" data-active-tab="tab_3"><span>Account Settings</span></li>
 								</ul>
 							</div>
@@ -139,171 +139,84 @@ n<!DOCTYPE html>
 							<div class="row" style="padding-left: 80px;">
 								<div class="col additional_info_col">
 									<div class="tab_title additional_info_title">
-										<h3>Transaction History</h3>
+										<h3>Shipping & Billing Address</h3>
 									</div>
-									<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
-										<thead>
-											<tr style="text-align: center;">
-												<th>Order ID</th>	
-												<th>Date</th>
-												<th>Status</th>
-												<th>Action</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody class="text-center">
-											<tr class="">
-												<td class="">#213535</td>
-												<td class="">December 23, 2017</td>
-												<td class="" style="color: #FF6347;">Pending</td>
-												<td>
-													<div class="red_button" data-toggle="modal" data-target="#transhist1" style="width: 200px;">
-														<a href="#">View Details</a>
-													</div>
+									
+									<h3>Shipping Address:</h3>
+							          <form>
+							          	<div class="form-group">
+							              <p>Please review all information before proceeding.</p>
+							            </div>
+							            <div class="form-group">
+							              <label>Contact Person</label>
+							              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
+							            </div>
+													<div class="form-group">
+							              <label>Mobile Number</label>
+							              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
+							            </div>
+							            <div class="form-group">
+							              <label>Complete Address</label>
+							              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
+							            </div>
+							            <div class="form-group">
+							              <label>Province</label>
+							              <select id = "selectProvince" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-group">
+							              <label>City/Municipality</label>
+							              <select id = "selectCity" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-group">
+							              <label>Barangay</label>
+							              <select id = "selectBarangay" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-check" style="margin-left: 20px;">
+										    <!-- <input type="checkbox" class="form-check-input" id="diffAd">
+										    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
+										</div>
+							        </form>
 
-													<div class="modal fade" id="transhist1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-														<div class="modal-dialog" role="document" style="min-width: 800px!important;">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-																	<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-																</div>
-																<div class="modal-body text-left">
-																	<div class="row" style="margin-bottom: 10px; padding-left: 10px;">
-																		<span>Status:<span style="color: #FF6347"> Pending</span></span>
-																	</div>
-
-																	<h5 style="color: #555">Order details:</h5>
-																	<p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
-
-																	<div class="recent-activities card">
-																		<div class="card-header">
-																			<h3 class="h4">Order Summary</h3>
-																		</div>
-																		<div class="card-body no-padding">
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-																						<div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Modern Table</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-																						<div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Wooden Stool</h5>
-																						<p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-																						<div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Chic Table Piece</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<br>
-																	<div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="">
-												<td class="">#212312</td>
-												<td class="">December 22, 2017</td>
-												<td class="" style="color: #28a745;">Completed</td>
-												<td>
-													<div class="red_button" data-toggle="modal" data-target="#transhist2" style="width: 200px;">
-														<a href="#">View Details</a>
-													</div>
-
-													<div class="modal fade" id="transhist2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-														<div class="modal-dialog" role="document" style="min-width: 800px!important;">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-																	<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-																</div>
-																<div class="modal-body text-left">
-																	<div class="row" style="margin-bottom: 10px; padding-left: 10px;">
-																		<span>Status:<span style="color: #28a745"> Completed</span></span>
-																	</div>
-
-																	<h5 style="color: #555">Order details:</h5>
-																	<p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
-
-																	<div class="recent-activities card">
-																		<div class="card-header">
-																			<h3 class="h4">Order Summary</h3>
-																		</div>
-																		<div class="card-body no-padding">
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-																						<div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Modern Table</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-																						<div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Wooden Stool</h5>
-																						<p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-																						<div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Chic Table Piece</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<br>
-																	<div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+							        <h3>Billing Address:</h3>
+							          <form>
+							          	<div class="form-group">
+							              <p>Please review all information before proceeding.</p>
+							            </div>
+							            <div class="form-group">
+							              <label>Contact Person</label>
+							              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
+							            </div>
+													<div class="form-group">
+							              <label>Mobile Number</label>
+							              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
+							            </div>
+							            <div class="form-group">
+							              <label>Complete Address</label>
+							              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
+							            </div>
+							            <div class="form-group">
+							              <label>Province</label>
+							              <select id = "selectProvince" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-group">
+							              <label>City/Municipality</label>
+							              <select id = "selectCity" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-group">
+							              <label>Barangay</label>
+							              <select id = "selectBarangay" name="account" class="form-control">
+							              </select>
+							            </div>
+							            <div class="form-check" style="margin-left: 20px;">
+										    <!-- <input type="checkbox" class="form-check-input" id="diffAd">
+										    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
+										</div>
+							        </form>
 								</div>
 							</div>
 						</div>

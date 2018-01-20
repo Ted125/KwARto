@@ -237,6 +237,7 @@
 							<li><a href="terms.php">Terms of Use</a></li>
 							<li><a href="privacy.php">Privacy Policy</a></li>
 							<li><a href="contact.php">Contact us</a></li>
+							<li><a href="about.php">About us</a></li>
 						</ul>
 					</div>
 				</div>
