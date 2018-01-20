@@ -4,7 +4,7 @@
   //session_start();
   
   $furn = new furniture();
-  $verify = $furn->DisplayAllFurnitures();
+  $verify = $furn->displayAllSellerFurnitures();
   $count = 1;
   if($verify != null){
     while($row = $verify->fetch_assoc()){

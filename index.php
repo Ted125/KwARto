@@ -27,6 +27,15 @@
 		</div>
 	</div>
 
+	<div class="banner text-center">
+		<div class="search-container">
+		    <form action="/action_page.php">
+		      <input type="text" placeholder="What are you looking for?" name="search" style="width:700px; font-size: 1.5em; padding:10px;">
+		      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.5em;"></i></button>
+		    </form>
+		 </div>
+	</div>
+
 	<div class="banner">
 		<div class="container">
 			<div class="row">
@@ -97,6 +106,14 @@
 			</div>
 			<div class="row">
 				<div class="col">
+					<!-- Selected Furniture Form -->
+					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+					</form>
+					<!-- Cart Form -->
+					<form id = "cartForm" action = "cart.php" method = "POST">
+						<input id = "cartItemField" type = "hidden" name = "furnitureId">
+					</form>
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<?php
@@ -135,7 +152,7 @@
 
 								<div class="product-item <?php echo $ancestorCategoryId ?>">
 									<div class="product discount product_filter">
-										<div class="product_image">
+										<div class="product_image" style="min-height: 240px;">
 											<?php
 												$_POST["furnitureId"] = $row["furnitureId"];
 
@@ -145,12 +162,12 @@
 													$r = mysqli_fetch_assoc($furnitureImagesResult);
 											?>
 
-											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
 											<?php
 												}else{
 													// set to a default image
 											?>
-											<img src="" style="padding-top: 20px; min-height: 240px; max-height: 240px;" alt="">
+											<img src="" style="padding-top: 20%; min-height: 240px; max-height: 240px;" alt="">
 											<?php
 												}
 											?>
@@ -165,7 +182,7 @@
 										?>
 
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId']?>"><?php echo $row["name"]; ?></a></h6>
+											<h6 class="product_name" name = "<?php echo $row['furnitureId']?>"><a><?php echo $row["name"]; ?></a></h6>
 											<div class="product_price">
 											<?php
 												$price = $row["price"];
@@ -187,7 +204,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+									<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 								</div>
 
 						<?php
@@ -518,89 +535,6 @@
 
 </div>
 
-<!-- MODAL CONTENTS -->
-
-<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-                    <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-                          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body">
-                          <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
-								<thead>
-									<tr style="text-align: center;">
-										<th>Item No.</th>
-										<th>Product</th>
-										<th>Quantity</th>
-										<th>Product Name</th>
-
-										<th>Price</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody class="text-center">
-									<tr class="">
-										<td class="">1</td>
-										<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
-										<td class="">
-											<div class="" style="text-align: -webkit-center">
-												<div class="form-group form-group-options">
-						                            <div class="input-group input-group-option" style="width: 130px;">
-						                                <span class="input-group-addon input-group-addon-remove btn">
-						                                    <span class="fa fa-minus"></span>
-						                                </span>
-						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-						                                <span class="input-group-addon btn">
-						                                    <span class="fa fa-plus"></span>
-						                                </span>
-						                            </div>
-				                        		</div>
-											</div>
-										</td>
-										<td class="">Comfy Chair</td>
-										<td class="">P850.00</td>
-										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 200px"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
-										</td>
-									</tr>
-									<tr class="">
-										<td class="">2</td>
-										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
-										<td class="">
-											<div class="" style="text-align: -webkit-center">
-												<div class="form-group form-group-options">
-						                            <div class="input-group input-group-option" style="width: 130px;">
-						                                <span class="input-group-addon input-group-addon-remove btn">
-						                                    <span class="fa fa-minus"></span>
-						                                </span>
-						                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-						                                <span class="input-group-addon btn">
-						                                    <span class="fa fa-plus"></span>
-						                                </span>
-						                            </div>
-				                        		</div>
-											</div>
-										</td>
-										<td class="">Swivel Chair</td>
-										<td class="">P540.00</td>
-										<td class="" style="text-align:  center;">
-											<div class="red_button" style="width: 200px;"><a href="#">move to wishlist</a></div><br>
-											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
-										</td>
-									</tr>
-							</tbody></table>
-                        </div>
-                        <div class="modal-footer">
-                        	<a href="cart.php" class="btn red_button button" style="color: white;" >Checkout</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -611,3 +545,29 @@
 </body>
 
 </html>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$(".add_to_cart_button").on("click", function(){
+		var id = $(this).parent().find(".product_name").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
+
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>

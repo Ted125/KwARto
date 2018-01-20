@@ -5,6 +5,12 @@
       header("Location:index.php");
   }
 ?>
+<style>
+    #pendingpics{
+    height: 200px;
+    width: 200px;
+    }
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +73,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
+              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -78,7 +84,7 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li class="active"><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
@@ -117,8 +123,11 @@
                           <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Quantity</th>
+                            <th>Available</th>
+                            <th>Sold</th>
+                            <th>On Hold</th>
                             <th>Price</th>
+                            <th>Live</th>
                             <th>Status</th>
                             <th>Action</th>
                           </tr>

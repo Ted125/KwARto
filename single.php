@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	$furnitureId = $_GET["singleFurnitureId"];
+	$furnitureId = $_POST["singleFurnitureId"];
 
 	$_POST["furnitureId"] = $furnitureId;
 
@@ -33,7 +33,7 @@
 
 <div class="super_container">
 		<!-- NAVBAR HERE -->
-	<?php include('Access/Navbar.php');?>	
+	<?php include('Access/Navbar.php');?>
 
 	<div class="fs_menu_overlay"></div>
 
@@ -52,6 +52,11 @@
 
 			</div>
 		</div>
+		
+		<!-- Cart Form -->
+		<form id = "cartForm" action = "cart.php" method = "POST">
+			<input id = "cartItemField" type = "hidden" name = "furnitureId">
+		</form>
 
 		<div class="row">
 			<div class="col-lg-7">
@@ -91,7 +96,10 @@
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(<?php echo $firstImage; ?>)"></div>
+								<div class="single_product_image container">
+									<img class="single_product_image_background" style="background-size: contain;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>>
+									<!-- <img style="width: 100%; height: auto;" src="<?php echo $firstImage; ?>"> -->
+								</div>
 							</div>
 						</div>
 					</div>
@@ -183,8 +191,8 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+						<div class="red_button add_to_cart_button"><a>add to cart</a></div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>
@@ -352,25 +360,27 @@
 					<div id="tab_2" class="tab_container">
 						<div class="row">
 							<div class="col additional_info_col">
-								<div class="tab_title additional_info_title">
-									<h4>Additional Details</h4>
-								</div>
+							<div class="tab_title additional_info_title">
+								<h4>Additional Details</h4>
+							</div>
+							<ul>
 								<?php
 									if(isset($row["model"])){
 								?>
-								<p>MODEL:<span><?php echo $row["model"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  MODEL:<span><?php echo $row["model"]; ?></span></p></li>
 								<?php
 									}
 								?>
 								<?php
 									if(isset($row["color"])){
 								?>
-								<p>COLOR:<span><?php echo $row["color"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  COLOR:<span><?php echo $row["color"]; ?></span></p></li>
 								<?php
 									}
 								?>
-								<p>SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p>
-								<p>WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p>
+								<li><p><i class="fa fa-circle"></i>  SIZE:<span><?php echo $row["length"] . " x " . $row["width"] . " x " . $row["height"] . " " . $row["sizeUnit"]; ?></span></p></li>
+								<li><p><i class="fa fa-circle"></i>  WEIGHT:<span><?php echo $row["weight"] . " " . $row["weightUnit"]; ?></span></p></li>
+							</ul>
 							</div>
 						</div>
 					</div>
@@ -391,26 +401,26 @@
 								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="http://i.imgur.com/4ybg2jx.jpg"></div>
 									</div>
 									<div class="review">
 										<div class="user_rating">
-											<ul class="star_rating">
+											<ul class="star_rating remove-left">
 												<?php
 													$reviewRating = $reviewRow["rating"];
 
 													for($i = 0; $i < 5; $i++){
 														if($reviewRating >= 1){
 												?>
-															<li><i class="fa fa-star" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star star_size" aria-hidden="true"></i></li>
 												<?php
 														}else if($reviewRating > 0){
 												?>
-															<li><i class="fa fa-star-half-empty" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star-half-empty star_size" aria-hidden="true"></i></li>
 												<?php
 														}else{
 												?>
-															<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+															<li><i class="fa fa-star-o star_size" aria-hidden="true"></i></li>
 												<?php
 														}
 
@@ -459,7 +469,7 @@
 												<li id = "5Star"><i class="fa fa-star-o" aria-hidden="true"></i></li>
 											</ul>
 											<input id = "review_title" class = "form_input input_name" type = "text" name = "title" placeholder = "Review Title" required = "required" data-error = "Review title is required.">
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
+											<textarea id="review_message" class="input_review" name="body"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
@@ -486,12 +496,12 @@
 								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
-										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://www.shareicon.net/download/2016/07/05/791216_people_512x512.png"></div>
+										<div class="user_pic"><img style="max-width: 70px; border-radius: 50%;" src="https://memestatic.fjcdn.com/pictures/Pupper_acae76_6455162.jpg"></div>
 									</div>
 									<div class="review">
 										<p class = "question"><?php echo $questionRow["question"]; ?></p>
 										<div class="user_name">Asked by <?php echo $questionRow["customerName"]; ?></div>
-										<div class="review_date">Asked on
+										<div class="review_date" style="margin-top: -20px;">Asked on
 										<?php
 											$date = strtotime($questionRow["datePosted"]);
 
@@ -678,6 +688,25 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
+	$(".add_to_cart_button").on("click", function(){
+		var id = "<?php echo $_POST['furnitureId']; ?>";
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
+
+	var thumbs = $('.single_product_thumbnails ul li');
+	var singleImage = $('.single_product_image_background');
+	var cnt =0;
+	thumbs.each(function()
+	{
+		var item = $(this);
+		if(cnt == 0){
+			var img = item.find('img').data('image');
+			singleImage.css('background-image', 'url(' + img + ')');
+			cnt++;
+		}
+	});
+
     $("#1Star").click(function(){
         $("#ratingValue").val(1);
     });

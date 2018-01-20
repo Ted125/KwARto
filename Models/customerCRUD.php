@@ -130,12 +130,12 @@ class customer extends user_details{
         c.birthdate,
         u.username,
         u.userType,
-        u.status,
+        u.userstatus,
         u.gender,
         u.email,
         u.mobileNumber,
         u.image,
-        u.address
+        u.userId
         FROM  customer c, user_details u
         WHERE c.customerId ='".$this->getCustomerId()."' && c.userId = u.userId
         ";
@@ -161,17 +161,78 @@ class customer extends user_details{
                     u.mobileNumber,
                     u.image,
                     u.address
+                    u.userId
                     FROM customer c inner join user_details u  on u.userId = c.userId
                     order by u.userId
                     Limit 10
-                    OFFSET '".."'
+                    
                 ";
         $rows = mysqli_query($mysqli, $query);
-        $result = mysql_fetch_array($row);
+        $result = mysql_fetch_array($rows);
     
         return $result;
     }
 
+    public function readCustomerOrder($sellerId){
+        require("Database.php");
+        $userDetails = new user_details();
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+
+                //$result = NULL;
+            $query ="SELECT distinct 
+                        customer.customerId AS customerId,
+                        firstName,
+                        middleName,
+                        lastName,
+                        customer_order.orderId AS orderId,
+                        orderNumber,
+                        shippingContactPerson,
+                        shippingAddress,
+                        shippingLocationId,
+                        shippingContactNumber,
+                        billingContactPerson,
+                        billingAddress,
+                        billingLocationId,
+                        billingContactNumber,
+                        customer_order.discount,
+                        tax,
+                        subtotalFee,
+                        shippingFee,
+                        totalFee,
+                        state,
+                        cancelled,
+                        paid,
+                        paymentDate,
+                        customer_order.dateAdded AS customer_orderDateAdded,
+                        customer_order.dateUpdated AS customer_orderDateUpdated,
+                        paymentId,
+                        furniture_stock.dateAdded AS furniture_stockDateAdded,
+                        furniture_stock.dateUpdated AS furniture_stockDateUpdated,
+                        name,
+                        description,
+                        price
+                        FROM customer 
+                        INNER JOIN customer_order ON customer.customerId = customer_order.customerId 
+                        INNER JOIN order_item ON customer_order.orderId = order_item.orderId
+                        INNER JOIN furniture_stock ON order_item.stockId = furniture_stock.stockId
+                        INNER JOIN furniture ON furniture_stock.furnitureId = furniture.furnitureId
+                        WHERE furniture_stock.addedBy = ".$sellerId."
+
+
+            ";
+            $result = mysqli_query($connection, $query);
+            
+                //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+                //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
     /***************** SETTERS AND GETTERS ****************/
 
 

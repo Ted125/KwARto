@@ -1,12 +1,31 @@
+<?php
+  $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
+  $live = ($row['live'] == 1)?"Yes":"No";
+  $status = ($row['live'] == 1)?"Live":"Not Live";
+  $act = ($row['live'] == 1)?"fa fa-arrow-down":"fa fa-arrow-up";
+  $ban = ($row['status'] == 0)?"disabled":" ";
+  $ban_warn = ($row['status'] == 0)?"fa fa-times": $act;
+?>
 <tr>
-  <th scope="row"><?php echo $count;?></th>
-  <td><?php echo $row['furnitureName'];?></td>
-  <td>42</td>
-  <td><?php echo $row['price'];?></td>
+  <?php include('Controllers/SellerGetAvailableStock.php');?>
+  <?php include('Controllers/SellerGetOnHoldStock.php');?>
+  <?php include('Controllers/SellerGetSoldStock.php');?>
+  <th scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?> ><?php echo $count;?></th>
+  <td align="left" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $row['furnitureName'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['available_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockO['on_hold_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockS['sold_stock'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo "P".$row['price'];?></td>
+  <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
+  <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td>
   <td>
-    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</button>
+    <form method="post" action="Controllers/SellerToggleLive.php">
+      <input type="hidden" value=<?php echo $row['live'];?> name="live" />
+      <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
+      <button type="submit" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button>
+    </form>
     <!-- Modal-->
-    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
         <div class="modal-content">
           <div class="modal-header">
@@ -14,10 +33,14 @@
             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form method="post" action="#">
+              <div class="form-group">
+                <label>Live</label><br>
+                <h2 style = "color:<?php echo $color?>;"><?php echo $live;?></h2>
+              </div>
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" value=<?php echo $row['furnitureName'];?> class="form-control">
+                <input type="text" value="<?php echo $row['furnitureName'];?>" class="form-control">
               </div>
               <div class="form-group">       
                 <label>Description</label>
@@ -69,10 +92,6 @@
                 <input type="text" value=<?php echo $row['price'];?> class="form-control">
               </div>
               <div class="form-group">       
-                <label>Quantity</label>
-                <input type="text" value="42" class="form-control">
-              </div>
-              <div class="form-group">       
                 <label>Discount</label>
                 <input type="text" value=<?php echo $row['discount'];?> class="form-control">
               </div>
@@ -89,30 +108,33 @@
       </div>
     </div>
 
-    <button type="button" data-toggle="modal" data-target="#restockModal" class="btn btn-primary">Restock</button>
-    <div id="restockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
+    <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Restock Product</h4>
             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           </div>
-          <div class="modal-body">
-            <form>
-
+          <form role="form" method="post" action="Controllers/SellerRestock.php">
+            <div class="modal-body">
               <div class="form-group">       
-                <label>Length</label>
-                <input type="text" value="10" class="form-control">
+                <label>Quantity</label>
+                <input type="number" class="form-control" placeholder="Amount to Restock" name="quantityAmount">
+                <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
               </div>
-
               <div class="form-group">
                 <p>Are you sure you want to update these changes?</p>       
               </div>
-            </form>
-          </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Yes"  />
+              </div>
+            </div>
+          </form>
           <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
-            <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+            <div class="form-group">
+              <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>  
+            </div>
           </div>
         </div>
       </div>

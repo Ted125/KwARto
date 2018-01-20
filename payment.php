@@ -1,4 +1,7 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
@@ -24,56 +27,9 @@ n<!DOCTYPE html>
 
 <div class="super_container">
 
-	<header class="header trans_300">
-		<div class="top_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
+	<!-- NAVBAR HERE -->
+	<?php include('Access/Navbar.php');?>
 
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="index.php">home</a></li>
-								<li><a href="categories.php">categories</a></li>
-								<li><a href="about.php">about us</a></li>
-								<li><a href="contact.php">contact</a></li>
-								<li><a href="wishlist.php">Wishlist</a></li>
-							</ul>
-							<ul class="navbar_user">
-
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-
-								</li>
-								<li class="checkout">
-									<a href="cart.php">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -87,10 +43,68 @@ n<!DOCTYPE html>
 
 			</div>
 		</div>
+	<form id = "addOrderForm" action = "Controllers/AddOrder.php" method = "post">
+		<input id = "inputOrderNumber" name = "orderNumber" type = "hidden">
+		<input id = "inputShippingContactPerson" name = "shippingContactPerson" type = "hidden">
+		<input id = "inputShippingAddress" name = "shippingAddress" type = "hidden">
+		<input id = "inputShippingLocationId" name = "shippingLocationId" type = "hidden">
+		<input id = "inputShippingContactNumber" name = "shippingContactNumber" type = "hidden">
+		<input id = "inputBillingContactPerson" name = "billingContactPerson" type = "hidden">
+		<input id = "inputBillingAddress" name = "billingAddress" type = "hidden">
+		<input id = "inputBillingLocationId" name = "billingLocationId" type = "hidden">
+		<input id = "inputBillingContactNumber" name = "billingContactNumber" type = "hidden">
+		<input id = "inputDiscount" name = "discount" type = "hidden">
+		<input id = "inputTax" name = "tax" type = "hidden">
+		<input id = "inputSubtotalFee" name = "subtotalFee" type = "hidden">
+		<input id = "inputShippingFee" name = "shippingFee" type = "hidden">
+		<input id = "inputTotalFee" name = "totalFee" type = "hidden">
+		<input id = "inputCustomerId" name = "customerId" type = "hidden">
+		<input id = "inputPaymentId" name = "paymentId" type = "hidden">
+	</form>
 
 	<div class="blogs">
 		<div class="container">
-			<h2><i class="fa fa-money" aria-hidden="true"></i> Checkout</h2>
+			<h2><i class="fa fa-money" aria-hidden="true"></i> Payment</h2>
+			<br>
+			<h3>Ship to:</h3>
+	          <form>
+	          	<div class="form-group">
+	              <p>Please review all information before proceeding.</p>
+	            </div>
+	            <div class="form-group">
+	              <label>Contact Person</label>
+	              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
+	            </div>
+							<div class="form-group">
+	              <label>Mobile Number</label>
+	              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
+	            </div>
+	            <div class="form-group">
+	              <label>Complete Address</label>
+	              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
+	            </div>
+	            <div class="form-group">
+	              <label>Province</label>
+	              <select id = "selectProvince" name="account" class="form-control">
+	              </select>
+	            </div>
+	            <div class="form-group">
+	              <label>City/Municipality</label>
+	              <select id = "selectCity" name="account" class="form-control">
+	              </select>
+	            </div>
+	            <div class="form-group">
+	              <label>Barangay</label>
+	              <select id = "selectBarangay" name="account" class="form-control">
+	              </select>
+	            </div>
+	            <div class="form-check" style="margin-left: 20px;">
+				    <!-- <input type="checkbox" class="form-check-input" id="diffAd">
+				    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
+				</div>
+	        </form>
+
+
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title">
@@ -99,26 +113,26 @@ n<!DOCTYPE html>
 				</div>
 			</div>
 			<div class="row blogs_container text-center">
-					<div class="col-lg-4 blog_item_col" style="margin-left: 16%;">
+					<div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(./images/payment/cash.jpg)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Cash On Delivery</h4>
 								<span class="blog_meta">Pay to courier upon receiving</span>
-								<a class="" data-toggle="modal" data-target="#myModal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+								<a class="" data-toggle="modal" data-target="#codmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
 							</div>
 						</div>
-					</div><!-- 
+					</div>
 					<div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Credit or Debit Card</h4>
-								<span class="blog_meta">Visa | Mastercard</span>
-								<a class="" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+								<span class="blog_meta">Only major cards accepted</span>
+								<a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
@@ -132,9 +146,9 @@ n<!DOCTYPE html>
 				</div>
 		</div>
 	</div>
-		
+
 	</div>
-	
+
 
 	<div class="benefit">
 		<div class="container">
@@ -233,91 +247,109 @@ n<!DOCTYPE html>
 			</div>
 		</div>
 	</footer>
-	
+
 	<!-- MODAL CONTENTS -->
 	<!-- CASH ON DELIVERY -->
-	<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-	    <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
+	<div id="codmodal" tabindex="-1" role="dialog" aria-labelledby="codmodal" aria-hidden="true" class="modal fade text-left">
+	    <div role="document" class="modal-dialog modal-bigger" >
 	      <div class="modal-content">
 	        <div class="modal-header">
-	          <h4 id="exampleModalLabel" class="modal-title">CASH ON DELIVERY</h4>
+	          <h4 id="codmodal" class="modal-title">CASH ON DELIVERY</h4>
 	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
 	        </div>
 	        <div class="modal-body">
-	        	<h5>Ship to:</h5>
-	          <form>
-	            <div class="form-group">
-	              <label>Full Name</label>
-	              <input type="text" placeholder="John Smith" class="form-control">
-	            </div>
-	            <div class="form-group">       
-	              <label>Complete Address (House Number, Building and Street Name)</label>
-	              <textarea class="form-control" rows="3" id="address" placeholder="12B, ABC Blg, 123 Internet St."></textarea>
-	            </div>
-	            <div class="form-group">       
-	              <label>Province</label>
-	              <select name="account" class="form-control">
-	                <option>Province</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
-	              <label>City/Municipality</label>
-	              <select name="account" class="form-control">
-	                <option>City/Municipality</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
-	              <label>Barangay</label>
-	              <select name="account" class="form-control">
-	                <option>Barangay</option>
-	                <option>Option 2</option>
-	                <option>Option 3</option>
-	                <option>Option 4</option>
-	              </select>
-	            </div>
-	            <div class="form-group">       
-	              <label>Phone Number</label>
-	              <input type="text" placeholder="0912 345 6789" class="form-control">
-	            </div>
+	        	<p>Pay using our Cash On Delivery service. Full payment is done directly to the courier upon delivery. No partial down payments required</p>
 
-	            <h6>Delivery Options:</h6>
-	            <div class="row">
-		            <div class="blog_item" style="width: 250px;">
-						<div class="blog_background" style="min-height: auto; background-image:url(https://d30y9cdsu7xlg0.cloudfront.net/png/92358-200.png)"></div>
-						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<span>Standard Delivery</span><br>
-							<h6>Sat 6, Mon | 22 Jan 2018</h6>
-							<span class="blog_meta">P99.00</span>
-						</div>
-					</div>
-
-					<div class="blog_item" style="width: 250px; margin-left: 20px;">
-						<div class="blog_background" style="min-height: auto; background-image:url(https://d30y9cdsu7xlg0.cloudfront.net/png/100245-200.png)"></div>
-						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<span>Rush Delivery</span><br>
-							<h6>Sat 2, Mon | 5 Jan 2018</h6>
-							<span class="blog_meta">P249.00</span>
-						</div>
-					</div>
-				</div>
-
-	            <div class="form-group">
-	              <p>Please review all information before proceeding.</p>       
-	              <div class="red_button shop_now_button" style="margin-top: 0px;"><a href="complete.php">COMPLETE</a></div>
-	            </div>
-	          </form>
+	        	<br>
+	        	<p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
+	        </div>
+	        <div class="modal-footer">
+	        	<a><button id = "codPlaceOrderButton" class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
 	        </div>
 	    </div>
-  </div>
-  <!-- END OF CASH ON DELIVERY -->
+  		</div>
+	</div>
+  	<!-- END OF CASH ON DELIVERY -->
 
-</div>
+	<!-- CREDIT CARD -->
+	<div id="credmodal" tabindex="-1" role="dialog" aria-labelledby="credmodal" aria-hidden="true" class="modal fade text-left">
+	    <div role="document" class="modal-dialog modal-bigger" >
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 id="credmodal" class="modal-title">CREDIT OR DEBIT</h4>
+	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+	        </div>
+	        <div class="modal-body">
+	        	<form class="form-horizontal" role="form">
+			    <fieldset>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="card-holder-name">Name on Card</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="card-number">Card Number</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-6 control-label" for="expiry-month">Expiration Date</label>
+			        <div class="col-sm-12">
+			          <div class="row">
+			            <div class="col-xs-12">
+			              <select class="form-control col-sm-12" name="expiry-month" id="expiry-month" style="margin-left: 20px;">
+			                <option>January</option>
+			                <option value="01">January</option>
+			                <option value="02">February</option>
+			                <option value="03">March</option>
+			                <option value="04">April</option>
+			                <option value="05">May</option>
+			                <option value="06">June</option>
+			                <option value="07">July</option>
+			                <option value="08">August</option>
+			                <option value="09">September</option>
+			                <option value="10">October</option>
+			                <option value="11">November</option>
+			                <option value="12">December</option>
+			              </select>
+			            </div>
+			            <div class="col-xs-12">
+			              <select class="form-control" name="expiry-year" style="margin-left: 30px;">
+			                <option value="13">2018</option>
+			                <option value="14">2019</option>
+			                <option value="15">2020</option>
+			                <option value="16">2021</option>
+			                <option value="17">2022</option>
+			                <option value="18">2023</option>
+			                <option value="19">2024</option>
+			                <option value="20">2025</option>
+			                <option value="21">2026</option>
+			                <option value="22">2027</option>
+			                <option value="23">2028</option>
+			              </select>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <label class="col-sm-12 control-label" for="cvv">Card CVV</label>
+			        <div class="col-sm-12">
+			          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+			        </div>
+			      </div>
+			    </fieldset>
+			  </form>
+			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
+	        </div>
+	        <div class="modal-footer">
+	        	<a><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        </div>
+	    </div>
+  		</div>
+	</div>
+  	<!-- END OF CREDIT CARD -->
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
@@ -330,3 +362,135 @@ n<!DOCTYPE html>
 </body>
 
 </html>
+<script type = "text/javascript">
+	$(document).ready(function(){
+		LoadProvinces(-1);
+
+		$("#selectProvince").on("click", ".provinceOption", function(){
+			LoadCities($("#selectProvince").find(":selected").val());
+		});
+
+		$("#selectCity").on("click", ".cityOption", function(){
+			LoadBarangays($("#selectCity").find(":selected").val());
+		});
+
+		$("#codPlaceOrderButton").on("click", function(){
+			PlaceOrder();
+		});
+	});
+
+	function LoadProvinces(parentLocationId){
+		$("#selectProvince").empty();
+
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectProvince").show();
+				$("#selectProvince option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'provinceOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectProvince").append(option);
+				});
+
+				$("#selectProvince option:first").prop("selected", "selected");
+				LoadCities($("#selectProvince").find(":selected").val());
+	    },
+	    error: function(result) {
+				$("#selectProvince").hide();
+	    }
+		});
+	}
+
+	function LoadCities(parentLocationId){
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectCity").show();
+				$("#selectCity option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'cityOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectCity").append(option);
+				});
+
+				$("#selectCity option:first").prop("selected", "selected");
+				LoadBarangays($("#selectCity").find(":selected").val());
+	    },
+	    error: function(result) {
+				$("#selectCity").hide();
+	    }
+		});
+	}
+
+	function LoadBarangays(parentLocationId){
+		$.ajax({
+			type: "POST",
+	    url: "Ajax/LoadLocationUnder.php",
+			dataType: "json",
+	    data: {
+				"parentId" : parentLocationId
+	    },
+	    success: function(result) {
+				$("#selectBarangay").show();
+				$("#selectBarangay option:selected").prop("selected", false);
+
+				result.forEach(function(item){
+					var option = "<option class = 'barangayOption' value = " + item.locationId + ">" + item.name + "</option>";
+					$("#selectBarangay").append(option);
+				});
+
+				$("#selectBarangay option:first").prop("selected", "selected");
+	    },
+	    error: function(result) {
+				$("#selectBarangay").hide();
+	    }
+		});
+	}
+
+	function PlaceOrder(){
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+		var subtotalFee = "<?php echo $_POST['subtotalFee']; ?>";
+		var shippingFee = "<?php echo $_POST['shippingFee']; ?>";
+		var totalFee = "<?php echo $_POST['totalFee']; ?>";
+
+		GenerateOrderNumber();
+
+		$("#inputShippingContactPerson").val($("#shipContactPerson").val());
+		$("#inputShippingContactNumber").val($("#shipContactNumber").val());
+		$("#inputShippingAddress").val($("#shipAddress").val());
+		$("#inputShippingLocationId").val($("#selectBarangay").find(":selected").val());
+
+		$("#inputBillingContactPerson").val($("#shipContactPerson").val());
+		$("#inputBillingContactNumber").val($("#shipContactNumber").val());
+		$("#inputBillingAddress").val($("#shipAddress").val());
+		$("#inputBillingLocationId").val($("#selectBarangay").find(":selected").val());
+
+		$("#inputDiscount").val(0);
+		$("#inputTax").val(7);
+
+		$("#inputSubtotalFee").val(subtotalFee);
+		$("#inputShippingFee").val(shippingFee);
+		$("#inputTotalFee").val(totalFee);
+
+		$("#inputCustomerId").val(customerId);
+		$("#inputPaymentId").val(1);
+
+		$("#addOrderForm").submit();
+	}
+
+	function GenerateOrderNumber(){
+		var milliseconds = (new Date).getTime().toString();
+		$("#inputOrderNumber").val(milliseconds);
+	}
+</script>

@@ -4,5 +4,5 @@
   session_destroy();
   $_SESSION['userId'] = null;
 
-  header("Location: ../home.php" );
+  header("Location: ../loginnew.php" );
 ?>

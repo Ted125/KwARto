@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <?php session_start();?>
@@ -25,7 +25,7 @@ n<!DOCTYPE html>
 
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
-	
+
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -40,155 +40,43 @@ n<!DOCTYPE html>
 			</div>
 		</div>
 
-		<h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Order Summary</h2>
-		<h4>Your shopping cart contains: <span style="color: #d42d2d">2</span> Products</h4>
+		<h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Your Cart</h2>
+		<!-- <h4>Your shopping cart contains: <span style="color: #d42d2d">2</span> Products</h4> -->
 				<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 					<thead>
 						<tr style="text-align: center;">
-							<th>Item No.</th>	
+							<th>Item No.</th>
 							<th>Product</th>
 							<th>Quantity</th>
 							<th>Product Name</th>
-						
+
 							<th>Price</th>
 							<th>Action</th>
 						</tr>
 					</thead>
-					<tbody class="text-center">
-					<tr class="">
-					<td class="">1</td>
-					<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
-					<td class="">
-						<div class="" style="text-align: -webkit-center"> 
-							<div class="form-group form-group-options">
-								<div class="input-group input-group-option" style="width: 130px;">
-									<span class="input-group-addon input-group-addon-remove btn">
-										<span class="fa fa-minus"></span>
-									</span>
-									<input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-									<span class="input-group-addon btn">
-										<span class="fa fa-plus"></span>
-									</span>
-								</div>
-							</div>
-						</div>
-					</td>
-					<td class="">Comfy Chair</td>
-					<td class="">P850.00</td>
-					<td class="" style="text-align:  center;">	
-						<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>Are you sure you want to move this item to your wishlist?</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
-									</div>
-							  	</div>
-							  	<br>
-								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>Are you sure you want to remove this item from your cart?</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
-									</div>
-							  	</div>
-					</td>
-				</tr>
-						<tr class="">
-							<td class="">2</td>
-							<td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
-							<td class="">
-								<div class="" style="text-align: -webkit-center"> 
-									<div class="form-group form-group-options">
-			                            <div class="input-group input-group-option" style="width: 130px;">
-			                                <span class="input-group-addon input-group-addon-remove btn">
-			                                    <span class="fa fa-minus"></span>
-			                                </span>
-			                                <input type="text" class="form-control" style="text-align: center;" value="1" placeholder="1">
-			                                <span class="input-group-addon btn">
-			                                    <span class="fa fa-plus"></span>
-			                                </span>
-			                            </div>
-	                        		</div>
-								</div>
-							</td>
-							<td class="">Swivel Chair</td>
-							<td class="">P540.00</td>
-							<td class="" style="text-align:  center;">	
-								<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to wishlist</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>Are you sure you want to move this item to your wishlist?</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
-									</div>
-							  	</div>
-							  	<br>
-								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>Are you sure you want to remove this item from your cart?</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
-									</div>
-							  	</div>
-							</td>
-						</tr>
-				</tbody></table>
+					<tbody id = "cartItemsContainer" class="text-center">
 
-				<div style="margin-top: 20px;" class="text-right">				
-					<h5>Subtotal: <span style="color: #d42d2d">P1,390.00</span> + 7% Fee</h5>
-					<h5>Transaction Fee: <span style="color: #d42d2d">P97.30</h5>
-					<h4>Your total balance is: <span style="color: #d42d2d">P1,487.30</span></h4>
-					<div class="red_button" style="width: 150px"><a href="payment.php">Proceed to Checkout</a></div>
+					</tbody></table>
+
+				<div style="margin-top: 20px;" class="text-right">
+					<h5>Subtotal: <span id = "subtotalFeeText" style="color: #d42d2d" value = 0>Php 0</span> (Tax Inclusive)</h5>
+					<h5>Shipping Fee: <span id = "shippingFeeText" style="color: #d42d2d" value = 0>Php 0</h5>
+					<h4>Your total balance is: <span id = "totalFeeText" style="color: #d42d2d" value = 0>Php 0</span></h4>
+					<div id = "checkoutButton" class="red_button" style="width: 180px"><a style="color: white;">Proceed to Checkout</a></div>
 				</div>
 
-				
+				<!-- Selected Furniture Form -->
+				<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+					<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+				</form>
+
+				<!-- Checkout Form -->
+				<form id = "checkoutForm" type = "hidden" action = "payment.php" method = "POST">
+					<input id = "inputSubtotalFee" type = "hidden" name = "subtotalFee">
+					<input id = "inputShippingFee" type = "hidden" name = "shippingFee">
+					<input id = "inputTotalFee" type = "hidden" name = "totalFee">
+				</form>
+
 				<!-- MODAL CONTENTS -->
                 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                     <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
@@ -201,11 +89,11 @@ n<!DOCTYPE html>
                           <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
 								<thead>
 									<tr style="text-align: center;">
-										<th>Item No.</th>	
+										<th>Item No.</th>
 										<th>Product</th>
 										<th>Quantity</th>
 										<th>Product Name</th>
-									
+
 										<th>Price</th>
 										<th>Action</th>
 									</tr>
@@ -215,7 +103,7 @@ n<!DOCTYPE html>
 								<td class="">1</td>
 								<td class=""><a href="single.php"><img style="max-height: 140px;" src="http://www.zurifurniture.com/common/images/products/large/medici_chair_red2.jpg" alt=" " class="img-responsive"></a></td>
 								<td class="">
-									<div class="" style="text-align: -webkit-center"> 
+									<div class="" style="text-align: -webkit-center">
 										<div class="form-group form-group-options">
 											<div class="input-group input-group-option" style="width: 130px;">
 												<span class="input-group-addon input-group-addon-remove btn">
@@ -231,7 +119,7 @@ n<!DOCTYPE html>
 								</td>
 								<td class="">Comfy Chair</td>
 								<td class="">P850.00</td>
-								<td class="" style="text-align:  center;">	
+								<td class="" style="text-align:  center;">
 									<div class="red_button" style="width: 150px"><a href="wishlist.php">move to wishlist</a></div><br>
 									<div class="red_button" style="width: 100px; background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 								</td>
@@ -240,7 +128,7 @@ n<!DOCTYPE html>
 										<td class="">2</td>
 										<td class=""><a href="single.php"><img style="max-height: 140px;" src="https://images.samsclubresources.com/is/image/samsclub/0004216738171_A?$img_size_380x380$" alt=" " class="img-responsive"></a></td>
 										<td class="">
-											<div class="" style="text-align: -webkit-center"> 
+											<div class="" style="text-align: -webkit-center">
 												<div class="form-group form-group-options">
 						                            <div class="input-group input-group-option" style="width: 130px;">
 						                                <span class="input-group-addon input-group-addon-remove btn">
@@ -256,7 +144,7 @@ n<!DOCTYPE html>
 										</td>
 										<td class="">Swivel Chair</td>
 										<td class="">P540.00</td>
-										<td class="" style="text-align:  center;">	
+										<td class="" style="text-align:  center;">
 											<div class="red_button" style="width: 150px;"><a href="wishlist.php">move to wishlist</a></div><br>
 											<div class="red_button" style="width: 100px;background-color: #444; margin-top: 10px;"><a href="#">remove</a></div>
 										</td>
@@ -384,3 +272,297 @@ n<!DOCTYPE html>
 </body>
 
 </html>
+<script type = "text/javascript">
+
+$(document).ready(function(){
+	var fId = "<?php if(isset($_POST['furnitureId'])){
+		echo $_POST['furnitureId'];
+	}else{
+		echo '-1';
+	} ?>";
+
+	fId = parseInt(fId);
+
+	if(fId != -1){
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+		$.ajax({
+			type: "POST",
+			url: "Ajax/GetAvailableFurnitureStock.php",
+			dataType: "json",
+			data: {
+				"furnitureId" : fId
+			},
+			success: function(result) {
+				if(result[0] != null){
+					UpdateFurnitureStock("on_hold", customerId, result[0].stockId);
+				}else{
+					LoadCartItems();
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	}else{
+		LoadCartItems();
+	}
+
+	$("#cartItemsContainer").on("click", ".addCartItemButton", function(){
+		var furnitureId = $(this).closest(".cartItem").attr("name");
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+		$.ajax({
+			type: "POST",
+			url: "Ajax/GetAvailableFurnitureStock.php",
+			dataType: "json",
+			data: {
+				"furnitureId" : furnitureId
+			},
+			success: function(result) {
+				if(result[0] != null){
+					UpdateFurnitureStock("on_hold", customerId, result[0].stockId);
+				}else{
+
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	});
+
+	$("#cartItemsContainer").on("click", ".removeCartItemButton", function(){
+		var furnitureId = $(this).closest(".cartItem").attr("name");
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+		$.ajax({
+			type: "POST",
+			url: "Ajax/GetOnHoldFurnitureStock.php",
+			dataType: "json",
+			data: {
+				"furnitureId" : furnitureId,
+				"customerId" : customerId
+			},
+			success: function(result) {
+				if(result[0] != null){
+					UpdateFurnitureStock("available", "null", result[0].stockId);
+				}else{
+
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	});
+
+	$("#cartItemsContainer").on("click", ".removeFromCartButton", function(){
+		var furnitureId = $(this).closest(".cartItem").attr("name");
+		RemoveFromCart(furnitureId);
+	});
+
+	$("#cartItemsContainer").on("click", ".productName", function(){
+		var id = $(this).closest(".cartItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#cartItemsContainer").on("click", ".productImage", function(){
+		var id = $(this).closest(".cartItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#checkoutButton").on("click", function(){
+		$("#checkoutForm").submit();
+	});
+});
+
+function UpdateFurnitureStock(status, customerId, stockId){
+	$.ajax({
+		type: "POST",
+		url: "Ajax/UpdateFurnitureStock.php",
+		dataType: "json",
+		data: {
+			"status" : status,
+			"customerId" : customerId,
+			"stockId" : stockId
+		},
+		success: function(result) {
+			LoadCartItems();
+		},
+		error: function(result) {
+
+		}
+	});
+}
+
+function LoadCartItems(){
+	$("#cartItemsContainer").empty();
+
+	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+	$.ajax({
+		type: "POST",
+		url: "Ajax/LoadCartItems.php",
+		dataType: "json",
+		data: {
+			"customerId" : customerId
+		},
+		success: function(result) {
+			var count = 0;
+			var dimWeight = 0;
+
+			result.forEach(function(item){
+				count++;
+				dimWeight += parseInt(item.totalWeight);
+
+				var cartEntry = "<tr class='cartItem' name = '" + item.furnitureId + "'><td class=''>" + count + "</td><td class=''><a><img class='productImage' style='max-height: 140px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.image + "' alt=' ' class='img-responsive'></a></td><td class=''><div class='' style='text-align: -webkit-center'><div class='form-group form-group-options'><div class='input-group input-group-option' style='width: 130px;'><span class='removeCartItemButton input-group-addon input-group-addon-remove btn'><span class='fa fa-minus'></span></span><input type='text' class='cartItemQuantity form-control' style='text-align: center;' value='" + item.numItems + "'><span class='addCartItemButton input-group-addon btn'><span class='fa fa-plus'></span></span></div></div></div></td><td class='productName'>" + item.name + "</td><td class=''>Php&nbsp;";
+
+				 cartEntry += (item.price * (1 - item.discount / 100)).toFixed(2).replace(/./g, function(c, i, a) {
+	 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	 			});
+
+				 cartEntry += "</td><td class='' style='text-align:  center;'><div class='red_button' data-toggle='modal' data-target='#cartdia1' style='width: 150px; margin-top: 10px;'><a href='#'>move to wishlist</a></div><br><div class='removeFromCartButton red_button' data-toggle='modal' data-target='#cartdia2' style='width: 150px; background-color: #444; margin-top: 10px;'><a href='#'>remove from list</a></div>";
+
+				 $("#cartItemsContainer").append(cartEntry);
+			});
+
+			CalculateSubtotalFee(dimWeight);
+		},
+		error: function(result) {
+
+		}
+	});
+}
+
+function CalculateSubtotalFee(dimWeight){
+	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+	$.ajax({
+		type: "POST",
+		url: "Ajax/GetSubtotalCartPrice.php",
+		dataType: "json",
+		data: {
+			"customerId" : customerId
+		},
+		success: function(result) {
+			var subtotal = parseFloat(result[0].total);
+			var tax = 7;	// 7 %
+
+			$("#subtotalFeeText").attr("value", (subtotal + subtotal * (tax / 100)));
+			$("#inputSubtotalFee").val(subtotal);
+
+			subtotal = (subtotal + subtotal * (tax / 100)).toFixed(2).replace(/./g, function(c, i, a) {
+			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+			});
+
+			$("#subtotalFeeText").text("Php " + subtotal);
+			CalculateShippingFee(dimWeight);
+		},
+		error: function(result) {
+			$("#subtotalFeeText").attr("value", 0);
+			$("#subtotalFeeText").text("Php 0");
+			CalculateShippingFee(dimWeight);
+		}
+	});
+}
+
+function CalculateShippingFee(totalWeight){
+	$.ajax({
+		type: "POST",
+		url: "Ajax/CalculateShippingFee.php",
+		data: {
+			"dimWeight" : totalWeight
+		},
+		success: function(result) {
+			$("#shippingFeeText").attr("value", result);
+			$("#inputShippingFee").val(result);
+
+			var shippingFee = parseFloat(result).toFixed(2).replace(/./g, function(c, i, a) {
+			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+			});
+
+			$("#shippingFeeText").text("Php " + shippingFee);
+			CalculateTotalFee();
+		},
+		error: function(result) {
+			$("#shippingFeeText").attr("value", 0);
+			$("#shippingFeeText").text("Php 0");
+			CalculateTotalFee();
+		}
+	});
+}
+
+function CalculateTotalFee(){
+	var subtotalFee = parseFloat($("#subtotalFeeText").attr("value"));
+	var shippingFee = parseFloat($("#shippingFeeText").attr("value"));
+
+	$("#inputTotalFee").val(subtotalFee + shippingFee);
+
+	var totalFee = (subtotalFee + shippingFee).toFixed(2).replace(/./g, function(c, i, a) {
+			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	});
+	$("#totalFeeText").text("Php " + totalFee);
+}
+
+function RemoveFromCart(furnitureId){
+	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+	$.ajax({
+		type: "POST",
+		url: "Ajax/RemoveCartItem.php",
+		data: {
+			"furnitureId" : furnitureId,
+			"customerId" : customerId
+		},
+		success: function(result) {
+			LoadCartItems();
+		},
+		error: function(result) {
+
+		}
+	});
+}
+</script>
+			<!-- Modal
+				<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+				<div role="document" class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+						<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to move this item to your wishlist?</p>
+					</div>
+					<div class="modal-footer">
+						<a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+						<button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+					</div>
+					</div>
+				</div>
+				</div>
+				<br>
+			<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+			Modal
+				<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+				<div role="document" class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+						<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to remove this item from your cart?</p>
+					</div>
+					<div class="modal-footer">
+						<a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+						<button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+					</div>
+					</div>
+				</div>
+				</div>
+</td>
+</tr> -->

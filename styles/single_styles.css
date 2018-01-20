@@ -1,37 +1,4 @@
-@charset "utf-8";
-/* CSS Document */
-
-/******************************
-
-COLOR PALETTE
-
-
-
-[Table of Contents]
-
-1. Fonts
-2. Body and some general stuff
-3. Home
-	3.1 Currency
-	3.2 Language
-	3.3 Account
-	3.4 Main Navigation
-	3.5 Hamburger Menu
-	3.6 Logo
-4. Breadcrumbs
-5. Single Product Section
-6. Product Details
-7. Tabs
-	7.1 Description
-	7.2. Additional Info
-	7.3 Reviews
-8. Add Review
-9. Benefit
-10. Newsletter
-11. Footer
-
-
-******************************/
+f@charset "utf-8";
 
 /***********
 1. Fonts
@@ -603,7 +570,7 @@ section
 }
 .checkout a
 {
-	background: #eceff6;
+	/*background: #eceff6;*/
 	border-radius: 50%;
 }
 .checkout_items
@@ -974,7 +941,7 @@ section
 	width: 100%;
 	height: 100%;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	background-position: center center;
 }
 
@@ -1038,6 +1005,15 @@ section
 	font-weight: 500;
 	line-height: 30px;
 	margin-top: 2px;
+}
+.star_size
+{
+	font-size: 20px!important;
+	margin-left: 0px;
+}
+.remove-left
+{
+	margin-left: 0px!important;
 }
 .star_rating
 {
@@ -1294,13 +1270,25 @@ section
 .review_date
 {
 	color: #d42d2d;
-	margin-top: -4px;
+	font-size: 0.9em;
+	margin-top: 2px;
 }
 .user_name
 {
-	font-size: 16px;
 	font-weight: 500;
 	margin-bottom: 18px;
+	font-size: 0.9em;
+	color: #51545f;
+	margin-top: 2px;
+}
+.review_title 
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.review_body 
+{
+	color: black;
 }
 .review p
 {

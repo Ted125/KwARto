@@ -142,6 +142,27 @@ h6::selection
 	font-weight: 500;
 	color: #777777 !important;
 }
+.search-container button:hover {
+  	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  	-webkit-font-smoothing: antialiased;
+  	text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    float: none;
+  }
+  input[type=text], .search-container button {
+    float: none;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
 .form-control
 {
 	color: #db5246;
@@ -507,7 +528,7 @@ section
 .navbar
 {
 	width: auto;
-	height: 100px;
+	height: 80px;
 	float: right;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -569,7 +590,7 @@ section
 }
 .checkout a
 {
-	background: #eceff6;
+	/*background: #eceff6;*/
 	border-radius: 50%;
 }
 .checkout_items
@@ -790,7 +811,7 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	margin-top: 150px;
+	margin-top: 100px;
 }
 .main_slider_content
 {
@@ -1020,7 +1041,7 @@ section
 }
 .product_name
 {
-	margin-top: 27px;
+	/*margin-top: 27px;*/
 }
 .product_name a
 {
@@ -1646,5 +1667,30 @@ section
 }
 .footer_social ul li a:hover
 {
+	color: #d42d2d;
+}
+
+.nav2
+{
+	margin: 10px 50px 10px 50px;
+}
+
+.nav2 a
+{
+	color: #d42d2d;
+}
+
+.rightmenu a  {
+  color: #212529;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.rightmenu a strong {
+  color: #d42d2d;
+  text-decoration: none;
+}
+
+.leftcontent strong {
 	color: #d42d2d;
 }

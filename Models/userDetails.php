@@ -106,7 +106,7 @@ class user_details{
     }
 
     public function createAdmin(){
-        $result;
+        $result = null;
         $this->setUserType($_SESSION['userType']);
         if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
             $this->setUserStatus('active');
@@ -118,33 +118,50 @@ class user_details{
         return $result;
     }
 
-    public function activateUser(){
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
-            $this->setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-                       SET userStatus = 'active'
-                       WHERE userId = '".$this->getUserId()."'
-                      ";
-            $result = mysqli_query($mysqli, $update);
+    public function activateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'active'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can activate a user';
+            }
         }else{
-            echo 'no session or only admins can activate a user';
+            echo 'no connection';
         }
         return $result;
     }
 
-    public function deactiveUser(){
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
-            setUserId($_POST['userId']);
-            $update = "UPDATE user_details
-                       SET userStatus = 'inactive'
-                       WHERE userId = '".getUserId()."'
-                      ";
-            $result = mysqli_query($mysqli, $update);
+    public function deactivateUser($userId){
+        include_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $this->setUserType($_SESSION['userType']);
+            if(strcmp($this->getUserType(),'admin') == 0){
+                $this->setUserId($userId);
+                $update = "UPDATE user_details
+                        SET userStatus = 'banned'
+                        WHERE userId = '".$this->getUserId()."'
+                        ";
+                $result = mysqli_query($connection, $update);
+            }else{
+                echo 'no session or only admins can deactivate a user';
+            }
         }else{
-            echo 'no session or only admins can deactivate a user';
+            echo 'no connection';
         }
+        return $result;
     }
 
     public function deleteUser($userId){
@@ -275,7 +292,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT userId, email, userType, mobileNumber, dateAdded
+          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -308,7 +325,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, name, description
+          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, image, name, description
           FROM user_details INNER JOIN seller ON user_details.userId = seller.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;
@@ -335,23 +352,27 @@ class user_details{
       }
 
     public function displayAllUsers(){
-        require("Database.php");
+        require_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            user_details.userId AS userId,
-            userType,
-            userStatus,
-            email,
-            mobileNumber,
-            dateAdded,
-            firstName,
-            lastName
-            FROM  user_details INNER JOIN customer
-            WHERE user_details.userId = customer.userId;
+            u.userId,
+            c.customerId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.dateAdded,
+            c.firstName,
+            c.middleName,
+            c.lastName,
+            c.birthdate,
+            u.image
+            FROM  user_details u INNER JOIN customer c 
+            WHERE u.userId = c.userId;
             ";
             $result = mysqli_query($connection, $query);
 
@@ -372,15 +393,19 @@ class user_details{
         if($connection){
             //$result = NULL;
             $query ="SELECT
-            user_details.userId AS userId,
-            userType,
-            userStatus,
-            email,
-            mobileNumber,
-            dateAdded,
-            name
-            FROM  user_details INNER JOIN seller
-            WHERE user_details.userId = seller.userId;
+            u.userId,
+            u.userType,
+            u.userStatus,
+            u.email,
+            u.mobileNumber,
+            u.image,
+            u.dateAdded,
+            u.addedBy,
+            s.description,
+            s.name,
+            s.sellerId
+            FROM  user_details u INNER JOIN seller s
+            WHERE u.userId = s.userId && u.userStatus != 'inactive';
             ";
             $result = mysqli_query($connection, $query);
 
@@ -394,6 +419,7 @@ class user_details{
     }
 
     public function displayUser($userId){
+        require("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $this->setUserId($userId);
@@ -417,6 +443,53 @@ class user_details{
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
+        }
+        return $result;
+    }
+
+    public function countNewCustomers(){
+        require_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as new_customers FROM user_details WHERE userType = 'customer'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
+        }
+        return $result;
+    }
+
+    public function countNewSellers(){
+        require_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as new_sellers FROM user_details WHERE userType = 'seller'  AND dateAdded >= DATE(NOW() - INTERVAL 2 MONTH)";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
+        }
+        return $result;
+    }
+
+    public function countPendingSellers(){
+        require_once("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query = "SELECT count(*) as pend_sellers 
+                      FROM user_details 
+                      WHERE userStatus ='inactive'  AND userType = 'seller'";
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);  
+        }else{
+            echo 'Connection Error';
         }
         return $result;
     }

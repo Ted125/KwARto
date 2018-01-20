@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2018 at 05:21 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.0.26
+-- Generation Time: Jan 18, 2018 at 10:21 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -223,6 +223,7 @@ CREATE TABLE `furniture` (
   `saleStart` timestamp NULL DEFAULT NULL,
   `saleEnd` timestamp NULL DEFAULT NULL,
   `live` tinyint(1) DEFAULT '0',
+  `status` tinyint(4) DEFAULT '1',
   `categoryId` int(11) DEFAULT NULL,
   `sellerId` int(11) NOT NULL,
   `versionOf` int(11) DEFAULT NULL
@@ -232,12 +233,12 @@ CREATE TABLE `furniture` (
 -- Dumping data for table `furniture`
 --
 
-INSERT INTO `furniture` (`furnitureId`, `name`, `description`, `warrantyId`, `model`, `color`, `weight`, `weightUnit`, `length`, `width`, `height`, `sizeUnit`, `packageLength`, `packageWidth`, `packageHeight`, `packageSizeUnit`, `price`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `modelName`, `discount`, `saleStart`, `saleEnd`, `live`, `categoryId`, `sellerId`, `versionOf`) VALUES
-(1, 'Dream Table', 'This table is the dream of our ancestors!', 1, 'DTBL-01', 'brown', 4, 'kg', 20, 15, 10, 'cm', 31, 21, 15, 'cm', 2500, '2017-12-26 01:08:51', '2018-01-11 11:40:38', 2, 2, 'dream table', 5, NULL, NULL, 1, 37, 1, NULL),
-(2, '52303-TB Walnut Lily Single Bed', 'No description.', 1, '52303-TB', 'walnut lily', 10, 'kg', 206.5, 103.1, 117, 'cm', 206.5, 103.1, 117, 'cm', 14600, '2018-01-11 11:32:41', '2018-01-11 11:40:14', 2, 2, 'single bed', 0, NULL, NULL, 1, 24, 1, NULL),
-(3, 'KD 2328 Semi-Double Bed', 'No description.', 1, 'KD 2328', 'white', 10, 'kg', 190, 120, 990, 'cm', 190, 120, 990, 'cm', 7400, '2018-01-11 11:36:19', '2018-01-11 11:40:25', 2, 2, 'semi double bed', 40, NULL, NULL, 1, 25, 1, NULL),
-(4, 'TG9037DB Jasper Upholstered Double Bed', 'Bed only. Foam mattress not included.', 1, 'TG9037DB', 'Jasper', 8, 'kg', 190, 100, 117, 'cm', 190, 100, 117, 'cm', 12600, '2018-01-11 11:39:53', '2018-01-11 11:39:53', 2, 2, 'double bed', 75, NULL, NULL, 1, 26, 1, NULL),
-(6, 'Bookshelf - FBS3200', 'No description.', 1, 'FBS3200', 'choco', 15, 'kg', 81.5, 30.5, 175.5, 'cm', 81.5, 30.5, 175.5, 'cm', 2895, '2018-01-14 03:44:54', '2018-01-14 03:44:54', 2, 2, 'bookcase', 0, NULL, NULL, 1, 64, 1, NULL);
+INSERT INTO `furniture` (`furnitureId`, `name`, `description`, `warrantyId`, `model`, `color`, `weight`, `weightUnit`, `length`, `width`, `height`, `sizeUnit`, `packageLength`, `packageWidth`, `packageHeight`, `packageSizeUnit`, `price`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `modelName`, `discount`, `saleStart`, `saleEnd`, `live`, `status`, `categoryId`, `sellerId`, `versionOf`) VALUES
+(1, 'Dream Table', 'This table is the dream of our ancestors!', 1, 'DTBL-01', 'brown', 4, 'kg', 20, 15, 10, 'cm', 31, 21, 15, 'cm', 2500, '2017-12-26 01:08:51', '2018-01-11 11:40:38', 2, 2, 'dream table', 5, NULL, NULL, 1, 1, 37, 1, NULL),
+(2, '52303-TB Walnut Lily Single Bed', 'No description.', 1, '52303-TB', 'walnut lily', 10, 'kg', 206.5, 103.1, 117, 'cm', 206.5, 103.1, 117, 'cm', 14600, '2018-01-11 11:32:41', '2018-01-11 11:40:14', 2, 2, 'single bed', 0, NULL, NULL, 1, 1, 24, 1, NULL),
+(3, 'KD 2328 Semi-Double Bed', 'No description.', 1, 'KD 2328', 'white', 10, 'kg', 190, 120, 990, 'cm', 190, 120, 990, 'cm', 7400, '2018-01-11 11:36:19', '2018-01-11 11:40:25', 2, 2, 'semi double bed', 40, NULL, NULL, 1, 1, 25, 1, NULL),
+(4, 'TG9037DB Jasper Upholstered Double Bed', 'Bed only. Foam mattress not included.', 1, 'TG9037DB', 'Jasper', 8, 'kg', 190, 100, 117, 'cm', 190, 100, 117, 'cm', 12600, '2018-01-11 11:39:53', '2018-01-11 11:39:53', 2, 2, 'double bed', 75, NULL, NULL, 1, 1, 26, 1, NULL),
+(6, 'Bookshelf - FBS3200', 'No description.', 1, 'FBS3200', 'choco', 15, 'kg', 81.5, 30.5, 175.5, 'cm', 81.5, 30.5, 175.5, 'cm', 2895, '2018-01-14 03:44:54', '2018-01-14 03:44:54', 2, 2, 'bookcase', 0, NULL, NULL, 1, 1, 64, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -248,6 +249,7 @@ INSERT INTO `furniture` (`furnitureId`, `name`, `description`, `warrantyId`, `mo
 CREATE TABLE `furniture_image` (
   `furnitureImageId` int(11) NOT NULL,
   `image` varchar(256) NOT NULL,
+  `thumbnail` tinyint(4) NOT NULL DEFAULT '0',
   `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `addedBy` int(11) NOT NULL,
@@ -259,15 +261,15 @@ CREATE TABLE `furniture_image` (
 -- Dumping data for table `furniture_image`
 --
 
-INSERT INTO `furniture_image` (`furnitureImageId`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `furnitureId`) VALUES
-(1, '4.jpg', '2017-12-26 01:16:33', '2017-12-26 02:07:07', 2, 2, 1),
-(2, '5.jpg', '2017-12-26 01:16:33', '2017-12-26 10:36:50', 2, 2, 1),
-(3, '6.jpeg', '2017-12-26 01:16:33', '2017-12-26 02:07:18', 2, 2, 1),
-(4, '1.jpg', '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 2),
-(5, '1.jpg', '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 3),
-(6, '1.jpg', '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 4),
-(7, '2.jpg', '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 4),
-(8, '1.jpg', '2018-01-14 03:46:28', '2018-01-14 03:46:28', 2, 2, 6);
+INSERT INTO `furniture_image` (`furnitureImageId`, `image`, `thumbnail`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`, `furnitureId`) VALUES
+(1, '4.jpg', 0, '2017-12-26 01:16:33', '2017-12-26 02:07:07', 2, 2, 1),
+(2, '5.jpg', 0, '2017-12-26 01:16:33', '2017-12-26 10:36:50', 2, 2, 1),
+(3, '6.jpeg', 0, '2017-12-26 01:16:33', '2017-12-26 02:07:18', 2, 2, 1),
+(4, '1.jpg', 0, '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 2),
+(5, '1.jpg', 0, '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 3),
+(6, '1.jpg', 0, '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 4),
+(7, '2.jpg', 0, '2018-01-11 11:48:19', '2018-01-11 11:48:19', 2, 2, 4),
+(8, '1.jpg', 0, '2018-01-14 03:46:28', '2018-01-14 03:46:28', 2, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -353,7 +355,7 @@ INSERT INTO `furniture_stock` (`stockId`, `status`, `dateAdded`, `dateUpdated`, 
 (2, 'sold', '2017-12-26 01:17:41', '2017-12-30 13:42:12', 2, 2, 1, 1),
 (3, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:23:33', 2, 2, 1, 1),
 (4, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:24:24', 2, 2, 1, 1),
-(5, 'sold', '2017-12-26 01:17:41', '2017-12-30 14:24:59', 2, 2, 1, 1),
+(5, 'on_hold', '2017-12-26 01:17:41', '2018-01-18 08:43:00', 2, 2, 1, 1),
 (6, 'available', '2018-01-03 13:21:34', '2018-01-12 11:44:58', 2, 2, 1, NULL),
 (7, 'available', '2018-01-03 13:21:52', '2018-01-12 11:45:02', 2, 2, 1, NULL),
 (8, 'available', '2018-01-12 11:29:05', '2018-01-12 11:29:05', 2, 2, 4, NULL);
@@ -550,7 +552,10 @@ INSERT INTO `question` (`questionId`, `question`, `answer`, `active`, `datePoste
 (9, 'Am I being ignored?', NULL, 1, '2017-12-28 13:05:03', NULL, 1, 1),
 (10, 'Are you guys going to answer my question or nah??', NULL, 1, '2017-12-28 13:07:48', NULL, 1, 1),
 (11, 'Do you make other furniture aside from tables?', NULL, 1, '2017-12-28 14:05:22', NULL, 1, 1),
-(12, 'Is this useful in the military???', NULL, 1, '2017-12-28 16:32:20', NULL, 6, 1);
+(12, 'Is this useful in the military???', NULL, 1, '2017-12-28 16:32:20', NULL, 6, 1),
+(13, 'Is this the first question?', NULL, 1, '2018-01-16 08:24:53', NULL, 1, 4),
+(14, 'do you know da wae?', NULL, 1, '2018-01-16 08:25:59', NULL, 1, 4),
+(15, 'Where is de kween???', NULL, 1, '2018-01-16 08:54:51', NULL, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -586,7 +591,8 @@ INSERT INTO `review` (`reviewId`, `rating`, `likes`, `title`, `body`, `dateAdded
 (7, 4, 0, 'Table is good', 'The table lives up to my expectations', '2017-12-28 14:17:45', '2017-12-28 14:17:45', 3, 3, 1, 1),
 (8, 5, 0, 'Cute', 'The table is so cute!', '2017-12-28 16:23:53', '2017-12-28 16:23:53', 5, 5, 1, 3),
 (9, 5, 0, 'Useful Everywhere It Seems', 'Wow I never thought I could hide underneath it to sneak past the Soviets LOL ! Great product!', '2017-12-28 16:33:06', '2017-12-28 16:33:06', 8, 8, 1, 6),
-(10, 2, 0, 'Broken Frame', 'The product arrived with chipped off materials. I immediately asked for a refund.', '2018-01-11 12:51:42', '2018-01-11 12:51:42', 3, 3, 4, 1);
+(10, 2, 0, 'Broken Frame', 'The product arrived with chipped off materials. I immediately asked for a refund.', '2018-01-11 12:51:42', '2018-01-11 12:51:42', 3, 3, 4, 1),
+(15, 5, 0, 'Very satisfied!', 'I love the bed!', '2018-01-16 09:15:38', '2018-01-16 09:15:38', 3, 3, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -628,7 +634,8 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`sellerId`, `name`, `description`, `userId`) VALUES
-(1, 'Dream Furniture', 'We make your dream home a reality!', 2);
+(1, 'Dream Furniture', 'We make your dream home a reality!', 2),
+(2, 'dummy', 'dummy', 9);
 
 -- --------------------------------------------------------
 
@@ -656,14 +663,15 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`userId`, `username`, `password`, `userType`, `userStatus`, `email`, `mobileNumber`, `image`, `dateAdded`, `dateUpdated`, `addedBy`, `updatedBy`) VALUES
-(1, 'admin', 'admin', 'admin', 'inactive', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2017-12-25 15:08:22', NULL, NULL),
-(2, 'seller', 'seller', 'seller', 'active', 'seller@gmail.com', NULL, NULL, '2017-12-26 01:00:19', '2017-12-26 01:01:03', NULL, NULL),
-(3, 'customer', 'customer', 'customer', 'active', 'customer@gmail.com', NULL, NULL, '2017-12-26 01:00:53', '2017-12-26 01:00:53', NULL, NULL),
-(4, NULL, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2017-12-28 14:52:22', NULL, NULL),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'active', 'admin@gmail.com', NULL, NULL, '2017-12-25 15:08:22', '2018-01-17 05:44:21', NULL, NULL),
+(2, 'seller', '64c9ac2bb5fe46c3ac32844bb97be6bc', 'seller', 'active', 'seller@gmail.com', NULL, 'Resources/Images/User/2/2.jpg', '2017-12-26 01:00:19', '2018-01-18 09:09:44', NULL, NULL),
+(3, 'customer', '91ec1f9324753048c0096d036a694f86', 'customer', 'active', 'customer@gmail.com', NULL, 'Resources/Images/User/3/3.jpg', '2017-12-26 01:00:53', '2018-01-18 09:09:34', NULL, NULL),
+(4, NULL, 'test', 'customer', 'active', 'test@gmail.com', '123', NULL, '2017-12-28 14:52:22', '2018-01-18 08:58:44', NULL, NULL),
 (5, NULL, 'julie', 'customer', 'active', 'julie@gmail.com', '12345', NULL, '2017-12-28 16:14:04', '2017-12-28 16:14:04', NULL, NULL),
-(6, NULL, 'geralt', 'customer', 'active', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2017-12-28 16:25:24', NULL, NULL),
-(7, NULL, 'letters', 'customer', 'active', 'letters@gmail.com', '1234567890', NULL, '2017-12-28 16:29:07', '2017-12-28 16:29:07', NULL, NULL),
-(8, NULL, 'snake', 'customer', 'active', 'snake@gmail.com', '55555', NULL, '2017-12-28 16:31:33', '2017-12-28 16:31:33', NULL, NULL);
+(6, NULL, 'geralt', 'customer', 'banned', 'geralt@gmail.com', '789', NULL, '2017-12-28 16:25:24', '2018-01-17 09:09:42', NULL, NULL),
+(7, NULL, 'letters', 'customer', 'active', 'letters@gmail.com', '1234567890', NULL, '2017-12-28 16:29:07', '2018-01-18 08:58:57', NULL, NULL),
+(8, NULL, 'snake', 'customer', 'banned', 'snake@gmail.com', '55555', NULL, '2017-12-28 16:31:33', '2018-01-18 08:50:40', NULL, NULL),
+(9, 'inactiveseller', 'dummy', 'seller', 'active', 'dummy@gmail.com', '09123123', 'Resources/Images/User/9/9.jpg', '2018-01-17 05:34:28', '2018-01-18 09:09:52', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -864,121 +872,101 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
   MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `customer_order`
 --
 ALTER TABLE `customer_order`
   MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
 --
 -- AUTO_INCREMENT for table `furniture`
 --
 ALTER TABLE `furniture`
   MODIFY `furnitureId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `furniture_image`
 --
 ALTER TABLE `furniture_image`
   MODIFY `furnitureImageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `furniture_package`
 --
 ALTER TABLE `furniture_package`
   MODIFY `packId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `furniture_specification`
 --
 ALTER TABLE `furniture_specification`
   MODIFY `specId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `furniture_stock`
 --
 ALTER TABLE `furniture_stock`
   MODIFY `stockId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
   MODIFY `notificationId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
   MODIFY `orderItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
 --
 -- AUTO_INCREMENT for table `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `orderStatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
   MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `questionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `search_history`
 --
 ALTER TABLE `search_history`
   MODIFY `searchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `sellerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `sellerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `warranty`
 --
 ALTER TABLE `warranty`
   MODIFY `warrantyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
   MODIFY `wishlistId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --

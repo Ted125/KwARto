@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+  //require("Controllers/Login.php");
+  session_start();
+  if(strcmp($_SESSION['userType'],'seller') != 0){
+      header("Location:index.php");
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -82,7 +89,7 @@
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -95,7 +102,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Company Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['email'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
@@ -110,7 +117,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li class="active"> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
-            <li><a href="loginnew.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
         <div class="content-inner">
@@ -145,50 +152,29 @@
                       </div>
                       <form class="form-horizontal col-lg-8">
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">First Name</label>
+                          <label class="col-sm-3 form-control-label">Company Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value="John">
+                            <input type="text" class="form-control" value=<?php echo $_SESSION['name'];?> >
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Middle Name</label>
+                        <div class="form-group row">       
+                          <label class="col-sm-3 form-control-label">Description</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value="Smithers">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Last Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" value="Smith">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Gender</label>
-                          <div class="col-sm-9">
-                            <div class="dropdown">
-                              <button class="btn form-control col-lg-3 btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Male
-                              </button>
-                              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Male</a>
-                                <a class="dropdown-item" href="#">Female</a>
-                                <a class="dropdown-item" href="#">Other</a>
-                              </div>
-                            </div>
+                            <input type="text" class="form-control" placeholder="<?php echo $_SESSION['description'];?>" />
                           </div>
                         </div>
                         <div class="line"></div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value="+63 123 456 7890">
+                            <input type="text" class="form-control" value=<?php echo $_SESSION['mobileNumber'];?> >
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" disabled="" value="email@address.com">
+                            <input type="text" class="form-control" disabled="" value=<?php echo $_SESSION['email'];?> >
                             <span class="help-block-none">We'll never share your e-mail address.</span>
                           </div>
                         </div>
