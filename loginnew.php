@@ -62,7 +62,12 @@
                       <label for="login-password" class="label-material">Password</label>
                     </div>
                     <input id="login" type="submit" class="btn btn-primary" value="Login">
-                  </form><a href="forgot.php" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="registernew.php" class="signup">Signup</a>
+                  </form><a href="forgot.php" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small>
+                  <a href="registernew.php" class="signup">Signup Customer</a>
+                  <br>
+                  <small>Wanna be registered as a new seller? </small>
+                  <a href="registernewseller.php" class="signup">Signup Seller</a>
+          
                   <br><br>
                   <div>
                     <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>

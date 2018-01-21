@@ -1,10 +1,11 @@
 <?php 
-include("Database.php");
+
 
     class seller extends user_details{
         private $sellerId;
         private $name;
         private $description;
+        private $userId;
 
         const DB_TABLE = "seller";
         const DB_TABLE_PK = "sellerId";
@@ -17,34 +18,26 @@ include("Database.php");
 
     /***************** FUNCTIONS *****************/
 
-    public function createSeller($userId){
+    public function createSeller(){
+        include("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
             $userDetails = new user_details();
             $userType = "seller";
-            $this->setUserType('seller');
-            $this->setUserId($this->createUser());
-            $this->setName($_POST['name']);
-            $this->setDescription($_POST['description']);
-            if(!isset($_SESSION)){
-                $this->setAddedBy('NULL');
-                $this->setUserStatus('inactive');
-            }else{
-                $this->setAddedBy($_SESSION['userId']);
-                $this->setUserStatus('active');
-            }
+            $this->setUserId($userDetails->createUser($userType));
+            $this->setName($_POST['registerName']);
+            $this->setDescription($_POST['registerDesc']);
             $create = "INSERT INTO seller
             ( 
-                sellerId,
-                `name`,
-                `description`,
+                name,
+                description,
                 userId
             )
             VALUES
-            ('".getName()."',
-            '".getDescription()."',
-            '".getUserId()."')
+            ('".$this->getName()."',
+            '".$this->getDescription()."',
+            '".$this->getUserId()."')
             ";
 
             echo $create;
@@ -107,6 +100,7 @@ include("Database.php");
     }
 
     public function readAllPendingSellers(){
+        include_once("Database.php");
         $db = new Database();
         $connection = $db->Connect();
         $result = null;
@@ -170,8 +164,16 @@ include("Database.php");
         return $this->description;
     }
 
-    public function setDescription(){
+    public function setDescription($description){
         $this->description = $description;
+    }
+
+    public function getUserId(){
+        return $this->userId;
+    }
+
+    public function setUserId($userId){
+        $this->userId = $userId;
     }
 
 }
