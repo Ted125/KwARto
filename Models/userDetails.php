@@ -45,7 +45,7 @@ class user_details{
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
-            if(isset($_SESSION)){
+            if(isset($_SESSION['userId'])){
                $this->setAddedBy($_SESSION['userId']);
             }
             $create = "INSERT INTO user_details
