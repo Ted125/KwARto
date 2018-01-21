@@ -24,7 +24,7 @@
                 <li>
                   <div class="search-container">
                     <form action="/action_page.php">
-                      <input type="text" placeholder="What are you looking for?" name="search" style="color: #d42d2d; width:350px; font-size: 1em; padding:10px;">
+                      <input type="text" placeholder="What are you looking for?" name="search" style="color: #d42d2d; width:300px; font-size: 1em; padding:10px;">
                       <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1em;"></i></button>
                     </form>
                  </div>
@@ -38,6 +38,7 @@
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else {
                     echo '<li><a href="wishlist.php">wishlist</a></li>
+                          <li><a href="transhist.php">history</a></li>
                           <li class="align-items-center checkout">
                             <!-- MODAL CONTENT BELOW -->
                             <a href="cart.php">
