@@ -64,7 +64,7 @@ n<!DOCTYPE html>
 								<h3>Account Information</h3>
 								<div class="row">
 									<div class="col-lg-4 text-center">
-										<img <?php echo 'src='.$_SESSION['image'].'';?> >
+										<img  <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
 										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
 											<input type="hidden" name="field" value="image"/>
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
