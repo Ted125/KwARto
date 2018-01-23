@@ -96,13 +96,13 @@ n<!DOCTYPE html>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Email:</label>
 													<div class="col-lg-8">
-														<input class="form-control" disabled="" name = "email" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
+														<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-3 control-label">Password:</label>
 													<div class="col-md-8">
-														<input class="form-control" type="password" disabled="" name = "password" value="**********">
+														<input class="form-control" type="password" disabled="" value="**********">
 													</div>
 												</div>							          
 												<div class="form-group">

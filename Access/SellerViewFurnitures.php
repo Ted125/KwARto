@@ -24,6 +24,7 @@
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
       <button type="submit" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button>
     </form>
+
     <!-- Modal-->
     <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
@@ -37,6 +38,10 @@
               <div class="form-group">
                 <label>Live</label><br>
                 <h2 style = "color:<?php echo $color?>;"><?php echo $live;?></h2>
+              </div>
+              <div class="form-group">       
+                <label>Discount</label>
+                <h2 style = "color: #9ACD32;"><?php echo $row['discount'];?></h2>
               </div>
               <div class="form-group">
                 <label>Name</label>
@@ -91,10 +96,6 @@
                 <label>Price</label>
                 <input type="text" value=<?php echo $row['price'];?> class="form-control">
               </div>
-              <div class="form-group">       
-                <label>Discount</label>
-                <input type="text" value=<?php echo $row['discount'];?> class="form-control">
-              </div>
               <div class="form-group">
                 <p>Are you sure you want to update these changes?</p>       
                 <input type="submit" value="Save changes" class="btn btn-primary">
@@ -140,5 +141,42 @@
       </div>
     </div>
 
+    <button type="button" data-toggle="modal" data-target="<?php echo "#sale".$count;?>" class="btn btn-primary fa fa-gift"></button>
+    <div id=<?php echo "sale".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="exampleModalLabel" class="modal-title">Sale</h4>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <form role="form" method="post" action="Controllers/SellerSetDiscount.php">
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Discount</label>
+                <input id=<?php echo "dateToday".$count;?> type="number" class="form-control" name="discount" min="0" max="100">       
+                <label>Sale Start</label>
+                <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateStart" min="">
+                <label>Sale End</label>
+                <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateEnd" min="">
+                <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
+              </div>
+              <div class="form-group">
+                <p>Are you sure you want to update these changes?</p>       
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Yes"  />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </td>
 </tr>
+<script>
+      n =  new Date();
+      y = n.getFullYear();
+      m = n.getMonth() + 1;
+      d = n.getDate();
+      document.getElementById("<?php echo "dateToday".$count;?>").min = d + "-" + m + "-" + y;
+</script>

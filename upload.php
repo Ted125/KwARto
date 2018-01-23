@@ -21,6 +21,34 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
+    <style>
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+  </style>
   </head>
   <body>
     <div class="page">
@@ -188,7 +216,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
-                        <input type="text" placeholder="0" class="form-control" name="newColor">
+                        <input type="text" class="form-control" name="newColor">
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
@@ -197,8 +225,8 @@
                       <div class="form-group">       
                         <label>Weight Unit</label>
                         <select class="form-control" name="newWeightUnit">
-                          <option>kg</option>
-                          <option>lb</option>
+                          <option value="kg">Kilogram/s</option>
+                          <option value="lb">Pound/s</option>
                         </select>
                       </div>
                       <div class="form-group">       
@@ -214,25 +242,23 @@
                         <input type="text" placeholder="0" class="form-control" name="newHeight">
                       </div>
                       <div class="form-group">       
-                        <label>Warranty ID</label>
-                        <input type="text" placeholder="" class="form-control" name="newWar">
-                      </div>
-                      <div class="form-group">       
                         <label>Size Unit</label>
                         <select class="form-control" name="newSizeUnit">
-                          <option>mm</option>
-                          <option>cm</option>
-                          <option>in</option>
-                          <option>m</option>
+                          <option value="mm">Millimeter/s</option>
+                          <option value="cm">Centimeter/s</option>
+                          <option value="im">Inch/es</option>
+                          <option value="m">Meter/s</option>
                         </select>
+                      </div>
+                      <div class="form-group">       
+                        <label>Warranty ID</label>
+                            <select class="form-control" name="newWar">
+                              <?php include("Controllers/SellerDisplayAllWarranty.php");?>
+                            </select>
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
                         <input type="text" placeholder="0.00" class="form-control" name="newPrice">
-                      </div>
-                      <div class="form-group">       
-                        <label>Discount</label>
-                        <input type="text" placeholder="0.00" class="form-control" name="newDiscount">
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
