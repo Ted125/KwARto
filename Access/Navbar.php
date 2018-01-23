@@ -46,13 +46,9 @@
                              </a>
                           </li>
 
-                          <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="profile.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
-
+                          <li class="nav-item dropdown">
 
                           <a href = "profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a>
-
-
-                          </a>
 
                           <ul aria-labelledby="notifications" class="dropdown-menu">
                               <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
