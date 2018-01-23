@@ -274,9 +274,9 @@
                               <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'">'.$row['email'].'</td>
                               <td data-toggle="modal" data-target="#rowModal'.$row['userId'].'" style = "color:'.$color.'">'.$row['userStatus'].'</td>
                               <td>';
-                              if(strcmp($row['userStatus'], 'banned') == 0){
+                              if(strcmp($row['userStatus'], 'active') != 0){
                                 echo 
-                                '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
+                                '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Activate</button>
                                 <!-- Modal-->
                                 <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                   <div role="document" class="modal-dialog">  
@@ -286,7 +286,7 @@
                                         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                                       </div>
                                       <div class="modal-body">
-                                        <p>Are you sure you want to unban this user?</p>
+                                        <p>Are you sure you want to activate this user?</p>
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
