@@ -16,6 +16,7 @@
         echo $row["addedBy"] . "\n";
         echo $row["updatedBy"] . "\n";
         echo $row["furnitureId"] . "\n";
+        echo $row["thumbnail"] . "\n";
       }
     }
   }
