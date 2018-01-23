@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<div class="banner text-center">
+<!-- 	<div class="banner text-center">
 		<div class="search-container">
 		    <form action="/action_page.php">
 		      <input type="text" placeholder="What are you looking for?" name="search" style="width:700px; font-size: 1.5em; padding:10px;">
@@ -35,7 +35,7 @@
 		    </form>
 		 </div>
 	</div>
-
+ -->
 	<div class="banner">
 		<div class="container">
 			<div class="row">

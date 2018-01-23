@@ -65,7 +65,7 @@ n<!DOCTYPE html>
 								  <p><strong>Expected Arrival:</strong> January 20, 2018</p>
 								</div>
 								<div class="modal-footer">
-								  <a href="#"><button type="button" class="btn red_button" style="color: white;"> View Item</button></a>
+								  <a href="transhist.php"><button type="button" class="btn red_button" style="color: white;"> View Details</button></a>
 								  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
 								</div>
 							  </div>

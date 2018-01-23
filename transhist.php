@@ -42,170 +42,163 @@
 		</div>
 
 		<h3><i class="fa fa-server" aria-hidden="true"></i> Transaction History</h3>
+		<br>
+		<div class="row text-center">
+		<h5 style="position: absolute; left: 0px;">Order # <span style="color: #d42d2d;">13213</span></h5>
+		<h5 style="margin-left: 40%;">Placed On <span style="color: #d42d2d;">February 02, 2018</span></h5>
+		<h5 style="position: absolute; right: 0px;">Total: <span style="color: #d42d2d;">P2,103.00</span></h5>
+		</div>
 
-		<table class="table-bordered thead-dark table-hover" style="width: 100%; margin-left: 30px; margin-top: 20px;">
-										<thead>
-											<tr style="text-align: center;">
-												<th>Order ID</th>	
-												<th>Date</th>
-												<th>Status</th>
-												<th>Action</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody class="text-center">
-											<tr class="">
-												<td class="">#213535</td>
-												<td class="">December 23, 2017</td>
-												<td class="" style="color: #FF6347;">Pending</td>
-												<td>
-													<div class="red_button" data-toggle="modal" data-target="#transhist1" style="width: 200px;">
-														<a href="#">View Details</a>
-													</div>
+		<div class="row">
+			<br>
+			<h4 style="position: absolute; left: 0px;"><i class="fa fa-gift"></i> Package <span style="color: #d42d2d;">01</span></h4>
+			<h4 style="position: absolute; right: 0px;">Sold by: <span style="color: #d42d2d;">Manufacturer Inc.</span></h4>
+		</div>
+		<br>
+		<br>
+		<div class="">	
+			<h4 ><i class="fa fa-ship"></i> Standard Shipping</h4>
+			<h6 style="color: #d42d2d;">Delivery by Sat, 27 Jan - Tue, 6 Feb 2018</h6>
+		</div>
 
-													<div class="modal fade" id="transhist1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-														<div class="modal-dialog" role="document" style="min-width: 800px!important;">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-																	<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-																</div>
-																<div class="modal-body text-left">
-																	<div class="row" style="margin-bottom: 10px; padding-left: 10px;">
-																		<span>Status:<span style="color: #FF6347"> Pending</span></span>
-																	</div>
+		<div class="card" style="padding: 40px 100px 40px 100px; width: 100%;">
+ 		 	<div class="card-block">
+			    <h6 class="card-title">01/02/2018</h6>
+			    <h6 class="card-title">Status: <span style="color: #d42d2d;">Pending</span></h6>
+			    <p class="card-text">Thank you for shopping with Lazada! Your order has been received and is going through verification process. Next update will be sent to you via email soon.</p>
+			</div>
+		</div>
 
-																	<h5 style="color: #555">Order details:</h5>
-																	<p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
+		<h5>Order List:</h5>
 
-																	<div class="recent-activities card">
-																		<div class="card-header">
-																			<h3 class="h4">Order Summary</h3>
-																		</div>
-																		<div class="card-body no-padding">
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-																						<div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Modern Table</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-																						<div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Wooden Stool</h5>
-																						<p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-																						<div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Chic Table Piece</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<br>
-																	<div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="">
-												<td class="">#212312</td>
-												<td class="">December 22, 2017</td>
-												<td class="" style="color: #28a745;">Completed</td>
-												<td>
-													<div class="red_button" data-toggle="modal" data-target="#transhist2" style="width: 200px;">
-														<a href="#">View Details</a>
-													</div>
+		<table class=" thead-dark table-hover" style="width: 100%; margin-top: 20px;">
+        <thead>
+            <tr style="text-align: center;">
+                <th width="5%"></th>	
+                <th width="15%">Product Image</th>
+                <th width="20%">Product Name</th>
+                <th width="30%">Description</th>
+            
+                <th width="15%">Price</th>
+                <th width="15%">Action</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr class="">
+                <td class="">1</td>
+                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
+                <td class="">
+                Comfy Chair
+                </td>
+                <td class=""> <span>This product is a very nice product which you should really buy. Thanks This product is a very nice product which you should really buy. Thanks</span></td>
+                <td class="" style="text-align:  center;">	
+                    <span style="color:red">P850.00</span>
 
-													<div class="modal fade" id="transhist2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-														<div class="modal-dialog" role="document" style="min-width: 800px!important;">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
-																	<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-																</div>
-																<div class="modal-body text-left">
-																	<div class="row" style="margin-bottom: 10px; padding-left: 10px;">
-																		<span>Status:<span style="color: #28a745"> Completed</span></span>
-																	</div>
+                </td>
+                <td>
+					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
 
-																	<h5 style="color: #555">Order details:</h5>
-																	<p class="small">The shipment was made via courier shipping. The items will be delivered according to the information provided by the buyer of the products/items that are listed below.</p>
+				  <!-- Modal-->
+				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+						<div role="document" class="modal-dialog">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+							</div>
+							<div class="modal-body">
+							  <p>Are you sure you want to remove this item?</p>
+							</div>
+							<div class="modal-footer">
+							  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+							</div>
+						  </div>
+						</div>
+				  	</div>
+                </td>
+            </tr>
+            <tr class="">
+                <td class="">2</td>
+                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
+                <td class="">
+                Swivel Chair
+                </td>
+                <td class=""> <span>This product is also a very nice product which you should really buy. </span></td>
+                <td class="" style="text-align:  center;">	
+                    <span style="color:red">P540.00</span>
 
-																	<div class="recent-activities card">
-																		<div class="card-header">
-																			<h3 class="h4">Order Summary</h3>
-																		</div>
-																		<div class="card-body no-padding">
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-																						<div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Modern Table</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-																						<div class="date"><span>P400.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Wooden Stool</h5>
-																						<p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="item">
-																				<div class="row" style="margin-bottom: 0px;">
-																					<div class="col-4 date-holder text-right">
-																						<div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-																						<div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-																					</div>
-																					<div class="col-8 content">
-																						<h5>Chic Table Piece</h5>
-																						<p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<br>
-																	<div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+                </td>
+                <td>
+					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+
+				  <!-- Modal-->
+				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+						<div role="document" class="modal-dialog">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+							</div>
+							<div class="modal-body">
+							  <p>Are you sure you want to remove this item?</p>
+							</div>
+							<div class="modal-footer">
+							  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
+							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+							</div>
+						  </div>
+						</div>
+				  	</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row" style="margin-left: 20px; margin-top: 10px;">
+
+    	<div class="card" style="width: 15rem; padding: 20px;">
+		    <h5 class="card-title">Delivery Address</h5>
+		    <p class="card-text">G1-09A Tabay, Tayud, Lilo-an, Cebu, Cebu-Liloan-Tayud 6002</p>
+		    <p class="card-text">+63 9159831382</p>
+		</div>
+
+    	<div class="card" style="margin-left: 20px; width: 15rem; padding: 20px; ">
+		    <h5 class="card-title">Billing Address</h5>
+		    <p class="card-text">G1-09A Tabay, Tayud, Lilo-an, Cebu, Cebu-Liloan-Tayud 6002</p>
+		    <p class="card-text">+63 9159831382</p>
+		</div>
+
+		<div class="card" style="margin-left: 20px; width: 35rem; padding: 20px;">
+		  <div class="card-block">
+		    <h5 class="card-title">Total Summary</h5>
+		    <div class="row">
+			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Sub-total:</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P2.100.00</p>
+			</div>
+			<div class="row" style="margin-top: -10px;">
+			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Shipping Fee:</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			</div>
+			<div class="row" style="margin-top: -10px;">
+			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Promotion:</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			</div>
+
+			<div class="row" style="margin-top: -10px;">
+			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Total (VAT applied where applicable):</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			</div>
+
+			<div class="row" style="margin-top: -10px;">
+			    <p style="position: relative;padding-left: 30px; left: 0px;">To be paid through:</p>
+			    <p style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">Cash on Delivery</p>
+			</div>
+
+		  </div>
+		</div>
+
+    </div>
 
 	<div class="benefit">
 		<div class="container">
