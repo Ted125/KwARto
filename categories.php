@@ -40,13 +40,6 @@
 					</ul>
 				</div>
 
-				<div class="search-container text-right">
-				    <form id="searchBar">
-				      <input type="text" placeholder="What are you looking for?" name="search" style="width:400px; font-size: 1em; padding:10px;">
-				      <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1.3em;"></i></button>
-				    </form>
-				</div>
-
 				<div class="sidebar">
 
 					<div class="sidebar_section">
