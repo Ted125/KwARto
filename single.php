@@ -572,7 +572,141 @@
 					</div>
 				</div>
 			</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h2>Other Products You Might Like</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="product_slider_container">
+						<div class="owl-carousel owl-theme product_slider">
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item homeoff">
+									<div class="product discount">
+										<div class="product_image">
+											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
+										</div>
+										<div class="favorite"></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Floral Divider</a></h6>
+											<div class="product_price">P1,180.00</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item homeacc">
+									<div class="product">
+										<div class="product_image">
+											<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
+										</div>
+										<div class="favorite"></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Blue Bedroom Desk</a></h6>
+											<div class="product_price">P1,500.00</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item homeacc">
+									<div class="product">
+										<div class="product_image">
+											<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
+										</div>
+										<div class="favorite favorite_left"></div>
+										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="#single.php">Dining Room Set (White)</a></h6>
+											<div class="product_price">P4,500<span>P5,000.00</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item dining">
+									<div class="product">
+										<div class="product_image">
+											<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+										</div>
+										<div class="favorite"></div>
+										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Leatherette Sofa</a></h6>
+											<div class="product_price">P3,610.00</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item women men">
+									<div class="product">
+										<div class="product_image">
+											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+										</div>
+										<div class="favorite favorite_left"></div>
+										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Swivel Chair (Black)</a></h6>
+											<div class="product_price">P540.00<span>P600.00</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item women men">
+									<div class="product">
+										<div class="product_image">
+											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+										</div>
+										<div class="favorite favorite_left"></div>
+										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Swivel Chair (Black)</a></h6>
+											<div class="product_price">P540.00<span>P600.00</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="owl-item product_slider_item">
+								<div class="product-item homeoff">
+									<div class="product discount">
+										<div class="product_image">
+											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
+										</div>
+										<div class="favorite"></div>
+										<div class="product_info">
+											<h6 class="product_name"><a href="single.php">Floral Divider</a></h6>
+											<div class="product_price">P1,180.00</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+							<i class="fa fa-chevron-left" aria-hidden="true"></i>
+						</div>
+						<div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+							<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 
 	</div>
 
@@ -676,6 +810,13 @@
 
 </div>
 
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/custom.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
