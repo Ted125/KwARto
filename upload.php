@@ -180,8 +180,8 @@
                           <div class="steps-step-2">
                               <a href="#step-6" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Product Image"><i class="fa fa-photo" aria-hidden="true"></i> Step Three</a>
                           </div>
-                          <div class="steps-step-2">
-                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true" onclick="showInput();"></i> Step Four</a>
+                          <div class="steps-step-2" onclick="showInput();">
+                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i> Step Four</a>
                           </div>
                       </div>
                   </div>
@@ -192,7 +192,7 @@
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
                       <div class="form-group">
                       <label>Product Name</label>
-                        <input type="text" placeholder="Product Name" class="form-control" name="newName">
+                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName">
                       </div>
                       <div class="form-group">       
                         <label>Description</label>
@@ -207,10 +207,6 @@
                         <input type="text" placeholder="0" class="form-control" id="modelName" name="newModelName">
                       </div>
                       <div class="form-group">       
-                        <label>Category</label>
-                        <input type="text" placeholder="0" class="form-control" name="newCategoryId">
-                      </div>
-                      <div class="form-group">       
                         <label>Version Of</label>
                         <input type="text" placeholder="0" class="form-control" name="newVersionOf">
                       </div>
@@ -220,33 +216,33 @@
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
-                        <input type="text" placeholder="0" class="form-control" name="newWeight">
+                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight">
                       </div>
                       <div class="form-group">       
                         <label>Weight Unit</label>
-                        <select class="form-control" name="newWeightUnit">
+                        <select class="form-control" id="weightUnit" name="newWeightUnit">
                           <option value="kg">Kilogram/s</option>
                           <option value="lb">Pound/s</option>
                         </select>
                       </div>
                       <div class="form-group">       
                         <label>Length</label>
-                        <input type="text" placeholder="0" class="form-control" name="newLength">
+                        <input type="text" placeholder="0" class="form-control" id="length" name="newLength">
                       </div>
                       <div class="form-group">       
                         <label>Width</label>
-                        <input type="text" placeholder="0" class="form-control" name="newWidth">
+                        <input type="text" placeholder="0" class="form-control" id="width" name="newWidth">
                       </div>
                       <div class="form-group">       
                         <label>Height</label>
-                        <input type="text" placeholder="0" class="form-control" name="newHeight">
+                        <input type="text" placeholder="0" class="form-control" id="height" name="newHeight">
                       </div>
                       <div class="form-group">       
                         <label>Size Unit</label>
-                        <select class="form-control" name="newSizeUnit">
+                        <select class="form-control" id="sizeUnit" name="newSizeUnit">
                           <option value="mm">Millimeter/s</option>
                           <option value="cm">Centimeter/s</option>
-                          <option value="im">Inch/es</option>
+                          <option value="in">Inch/es</option>
                           <option value="m">Meter/s</option>
                         </select>
                       </div>
@@ -258,7 +254,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
-                        <input type="text" placeholder="0.00" class="form-control" name="newPrice">
+                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice">
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
@@ -273,13 +269,8 @@
                           </div>
                           <div class="form-group">       
                             <label>Category</label>
-                            <select class="form-control" name="newCategory">
-                              <option>Furniture Items</option>
-                              <option>Bed + Bath</option>
-                              <option>Decor Items</option>
-                              <option>Houseware</option>
-                              <option>Window Treatments</option>
-                              <option>Lighting</option>
+                            <select class="form-control" name="newCategoryId">
+                              <?php include("Controllers/SellerDisplayAllCategory.php");?>
                             </select>
                           </div>
                           <div class="form-group">       
@@ -326,8 +317,20 @@
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
                           <div class="form-group">
-                              <label>Model Name</label>
+                              <label><b>Product Name</b></label>
+                              <p id="prevName"></p>
+                          </div>
+                          <div class="form-group">
+                              <label><b>Model Name</b></label>
                               <p id="prevModelName"></p>
+                          </div>
+                          <div class="form-group">
+                              <label><b>Price</b></label>
+                              <p id="prevPrice"></p>
+                          </div>
+                          <div class="form-group">
+                              <label><b>Size and Weight</b></label>
+                              <p id="prevSize"></p>
                           </div>
                           <div class="form-group">
                               <input type="checkbox" id="checkbox111">
@@ -450,6 +453,15 @@
   //Preview final input
     function showInput() {
       document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
+      document.getElementById('prevName').innerHTML = document.getElementById("name").value;
+      document.getElementById('prevPrice').innerHTML = document.getElementById("price").value;
+      document.getElementById('prevSize').innerHTML = document.getElementById("length").value +" X "+
+                                                      document.getElementById("width").value +" X "+
+                                                      document.getElementById("height").value +""+
+                                                      document.getElementById("sizeUnit").value +" - "+
+                                                      document.getElementById("weight").value +""+
+                                                      document.getElementById("weightUnit").value;
+
     }
   </script>
   </body>
