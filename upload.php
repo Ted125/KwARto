@@ -181,7 +181,7 @@
                               <a href="#step-6" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Product Image"><i class="fa fa-photo" aria-hidden="true"></i> Step Three</a>
                           </div>
                           <div class="steps-step-2">
-                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i> Step Four</a>
+                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true" onclick="showInput();"></i> Step Four</a>
                           </div>
                       </div>
                   </div>
@@ -204,7 +204,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="0" class="form-control" name="newModelName">
+                        <input type="text" placeholder="0" class="form-control" id="modelName" name="newModelName">
                       </div>
                       <div class="form-group">       
                         <label>Category</label>
@@ -319,12 +319,16 @@
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                      <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                      <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="showInput();">Next</button>
                     </div>
                   </div>
                   <div class="row setup-content-2" id="step-7">
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
+                          <div class="form-group">
+                              <label>Model Name</label>
+                              <p id="prevModelName"></p>
+                          </div>
                           <div class="form-group">
                               <input type="checkbox" id="checkbox111">
                               <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>
@@ -442,6 +446,11 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  //Preview final input
+    function showInput() {
+      document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
+    }
   </script>
   </body>
 </html>
