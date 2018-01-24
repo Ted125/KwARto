@@ -1,6 +1,7 @@
 <?php
 class user_details{
     private $userId;
+    private $username;
     private $password;
     private $userType;
     private $userStatus;
@@ -39,9 +40,12 @@ class user_details{
         $connection = $db->Connect();
         if($connection){
             $this->setPassword(md5($_POST['registerPassword']));
+            if(isset($_SESSION['userType'])){
+                $this->setUsername($_POST['registerUsername']);
+            }
             $this->setUserType($userType);
             $this->setUserStatus("inactive");
-            $this->setImage('Resources//Images//Profile//default.jpg');
+            $this->setImage('Resources/Images/User/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
@@ -51,6 +55,7 @@ class user_details{
             $create = "INSERT INTO user_details
             (
             password,
+            username,
             userType,
             userStatus,
             email,
@@ -60,6 +65,7 @@ class user_details{
             )
             VALUES
             ('".$this->getPassword()."',
+            '".$this->getUsername()."',
             '".$this->getUserType()."',
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
@@ -502,6 +508,14 @@ class user_details{
 
     public function setUserId($userId){
         $this->userId = $userId;
+    }
+
+    public function getUsername(){
+        return $this->username;
+    }
+
+    public function setUsername($username){
+        $this->username = $username;
     }
 
     public function getPassword(){

@@ -4,6 +4,7 @@ include("../Models/Database.php");
 session_start();
 
 $seller = new user_details();
+echo $_POST['registerUsername'];
 $verify = $seller->createUser("admin");
 
 if($verify != null){
@@ -13,7 +14,7 @@ if($verify != null){
 } else {
 
 	echo "Invalid credentials or not activated";
-	header( "Location: ../adminnew.php");
+	header( "Location: ../adminnew.php?error=1");
 	
 }
 ?>

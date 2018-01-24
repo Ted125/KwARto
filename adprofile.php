@@ -84,6 +84,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li class="active"> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -121,6 +122,13 @@
                       <form class="form-horizontal col-lg-8">
                         
                         <div class="line"></div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">User Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" value=<?php echo $_SESSION['username'];?>>
+                          </div>
+                        </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>

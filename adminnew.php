@@ -83,7 +83,8 @@
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
-            <li class="active"> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li class="active"> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -113,35 +114,51 @@
                       <h3 class="h4">New Admin Information</h3>
                     </div>
                     <div class="card-body row">
-                      <form class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php">
-                        
-                        <div class="line"></div>
+                      <form id="register-form" class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php"> 
+
+                        <?php if(isset($_GET['error'])){
+                          echo '
+                             <div class="form-group row">
+                              <p style="color: #FF0000;">Something went badly wrong. Try again next time.</p>
+                              </div>
+                          ';
+
+                        }
+                        ?>
+                       
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">User Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="registerUsername" required class="input-material">
+                          </div>
+                        </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="registerPhone">
+                            <input type="text" class="form-control" name="registerPhone" required class="input-material">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="registerEmail">
+                            <input type="text" class="form-control" name="registerEmail" required class="input-material">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="password" placeholder="********" class="form-control" nam="registerPassword">
+                            <input type="password" class="form-control" name="registerPassword" required class="input-material">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input type="password" placeholder="********" class="form-control">
+                            <input type="password" name="temp" class="form-control" required class="input-material">
                           </div>
                         </div>
 
