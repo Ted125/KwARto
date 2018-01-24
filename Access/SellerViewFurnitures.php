@@ -19,6 +19,7 @@
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
   <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td>
   <td>
+    <!-- button for Toggle live --> 
     <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="live" />
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
@@ -54,11 +55,7 @@
               <div class="form-group">       
                 <label style="margin-bottom: 0px;">Product Images</label><br>
                 <p class="small">Maximum number of images is 5</p>
-                <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
+                <img src="<?php echo '../Capstone-Project/Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg'?>" width="240px" height="240px">
                 <button type="button" data-dismiss="modal" class="btn btn-primary">Update Photos</button>
               </div>
               <div class="form-group">       
@@ -108,7 +105,7 @@
         </div>
       </div>
     </div>
-
+    <!-- Button for Restock Furnitures -->
     <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
     <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
@@ -140,7 +137,7 @@
         </div>
       </div>
     </div>
-
+    <!-- Button for Discount -->
     <button type="button" data-toggle="modal" data-target="<?php echo "#sale".$count;?>" class="btn btn-primary fa fa-gift"></button>
     <div id=<?php echo "sale".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
