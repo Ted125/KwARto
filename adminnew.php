@@ -28,51 +28,168 @@
    
   </head>
   <body>
-    
-    <div class="col-lg-6 bg-white">
-              <div class="form d-flex align-items-center">
-                <div class="content">
-                  <form id="register-form" method="post" action="Controllers/Register.php">
-                    <div class="form-group">
-                      <input id="register-fName" type="text" name="registerFName" required class="input-material">
-                      <label for="register-fName" class="label-material">First Name</label>
+    <div class="page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                  <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
+                  <div class="brand-text brand-small"><strong>AR</strong></div></a>
+                <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+               
+                <!-- Logout    -->
+                <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch"> 
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
+              <p>Super Admin</p>
+            </div>
+          </div>
+          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          <ul class="list-unstyled">
+                    <li><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
+                    <li><a href="usersmgt.php"> <i class="fa fa-user-circle-o"></i>Users Management</a></li>
+                    <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
+                    <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
+                    <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li> 
+                    <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
+                    
+          </ul><span class="heading">Extras</span>
+          <ul class="list-unstyled">
+            <li class="active"> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
+          </ul>
+        </nav>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Create Admin</h2>
+            </div>
+          </header>
+          <!-- Breadcrumb-->
+          <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
+              <li class="breadcrumb-item active">Create Admin  </li>
+            </ul>
+          </div>
+          <!-- Forms Section-->
+          <section class="forms" style="background-color: #faf6f6"> 
+            <div class="container-fluid">
+              <div class="row">
+                
+                <!-- General Information -->
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">New Admin Information</h3>
                     </div>
-                     <div class="form-group">
-                      <input id="register-mName" type="text" name="registerMName" required class="input-material">
-                      <label for="register-mName" class="label-material">Middle Name</label>
+                    <div class="card-body row">
+                      <form class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php">
+                        
+                        <div class="line"></div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Mobile Number</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="registerPhone">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">E-mail Address</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="registerEmail">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" placeholder="********" class="form-control" nam="registerPassword">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Confirm Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" placeholder="********" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="line"></div>
+                                                
+                        <div class="form-group row">
+                          <div class="col-sm-4 offset-sm-3">
+                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Create</button>
+                              <!-- Modal-->
+                              <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to create new admin?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </form>
                     </div>
-                     <div class="form-group">
-                      <input id="register-lName" type="text" name="registerLName" required class="input-material">
-                      <label for="register-lName" class="label-material">Last Name</label>
-                    </div>
-                     <div class="form-group">
-                      <input id="register-bDay" type="date" name="registerBDay" required class="input-material">
-                      <label for="register-bDay" class="label-material"></label>
-                    </div>
-                     <div class="form-group">
-                      <input id="register-phone" type="text" name="registerPhone" required class="input-material">
-                      <label for="register-phone" class="label-material">Phone Number</label>
-                    </div>                    
-                    <div class="form-group">
-                      <input id="register-email" type="email" name="registerEmail" required class="input-material">
-                      <label for="register-email" class="label-material">Email Address</label>
-                    </div>
-                    <div class="form-group">
-                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
-                      <label for="register-passowrd" class="label-material">Password</label>
-                    </div>
-                    <div class="form-group terms-conditions">
-                      <input id="license" type="checkbox" class="checkbox-template" onclick="disableElement()">
-                      <label for="license">I agree to the terms and policies</label>
-                    </div>
-                    <button id="register" type="submit" class="btn btn-primary" disabled>Register</button>
-                  </form><small>Already have an account? </small><a href="loginnew.php" class="signup">Login</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6 col-lg-12 text-right">
+                  <p>kwARto &copy; 2017-2019</p>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
+    </div>
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

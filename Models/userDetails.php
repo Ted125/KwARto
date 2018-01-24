@@ -41,7 +41,7 @@ class user_details{
             $this->setPassword(md5($_POST['registerPassword']));
             $this->setUserType($userType);
             $this->setUserStatus("inactive");
-            $this->setImage('Resources/Images/Profile/default.jpg');
+            $this->setImage('Resources//Images//Profile//default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
