@@ -265,7 +265,7 @@
                           <h3 class="font-bold pl-0 my-4"><strong>Category Selection</strong></h3>
                           <div class="form-group">       
                             <label>Category Name</label>
-                            <input type="text" placeholder="Enter Category Name..." class="form-control" name="newPrice">
+                            <input type="text" placeholder="Enter Category Name..." class="form-control">
                           </div>
                           <div class="form-group">       
                             <label>Category</label>
