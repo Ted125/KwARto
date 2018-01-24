@@ -1,8 +1,11 @@
 <?php
 //require('Models/Database.php');
 session_start();
-mkdir('C:/xampp/htdocs/Capstone-Project/Resources/Images/Users/'.$_SESSION['userId'].'');
-$uploaddir = 'C:/xampp/htdocs/Capstone-Project/Resources/Images/Users/'.$_SESSION['userId'].'/';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/User//'.$_SESSION['userId'].'//')) {
+    mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/User//'.$_SESSION['userId'].'//', 0777, true);
+  }
+
+$uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/User//'.$_SESSION['userId'].'//';
 $fileExtension = '.jpg';
 //$uploadfile = $uploaddir . basename('dummyname') . $fileExtension;
 $uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //image naame will be the id of user
@@ -10,7 +13,7 @@ $uploadfile = $uploaddir . basename($_SESSION['userId']) . $fileExtension;    //
 if (move_uploaded_file($_FILES['newData']['tmp_name'], $uploadfile)) {
   echo "File is valid, and was successfully uploaded.\n";
 
-  $_POST['newData'] = 'Resources/Images/Profile/Users/'.$_SESSION['userId'].'/'. basename($_SESSION['userId']) . $fileExtension;
+  $_POST['newData'] = '/Capstone-Project/Resources/Images/User//'.$_SESSION['userId'].'//'. basename($_SESSION['userId']) . $fileExtension;
 
   echo "FIELD: ".$_POST['field'];
   echo "NEWDATA: ".$_POST['newData']; 
@@ -32,5 +35,5 @@ if (move_uploaded_file($_FILES['newData']['tmp_name'], $uploadfile)) {
    echo $uploadfile;
 }
 
-//header( "Location: http://localhost/capstone-project/profile.php" );
+header( "Location: ../profile.php" );
 ?> 

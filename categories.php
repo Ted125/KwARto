@@ -28,11 +28,11 @@
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
 
-	<div class="container product_section_container">
+	<div class="container product_section_container" style="max-width: 1340px;">
 		<div class="row">
 			<div class="col product_section clearfix">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 20px;">
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="categories.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Categories</a></li>
@@ -42,19 +42,18 @@
 
 				<div class="sidebar">
 
-					<div class="sidebar_section">
+<!-- 					<div class="sidebar_section">
 						<div class="sidebar_title">
 							<h5>Product Categories</h5>
 						</div>
-						<!-- I am just a suggestion -->
+
 						<div class="text-center" style="color: #d42d2d">
 							<i class="fa fa-minus"></i><a href="#demo" style="color: black; text-decoration: none;" data-toggle="collapse">  Minimize Categories</a>
 						</div>
 						<div id="demo" class="collapse show">
-							<!-- I would apply collapse here but categories have no differentiation for parent/child/grandchild -->
 							<ul id = "searchCategories" class="sidebar_categories"></ul>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="sidebar_section">
 						<div class="sidebar_title">
@@ -103,6 +102,7 @@
 					<div class="products_iso">
 						<div class="row">
 							<div class="col">
+								<H3 style="margin: 20px" >Furniture > Sub-item</H3>
 
 								<div class="product_sorting_container product_sorting_container_top">
 									<ul class="product_sorting">
@@ -130,6 +130,7 @@
 										</li>
 									</ul>
 								</div>
+
 								<!-- Search Filters Container -->
 								<form>
 									<input id = "searchCategoryId" type = "hidden" value = "1">

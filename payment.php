@@ -22,6 +22,51 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 	<?php include('Access/Header.php');?>
 <link rel="icon" href="images/icon.png">
+
+<style type="text/css">
+	
+ 	.steps-form-2 {
+	  display: table;
+	  width: 100%;
+	  position: relative; 
+	}
+	.steps-form-2 .steps-row-2 {
+    display: table-row; 
+	}
+    .steps-form-2 .steps-row-2:before {
+      top: 14px;
+      bottom: 0;
+      position: absolute;
+      content: " ";
+      width: 100%;
+      height: 2px;
+      background-color: #d42d2d; }
+    .steps-form-2 .steps-row-2 .steps-step-2 {
+      display: table-cell;
+      text-align: center;
+      position: relative; }
+      .steps-form-2 .steps-row-2 .steps-step-2 p {
+        margin-top: 0.5rem; }
+      .steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {
+        opacity: 1 !important;
+        filter: alpha(opacity=100) !important; }
+      .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+        width: 70px;
+        height: 70px;
+        border: 2px solid #d42d2d;
+        background-color: white !important;
+        color: #d42d2d !important;
+        border-radius: 50%;
+        padding: 22px 18px 15px 18px;
+        margin-top: -22px; }
+        .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+          border: 2px solid #d42d2d;
+          color: #d42d2d !important;
+          background-color: white !important; }
+        .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+          font-size: 1.7rem; }
+</style>
+
 </head>
 
 <body>
@@ -64,56 +109,75 @@
 	</form>
 
 	<div class="blogs">
-		<div class="container">
-			<h2><i class="fa fa-money" aria-hidden="true"></i> Payment</h2>
-			<br>
-			<h3>Ship to:</h3>
-	          <form>
-	          	<div class="form-group">
-	              <p>Please review all information before proceeding.</p>
-	            </div>
-	            <div class="form-group">
-	              <label>Contact Person</label>
-	              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
-	            </div>
-							<div class="form-group">
-	              <label>Mobile Number</label>
-	              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
-	            </div>
-	            <div class="form-group">
-	              <label>Complete Address</label>
-	              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
-	            </div>
-	            <div class="form-group">
-	              <label>Province</label>
-	              <select id = "selectProvince" name="account" class="form-control">
-	              </select>
-	            </div>
-	            <div class="form-group">
-	              <label>City/Municipality</label>
-	              <select id = "selectCity" name="account" class="form-control">
-	              </select>
-	            </div>
-	            <div class="form-group">
-	              <label>Barangay</label>
-	              <select id = "selectBarangay" name="account" class="form-control">
-	              </select>
-	            </div>
-	            <div class="form-check" style="margin-left: 20px;">
-				    <!-- <input type="checkbox" class="form-check-input" id="diffAd">
-				    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
-				</div>
-	        </form>
 
 
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_title">
-						<h3>Select Your Payment Method</h3>
+	<h2 class="text-center font-bold pt-4 pb-5 mb-5"><strong>Payment</strong></h2>
+
+	<div class="steps-form-2">
+	    <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+	        <div class="steps-step-2">
+	            <a href="#step-4" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Ship To"><i class="fa fa-map-o" aria-hidden="true"></i></a>
+	        </div>
+	        <div class="steps-step-2">
+	            <a href="#step-5" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Payment Method"><i class="fa fa-money" aria-hidden="true"></i></a>
+	        </div>
+	        <div class="steps-step-2">
+	            <a href="#step-6" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Almost There"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
+	        </div>
+	        <div class="steps-step-2">
+	            <a href="#step-7" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i></a>
+	        </div>
+	    </div>
+	</div>
+
+	<form role="form" action="" method="post">
+	    <div class="row setup-content-2" id="step-4">
+	        <div class="col-md-12">
+	            <h3 class="font-bold pl-0 my-4"><strong>Ship To</strong></h3>
+
+	            <form>
+		          	<div class="form-group">
+		              <p>Please review all information before proceeding.</p>
+		            </div>
+		            <div class="form-group">
+		              <label>Contact Person</label>
+		              <input id = "shipContactPerson" type="text" placeholder = "Enter full name" class="form-control">
+		            </div>
+								<div class="form-group">
+		              <label>Mobile Number</label>
+		              <input id = "shipContactNumber" type="text" placeholder = "Mobile Number or Phone Number" class="form-control">
+		            </div>
+		            <div class="form-group">
+		              <label>Complete Address</label>
+		              <textarea id = "shipAddress" class="form-control" rows="3" id="address" placeholder = "(House Number, Building and Street Name)"></textarea>
+		            </div>
+		            <div class="form-group">
+		              <label>Province</label>
+		              <select id = "selectProvince" name="account" class="form-control">
+		              </select>
+		            </div>
+		            <div class="form-group">
+		              <label>City/Municipality</label>
+		              <select id = "selectCity" name="account" class="form-control">
+		              </select>
+		            </div>
+		            <div class="form-group">
+		              <label>Barangay</label>
+		              <select id = "selectBarangay" name="account" class="form-control">
+		              </select>
+		            </div>
+		            <div class="form-check" style="margin-left: 20px;">
+					    <h6 class="form-check-label" for="diffAd"><input type="checkbox" class="form-check-input" id="diffAd"> 	Bill to a different address</h6>
 					</div>
-				</div>
-			</div>
-			<div class="row blogs_container text-center">
+		        </form>
+	            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+	        </div>
+	    </div>
+	    <div class="row setup-content-2" id="step-5">
+	        <div class="col-md-12">
+	            <h3 class="font-bold pl-0 my-4"><strong>Select Payment Method</strong></h3>
+	            
+	            <div class="row blogs_container text-center">
 					<div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(./images/payment/cash.jpg)"></div>
@@ -145,6 +209,38 @@
 						</div>
 					</div>
 				</div>
+				<br>
+
+	            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+	            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+	        </div>
+	    </div>
+	    <div class="row setup-content-2" id="step-6">
+	        <div class="col-md-12">
+	            <h3 class="font-bold pl-0 my-4"><strong>Almost there</strong></h3>
+	            <div class="form-group">
+	                <input type="checkbox" id="checkbox111">
+	                <label for="checkbox111">I have read and agree to the <a style="color: #d42d2d;" href="privacy.php"> privacy policy</label>
+	            </div>
+	            <div class="form-group">
+	                <input type="checkbox" id="checkbox112">
+	                <label for="checkbox112" style="color: black;">I have read and agree to the <a style="color: #d42d2d;" href="terms.php"> terms and conditions</label>
+	            </div>
+	            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+	            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+	        </div>
+	    </div>
+	    <div class="row setup-content-2" id="step-7">
+	        <div class="col-md-12">
+	            <h3 class="font-bold pl-0 my-4"><strong>Finish</strong></h3>
+	            <p class="text-center">I have reviewed all of the entries.</p>
+	            <h2 class="text-center font-bold my-4">Place Order!</h2>
+	            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+	            <button class="btn btn-rounded float-right" style="color: white; background-color: #d42d2d;" type="submit">Submit</button>
+	        </div>
+	    </div>
+	</form>
+
 		</div>
 	</div>
 
@@ -265,7 +361,7 @@
 	        	<p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
 	        </div>
 	        <div class="modal-footer">
-	        	<a><button id = "codPlaceOrderButton" class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        	<a><button id = "codPlaceOrderButton" class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Next Step</button></a>
 	        </div>
 	    </div>
   		</div>
@@ -345,7 +441,7 @@
 			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
 	        </div>
 	        <div class="modal-footer">
-	        	<a><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Place Order</button></a>
+	        	<a><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Next Step</button></a>
 	        </div>
 	    </div>
   		</div>
@@ -508,4 +604,64 @@ $(document).ready(function(){
         }
     );
 });
+</script>
+<script type="text/javascript">
+	// Tooltips Initialization
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Steppers                
+$(document).ready(function () {
+  var navListItems = $('div.setup-panel-2 div a'),
+          allWells = $('.setup-content-2'),
+          allNextBtn = $('.nextBtn-2'),
+          allPrevBtn = $('.prevBtn-2');
+
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-amber').addClass('btn-blue-grey');
+          $item.addClass('btn-amber');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+  
+  allPrevBtn.click(function(){
+      var curStep = $(this).closest(".setup-content-2"),
+          curStepBtn = curStep.attr("id"),
+          prevStepSteps = $('div.setup-panel-2 div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+          prevStepSteps.removeAttr('disabled').trigger('click');
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content-2"),
+          curStepBtn = curStep.attr("id"),
+          nextStepSteps = $('div.setup-panel-2 div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i< curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepSteps.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel-2 div a.btn-amber').trigger('click');
+});
+                
 </script>

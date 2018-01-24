@@ -82,7 +82,7 @@
 												if($imageCount == 1){
 													$firstImage = "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"];
 									?>
-													<li class="active"><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" style="position: absolute; top: 15%;" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
+													<li class="active"><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" style="max-height: 120px; width: auto; position: absolute; top: 10%; left: 5%" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
 									<?php
 												}else{
 									?>
@@ -473,7 +473,7 @@
 											<textarea id="review_message" class="input_review" name="body"  placeholder="Your Review" rows="4" required data-error="Please leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
-											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+											<button id="review_submit" type="submit" style="padding: 10px;" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
 										</div>
 									</form>
 								</div>
@@ -563,7 +563,7 @@
 											<textarea id="review_message" class="input_review" name="question"  placeholder="Your Question" rows="4" required data-error="Please leave us a question."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
-											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+											<button id="review_submit" type="submit" style="padding: 10px;" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
 										</div>
 									</form>
 								</div>
