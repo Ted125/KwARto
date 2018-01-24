@@ -1,12 +1,12 @@
 <?php
-  require_once("Models/furniture_stockCRUD.php");
+  require_once("Models/furniture_imageCRUD.php");
 
   //session_start();
   
-  $furn = new furniture_stock();
-  $temp = $furn->displaySoldFurnitureStock($row['furnitureId']);
+  $furn = new furniture_image();
+  $temp = $furn->displayFurnitureImage($row['furnitureId']);
   if($temp != null){
-    $stockS = $temp->fetch_assoc();
+    $furnImg = $temp->fetch_assoc();
   } else {
       	//inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
