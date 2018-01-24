@@ -203,7 +203,7 @@
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-5">
-                                          <img src="Resources/Images/Profile/3.jpg" id = "pendingpics">
+                                          <img src="Resources/Images/User/'.$appRow['userId'].'/'.$appRow['image'].'.jpg" id = "pendingpics">
                                       </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$appRow['userId'].'</h5>  </h5></div>
@@ -341,7 +341,7 @@
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-5">
-                                          <img src="Resources/Images/Profile/3.jpg" id = "pendingpics">
+                                          <img src="Resources/Images/User/'.$row['userId'].'/'.$row['image'].'.jpg" id = "pendingpics">
                                       </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$row['userId'].'</h5>  </h5></div>
