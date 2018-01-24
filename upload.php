@@ -21,6 +21,34 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
+    <style>
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+  </style>
   </head>
   <body>
     <div class="page">
@@ -153,7 +181,7 @@
                               <a href="#step-6" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Product Image"><i class="fa fa-photo" aria-hidden="true"></i> Step Three</a>
                           </div>
                           <div class="steps-step-2">
-                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i> Step Four</a>
+                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true" onclick="showInput();"></i> Step Four</a>
                           </div>
                       </div>
                   </div>
@@ -176,7 +204,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="0" class="form-control" name="newModelName">
+                        <input type="text" placeholder="0" class="form-control" id="modelName" name="newModelName">
                       </div>
                       <div class="form-group">       
                         <label>Category</label>
@@ -188,7 +216,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
-                        <input type="text" placeholder="0" class="form-control" name="newColor">
+                        <input type="text" class="form-control" name="newColor">
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
@@ -197,8 +225,8 @@
                       <div class="form-group">       
                         <label>Weight Unit</label>
                         <select class="form-control" name="newWeightUnit">
-                          <option>kg</option>
-                          <option>lb</option>
+                          <option value="kg">Kilogram/s</option>
+                          <option value="lb">Pound/s</option>
                         </select>
                       </div>
                       <div class="form-group">       
@@ -214,25 +242,23 @@
                         <input type="text" placeholder="0" class="form-control" name="newHeight">
                       </div>
                       <div class="form-group">       
-                        <label>Warranty ID</label>
-                        <input type="text" placeholder="" class="form-control" name="newWar">
-                      </div>
-                      <div class="form-group">       
                         <label>Size Unit</label>
                         <select class="form-control" name="newSizeUnit">
-                          <option>mm</option>
-                          <option>cm</option>
-                          <option>in</option>
-                          <option>m</option>
+                          <option value="mm">Millimeter/s</option>
+                          <option value="cm">Centimeter/s</option>
+                          <option value="im">Inch/es</option>
+                          <option value="m">Meter/s</option>
                         </select>
+                      </div>
+                      <div class="form-group">       
+                        <label>Warranty ID</label>
+                            <select class="form-control" name="newWar">
+                              <?php include("Controllers/SellerDisplayAllWarranty.php");?>
+                            </select>
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
                         <input type="text" placeholder="0.00" class="form-control" name="newPrice">
-                      </div>
-                      <div class="form-group">       
-                        <label>Discount</label>
-                        <input type="text" placeholder="0.00" class="form-control" name="newDiscount">
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
@@ -293,12 +319,16 @@
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                      <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                      <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="showInput();">Next</button>
                     </div>
                   </div>
                   <div class="row setup-content-2" id="step-7">
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
+                          <div class="form-group">
+                              <label>Model Name</label>
+                              <p id="prevModelName"></p>
+                          </div>
                           <div class="form-group">
                               <input type="checkbox" id="checkbox111">
                               <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>
@@ -416,6 +446,11 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  //Preview final input
+    function showInput() {
+      document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
+    }
   </script>
   </body>
 </html>

@@ -64,11 +64,11 @@ n<!DOCTYPE html>
 								<h3>Account Information</h3>
 								<div class="row">
 									<div class="col-lg-4 text-center">
-										<img  <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
+										<img  id="blah" <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
 										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
 											<input type="hidden" name="field" value="image"/>
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-											<input type="file" name="newData" />
+											<input onchange="readURL(this);" type="file" name="newData" />
 											<input type="submit" value="Send File" />	
 										</form>
 									</div>
@@ -96,13 +96,13 @@ n<!DOCTYPE html>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Email:</label>
 													<div class="col-lg-8">
-														<input class="form-control" disabled="" name = "email" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
+														<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-3 control-label">Password:</label>
 													<div class="col-md-8">
-														<input class="form-control" type="password" disabled="" name = "password" value="**********">
+														<input class="form-control" type="password" disabled="" value="**********">
 													</div>
 												</div>							          
 												<div class="form-group">
@@ -469,6 +469,22 @@ $(document).ready(function(){
         }
     );
 });
+
+//Preview Image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah')
+        .attr('src', e.target.result)
+        .width(200)
+        .height(200);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 </script>
 </body>
 

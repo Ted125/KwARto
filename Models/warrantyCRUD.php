@@ -1,6 +1,5 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
+
 
 class warranty{
     private $warrantyId;
@@ -17,7 +16,7 @@ class warranty{
     /***************** CONSTRUCTOR ****************/
     
     public function __construct(){
-        parent::__construct();
+
     }
 
     /***************** FUNCTIONS ****************/
@@ -78,6 +77,23 @@ class warranty{
         } else {
             echo "Connection Error";
         }        
+        return $result;
+    }
+
+    public function displayAllWarranty(){
+        include("Database.php");
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query ="SELECT *
+                FROM  warranty
+                ";
+
+                $result = mysqli_query($connection, $query);
+        } else {
+            echo "Connection Error";
+        }
         return $result;
     }
 

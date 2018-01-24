@@ -77,14 +77,15 @@
                     <li><a href="admindex.php"> <i class="icon-home"></i>Home </a></li>
                     <li><a href="usersmgt.php"> <i class="fa fa-user-circle-o"></i>Users Management</a></li>
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
-                    <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>                    
+                    <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <li class="active"><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li> 
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>

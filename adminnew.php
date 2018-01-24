@@ -83,8 +83,8 @@
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
-            <li class="active"> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
+            <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li class="active"> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>
@@ -92,14 +92,14 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Profile</h2>
+              <h2 class="no-margin-bottom">Create Admin</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
-              <li class="breadcrumb-item active">Profile  </li>
+              <li class="breadcrumb-item active">Create Admin  </li>
             </ul>
           </div>
           <!-- Forms Section-->
@@ -111,80 +111,62 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Admin Information</h3>
+                      <h3 class="h4">New Admin Information</h3>
                     </div>
                     <div class="card-body row">
-                      <div class="col-lg-4 text-center">
-                        <img src="http://via.placeholder.com/300"><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photo</button><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
-                      </div>
-                      <form class="form-horizontal col-lg-8">
-                        
-                        <div class="line"></div>
+                      <form id="register-form" class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php"> 
+
+                        <?php if(isset($_GET['error'])){
+                          echo '
+                             <div class="form-group row">
+                              <p style="color: #FF0000;">Something went badly wrong. Try again next time.</p>
+                              </div>
+                          ';
+
+                        }
+                        ?>
+                       
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">User Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value=<?php echo $_SESSION['username'];?>>
+                            <input type="text" class="form-control" name="registerUsername" required class="input-material">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value=<?php echo $_SESSION['mobileNumber'];?>>
+                            <input type="text" class="form-control" name="registerPhone" required class="input-material">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" disabled="" value=<?php echo $_SESSION['email'];?>>
-                            <span class="help-block-none">We'll never share your e-mail address.</span>
+                            <input type="text" class="form-control" name="registerEmail" required class="input-material">
                           </div>
                         </div>
 
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">New E-mail Address</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="email@address.com">
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Confirm E-mail Address</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="email@address.com">
-                          </div>
-                        </div>
-
-                        <div class="line"></div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="text" disabled="" placeholder="********" class="form-control">
+                            <input type="password" class="form-control" name="registerPassword" required class="input-material">
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Change Password</label>
-                          <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
-                          </div>
-                        </div>
+
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
+                            <input type="password" name="temp" class="form-control" required class="input-material">
                           </div>
                         </div>
+
                         <div class="line"></div>
-                        
-                        
+                                                
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
-                            <button type="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Save Changes</button>
+                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Create</button>
                               <!-- Modal-->
                               <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
@@ -194,11 +176,11 @@
                                       <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                                     </div>
                                     <div class="modal-body">
-                                      <p>Are you sure you want to save changes?</p>
+                                      <p>Are you sure you want to create new admin?</p>
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
                                     </div>
                                   </div>
                                 </div>

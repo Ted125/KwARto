@@ -68,7 +68,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['username']?></h1>
+              <h1 class="h4"><?php echo $_SESSION['email']?></h1>
               <p>Super Admin</p>
             </div>
           </div>
@@ -79,12 +79,13 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li>
-                    <li class="active"><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
+                    <li class="active"><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Complaints & Questions</a></li> 
                     <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
+            <li> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>

@@ -376,6 +376,61 @@ class furniture{
         return $result;
     }
 
+    public function newDiscount($furnitureId){
+        require("Database.php");
+        if(isset($_SESSION['userType'])){
+            if(strcmp($_SESSION['userType'],'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET saleStart = '".$_POST['dateStart']."',
+                        saleEnd = '".$_POST['dateEnd']."',
+                        discount = '".$_POST['discount']."'
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($connection, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only seller can set furniture discount';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
+
+    public function endDiscount($furnitureId){
+        require("Database.php");
+        if(isset($_SESSION['userType'])){
+            if(strcmp($user->getUserType(),'seller') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $this->setFurnitureId($furnitureId);
+                    $query = "UPDATE furniture
+                    SET saleStart = NULL,
+                        saleEnd = NULL,
+                        discount = 0
+                    WHERE furnitureId = '".$this->getFurnitureId()."'
+                    ";
+                    $result = mysqli_query($connection, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only seller can set furniture discount';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
     /* IN PROGRESS SELECT THING
     SELECT *
     FROM furniture a
