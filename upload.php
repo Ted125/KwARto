@@ -206,15 +206,15 @@
                       </div>
                       <div class="form-group">       
                         <label>Model</label>
-                        <input type="text" placeholder="0" class="form-control" name="newModel">
+                        <input type="text" placeholder="" class="form-control" name="newModel">
                       </div>
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="0" class="form-control" id="modelName" name="newModelName">
+                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName">
                       </div>
                       <div class="form-group">       
                         <label>Version Of</label>
-                        <input type="text" placeholder="0" class="form-control" name="newVersionOf">
+                        <input type="number" placeholder="0" class="form-control" name="newVersionOf">
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
@@ -233,15 +233,15 @@
                       </div>
                       <div class="form-group">       
                         <label>Length</label>
-                        <input type="text" placeholder="0" class="form-control" id="length" name="newLength">
+                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength">
                       </div>
                       <div class="form-group">       
                         <label>Width</label>
-                        <input type="text" placeholder="0" class="form-control" id="width" name="newWidth">
+                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth">
                       </div>
                       <div class="form-group">       
                         <label>Height</label>
-                        <input type="text" placeholder="0" class="form-control" id="height" name="newHeight">
+                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight">
                       </div>
                       <div class="form-group">       
                         <label>Size Unit</label>
@@ -267,6 +267,40 @@
                     </div>
                   </div>
                   <div class="row setup-content-2" id="step-5">
+                      <div class="col-md-12">
+                          <h3 class="font-bold pl-0 my-4"><strong>Package Selection</strong></h3>
+                          <div class="form-group">       
+                            <label>Packages</label>
+                          </div>
+                          <!-- <input type="submit"value="Find" style="float: right" />
+                          <div style="overflow: hidden; padding-right: .5em;">
+                           <input type="text" style="width: 100%;" />
+                          </div>​ -->
+                          <button onclick="removePackage();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
+                          <button onclick="addPackage();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
+                          <br>
+                          <div class="package">  
+                              <div id="packageField1">
+                                <span style="font-size: 18px;">Package 1</span>
+                                <input type="text" placeholder="Enter Package Name..." class="form-control" name="package1"><br>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                          <h3 class="font-bold pl-0 my-4"><strong>Specification</strong></h3>
+                          <div class="form-group">       
+                            <label>Specification</label>
+                          </div>
+                          <button onclick="removeSpec();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
+                          <button onclick="addSpec();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
+                          <br>
+                          <div class="spec">  
+                              <div id="specField1">
+                                <span style="font-size: 18px;">Specification 1</span>
+                                <input type="text" placeholder="Enter Specification Name..." class="form-control" name="spec1"><br>
+                              </div>
+                          </div>
+                      </div>
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Category Selection</strong></h3>
                           <div class="form-group">       
@@ -479,6 +513,40 @@
                                                       document.getElementById("weight").value +""+
                                                       document.getElementById("weightUnit").value;
 
+    }
+
+    //Package
+    var i = 2;
+    function addPackage(){
+      if(i <= 5){
+        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div>');
+        i++;
+        console.log(i);
+      }
+    }
+
+    function removePackage(){
+      if(i > 2){
+        $('#packageField'+ (--i) +'').remove();
+        console.log(i);
+      }
+    }
+
+    //Specification
+    var j = 2;
+    function addSpec(){
+      if(j <= 5){
+        $('.spec').append('<div id="specField'+ j +'"><span style="font-size: 18px;">Specification '+ j +'</span><input type="text" placeholder="Enter Specification Name..." class="form-control" name="spec'+ j +'"><br></div>');
+        j++;
+        console.log(i);
+      }
+    }
+
+    function removeSpec(){
+      if(j > 2){
+        $('#specField'+ (--j) +'').remove();
+        console.log(j);
+      }
     }
   </script>
   </body>

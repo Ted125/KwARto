@@ -1,7 +1,4 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
-include("userDetails.php");
 
 class furniture_package{
     private $packId;
@@ -19,25 +16,27 @@ class furniture_package{
 
     /***************** FUNCTIONS ****************/
 
-    public function createFurniturePackage($furnitureId){
+    public function createFurniturePackage($package ,$furnitureId){
+        //include("Database.php");
         if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+            $user = new user_details;
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
+                echo $package."<br>";
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
-                    //$furniture = new furniture();
-                    $this->setItem($_POST['item']);
+                    $this->setItem($package);
                     $this->setFurnitureId($furnitureId);
                     $create = "INSERT INTO furniture_package
                     ( 
-                    status
+                    item,
                     furnitureId
                     )
                     VALUES
-                    ('".$this->getSpecification()."',
-                    '".$this->getFurnitureId()."',
+                    ('".$this->getItem()."',
+                    '".$this->getFurnitureId()."'
                     )";
                     
                     $result = mysqli_query($connection, $create);   

@@ -1,12 +1,37 @@
 <?php
 require('../Models/furnitureCRUD.php');
+require('../Models/furniture_packageCRUD.php');
+require('../Models/furniture_specificationCRUD.php');
 require('../Models/furniture_imageCRUD.php');
 session_start();
 
+
 $user = new furniture();
+$package = new furniture_package();
+$spec = new furniture_specification();
 $furnImg = new furniture_image();
 
 $verify = $user->createFurniture();
+
+for($p = 1; $p < 5; $p++){
+  if(isset($_POST['package'.$p.''])){
+    if($package->createFurniturePackage($_POST['package'.$p.''], $verify) == NULL){
+      echo $p." failed to insert<br>";
+    }
+  } else {
+    echo $p." is not available<br>";
+  }
+}
+
+for($p = 1; $p < 5; $p++){
+  if(isset($_POST['spec'.$p.''])){
+    if($spec->createFurnitureSpecification($_POST['spec'.$p.''], $verify) == NULL){
+       echo $p." failed to insert<br>";
+    }
+  } else {
+    echo $p." is not available<br>";
+  }
+}
 
 $err = 0;
 echo $verify;
@@ -66,5 +91,5 @@ if ($verify != null || $verify >= 0) {
 }
    
 
-header('Location: '.$_SERVER['HTTP_REFERER']);
+//header('Location: '.$_SERVER['HTTP_REFERER']);
 ?> 
