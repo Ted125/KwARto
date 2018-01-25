@@ -34,9 +34,10 @@ class furniture_image{
                 if($connection){
                     $this->setFurnitureId($furnId);
                     $ctr = 0;
-                    $result = mysqli_query($connection, "SELECT COUNT(*) FROM furniture_image WHERE furnitureId = '".$this->getFurnitureId()."'");
-                    $num_rows = mysqli_num_rows($result);
-                    $ctr = $num_rows;
+                    // $result = mysqli_query($connection, "SELECT COUNT(*) FROM furniture_image WHERE furnitureId = '".$this->getFurnitureId()."'");
+                    // $num_rows = mysqli_num_rows($result);
+                    $num_rows = $this->countAllImages($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture/'.$furnId."/");
+                    $ctr = $num_rows-1;
                     $this->setImage($ctr.".jpg");
                     if($ctr == 1){
                         $this->setThumbnail('1');

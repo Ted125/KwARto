@@ -4,22 +4,44 @@ require('../Models/furniture_imageCRUD.php');
 session_start();
 
 $user = new furniture();
+$furnImg = new furniture_image();
 
 $verify = $user->createFurniture();
+
+$err = 0;
 echo $verify;
 
 if ($verify != null || $verify >= 0) {
-  if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//')) {
-    mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//', 0777, true);
+  //For images upload
+  if (isset($_FILES['image'])) {
+    $myFile = $_FILES['image'];
+    $fileCount = count($myFile["name"]);
+
+    for ($i = 0; $i < $fileCount; $i++) {
+      if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//')) {
+        mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//', 0777, true);
+      }
+
+      $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//';
+      $fileExtension = '.jpg';
+
+      
+      $fiName = $furnImg->countAllImages($uploaddir);
+      $uploadfile = $uploaddir . basename((string)$fiName) . $fileExtension;
+      echo "THE FILE NAME WILL BE ".$fiName;
+
+      if(move_uploaded_file($_FILES['image']['tmp_name'][$i], $uploadfile)){
+        echo "Successfully uploaded ".$fiName."<br>";
+        $furnImg->createFurnitureImage($verify);
+      } else {
+        $err = 1;
+        break;
+      }
+    }
   }
-  $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//';
-  $fileExtension = '.jpg';
 
-  $furnImg = new furniture_image();
-  $fiName = $furnImg->countAllImages($uploaddir);
-  $uploadfile = $uploaddir . basename((string)$fiName) . $fileExtension;
-  echo "THE FILE NAME WILL BE ".$fiName;
 
+  //For models upload
   if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//')) {
     mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//', 0777, true);
   }
@@ -28,19 +50,12 @@ if ($verify != null || $verify >= 0) {
 
   $uploadfile2 = $uploaddir2 . basename($_FILES['model']['tmp_name']) . $fileExtension2;
 
-  if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile) && move_uploaded_file($_FILES['model']['tmp_name'], $uploadfile2)) {
+  if ($err == 0 && move_uploaded_file($_FILES['model']['tmp_name'], $uploadfile2)) {
     echo "NEWDATA: ".$_FILES['image']['tmp_name']."<br>"; 
     echo "NEWDATA: ".$_FILES['model']['tmp_name']."<br>"; 
     echo "DIRECTORY FOR IMAGES: ".$uploaddir;
     echo "DIRECTORY FOR MODEL: ".$uploaddir2;
 
-    
-    $verify2 = $furnImg->createFurnitureImage($verify);
-    if($verify != null){
-      echo "Successfully queried";
-    } else {
-      echo "Error query";
-    }
   } else {
     echo "Upload Fail";
     echo "......uploadfile:->>>".$uploadfile;

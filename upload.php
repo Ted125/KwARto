@@ -48,6 +48,12 @@
     .tooltip:hover .tooltiptext {
       visibility: visible;
     }
+
+    /*GALLERY STYLE*/
+    .gallery img{
+      padding: 5px;
+      border-style: double;
+    }
   </style>
   </head>
   <body>
@@ -292,15 +298,12 @@
                   <div class="row setup-content-2" id="step-6">
                     <div class="col-lg-12 text-center">
                         <h3 class="font-bold pl-0 my-4"><strong>Upload Image</strong></h3>
-                        <img src="http://via.placeholder.com/300" id="blah" alt="your image"><br>
+                        <div class="gallery"></div>
                       <div style="margin-top: 5px;">
-                        <!-- <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg">
-                        <img src="http://www.firemagicgrills.com/wp-content/uploads/accessories-small-placeholder.jpg"> -->
+                        
                       </div>    
                         <label>Select Base Photo to upload:</label>
-                        <input onchange="readURL(this);" style="margin-top: 10px;" type="file" name="image" />
+                        <input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/>
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
                         <label>Select 3D Model to upload:</label>
@@ -435,21 +438,35 @@
   });
 
   //Preview Image
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
+  $(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
 
-      reader.onload = function (e) {
-        $('#blah')
-        .attr('src', e.target.result)
-        .width(300)
-        .height(300);
-      };
+      if (input.files) {
+        var filesAmount = input.files.length;
 
-      reader.readAsDataURL(input.files[0]);
-    }
+        for (i = 0; i < filesAmount; i++) {
+          var reader = new FileReader();
+
+          reader.onload = function(event) {
+            $($.parseHTML('<img>')).attr('src', event.target.result).height(150).width(150).appendTo(placeToInsertImagePreview);
+          }
+
+          reader.readAsDataURL(input.files[i]);
+        }
+      }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+      imagesPreview(this, 'div.gallery');
+    });
+  });
+
+  //Empty gallery
+  function emptyGallery() {
+    $( ".gallery" ).empty();
   }
-
   //Preview final input
     function showInput() {
       document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
