@@ -7,7 +7,7 @@
   if($connection){
     $furnitureId = $_POST["furnitureId"];
 
-    $query = "SELECT * FROM furniture WHERE furnitureId = " . $furnitureId . "AND live = 1";
+    $query = "SELECT * FROM furniture WHERE furnitureId = " . $furnitureId;
     $furnitureDetailsResult = mysqli_query($connection, $query);
   }
 ?>
