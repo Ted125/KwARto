@@ -48,7 +48,7 @@
 
                           <li class="nav-item dropdown">
 
-                          <a href = "profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a>
+                          <a href = "profile.php"><img height="35" width="35" src="Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'"></img></a>
 
                           <ul aria-labelledby="notifications" class="dropdown-menu">
                               <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
