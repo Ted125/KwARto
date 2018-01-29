@@ -20,6 +20,53 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Line Chart
     // ------------------------------------------------------ //
+    /* WORKING DATE LABELS */
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+
+    today = mm + '/' + dd + '/' + yyyy;
+    
+    var dates = [today];
+    var x; 
+    var days;// Days you want to subtract
+    for(x = 0, days = 7; x <= 5; x++, days+=7){
+     
+        var date = new Date();
+        var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+        var day =last.getDate();
+        var month=last.getMonth()+1;
+        var year=last.getFullYear();
+
+        if(day<10) {
+            day = '0'+day
+        } 
+
+        if(month<10) {
+            month = '0'+month
+        } 
+
+        last = month + '/' + day + '/' + year;
+        var newLength = dates.unshift(last);
+    }
+    /* ACTUAL GRAPH*/
+
+    var requestOne = new XMLHttpRequest();
+    myRequest.open('GET', '../Controllers/retrieveReports.php', true);
+    myRequest.onreadystatechange = function(){
+        if(myRequest.readyState === 4){
+            data = [myRequest.result];
+        }
+    }
     var LINECHARTEXMPLE   = $('#lineChartExample');
     var lineChartExample = new Chart(LINECHARTEXMPLE, {
         type: 'line',
@@ -41,7 +88,7 @@ $(document).ready(function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: [dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], today],
             datasets: [
                 {
                     label: "Data Set One",

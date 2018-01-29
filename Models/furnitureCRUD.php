@@ -75,7 +75,7 @@ class furniture{
                     $this->setSizeUnit($_POST['newSizeUnit']);
                     $this->setPrice($_POST['newPrice']);
                     $this->setModelName($_POST['newModelName']);
-                    $this->setDiscount($_POST['newDiscount']);
+                    $this->setDiscount('0');
                     $this->setCategoryId($_POST['newCategoryId']);
                     $this->setSellerId($_POST['newSellerId']);
                     $this->setVersionOf($_POST['newVersionOf']);
