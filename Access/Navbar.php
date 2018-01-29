@@ -82,17 +82,17 @@
             <ul style="display:-webkit-inline-box;">
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FURNITURE <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="http://geniesoft.biz/wp-content/uploads/2017/11/red-living-room-set-modern-living-room-interior-with-red-sofa-red-living-room-furniture.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
-                                  <p style="padding-right: 7px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                                  <p style="padding-right: 7px; text-align: justify;">"This is a list of furniture types. Furniture includes objects such as tables, chairs, beds, desks, backpacks, dressers, or cupboards. These said objects are usually kept in a house or other building to make it suitable or comfortable for living or working in.</p>
                                 </div>
                               </td>
-                              <td class="rightmenu " width="35%" style="padding-left: 30px">
+                              <td class="rightmenu " width="20%" style="padding-left: 30px">
                                 <a href="#" class="linkmenu linktop"><strong>Bedroom</strong><br></a>
 
                                 <?php
@@ -140,9 +140,9 @@
                                     }
                                   }
                                 ?>
+                              </td>
 
-                                <br>
-
+                              <td class="rightmenu" width="20%" style="padding-left: 10px;">
                                 <a href="#" class="linkmenu linktop"><strong>Kitchen</strong><br></a>
 
                                 <?php
@@ -165,8 +165,9 @@
                                     }
                                   }
                                 ?>
-                              </td>
-                              <td class="rightmenu" width="35%" style="padding-left: 20px">
+
+                                <br> 
+
                                 <a href="#" class="linkmenu linktop"><strong>Living Room</strong><br></a>
 
                                 <?php
@@ -189,8 +190,9 @@
                                     }
                                   }
                                 ?>
+                              </td>
 
-                                <br>
+                              <td class="rightmenu" width="20%" style="padding-left: 10px">
 
                                 <a href="#" class="linkmenu linktop"><strong>Kids Furniture</strong><br></a>
 
@@ -265,55 +267,6 @@
                                   }
                                 ?>
                               </td>
-                              <td class="rightmenu" width="35%" style="padding-left: 10px">
-                                <a href="#" class="linkmenu linktop"><strong>Office Furniture</strong><br></a>
-
-                                <?php
-                                  $_POST["categoryId"] = 13;
-
-                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
-
-                                  if($categorySubtreeResult != null){
-                                    $i = 0;
-
-                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
-                                      $i++;
-
-                                      if($i == 1){
-                                        continue;
-                                      }
-                                ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
-                                <?php
-                                    }
-                                  }
-                                ?>
-
-                                <br>
-
-                                <a href="#" class="linkmenu linktop"><strong>Outdoor Furniture</strong><br></a>
-
-                                <?php
-                                  $_POST["categoryId"] = 14;
-
-                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
-
-                                  if($categorySubtreeResult != null){
-                                    $i = 0;
-
-                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
-                                      $i++;
-
-                                      if($i == 1){
-                                        continue;
-                                      }
-                                ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
-                                <?php
-                                    }
-                                  }
-                                ?>
-                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -321,11 +274,11 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BED & BATH <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem;">
                       <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
                                   <p style="padding-right: 7px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
@@ -373,7 +326,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DECOR <span></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -425,7 +378,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOUSEWARE <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -477,7 +430,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WINDOW TREAMENTS <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;  margin-left: -300px;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem;  margin-left: -300px;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -529,7 +482,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LIGHTING <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 40rem;  margin-left: -600px;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 50rem;  margin-left: -600px;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
