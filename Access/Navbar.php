@@ -34,6 +34,10 @@
                 <?php
                   if(!isset($_SESSION['userId'])){
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
+                  } else if(strcmp($_SESSION['userType'], "admin") == 0){
+                    echo '<li><a href="admindex.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Back</button></a></li>';
+                  } else if(strcmp($_SESSION['userType'], "seller") == 0){
+                    echo '<li><a href="manuindex.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Back</button></a></li>';
                   } else {
                     echo '<li><a href="wishlist.php">wishlist</a></li>
                           <li><a href="transhist.php">history</a></li>
