@@ -31,8 +31,6 @@
                 </li>
                 <li><a href="index.php">home</a></li>
                 <li><a href="categories.php">categories</a></li>
-                <!-- <li><a href="about.php">about us</a></li> -->
-                <!-- <li><a href="contact.php">contact</a></li> -->
                 <?php
                   if(!isset($_SESSION['userId'])){
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
