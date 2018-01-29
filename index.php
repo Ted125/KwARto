@@ -132,7 +132,15 @@
 							require("Controllers/SearchFurniture.php");
 
 							if($searchFurnitureResult != null){
+								$i = 0;
+
 								while($row = mysqli_fetch_assoc($searchFurnitureResult)){
+									$i++;
+
+									if($i > 5){
+										break;
+									}
+
 									$_POST["categoryId"] = $row["categoryId"];
 
 									require("Controllers/LoadSinglePath.php");
