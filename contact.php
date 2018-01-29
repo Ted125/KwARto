@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
 <link rel="icon" href="images/icon.png">
+	<?php include('Access/Header.php');?>
 </head>
 
 <body>
@@ -93,7 +94,7 @@
 							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please write us a message."></textarea>
 						</div>
 						<div>
-							<input id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Send Message" />
+							<input id="review_submit" type="submit" class="red_button message_submit_btn trans_300" style="padding:10px;" value="Send Message" />
 						</div>
 					</form>
 				</div>
@@ -169,5 +170,31 @@
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/contact_custom.js"></script>
 </body>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$(".add_to_cart_button").on("click", function(){
+		var id = $(this).parent().find(".product_name").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
+
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
 
 </html>
