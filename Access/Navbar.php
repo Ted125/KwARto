@@ -1,6 +1,6 @@
 
 <header class="header trans_300">
-
+<!-- 
     <div class="top_nav">
       <div class="container">
         <div class="row">
@@ -10,7 +10,7 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="main_nav_container">
       <div class="container">
