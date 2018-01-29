@@ -124,14 +124,14 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Manufacturers Management</h2>
+              <h2 class="no-margin-bottom">Products Management</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
-              <li class="breadcrumb-item active">Manufacturers Management</li>
+              <li class="breadcrumb-item active">Products Management</li>
             </ul>
           </div>
           <section class="tables" style="background-color: #faf6f6">   

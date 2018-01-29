@@ -1,7 +1,4 @@
 <?php 
-require("SQL_Connect.php");
-include("Database.php");
-include("userDetails.php");
 
 class furniture_specification{
     private $specId;
@@ -19,25 +16,26 @@ class furniture_specification{
 
     /***************** FUNCTIONS ****************/
 
-    public function createFurnitureSpecification($furnitureId){
+    public function createFurnitureSpecification($specification, $furnitureId){
         if(isset($_SESSION)){
-            $this->setUserType($_SESSION['userType']);
-            if(strcmp($this->getUserType(),'seller') == 0){
+            $user = new user_details;
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'seller') == 0){
+                echo $specification."<br>";
                 $result = NULL;
                 $db = new Database();
                 $connection = $db->Connect();
                 if($connection){
-                    //$furniture = new furniture();
-                    $this->setSpecification($_POST['specification']);
+                    $this->setSpecification($specification);
                     $this->setFurnitureId($furnitureId);
                     $create = "INSERT INTO furniture_specification
                     ( 
-                    status
+                    specification,
                     furnitureId
                     )
                     VALUES
                     ('".$this->getSpecification()."',
-                    '".$this->getFurnitureId()."',
+                    '".$this->getFurnitureId()."'
                     )";
                     
                     $result = mysqli_query($connection, $create);   

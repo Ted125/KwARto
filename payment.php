@@ -24,14 +24,14 @@
 <link rel="icon" href="images/icon.png">
 
 <style type="text/css">
-	
+
  	.steps-form-2 {
 	  display: table;
 	  width: 100%;
-	  position: relative; 
+	  position: relative;
 	}
 	.steps-form-2 .steps-row-2 {
-    display: table-row; 
+    display: table-row;
 	}
     .steps-form-2 .steps-row-2:before {
       top: 14px;
@@ -176,7 +176,6 @@
 	    <div class="row setup-content-2" id="step-5">
 	        <div class="col-md-12">
 	            <h3 class="font-bold pl-0 my-4"><strong>Select Payment Method</strong></h3>
-	            
 	            <div class="row blogs_container text-center">
 					<div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
@@ -194,7 +193,17 @@
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Credit or Debit Card</h4>
 								<span class="blog_meta">Only major cards accepted</span>
-								<a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+								<!-- <a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a> -->
+								<form method="POST">
+								  <script
+								    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+								    data-key="pk_test_PQyJ2oQLBknBavmRzO2ityzu"
+								    data-amount="2000"
+								    data-name="Demo Site"
+								    data-description="2 widgets ($20.00)"
+								    data-image="">
+								  </script>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -377,72 +386,100 @@
 	          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
 	        </div>
 	        <div class="modal-body">
-	        	<form class="form-horizontal" role="form">
-			    <fieldset>
-			      <div class="form-group">
-			        <label class="col-sm-6 control-label" for="card-holder-name">Name on Card</label>
-			        <div class="col-sm-12">
-			          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-			        </div>
-			      </div>
-			      <div class="form-group">
-			        <label class="col-sm-6 control-label" for="card-number">Card Number</label>
-			        <div class="col-sm-12">
-			          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
-			        </div>
-			      </div>
-			      <div class="form-group">
-			        <label class="col-sm-6 control-label" for="expiry-month">Expiration Date</label>
-			        <div class="col-sm-12">
-			          <div class="row">
-			            <div class="col-xs-12">
-			              <select class="form-control col-sm-12" name="expiry-month" id="expiry-month" style="margin-left: 20px;">
-			                <option>January</option>
-			                <option value="01">January</option>
-			                <option value="02">February</option>
-			                <option value="03">March</option>
-			                <option value="04">April</option>
-			                <option value="05">May</option>
-			                <option value="06">June</option>
-			                <option value="07">July</option>
-			                <option value="08">August</option>
-			                <option value="09">September</option>
-			                <option value="10">October</option>
-			                <option value="11">November</option>
-			                <option value="12">December</option>
-			              </select>
-			            </div>
-			            <div class="col-xs-12">
-			              <select class="form-control" name="expiry-year" style="margin-left: 30px;">
-			                <option value="13">2018</option>
-			                <option value="14">2019</option>
-			                <option value="15">2020</option>
-			                <option value="16">2021</option>
-			                <option value="17">2022</option>
-			                <option value="18">2023</option>
-			                <option value="19">2024</option>
-			                <option value="20">2025</option>
-			                <option value="21">2026</option>
-			                <option value="22">2027</option>
-			                <option value="23">2028</option>
-			              </select>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			      <div class="form-group">
-			        <label class="col-sm-12 control-label" for="cvv">Card CVV</label>
-			        <div class="col-sm-12">
-			          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
-			        </div>
-			      </div>
-			    </fieldset>
-			  </form>
+	        	<!-- <form id = "creditCardForm" class="form-horizontal" role="form" method = "POST">
+					    <fieldset>
+					      <div class="form-group">
+					        <label class="col-sm-6 control-label" for="card-holder-name">Name on Card</label>
+					        <div class="col-sm-12">
+					          <input type="text" class="form-control" id="card-holder-name" placeholder="Card Holder's Name">
+					        </div>
+					      </div>
+					      <div class="form-group">
+					        <label class="col-sm-6 control-label" for="card-number" data-stripe="number">Card Number</label>
+					        <div class="col-sm-12">
+					          <input type="text" class="form-control" id="card-number" placeholder="Debit/Credit Card Number">
+					        </div>
+					      </div>
+					      <div class="form-group">
+					        <label class="col-sm-6 control-label" for="expiry-month">Expiration Date</label>
+					        <div class="col-sm-12">
+					          <div class="row">
+					            <div class="col-xs-12">
+					              <select class="form-control col-sm-12" id="expiry-month" style="margin-left: 20px;" data-stripe="exp-month">
+					                <option>January</option>
+					                <option value="01">January</option>
+					                <option value="02">February</option>
+					                <option value="03">March</option>
+					                <option value="04">April</option>
+					                <option value="05">May</option>
+					                <option value="06">June</option>
+					                <option value="07">July</option>
+					                <option value="08">August</option>
+					                <option value="09">September</option>
+					                <option value="10">October</option>
+					                <option value="11">November</option>
+					                <option value="12">December</option>
+					              </select>
+					            </div>
+					            <div class="col-xs-12">
+					              <select class="form-control" style="margin-left: 30px;" data-stripe="exp-year">
+					                <option>2018</option>
+					                <option>2019</option>
+					                <option>2020</option>
+					                <option>2021</option>
+					                <option>2022</option>
+					                <option>2023</option>
+					                <option>2024</option>
+					                <option>2025</option>
+					                <option>2026</option>
+					                <option>2027</option>
+					                <option>2028</option>
+					              </select>
+					            </div>
+					          </div>
+					        </div>
+					      </div>
+					      <div class="form-group">
+					        <label class="col-sm-12 control-label" for="cvc" data-stripe="cvc">Card CVC</label>
+					        <div class="col-sm-12">
+					          <input type="text" class="form-control" id="cvv" placeholder="Security Code">
+					        </div>
+					      </div>
+					    </fieldset>
+					  </form> -->
+						<form method="POST" id="payment-form">
+						  <span class="payment-errors"></span>
+
+						  <div class="row">
+						    <label>
+						      <span>Card Number</span>
+						      <input type="text" data-stripe="number">
+						    </label>
+						  </div>
+
+						  <div class="row">
+						    <label>
+						      <span>CVC</span>
+						      <input type="text" data-stripe="cvc">
+						    </label>
+						  </div>
+
+						  <div class="row">
+						    <label>
+						      <span>Expiration (MM/YYYY)</span>
+						      <input type="text" data-stripe="exp-month">
+						    </label>
+						    <input type="text" data-stripe="exp-year">
+						  </div>
+
+						  <button type="submit">Buy Now</button>
+						</form>
+						<p id = "creditCardError"></p>
 			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
 	        </div>
-	        <div class="modal-footer">
-	        	<a><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Next Step</button></a>
-	        </div>
+	        <!-- <div class="modal-footer">
+	        	<a><button id = "creditCardButton" class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Next Step</button></a>
+	        </div> -->
 	    </div>
   		</div>
 	</div>
@@ -455,6 +492,7 @@
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="js/single_custom.js"></script>
 </body>
 
@@ -611,7 +649,7 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-// Steppers                
+// Steppers
 $(document).ready(function () {
   var navListItems = $('div.setup-panel-2 div a'),
           allWells = $('.setup-content-2'),
@@ -633,7 +671,7 @@ $(document).ready(function () {
           $target.find('input:eq(0)').focus();
       }
   });
-  
+
   allPrevBtn.click(function(){
       var curStep = $(this).closest(".setup-content-2"),
           curStepBtn = curStep.attr("id"),
@@ -663,5 +701,5 @@ $(document).ready(function () {
 
   $('div.setup-panel-2 div a.btn-amber').trigger('click');
 });
-                
+
 </script>
