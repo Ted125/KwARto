@@ -7,7 +7,7 @@
           <div class="col-md-12 text-center">
             <div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
                 <li><a href="categories.php">categories</a></li>
                 <!-- <li><a href="about.php">about us</a></li> -->
                 <!-- <li><a href="contact.php">contact</a></li> -->
-                <?php 
+                <?php
                   if(!isset($_SESSION['userId'])){
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else {
@@ -51,11 +51,11 @@
                           <a href = "profile.php"><img height="35" width="35" src="'.$_SESSION['image'].'"></img></a>
 
                           <ul aria-labelledby="notifications" class="dropdown-menu">
-                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
                                   <div class="msg-body">
                                     <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Have you received your item?</span>
                                   </div></a></li>
-                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex"> 
+                              <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
                                   <div class="msg-body">
                                     <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
                                   </div></a></li>
@@ -85,7 +85,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
                         <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
@@ -93,39 +93,226 @@
                                 </div>
                               </td>
                               <td class="rightmenu " width="35%" style="padding-left: 30px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Bedroom</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <?php
+                                  $_POST["categoryId"] = 8;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Dining Room</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 9;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Kitchen</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 10;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Living Room</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 11;
 
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Kids Furniture</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 12;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Office Furniture</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 13;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Outdoor Furniture</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 14;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+                              </td>
+                              <td class="rightmenu" width="35%" style="padding-left: 10px">
+                                <a href="#" class="linkmenu linktop"><strong>Office Furniture</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 13;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Outdoor Furniture</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 14;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
@@ -137,7 +324,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
                       <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
@@ -146,28 +333,28 @@
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
+
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
                                 <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
                                 <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
@@ -189,7 +376,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
                         <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
@@ -198,28 +385,28 @@
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
+
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
                                 <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
                                 <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
@@ -241,7 +428,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;">
                         <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture Here</strong>
@@ -250,28 +437,28 @@
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
+
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
                                 <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
                                 <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
@@ -293,7 +480,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;  margin-left: -300px;">
                         <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent" width="30%">
                                   <strong>Furniture Here</strong>
@@ -302,28 +489,28 @@
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
+
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
                                 <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
                                 <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
@@ -345,7 +532,7 @@
                     <ul class="dropdown-menu proddrop" style="min-width: 40rem;  margin-left: -600px;">
                         <table >
                           <tbody style="width:100%;">
-                            <tr valign="top"> 
+                            <tr valign="top">
                               <td width="30%" style="padding-left:20px;"><div class="leftimg"><img style="text-align:center; margin-bottom:10px; margin-top: 5px;" src="http://via.placeholder.com/150x150"></div>
                                 <div class="leftcontent" width="30%">
                                   <strong>Furniture Here</strong>
@@ -354,28 +541,28 @@
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br> 
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>  
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br> 
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br> 
+                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
+                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
+                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
 
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                    
+
                                 <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
                                 <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
                                 <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
