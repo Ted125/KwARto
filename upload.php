@@ -376,22 +376,7 @@
                   <div class="row setup-content-2" id="step-7">
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
-                          <div class="form-group">
-                              <label><b>Product Name</b></label>
-                              <p id="prevName"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Model Name</b></label>
-                              <p id="prevModelName"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Price</b></label>
-                              <p id="prevPrice"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Size and Weight</b></label>
-                              <p id="prevSize"></p>
-                          </div>
+                          
                           <div class="form-group">
                               <input type="checkbox" id="terms" onclick="disableElement()">
                               <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>
