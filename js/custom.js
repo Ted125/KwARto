@@ -34,7 +34,7 @@ jQuery(document).ready(function($)
 	var menuActive = false;
 	var hamburgerClose = $('.hamburger_close');
 	var fsOverlay = $('.fs_menu_overlay');
-
+	var lastScrollTop = 0;
 	setHeader();
 
 	$(window).on('resize', function()
@@ -45,7 +45,15 @@ jQuery(document).ready(function($)
 
 	$(document).on('scroll', function()
 	{
-		setHeader();
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       header.css({'top':"-90px"});
+	      
+	   } else {
+	      header.css({'top':"0"});
+	      
+	   }
+	   lastScrollTop = st;
 	});
 
 	initMenu();
@@ -63,32 +71,41 @@ jQuery(document).ready(function($)
 
 	function setHeader()
 	{
-		if(window.innerWidth < 992)
-		{
-			if($(window).scrollTop() > 100)
-			{
-				header.css({'top':"0"});
-			}
-			else
-			{
-				header.css({'top':"0"});
-			}
-		}
-		else
-		{
-			if($(window).scrollTop() > 100)
-			{
-				header.css({'top':"-90px"});
-			}
-			else
-			{
-				header.css({'top':"0"});
-			}
-		}
-		if(window.innerWidth > 991 && menuActive)
-		{
-			closeMenu();
-		}
+		var lastScrollTop = 0;
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       header.css({'top':"-90px"});
+	   } else {
+	      header.css({'top':"0"});
+	   }
+	   lastScrollTop = st;
+	
+		// if(window.innerWidth < 992)
+		// {
+		// 	if($(window).scrollTop() > 100)
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// 	else
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// }
+		// else
+		// {
+		// 	if($(window).scrollTop() > 100)
+		// 	{
+		// 		header.css({'top':"-90px"});
+		// 	}
+		// 	else
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// }
+		// if(window.innerWidth > 991 && menuActive)
+		// {
+		// 	closeMenu();
+		// }
 	}
 
 	/* 
