@@ -338,39 +338,167 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Mattress</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 90;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Pillows</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 89;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
+                                <a href="#" class="linkmenu linktop"><strong>Bed Sheets</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 88;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Throws + Blankets</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 87;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Bathware</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 86;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
@@ -390,39 +518,167 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Accent Pillows + Throws</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 117;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Wall Decor + Mirrors</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 116;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
+                                <a href="#" class="linkmenu linktop"><strong>Home Accents</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 115;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Carpets</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 114;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Room Dividers</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 113;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
@@ -442,39 +698,167 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Dinnerware</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 139;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Table Linens</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 138;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
+                                <a href="#" class="linkmenu linktop"><strong>Glassware</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 137;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Sports Bottle + Flasks</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 136;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Kitchenware</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 135;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
@@ -494,39 +878,200 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Window Accessories</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 155;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Blinds</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 154;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Curtain</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 153;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
+                                <a href="#" class="linkmenu linktop"><strong>Hooks</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 152;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Rods</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 151;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Tassels</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 150;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
@@ -546,39 +1091,266 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <a href="#" class="linkmenu linktop"><strong>Table Lamp + Desk Lamp</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 166;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
 
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Floor Lamps</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 165;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Wall Lamps</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 164;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Chandelier</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 163;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
+                                <a href="#" class="linkmenu linktop"><strong>Pendant Lighting</strong><br></a>
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                <?php
+                                  $_POST["categoryId"] = 162;
 
-                                <a href="#" class="linkmenu linktop"><strong>Matress</strong><br>
-                                <a href="#" class="linkmenu linkcontent">Foam Mattress<br>
-                                <a href="#" class="linkmenu  linkcontent">Foam Mattress<br>
-                                <a href="#" class=" linkmenu linkcontent">Foam Mattress<br>
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
 
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Outdoor Lighting</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 161;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Ceiling Lights</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 160;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
+
+                                <br>
+
+                                <a href="#" class="linkmenu linktop"><strong>Ceiling Fan</strong><br></a>
+
+                                <?php
+                                  $_POST["categoryId"] = 159;
+
+                                  require($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Controllers/LoadCategorySubtree.php");
+
+                                  if($categorySubtreeResult != null){
+                                    $i = 0;
+
+                                    while($subtreeRow = mysqli_fetch_assoc($categorySubtreeResult)){
+                                      $i++;
+
+                                      if($i == 1){
+                                        continue;
+                                      }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
+                                ?>
+                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                <?php
+                                    }
+                                  }
+                                ?>
                               </td>
                             </tr>
                           </tbody>
