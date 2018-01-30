@@ -21,6 +21,17 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
+    
+    <!-- STYLING FOR UPLOAD BUTTON -->
+    <style type="text/css">
+      #upload_button {
+        display: inline-block;
+      }
+      #upload_button input[type=file] {
+        display:none;
+      }
+    </style>
+
     <style>
     /* Tooltip container */
     .tooltip {
@@ -72,7 +83,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
                   <div class="brand-text brand-small"><strong>AR</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -129,7 +140,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Company Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
@@ -331,18 +342,30 @@
                   </div>
                   <div class="row setup-content-2" id="step-6">
                     <div class="col-lg-12 text-center">
-                        <h3 class="font-bold pl-0 my-4"><strong>Upload Image</strong></h3>
+                        <h3 class="font-bold pl-0 my-4"><strong>Upload Image/s</strong></h3>
                         <div class="gallery"></div>
                       <div style="margin-top: 5px;">
                         
                       </div>    
-                        <label>Select Base Photo to upload:</label>
-                        <input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/>
+                        <!--<input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/> -->
+                        <div id="upload_button">
+                          <label>
+                            <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
+                          </label>
+                        </div>
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
-                        <label>Select 3D Model to upload:</label>
-                        <input style="margin-top: 10px;" type="file" name="model" />
+                        <!-- <label>Select 3D Model to upload:</label> -->
+<!--                         <input style="margin-top: 10px;" type="file" name="model" /> -->
+                          <div id="upload_button">
+                            <label>
+                              <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                              <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload 3D Model</span>
+                            </label>
+                          </div>
                         <input type="hidden" class="btn btn-primary" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
+
                         <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
                       </div>
                       <br>
@@ -353,22 +376,7 @@
                   <div class="row setup-content-2" id="step-7">
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
-                          <div class="form-group">
-                              <label><b>Product Name</b></label>
-                              <p id="prevName"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Model Name</b></label>
-                              <p id="prevModelName"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Price</b></label>
-                              <p id="prevPrice"></p>
-                          </div>
-                          <div class="form-group">
-                              <label><b>Size and Weight</b></label>
-                              <p id="prevSize"></p>
-                          </div>
+                          
                           <div class="form-group">
                               <input type="checkbox" id="terms" onclick="disableElement()">
                               <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>

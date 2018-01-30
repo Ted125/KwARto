@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
@@ -16,66 +16,21 @@ n<!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
+<?php include('Access/Header.php');?>
 </head>
 
 <body>
 
 <div class="super_container">
 
-	<header class="header trans_300">
-		<div class="top_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="top_nav_left">Sign Up Now and avail free shipping off your first purchase!</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
+	<!-- NAVBAR HERE-->
+	<?php include('Access/Navbar.php');?>
 
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#"><img style="max-width: 150px;" src="images/newlogo.png"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="index.php">home</a></li>
-								<li><a href="categories.php">categories</a></li>
-								<li><a href="about.php">about us</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-
-								</li>
-								<li class="checkout">
-									<a href="cart.php">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-top: 40px; margin-bottom: 20px;">>
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li class="active"><a href="privacy.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
@@ -86,7 +41,7 @@ n<!DOCTYPE html>
 		</div>
 
 		<h2>Privacy Policy</h2>
-		<h6>This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.</h6>
+		<h6>This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.</h6><br>
 		<div class="row">
 			<div style="padding-left: 50px;">
 				<div class="benefit_item d-flex flex-row align-items-center" >
@@ -194,103 +149,14 @@ n<!DOCTYPE html>
 </div>
 	</div>
 
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>free shipping</h6>
-							<p>Within the Philippines</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>cash on delivery</h6>
-							<p>Pay upon receiving your item</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>14 days return</h6>
-							<p>See return policy for details</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>Open Always</h6>
-							<p>24/7</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- BENEFIT HERE-->
+	<?php include('Access/Benefit.php');?>
 
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<h4>Newsletter</h4>
-						<p>Subscribe to our newsletter and get 20% off your first purchase</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<form action="post">
-						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- NEWSLETTER HERE-->
+	<?php include('Access/Newsletter.php');?>
 
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-						<ul class="footer_nav">
-							<li><a href="terms.php">Terms of Use</a></li>
-							<li><a href="privacy.php">Privacy Policy</a></li>
-							<li><a href="contact.php">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2018 All Rights Reserverd. <a href="#">KwARto</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<!-- FOOTER HERE-->
+	<?php include('Access/Footer.php');?>
 
 </div>
 
@@ -304,4 +170,18 @@ n<!DOCTYPE html>
 <script src="js/single_custom.js"></script>
 </body>
 
+<script type = "text/javascript">
+$(document).ready(function(){
+	$(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
 </html>

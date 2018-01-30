@@ -27,7 +27,15 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+    <!-- STYLING FOR UPLOAD BUTTON -->
+    <style type="text/css">
+      #upload_button {
+        display: inline-block;
+      }
+      #upload_button input[type=file] {
+        display:none;
+      }
+    </style>
   </head>
   <body>
     <div class="page">
@@ -45,7 +53,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
                   <div class="brand-text brand-small"><strong>AR</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -102,7 +110,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email'];?></h1>
+              <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
@@ -148,7 +156,12 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img src="http://via.placeholder.com/300"><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Select Photo</button><br>
+                        <div id="upload_button">
+                          <label>
+                            <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
+                          </label>
+                        </div>
                       </div>
                       <form class="form-horizontal col-lg-8">
                         <div class="form-group row">

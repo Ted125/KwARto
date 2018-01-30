@@ -24,7 +24,7 @@
                 <li>
                   <div class="search-container">
                     <form action="/action_page.php">
-                      <input type="text" placeholder="What are you looking for?" name="search" style="color: #d42d2d; width:300px; font-size: 1em; padding:10px;">
+                      <input type="text" placeholder="What are you looking for?" name="search" style="border: 0; outline: 0; background: transparent; border-bottom: 1px solid #d42d2d; color: #d42d2d; width:300px; font-size: 1em; padding:10px 10px 0px 10px;">
                       <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1em;"></i></button>
                     </form>
                  </div>
@@ -35,9 +35,9 @@
                   if(!isset($_SESSION['userId'])){
                     echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
                   } else if(strcmp($_SESSION['userType'], "admin") == 0){
-                    echo '<li><a href="admindex.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Back</button></a></li>';
+                    echo '<li><a href="admindex.php"><button class="btn btn-primary" style="margin-right: -50px; background-color: #d42d2d; border: 0px;">Back to Dashboard</button></a></li>';
                   } else if(strcmp($_SESSION['userType'], "seller") == 0){
-                    echo '<li><a href="manuindex.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Back</button></a></li>';
+                    echo '<li><a href="manuindex.php"><button class="btn btn-primary" style="margin-right: -50px; background-color: #d42d2d; border: 0px;">Back to Dashboard</button></a></li>';
                   } else {
                     echo '<li><a href="wishlist.php">wishlist</a></li>
                           <li><a href="transhist.php">history</a></li>
@@ -88,7 +88,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="https://sep.yimg.com/ay/yhst-130150896824807/orange-fabric-sofa-loveseat-and-chair-set-22.jpg"></div>
+                              <td width="15%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="https://sep.yimg.com/ay/yhst-130150896824807/orange-fabric-sofa-loveseat-and-chair-set-22.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Home is that blissful place where you can kick off your shoes, put your feet up, and just be yourself, but if your furniture isn’t comfortable or looks out of place, you don’t get that sense of relief when you walk in the door. Purchasing furniture for your home lets you create the relaxed ambiance and character that makes an otherwise plain house feel like your home. Furnishings from KwARto and its partners provide you with the quality you want and also give you that peaceful, at-home feeling so you can kick back and relax.</p>
@@ -117,6 +117,9 @@
                                     }
                                   }
                                 ?>
+
+                                <br>
+                                
                                 <a href="#" class="linkmenu linktop"><strong>Dining Room</strong><br></a>
 
                                 <?php
