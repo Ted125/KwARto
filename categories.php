@@ -316,11 +316,20 @@ $(document).ready(function(){
 		$("#selectedFurnitureForm").submit();
 	});
 
+	$("#searchResultsContainer").on("click", ".product-item", function(){
+		var id = $(this).find(".product_name").attr("name");
+		console.log("something");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
 	$("#searchResultsContainer").on("click", ".add_to_cart_button", function(){
 		var id = $(this).parent().find(".product_name").attr("name");
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
 	});
+
+
 });
 
 function LoadCategoryTree(){

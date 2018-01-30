@@ -150,14 +150,14 @@
                         <thead>
                           <tr>
                             <th width="5%">#</th>
-                            <th width="25%">Product Name</th>
+                            <th width="20%">Product Name</th>
                             <th width="5%">Available</th>
                             <th width="8%">On-Hold</th>
                             <th width="10%">Sold</th>
                             <th width="10%">Price</th>
                             <th width="14%">Restock Date</th>
                             <th width="16%">Live</th>
-                            <th width="10%">Action</th>
+                            <th width="20%">Action</th>
                           </tr>
                         </thead>
                         <tbody>
