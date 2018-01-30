@@ -53,7 +53,7 @@
 
 			</div>
 		</div>
-		
+
 		<!-- Cart Form -->
 		<form id = "cartForm" action = "cart.php" method = "POST">
 			<input id = "cartItemField" type = "hidden" name = "furnitureId">
@@ -452,6 +452,9 @@
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
+									<?php
+										if(isset($_SESSION["customerId"])){
+									?>
 									<form id="review_form" method="post" action= "Controllers/AddReview.php">
 										<div>
 											<h1>Leave a Review</h1>
@@ -476,6 +479,9 @@
 											<button id="review_submit" type="submit" style="padding: 10px;" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
 										</div>
 									</form>
+									<?php
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -552,6 +558,9 @@
 
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
+									<?php
+										if(isset($_SESSION["customerId"])){
+									?>
 									<form id="review_form" method="post" action= "Controllers/AddQuestion.php">
 										<div>
 											<h1>Leave a Question</h1>
@@ -566,6 +575,9 @@
 											<button id="review_submit" type="submit" style="padding: 10px;" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
 										</div>
 									</form>
+									<?php
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -710,7 +722,7 @@
 
 	</div>
 
-	
+
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
 
