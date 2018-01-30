@@ -30,14 +30,16 @@
     <link href="./css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 
+    <?php include('Access/Header.php');?>
+
   </head>
   <style>
 
   </style>
   
-<body class="index-page sidebar-collapse">
+<body class="page">
     
-    <div class="wrapper">
+    <div class="wrapper ">
         <div class="page-header clear-filter" filter-color="orange" style="background-image: url(./images/header.png); margin-top: 0px;">
             <div class="page-header-image" data-parallax="true" style="">
             </div>
@@ -146,22 +148,21 @@
 		<div class="clearfix"></div>
 	</div>
 <!-- //banner -->
-<!-- newsletter -->
-	<div class="newsletter">
-		<div class="container">
-			<div class="w3agile_newsletter_left">
-				<h3>sign up for our newsletter</h3>
-			</div>
-			<div class="w3agile_newsletter_right">
-				<form action="#" method="post">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="submit" value="subscribe now">
-				</form>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
+	<div class="mobile-block">
+        <div class="text-center"><img style="margin-top: 40%;" src="./images/largerr.png" alt="">
+	        <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; color: black; font-size: 3em;"class="h1-seo">KW<span style="color: #d42d2d;">AR</span>TO</h1><br><br>
+	        <h3 style="font-family: 'Source Sans Pro', sans-serif!important; font-size: 2em; margin-top: -25px;">Revolutionizing online furniture shopping.</h3>
+	        <p style="padding-bottom: 300px;font-family: 'Source Sans Pro', sans-serif!important; color: #d42d2d;">Download the mobile app now!</p>
+    	</div>
 	</div>
+	
+	<div class="tab-block">
+		<div class="text-center"><img style="margin-top: 20%;" src="./images/largerr.png" alt="">
+        <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; color: black; font-size: 3em;"class="h1-seo">KW<span style="color: #d42d2d;">AR</span>TO</h1><br><br>
+        <h3 style="font-family: 'Source Sans Pro', sans-serif!important;color: black; font-size: 2em; margin-top: -20px;">Revolutionizing online furniture shopping.</h3>
+	    <p style="padding-bottom: 300px;font-family: 'Source Sans Pro', sans-serif!important; color: black;">Download the mobile app now!</p>
 
+	</div>
   </body>
 
 </html>
