@@ -26,6 +26,15 @@
     <link href="tree.css" type="text/css" rel="stylesheet" />
     <!-- Web Icon -->
     <link rel="shortcut icon" href=" images/icon.png">
+    <!-- STYLING FOR UPLOAD BUTTON -->
+    <style type="text/css">
+      #upload_button {
+        display: inline-block;
+      }
+      #upload_button input[type=file] {
+        display:none;
+      }
+    </style>
    
   </head>
   <body>
@@ -258,6 +267,19 @@
                                     </div>
                                     <div class="modal-body">
                                       <form class="form-horizontal col-lg-12">
+
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-lg-4 form-control-label">Category Photo</label>
+                                          <div class="col-sm-8 col-lg-8">
+                                            <div id="upload_button">
+                                              <label>
+                                                <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                                                <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Change Photo</span>
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+
                                         <div class="form-group row">
                                           <label class="col-sm-4 col-lg-4 form-control-label">Category Name</label>
                                           <div class="col-sm-8 col-lg-8">
