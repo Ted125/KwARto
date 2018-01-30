@@ -139,7 +139,7 @@
 								while($row = mysqli_fetch_assoc($searchFurnitureResult)){
 									$i++;
 
-									if($i > 5){
+									if($i > 25){
 										break;
 									}
 
@@ -166,10 +166,10 @@
 											<?php
 												$_POST["furnitureId"] = $row["furnitureId"];
 
-												require("Controllers/LoadAllFurnitureImages.php");
+												require("Controllers/LoadThumbnailImage.php");
 
-												if($furnitureImagesResult != null){
-													$r = mysqli_fetch_assoc($furnitureImagesResult);
+												if($thumbnailResult != null){
+													$r = mysqli_fetch_assoc($thumbnailResult);
 											?>
 
 											<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
@@ -368,10 +368,10 @@
 												<?php
 													$_POST["furnitureId"] = $row["furnitureId"];
 
-													require("Controllers/LoadAllFurnitureImages.php");
+													require("Controllers/LoadThumbnailImage.php");
 
-													if($furnitureImagesResult != null){
-														$r = mysqli_fetch_assoc($furnitureImagesResult);
+													if($thumbnailResult != null){
+														$r = mysqli_fetch_assoc($thumbnailResult);
 												?>
 
 												<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
@@ -533,5 +533,14 @@ $(document).ready(function(){
           $(this).toggleClass('open');
       }
   );
+
+	$('.product-grid').isotope({
+			filter: '.2',
+			animationOptions: {
+					duration: 750,
+					easing: 'linear',
+					queue: false
+			}
+	});
 });
 </script>
