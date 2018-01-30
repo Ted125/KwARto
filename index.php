@@ -228,43 +228,81 @@
 		</div>
 	</div>
 
+	<?php
+		$_POST["categoryId"] = 1;
+		$_POST["sellerId"] = -1;
+		$_POST["minPrice"] = -1;
+		$_POST["maxPrice"] = -1;
+		$_POST["minDiscount"] = 50;
+		$_POST["maxDiscount"] = -1;
+		$_POST["minRating"] = 3;
+		$_POST["maxRating"] = -1;
+		$_POST["saleStart"] = "";
+		$_POST["saleEnd"] = "";
+		$_POST["name"] = "";
+		$_POST["sortValue"] = "discount";
+		$_POST["sortOrder"] = "descending";
+
+		require("Controllers/SearchFurniture.php");
+
+		if($searchFurnitureResult != null){
+			$row = mysqli_fetch_assoc($searchFurnitureResult);
+
+			$saleEnd = new DateTime($row["saleEnd"]);
+	?>
+	<input id = "saleEnd" type = "hidden" value = "<?php echo $saleEnd->format('Y-m-d H:i:s'); ?>">
 	<div class="deal_ofthe_week">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<div class="deal_ofthe_week_img">
-						<img src="./images/index/dealsbg.png" alt="">
+						<?php
+							$_POST["furnitureId"] = $row["furnitureId"];
+
+							require("Controllers/LoadThumbnailImage.php");
+
+							if($thumbnailResult != null){
+								$r = mysqli_fetch_assoc($thumbnailResult);
+						?>
+						<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="">
+						<?php
+							}
+						?>
 					</div>
 				</div>
 				<div class="col-lg-6 text-right deal_ofthe_week_col">
 					<div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
 						<div class="section_title">
-							<h2>Deal Of The Week</h2>
+							<h2>Featured Deal</h2>
 						</div>
 						<ul class="timer">
 							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="day" class="timer_num">03</div>
-								<div class="timer_unit">Day</div>
+								<div id="day" class="timer_num">0</div>
+								<div class="timer_unit">Days</div>
 							</li>
 							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="hour" class="timer_num">15</div>
+								<div id="hour" class="timer_num">0</div>
 								<div class="timer_unit">Hours</div>
 							</li>
 							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="minute" class="timer_num">45</div>
+								<div id="minute" class="timer_num">0</div>
 								<div class="timer_unit">Mins</div>
 							</li>
 							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="second" class="timer_num">23</div>
+								<div id="second" class="timer_num">0</div>
 								<div class="timer_unit">Sec</div>
 							</li>
 						</ul>
-						<div class="red_button deal_ofthe_week_button"><a href="#">shop now</a></div>
+						<div class="red_button deal_ofthe_week_button" name = "<?php echo $row['furnitureId']; ?>"><a href="#">shop now</a></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<?php
+	}
+	?>
 
 	<div class="best_sellers">
 		<div class="container">
@@ -473,6 +511,12 @@ $(document).ready(function(){
 		$("#selectedFurnitureForm").submit();
 	});
 
+	$(".deal_ofthe_week_button").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
 	$(".add_to_cart_button").on("click", function(){
 		var id = $(this).parent().find(".product_name").attr("name");
 		$("#cartItemField").val(id);
@@ -480,14 +524,14 @@ $(document).ready(function(){
 	});
 
 	$(".dropdown").hover(
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-            $(this).toggleClass('open');
-        },
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-            $(this).toggleClass('open');
-        }
-    );
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+          $(this).toggleClass('open');
+      },
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+          $(this).toggleClass('open');
+      }
+  );
 });
 </script>
