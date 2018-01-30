@@ -21,6 +21,17 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
+    
+    <!-- STYLING FOR UPLOAD BUTTON -->
+    <style type="text/css">
+      #upload_button {
+        display: inline-block;
+      }
+      #upload_button input[type=file] {
+        display:none;
+      }
+    </style>
+
     <style>
     /* Tooltip container */
     .tooltip {
@@ -331,18 +342,30 @@
                   </div>
                   <div class="row setup-content-2" id="step-6">
                     <div class="col-lg-12 text-center">
-                        <h3 class="font-bold pl-0 my-4"><strong>Upload Image</strong></h3>
+                        <h3 class="font-bold pl-0 my-4"><strong>Upload Image/s</strong></h3>
                         <div class="gallery"></div>
                       <div style="margin-top: 5px;">
                         
                       </div>    
-                        <label>Select Base Photo to upload:</label>
-                        <input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/>
+                        <!--<input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/> -->
+                        <div id="upload_button">
+                          <label>
+                            <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
+                          </label>
+                        </div>
                       <div class="form-group text-left">       
                         <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
-                        <label>Select 3D Model to upload:</label>
-                        <input style="margin-top: 10px;" type="file" name="model" />
+                        <!-- <label>Select 3D Model to upload:</label> -->
+<!--                         <input style="margin-top: 10px;" type="file" name="model" /> -->
+                          <div id="upload_button">
+                            <label>
+                              <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                              <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload 3D Model</span>
+                            </label>
+                          </div>
                         <input type="hidden" class="btn btn-primary" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
+
                         <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
                       </div>
                       <br>
