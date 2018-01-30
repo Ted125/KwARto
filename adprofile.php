@@ -25,6 +25,16 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href=" images/icon.png">
+ 
+    <!-- STYLING FOR UPLOAD BUTTON -->
+    <style type="text/css">
+      #upload_button {
+        display: inline-block;
+      }
+      #upload_button input[type=file] {
+        display:none;
+      }
+    </style>
    
   </head>
   <body>
@@ -116,8 +126,13 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img src="http://via.placeholder.com/300"><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Photo</button><br>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px;">Save changes</button>
+                        <div id="upload_button">
+                        <label>
+                          <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                          <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo/s</span>
+                        </label>
+                    </div>
+
                       </div>
                       <form class="form-horizontal col-lg-8">
                         
