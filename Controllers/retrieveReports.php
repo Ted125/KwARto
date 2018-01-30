@@ -6,7 +6,7 @@ include_once("../Models/Database.php");
     if($connection){
         $qry = "SELECT count(*) as new_customers 
                 FROM user_details 
-                WHERE userType = 'customer'  AND dateAdded >= DATE(NOW())"
+                WHERE userType = 'customer' AND dateAdded >= DATE(NOW())"
         mysqli_close($connection);  
         $result = mysqli_query($connection, $qry);
     }else{
