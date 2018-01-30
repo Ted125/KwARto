@@ -13,6 +13,8 @@
     $maxDiscount = $_POST["maxDiscount"];
     $minRating = $_POST["minRating"];
     $maxRating = $_POST["maxRating"];
+    $saleStart = $_POST["saleStart"];
+    $saleEnd = $_POST["saleEnd"];
     $name = $_POST["name"];
     $sortValue = $_POST["sortValue"];
     $sortOrder = $_POST["sortOrder"];
@@ -25,8 +27,16 @@
               LEFT JOIN review AS r ON f.furnitureId = r.furnitureId
               LEFT JOIN
                 (
-              		SELECT * from furniture_stock WHERE status = 'available'
+              		SELECT * FROM furniture_stock WHERE status = 'available'
               	) AS s ON f.furnitureId = s.furnitureId
+              LEFT JOIN
+                (
+                  SELECT * FROM furniture_stock WHERE status = 'sold'
+                ) AS b ON f.furnitureId = b.furnitureId
+              LEFT JOIN
+                (
+                  SELECT * FROM wishlist
+                ) AS w ON f.furnitureId = w.furnitureId
               ),
               category AS parent
               WHERE node.lft
@@ -52,6 +62,14 @@
 
       if($maxDiscount != -1){
         $query .= " AND f.discount <= " . $maxDiscount;
+      }
+
+      if($saleStart != ""){
+        $query .= " AND f.saleStart >= '" . $saleStart . "'";
+      }
+
+      if($saleEnd != ""){
+        $query .= " AND f.saleEnd <= '" . $saleEnd . "'";
       }
 
       if($name != ""){
@@ -89,10 +107,19 @@
           case "arrival":
           $query .= " ORDER BY s.dateAdded";
           break;
+          case "sold":
+          $query .= " ORDER BY COUNT(b.stockId)";
+          break;
+          case "saleStart":
+          $query .= " ORDER BY f.saleStart";
+          break;
+          case "saleEnd":
+          $query .= " ORDER BY f.saleEnd";
+          break;
         }
 
         switch($sortOrder){
-          case " ascending":
+          case "ascending":
           $query .= " ASC";
           break;
           case "descending":

@@ -125,6 +125,8 @@
 							$_POST["maxDiscount"] = -1;
 							$_POST["minRating"] = -1;
 							$_POST["maxRating"] = -1;
+							$_POST["saleStart"] = "";
+							$_POST["saleEnd"] = "";
 							$_POST["name"] = "";
 							$_POST["sortValue"] = "arrival";
 							$_POST["sortOrder"] = "descending";
@@ -278,162 +280,112 @@
 					<div class="product_slider_container">
 						<div class="owl-carousel owl-theme product_slider">
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeoff">
-									<div class="product discount">
-										<div class="product_image">
-											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Floral Divider</a></h6>
-											<div class="product_price">P1,180.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<?php
+								$_POST["categoryId"] = 1;
+								$_POST["sellerId"] = -1;
+								$_POST["minPrice"] = -1;
+								$_POST["maxPrice"] = -1;
+								$_POST["minDiscount"] = -1;
+								$_POST["maxDiscount"] = -1;
+								$_POST["minRating"] = -1;
+								$_POST["maxRating"] = -1;
+								$_POST["saleStart"] = "";
+								$_POST["saleEnd"] = "";
+								$_POST["name"] = "";
+								$_POST["sortValue"] = "sold";
+								$_POST["sortOrder"] = "descending";
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeacc">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Blue Bedroom Desk</a></h6>
-											<div class="product_price">P1,500.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+								require("Controllers/SearchFurniture.php");
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeacc">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="#single.php">Dining Room Set (White)</a></h6>
-											<div class="product_price">P4,500<span>P5,000.00</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
+								if($searchFurnitureResult != null){
+									$i = 0;
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item dining">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Leatherette Sofa</a></h6>
-											<div class="product_price">P3,610.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+									while($row = mysqli_fetch_assoc($searchFurnitureResult)){
+										$i++;
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item women men">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Swivel Chair (Black)</a></h6>
-											<div class="product_price">P540.00<span>P600.00</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
+										if($i > 10){
+											break;
+										}
 
+										$_POST["categoryId"] = $row["categoryId"];
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeoff">
-									<div class="product discount">
-										<div class="product_image">
-											<img src="./images/index/item10.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Floral Divider</a></h6>
-											<div class="product_price">P1,180.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+										require("Controllers/LoadSinglePath.php");
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeacc">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item7.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Blue Bedroom Desk</a></h6>
-											<div class="product_price">P1,500.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+										$ancestorCategoryId = 1;
+										$ancestorCount = 0;
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item homeacc">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item6.jpg" style="padding-top: 20px; max-height: 240px;">
-										</div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-P500</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="#single.php">Dining Room Set (White)</a></h6>
-											<div class="product_price">P4,500<span>P5,000.00</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
+										while($ancestorRow = mysqli_fetch_assoc($singlePathResult)){
+											$ancestorCategoryId = $ancestorRow["categoryId"];
+											$ancestorCount++;
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item dining">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item2.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Leatherette Sofa</a></h6>
-											<div class="product_price">P3,610.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+											if($ancestorCount == 2){
+												break;
+											}
+										}
+							?>
 
-							<div class="owl-item product_slider_item">
-								<div class="product-item women men">
-									<div class="product">
-										<div class="product_image">
-											<img src="./images/index/item1.jpg" style="padding-top: 20px; max-height: 240px;" alt="">
+									<div class="owl-item product_slider_item product-item <?php echo $ancestorCategoryId ?>">
+										<div class="product discount product_filter">
+											<div class="product_image" style="min-height: 240px;">
+												<?php
+													$_POST["furnitureId"] = $row["furnitureId"];
+
+													require("Controllers/LoadAllFurnitureImages.php");
+
+													if($furnitureImagesResult != null){
+														$r = mysqli_fetch_assoc($furnitureImagesResult);
+												?>
+
+												<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> style="padding-top: 20%; max-height: 240px;" alt="">
+												<?php
+													}else{
+														// set to a default image
+												?>
+												<img src="" style="padding-top: 20%; min-height: 240px; max-height: 240px;" alt="">
+												<?php
+													}
+												?>
+											</div>
+											<div class="favorite favorite_left"></div>
+											<?php
+												if($row["discount"] > 0){
+											?>
+												<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span><?php echo "-" . $row["discount"] . "%"; ?></span></div>
+											<?php
+												}
+											?>
+
+											<div class="product_info">
+												<h6 class="product_name" name = "<?php echo $row['furnitureId']?>"><a><?php echo $row["name"]; ?></a></h6>
+												<div class="product_price">
+												<?php
+													$price = $row["price"];
+													$discount = $row["discount"];
+
+													if($discount > 0){
+														echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
+													}else{
+														echo "Php " . number_format($price);
+													}
+												?>
+												<?php
+													if($row["discount"] > 0){
+												?>
+												<span><?php echo "Php " . number_format($row["price"], 2); ?></span>
+												<?php
+													}
+												?>
+												</div>
+											</div>
 										</div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Swivel Chair (Black)</a></h6>
-											<div class="product_price">P540.00<span>P600.00</span></div>
-										</div>
+										<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 									</div>
-								</div>
-							</div>
+
+							<?php
+									}
+								}
+							?>
+
 						</div>
 
 						<div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
