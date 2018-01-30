@@ -14,7 +14,7 @@
   } else {
       	//inform user that the input is not valid
     //$_SESSION['loginAlert'] = "Email or Password does not match, try again.";
-    echo "Invalid credentials or not activated";
+    echo "<p class='text-center'>There are no comments/feedbacks at this time.</p>";
   }
 
  //header( "Location: http://localhost/capstone-project/" );
