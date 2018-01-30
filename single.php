@@ -82,7 +82,7 @@
 												if($imageCount == 1){
 													$firstImage = "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"];
 									?>
-													<li class="active"><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" style="max-height: 120px; width: auto; position: absolute; top: 10%; left: 5%" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
+													<li class="active" style="display: flex; align-items: center; max-height: 100% max-width:100%;"><img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="" style="max-height: 120px; max-width: 136px;" data-image=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?>></li>
 									<?php
 												}else{
 									?>
