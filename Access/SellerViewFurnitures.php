@@ -40,7 +40,7 @@
   <td class="row">
 
     <!-- Modal-->
-    <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <!-- <div id=<?php echo "modal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog modal-bigger" style="min-width: 800px!important;">
         <div class="modal-content">
           <div class="modal-header">
@@ -117,7 +117,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!-- button for edit -->
     <a href="produpdate.php"><button type="button" title="Update Product"  style="margin-right: 3px;" class="btn btn-primary fa fa-edit"></button></a>
