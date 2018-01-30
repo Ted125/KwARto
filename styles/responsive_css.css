@@ -1,5 +1,10 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
     body {
+       
+    }
+
+    .mobile-block{
+        display: block;
         background-image: url(../images/bgmob.jpg); 
         background-position: center;
         position: fixed;
@@ -7,11 +12,6 @@
         background-size: cover; 
         height: auto;
         width: 100%;
-    }
-
-    .mobile-block{
-        display: block;
-       
     }
     .tab-block{
         display: none;
@@ -40,13 +40,7 @@
 }
 @media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
     body {
-        background-image: url(../images/bgtab.jpg); 
-        background-position: center;
-        position: fixed;
-        background-repeat: no-repeat;
-        background-size: cover; 
-        height: auto;
-        width: 100%;
+      
     }
 
     .mobile-block{
@@ -55,6 +49,13 @@
     }
     .tab-block{
         display: block;
+          background-image: url(../images/bgtab.jpg); 
+        background-position: center;
+        position: fixed;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        height: auto;
+        width: 100%;
     }
     .super_container{
         display:none;
