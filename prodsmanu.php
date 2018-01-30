@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
@@ -148,13 +150,13 @@
                         <thead>
                           <tr>
                             <th width="5%">#</th>
-                            <th width="20%">Product Name</th>
-                            <th width="10%">ea. Available</th>
-                            <th width="10%">ea. On-Hold</th>
-                            <th width="10%">ea. Sold</th>
+                            <th width="25%">Product Name</th>
+                            <th width="5%">Available</th>
+                            <th width="8%">On-Hold</th>
+                            <th width="10%">Sold</th>
                             <th width="10%">Price</th>
-                            <th width="15%">Restock Date</th>
-                            <th width="10%">Live</th>
+                            <th width="14%">Restock Date</th>
+                            <th width="16%">Live</th>
                             <th width="10%">Action</th>
                           </tr>
                         </thead>
@@ -188,6 +190,7 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>
