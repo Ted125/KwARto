@@ -198,54 +198,54 @@
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
                       <div class="form-group">
                       <label>Product Name</label>
-                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName">
+                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName" required>
                       </div>
                       <div class="form-group">       
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc"></textarea>
+                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc" required></textarea>
                       </div>
                       <div class="form-group">       
                         <label>Model</label>
-                        <input type="text" placeholder="" class="form-control" name="newModel">
+                        <input type="text" placeholder="" class="form-control" name="newModel" required>
                       </div>
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName">
+                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName" required>
                       </div>
                       <div class="form-group">       
                         <label>Version Of</label>
-                        <input type="number" placeholder="0" class="form-control" name="newVersionOf">
+                        <input type="number" placeholder="0" class="form-control" name="newVersionOf" value="0">
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
-                        <input type="text" class="form-control" name="newColor">
+                        <input type="text" class="form-control" name="newColor" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
-                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight">
+                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight Unit</label>
-                        <select class="form-control" id="weightUnit" name="newWeightUnit">
+                        <select class="form-control" id="weightUnit" name="newWeightUnit" required>
                           <option value="kg">Kilogram/s</option>
                           <option value="lb">Pound/s</option>
                         </select>
                       </div>
                       <div class="form-group">       
                         <label>Length</label>
-                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength">
+                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength" required>
                       </div>
                       <div class="form-group">       
                         <label>Width</label>
-                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth">
+                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth" required>
                       </div>
                       <div class="form-group">       
                         <label>Height</label>
-                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight">
+                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight" required>
                       </div>
                       <div class="form-group">       
                         <label>Size Unit</label>
-                        <select class="form-control" id="sizeUnit" name="newSizeUnit">
+                        <select class="form-control" id="sizeUnit" name="newSizeUnit" required>
                           <option value="mm">Millimeter/s</option>
                           <option value="cm">Centimeter/s</option>
                           <option value="in">Inch/es</option>
@@ -254,13 +254,13 @@
                       </div>
                       <div class="form-group">       
                         <label>Warranty ID</label>
-                            <select class="form-control" name="newWar">
+                            <select class="form-control" name="newWar" required>
                               <?php include("Controllers/SellerDisplayAllWarranty.php");?>
                             </select>
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
-                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice">
+                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice" required>
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
@@ -370,17 +370,17 @@
                               <p id="prevSize"></p>
                           </div>
                           <div class="form-group">
-                              <input type="checkbox" id="checkbox111">
+                              <input type="checkbox" id="terms" onclick="disableElement()">
                               <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>
                           </div>
                           <div class="form-group">
-                              <input type="checkbox" id="checkbox112">
+                              <input type="checkbox" id="policy" onclick="disableElement()">
                               <label for="checkbox112">I have read the <a style="text-decoration: none;" href="privacy.php">privacy policy</a></label>
                           </div>
                           <h2 class="text-center font-bold my-4">Upload product!</h2>
                           <br>
                           <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                          <button class="btn btn-primary btn-rounded float-right" type="submit">Submit</button>
+                          <button id="upload" class="btn btn-primary btn-rounded float-right" type="submit" disabled>Submit</button>
                       </div>
                   </div>
                   </form>
@@ -546,6 +546,16 @@
       if(j > 2){
         $('#specField'+ (--j) +'').remove();
         console.log(j);
+      }
+    }
+
+    //Check checkbox
+    function disableElement() {
+      if (document.getElementById('terms').checked && document.getElementById('policy').checked) 
+      {
+        document.getElementById("upload").disabled = false;
+      } else {
+        document.getElementById("upload").disabled = true;
       }
     }
   </script>
