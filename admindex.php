@@ -5,8 +5,7 @@
       header("Location:manuindex.php");
   }
 ?>
-<html>
-  <head>
+ <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>kwARto 2018</title>
@@ -42,7 +41,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
                   <div class="brand-text brand-small"><strong>AR</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
