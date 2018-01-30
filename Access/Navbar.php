@@ -106,6 +106,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -114,7 +122,7 @@
                                 ?>
 
                                 <br>
-                                
+
                                 <a href="#" class="linkmenu linktop"><strong>Dining Room</strong><br></a>
 
                                 <?php
@@ -131,6 +139,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -156,6 +172,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -163,7 +187,7 @@
                                   }
                                 ?>
 
-                                <br> 
+                                <br>
 
                                 <a href="#" class="linkmenu linktop"><strong>Living Room</strong><br></a>
 
@@ -181,6 +205,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -207,6 +239,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -232,6 +272,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
@@ -257,6 +305,14 @@
                                       if($i == 1){
                                         continue;
                                       }
+
+                                      echo "<span>";
+
+                                      for($spaceCount = 0; $spaceCount < $subtreeRow["depth"] - 1; $spaceCount++){
+                                        echo "&emsp;";
+                                      }
+
+                                      echo "</span>";
                                 ?>
                                       <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
