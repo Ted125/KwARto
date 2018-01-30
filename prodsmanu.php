@@ -45,7 +45,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
                   <div class="brand-text brand-small"><strong>AR</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -102,7 +102,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email'];?></h1>
+              <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
@@ -147,15 +147,15 @@
                       <table class="table table-striped table-hover">
                         <thead>
                           <tr>
-                            <th>#</th>
-                            <th>Product Name</th>
-                            <th>ea. Available</th>
-                            <th>ea. On-Hold</th>
-                            <th>ea. Sold</th>
-                            <th>Price</th>
-                            <th>Restock Date</th>
-                            <th>Live</th>
-                            <th>Action</th>
+                            <th width="5%">#</th>
+                            <th width="20%">Product Name</th>
+                            <th width="10%">ea. Available</th>
+                            <th width="10%">ea. On-Hold</th>
+                            <th width="10%">ea. Sold</th>
+                            <th width="10%">Price</th>
+                            <th width="15%">Restock Date</th>
+                            <th width="10%">Live</th>
+                            <th width="10%">Action</th>
                           </tr>
                         </thead>
                         <tbody>

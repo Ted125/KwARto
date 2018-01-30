@@ -45,7 +45,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="admindex.php" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>kw </span><strong>AR</strong>to</div>
                   <div class="brand-text brand-small"><strong>AR</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -102,7 +102,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo $_SESSION['email'];?></h1>
+              <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>

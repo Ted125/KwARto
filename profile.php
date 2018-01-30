@@ -18,6 +18,16 @@ n<!DOCTYPE html>
 	<link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 	<link rel="icon" href="images/icon.png">
 	<?php include('Access/Header.php');?>
+
+	<!-- STYLING FOR UPLOAD BUTTON -->
+	<style type="text/css">
+		#upload_button {
+		  display: inline-block;
+		}
+		#upload_button input[type=file] {
+		  display:none;
+		}
+	</style>
 </head>
 
 <body>
@@ -66,10 +76,19 @@ n<!DOCTYPE html>
 									<div class="col-lg-4 text-center">
 										<img  id="blah" <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
 										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
+
+										<div id="upload_button">
+										    <label>
+										      <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo/s</span>
+										    </label>
+										</div>
+
+<!-- 										UPLOAD BUTTON
 											<input type="hidden" name="field" value="image"/>
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
 											<input onchange="readURL(this);" type="file" name="newData" />
-											<input type="submit" value="Send File" />	
+											<input type="submit" value="Upload Photo" style="color: white; background-color: #d42d2d; border: none; padding: 10px; border-radius: 5%;" />	 -->
 										</form>
 									</div>
 									<div class="col-lg-8">
@@ -347,104 +366,14 @@ n<!DOCTYPE html>
 			</div>
 		</div>
 
-		<div class="benefit">
-			<div class="container">
-				<div class="row benefit_row">
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-							<div class="benefit_content">
-								<h6>free shipping</h6>
-								<p>Within the Philippines</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-							<div class="benefit_content">
-								<h6>cash on delivery</h6>
-								<p>Pay upon receiving your item</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-							<div class="benefit_content">
-								<h6>14 days return</h6>
-								<p>See return policy for details</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-							<div class="benefit_content">
-								<h6>Open Always</h6>
-								<p>24/7</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- BENEFIT HERE-->
+		<?php include('Access/Benefit.php');?>
 
-		<div class="newsletter">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-							<h4>Newsletter</h4>
-							<p>Subscribe to our newsletter and get 20% off your first purchase</p>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<form action="post">
-							<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-								<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-								<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- NEWSLETTER HERE-->
+		<?php include('Access/Newsletter.php');?>
 
-		<!-- Footer -->
-
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-							<ul class="footer_nav">
-								<li><a href="terms.php">Terms of Use</a></li>
-								<li><a href="privacy.php">Privacy Policy</a></li>
-								<li><a href="contact.php">Contact us</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="footer_nav_container">
-							<div class="cr">©2018 All Rights Reserverd. <a href="#">KwARto</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
+		<!-- FOOTER HERE-->
+		<?php include('Access/Footer.php');?>
 	</div>
 
 	<script src="js/jquery-3.2.1.min.js"></script>

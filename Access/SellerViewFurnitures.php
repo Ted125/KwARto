@@ -1,4 +1,4 @@
-<?php
+  <?php
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
   $live = ($row['live'] == 1)?"Yes":"No";
   $status = ($row['live'] == 1)?"Live":"Not Live";
@@ -18,12 +18,12 @@
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo "P".$row['price'];?></td>
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
   <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td>
-  <td>
+  <td class="row">
     <!-- button for Toggle live --> 
     <form method="post" action="Controllers/SellerToggleLive.php">
-      <input type="hidden" value=<?php echo $row['live'];?> name="live" />
+      <input type="hidden" value=<?php echo $row['live'];?> name="live"/>
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
-      <button type="submit" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button>
+      <button type="submit" title="Live/Remove from live" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button>
     </form>
 
     <!-- Modal-->
@@ -106,7 +106,7 @@
       </div>
     </div>
     <!-- Button for Restock Furnitures -->
-    <button type="button" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
+    <button type="button" title="Restock Product" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
     <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
@@ -138,7 +138,7 @@
       </div>
     </div>
     <!-- Button for Discount -->
-    <button type="button" data-toggle="modal" data-target="<?php echo "#sale".$count;?>" class="btn btn-primary fa fa-gift"></button>
+    <button type="button" title="Add Promo/Discount" data-toggle="modal" data-target="<?php echo "#sale".$count;?>" class="btn btn-primary fa fa-gift"></button>
     <div id=<?php echo "sale".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
