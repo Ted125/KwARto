@@ -1,4 +1,4 @@
-<?php
+  <?php
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
   $live = ($row['live'] == 1)?"Yes":"No";
   $status = ($row['live'] == 1)?"Live":"Not Live";
@@ -18,7 +18,7 @@
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo "P".$row['price'];?></td>
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
   <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td>
-  <td>
+  <td class="row">
     <!-- button for Toggle live --> 
     <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="live" />

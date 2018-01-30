@@ -147,15 +147,15 @@
                       <table class="table table-striped table-hover">
                         <thead>
                           <tr>
-                            <th>#</th>
-                            <th>Product Name</th>
-                            <th>ea. Available</th>
-                            <th>ea. On-Hold</th>
-                            <th>ea. Sold</th>
-                            <th>Price</th>
-                            <th>Restock Date</th>
-                            <th>Live</th>
-                            <th>Action</th>
+                            <th width="5%">#</th>
+                            <th width="20%">Product Name</th>
+                            <th width="10%">ea. Available</th>
+                            <th width="10%">ea. On-Hold</th>
+                            <th width="10%">ea. Sold</th>
+                            <th width="10%">Price</th>
+                            <th width="15%">Restock Date</th>
+                            <th width="10%">Live</th>
+                            <th width="10%">Action</th>
                           </tr>
                         </thead>
                         <tbody>
