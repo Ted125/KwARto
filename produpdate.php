@@ -147,8 +147,8 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
                     <li><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
-                    <li><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
-                    <li class="active"><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
+                    <li class="active"><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
+                    <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
  
@@ -162,14 +162,14 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Upload Product</h2>
+              <h2 class="no-margin-bottom">Update Product</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
-              <li class="breadcrumb-item active">Upload Product</li>
+              <li class="breadcrumb-item active">Update Product</li>
             </ul>
           </div>
           <!-- Forms Section-->
@@ -182,7 +182,7 @@
 
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Upload Product</h3>
+                      <h3 class="h4">Update Product</h3>
                     </div>
                     <div class="card-body row">
 

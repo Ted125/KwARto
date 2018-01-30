@@ -18,7 +18,7 @@
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo "P".$row['price'];?></td>
   <td scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $stockA['dateUpdated'];?></td>
   <!-- <td style = "color:<?php echo $color?>;" scope="row" data-toggle="modal" data-target=<?php echo "#modal".$count;?>><?php echo $live;?></td> -->
-  
+
   <!-- button for Toggle live --> 
   <td scope="row" data-target=<?php echo "#modal".$count;?>>
     <form method="post" action="Controllers/SellerToggleLive.php">
@@ -33,9 +33,9 @@
               });
             })
           </script>
-        </td> 
-      <!-- <button type="submit" title="Live/Remove from live" style="margin-right: 3px;" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button> -->
     </form>
+  </td> 
+      <!-- <button type="submit" title="Live/Remove from live" style="margin-right: 3px;" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button> -->
 
   <td class="row">
 
@@ -55,7 +55,7 @@
               </div>
               <div class="form-group">       
                 <label>Discount</label>
-                <h2 style = "color: #9ACD32;"><?php echo $row['discount'];?></h2>
+                <h2 style = "color: #9ACD32;"><?php echo $row['discount'];?>%</h2>
               </div>
               <div class="form-group">
                 <label>Name</label>
@@ -118,6 +118,10 @@
         </div>
       </div>
     </div>
+    
+    <!-- button for edit -->
+    <a href="produpdate.php"><button type="button" title="Update Product"  style="margin-right: 3px;" class="btn btn-primary fa fa-edit"></button></a>
+    
     <!-- Button for Restock Furnitures -->
     <button type="button" title="Restock Product"  style="margin-right: 3px;" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
     <div id=<?php echo "restockModal".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
@@ -162,7 +166,7 @@
           <form role="form" method="post" action="Controllers/SellerSetDiscount.php">
             <div class="modal-body">
               <div class="form-group">
-                <label>Discount</label>
+                <label>Discount (%)</label>
                 <input id=<?php echo "dateToday".$count;?> type="number" class="form-control" name="discount" min="0" max="100">       
                 <label>Sale Start</label>
                 <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateStart" min="">
