@@ -192,7 +192,7 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<div class="red_button add_to_cart_button"><a>add to cart</a></div>
+						<button class="red_button" style="padding: 10px; border: none; color: white; background-color: #d42d2d;"><a>add to cart</a></button>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
