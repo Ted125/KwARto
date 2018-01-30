@@ -215,18 +215,18 @@
                         <label>Description</label>
                         <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc" required></textarea>
                       </div>
-                      <div class="form-group">       
+                      <!-- <div class="form-group">       
                         <label>Model</label>
                         <input type="text" placeholder="" class="form-control" name="newModel" required>
-                      </div>
+                      </div> -->
                       <div class="form-group">       
                         <label>Model Name</label>
                         <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName" required>
-                      </div>
+                      </div><!-- 
                       <div class="form-group">       
                         <label>Version Of</label>
                         <input type="number" placeholder="0" class="form-control" name="newVersionOf" value="0">
-                      </div>
+                      </div> -->
                       <div class="form-group">       
                         <label>Color</label>
                         <input type="text" class="form-control" name="newColor" required>
@@ -294,7 +294,16 @@
                               <div id="packageField1">
                                 <span style="font-size: 18px;">Package 1</span>
                                 <input type="text" placeholder="Enter Package Name..." class="form-control" name="package1"><br>
-                              </div>
+                                <input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br>
+                                <input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br>
+                                <input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br>
+                                <select class="form-control" id="sizeUnit" name="newSizeUnit" required>
+                                  <option value="mm">Millimeter/s</option>
+                                  <option value="cm">Centimeter/s</option>
+                                  <option value="in">Inch/es</option>
+                                  <option value="m">Meter/s</option>
+                                </select>
+                            </div>
                           </div>
                       </div>
                       <div class="col-md-12">
@@ -527,7 +536,9 @@
     var i = 2;
     function addPackage(){
       if(i <= 5){
-        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div>');
+        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div><input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br><select class="form-control" id="sizeUnit" name="newSizeUnit" required><option value="mm">Millimeter/s</option><option value="cm">Centimeter/s</option><option value="in">Inch/es</option><option value="m">Meter/s</option></select>'
+
+          );
         i++;
         console.log(i);
       }
