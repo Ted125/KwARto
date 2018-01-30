@@ -25,7 +25,7 @@
  
     <!-- Web Icon -->
     <link rel="shortcut icon" href=" images/icon.png">
- 
+
     <!-- STYLING FOR UPLOAD BUTTON -->
     <style type="text/css">
       #upload_button {
@@ -129,7 +129,7 @@
                         <div id="upload_button">
                         <label>
                           <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                          <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo/s</span>
+                          <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
                         </label>
                     </div>
 
