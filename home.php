@@ -36,8 +36,8 @@
             <div class="container">
                 <div class="content-center brand" >
                     <img src="./images/largerw.png" alt="">
-                    <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; font-size: 3em;"class="h1-seo">KWARTO</h1><br><br>
-                    <h3 style="font-family: 'Source Sans Pro', sans-serif!important; font-size: 2em;">Revolutionizing online furniture shopping.</h3>
+                    <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; font-size: 3em; color: white;">KW<span style="color: #d42d2d">AR</span>TO</h1><br><br>
+                    <h3 style="font-family: 'Source Sans Pro', sans-serif!important; color:white; font-size: 2em;">Revolutionizing online furniture shopping.</h3>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
 <div>	
 <!-- events -->
 		<div style="padding-top: 0px;" class="events">
-			<h3 >What is KwARto?</h3>
+			<h3 >What is Kw<span style="color:#d42d2d">AR</span>to?</h3>
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
 					<div class="col-md-3 w3agile_event_grid_left text-right">
@@ -127,7 +127,7 @@
 			</div>
 			<br>
 			<div class="text-center">
-				<a href="index.php"><button class="profile-btn" style="width: 30%; border-radius: 8px;"><h2 style="margin-bottom: 0px;">Get Started!</h2></button></a>
+				<a href="index.php" style=""><button class="profile-btn" style="width: 30%; color: white; border-radius: 8px;"><h2 style="margin-bottom: 0px; color: white">Get Started</h2></button></a>
 			</div>
 			<div class="clearfix"> </div>	
 			</div>
