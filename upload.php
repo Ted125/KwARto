@@ -324,24 +324,9 @@
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Category Selection</strong></h3>
                           <div class="form-group">       
-                            <label>Category Name</label>
-                            <input type="text" placeholder="Enter Category Name..." class="form-control">
-                          </div>
-                          <div class="form-group">       
                             <label>Category</label>
                             <select class="form-control" name="newCategoryId">
                               <?php include("Controllers/SellerDisplayAllCategory.php");?>
-                            </select>
-                          </div>
-                          <div class="form-group">       
-                            <label>Sub-Category</label>
-                            <select class="form-control" name="newCategory">
-                              <option>Subitem 1</option>
-                              <option>Subitem 2</option>
-                              <option>Subitem 3</option>
-                              <option>Subitem 4</option>
-                              <option>Subitem 5</option>
-                              <option>Subitem 6</option>
                             </select>
                           </div>
                           <br>
