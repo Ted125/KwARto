@@ -140,7 +140,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Company Name</h1>
+              <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
             </div>
           </div>
