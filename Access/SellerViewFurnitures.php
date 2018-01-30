@@ -55,7 +55,7 @@
               </div>
               <div class="form-group">       
                 <label>Discount</label>
-                <h2 style = "color: #9ACD32;"><?php echo $row['discount'];?></h2>
+                <h2 style = "color: #9ACD32;"><?php echo $row['discount'];?>%</h2>
               </div>
               <div class="form-group">
                 <label>Name</label>
@@ -162,7 +162,7 @@
           <form role="form" method="post" action="Controllers/SellerSetDiscount.php">
             <div class="modal-body">
               <div class="form-group">
-                <label>Discount</label>
+                <label>Discount (%)</label>
                 <input id=<?php echo "dateToday".$count;?> type="number" class="form-control" name="discount" min="0" max="100">       
                 <label>Sale Start</label>
                 <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateStart" min="">
