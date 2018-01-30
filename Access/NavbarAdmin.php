@@ -1,12 +1,12 @@
 <header class="header">
   <nav class="navbar">
     <!-- Search Box-->
-    <div class="search-box">
+    <!-- <div class="search-box">
       <button class="dismiss"><i class="icon-close"></i></button>
       <form id="searchForm" action="#" role="search">
         <input type="search" placeholder="What are you looking for..." class="form-control">
       </form>
-    </div>
+    </div> -->
     <div class="container-fluid">
       <div class="navbar-holder d-flex align-items-center justify-content-between">
         <!-- Navbar Header-->
@@ -21,7 +21,7 @@
             <!-- Search-->
             <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
             
-            <!-- Logout    -->
+            <!-- Logout -->
             <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
           </ul>
         </div>
@@ -35,7 +35,7 @@
       <div class="sidebar-header d-flex align-items-center">
         <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
         <div class="title">
-          <h1 class="h4"><?php echo $_SESSION['email']?></h1>
+          <h1 class="h4"><?php echo $_SESSION['name']?></h1>
           <p>Super Admin</p>
         </div>
       </div>
