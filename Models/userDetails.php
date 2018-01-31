@@ -44,14 +44,8 @@ class user_details{
                 $this->setUsername($_POST['registerUsername']);
             }
             $this->setUserType($userType);
-            $this->setUserStatus("inactive");
-            $this->setImage('Resources/Images/User/default.jpg');
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
-            $this->setAddedBy('NULL');
-            if(isset($_SESSION['userId'])){
-               $this->setAddedBy($_SESSION['userId']);
-            }
             $create = "INSERT INTO user_details
             (
             password,
@@ -60,7 +54,6 @@ class user_details{
             userStatus,
             email,
             mobileNumber,
-            image,
             addedBy
             )
             VALUES
@@ -70,7 +63,6 @@ class user_details{
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
             '".$this->getMobileNumber()."',
-            '".$this->getImage()."',
             '".$this->getAddedBy()."'
             )";
             echo $create;
@@ -86,7 +78,7 @@ class user_details{
     }
 
     public function updateUser($field, $newData){
-        include("Database.php");
+        //include("Database.php");
 
         $db = new Database();
         $connection = $db->Connect();
@@ -113,10 +105,10 @@ class user_details{
 
     public function createAdmin(){
         $result = null;
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+        if(isset($_SESSION) && strcmp( $_SESSION['userType'],'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
+            $thos->setAddedBy($_SESSION['userId']);
             $result = $this->createUser($this->getUserType());
         }else{
             echo 'no session or only admins can create other admins';
@@ -298,7 +290,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded
+          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded, image
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;

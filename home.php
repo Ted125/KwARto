@@ -7,28 +7,20 @@
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+
 	<link rel="icon" type="image/png" href="images/icon.png" />
 
-	<script src="js/jquery-1.11.1.min.js"></script>
 
 	<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<!-- smooth-scrolling -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event) {
-				event.preventDefault();
-				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-			});
-		});
-	</script>
+	
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+    <?php include('Access/Header.php');?>
 
   </head>
   <style>
@@ -37,15 +29,15 @@
   
 <body class="index-page sidebar-collapse">
     
-    <div class="wrapper">
+    <div class="wrapper page">
         <div class="page-header clear-filter" filter-color="orange" style="background-image: url(./images/header.png); margin-top: 0px;">
             <div class="page-header-image" data-parallax="true" style="">
             </div>
             <div class="container">
                 <div class="content-center brand" >
                     <img src="./images/largerw.png" alt="">
-                    <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; font-size: 3em;"class="h1-seo">KWARTO</h1><br><br>
-                    <h3 style="font-family: 'Source Sans Pro', sans-serif!important; font-size: 2em;">Revolutionizing online furniture shopping.</h3>
+                    <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; font-size: 3em; color: white;">KW<span style="color: #d42d2d">AR</span>TO</h1><br><br>
+                    <h3 style="font-family: 'Source Sans Pro', sans-serif!important; color:white; font-size: 2em;">Revolutionizing online furniture shopping.</h3>
                 </div>
             </div>
         </div>
@@ -70,7 +62,7 @@
 <div>	
 <!-- events -->
 		<div style="padding-top: 0px;" class="events">
-			<h3 >What is KwARto?</h3>
+			<h3 >What is Kw<span style="color:#d42d2d">AR</span>to?</h3>
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
 					<div class="col-md-3 w3agile_event_grid_left text-right">
@@ -135,7 +127,7 @@
 			</div>
 			<br>
 			<div class="text-center">
-				<a href="index.php"><button class="profile-btn" style="width: 30%; border-radius: 8px;"><h2 style="margin-bottom: 0px;">Get Started!</h2></button></a>
+				<a href="index.php" style=""><button class="profile-btn" style="width: 30%; color: white; border-radius: 8px;"><h2 style="margin-bottom: 0px; color: white">Get Started</h2></button></a>
 			</div>
 			<div class="clearfix"> </div>	
 			</div>
@@ -146,22 +138,21 @@
 		<div class="clearfix"></div>
 	</div>
 <!-- //banner -->
-<!-- newsletter -->
-	<div class="newsletter">
-		<div class="container">
-			<div class="w3agile_newsletter_left">
-				<h3>sign up for our newsletter</h3>
-			</div>
-			<div class="w3agile_newsletter_right">
-				<form action="#" method="post">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="submit" value="subscribe now">
-				</form>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
+	<div class="mobile-block">
+        <div class="text-center"><img style="margin-top: 40%;" src="./images/largerr.png" alt="">
+	        <h1 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; color: black; font-size: 3em;"class="h1-seo">KW<span style="color: #d42d2d;">AR</span>TO</h1><br><br>
+	        <h3 style="font-family: 'Source Sans Pro', sans-serif!important; font-size: 2em; margin-top: -25px;">Revolutionizing online furniture shopping.</h3>
+	        <p style="padding-bottom: 300px;font-family: 'Source Sans Pro', sans-serif!important; color: #d42d2d;">Download the mobile app now!</p>
+    	</div>
 	</div>
+	
+	<div class="tab-block">
+		<div class="text-center"><img style="margin-top: 20%;" src="./images/largerr.png" alt="">
+        <h3 style="font-family: 'Source Sans Pro', sans-serif!important; margin-top: 10px; color: black; font-size: 3em;">KW<span style="color: #d42d2d;">AR</span>TO</h3><br><br>
+        <h3 style="font-family: 'Source Sans Pro', sans-serif!important;color: black; font-size: 2em; margin-top: -20px;">Revolutionizing online furniture shopping.</h3>
+	    <p style="padding-bottom: 300px;font-family: 'Source Sans Pro', sans-serif!important; color: black;">Download the mobile app now!</p>
 
+	</div>
   </body>
 
 </html>

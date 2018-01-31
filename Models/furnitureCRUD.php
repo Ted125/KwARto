@@ -65,7 +65,7 @@ class furniture{
                     $this->setName($_POST['newName']);
                     $this->setDescription($_POST['newDesc']);
                     $this->setWarrantyId($_POST['newWar']);
-                    $this->setModel($_POST['newModel']);
+                    //$this->setModel($_POST['newModel']);
                     $this->setColor($_POST['newColor']);              /* ok ra if null */
                     $this->setWeight($_POST['newWeight']);             /* ok ra if null */
                     $this->setWeightUnit($_POST['newWeightUnit']);      /* ok ra if null */
@@ -73,18 +73,21 @@ class furniture{
                     $this->setWidth($_POST['newWidth']);
                     $this->setHeight($_POST['newHeight']);
                     $this->setSizeUnit($_POST['newSizeUnit']);
+                    $this->setPackageLength($_POST['newPackageLength']);
+                    $this->setPackageWidth($_POST['newPackageWidth']);
+                    $this->setPackageHeight($_POST['newPackageHeight']);
+                    $this->setPackageSizeUnit($_POST['newPackageSizeUnit']);
                     $this->setPrice($_POST['newPrice']);
                     $this->setModelName($_POST['newModelName']);
                     $this->setDiscount('0');
                     $this->setCategoryId($_POST['newCategoryId']);
                     $this->setSellerId($_POST['newSellerId']);
-                    $this->setVersionOf($_POST['newVersionOf']);
+                    //$this->setVersionOf(NULL);
                     $create = "INSERT INTO furniture
                     ( 
                     name,
                     description,
                     warrantyId,
-                    model,
                     color,
                     weight,
                     weightUnit,
@@ -92,18 +95,20 @@ class furniture{
                     width,
                     height,
                     sizeUnit,
+                    packageLength,
+                    packageWidth,
+                    packageHeight,
+                    packageSizeUnit,
                     price,
                     modelName,
                     discount,
                     categoryId,
-                    sellerId,
-                    versionOf
+                    sellerId
                     )
                     VALUES
                     ('".$this->getName()."',
                     '".$this->getDescription()."',
                     '".$this->getWarrantyId()."',
-                    '".$this->getModel()."',
                     '".$this->getColor()."',
                     '".$this->getWeight()."',
                     '".$this->getWeightUnit()."',
@@ -111,12 +116,15 @@ class furniture{
                     '".$this->getWidth()."',
                     '".$this->getHeight()."',
                     '".$this->getSizeUnit()."',
+                    '".$this->getPackageLength()."',
+                    '".$this->getPackageWidth()."',
+                    '".$this->getPackageHeight()."',
+                    '".$this->getPackageSizeUnit()."',
                     '".$this->getPrice()."',
                     '".$this->getModelName()."',
                     '".$this->getDiscount()."',
                     '".$this->getCategoryId()."',
-                    '".$this->getSellerId()."',
-                    '".$this->getVersionOf()."'
+                    '".$this->getSellerId()."'
                 )";
                 echo $create;
                 $result = mysqli_query($connection, $create);   

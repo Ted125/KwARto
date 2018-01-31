@@ -71,11 +71,11 @@ if ($verify != null || $verify >= 0) {
     mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//', 0777, true);
   }
   $uploaddir2 = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//';
-  $fileExtension2 = '.asset';
+  //$fileExtension2 = '.asset';
 
-  $uploadfile2 = $uploaddir2 . basename($_FILES['model']['tmp_name']) . $fileExtension2;
+  $uploadfile2 = $uploaddir2 . basename($_FILES['model']['name']);
 
-  if ($err == 0 && move_uploaded_file($_FILES['model']['tmp_name'], $uploadfile2)) {
+  if ($err == 0 && move_uploaded_file($_FILES['model']['name'], $uploadfile2)) {
     echo "NEWDATA: ".$_FILES['image']['tmp_name']."<br>"; 
     echo "NEWDATA: ".$_FILES['model']['tmp_name']."<br>"; 
     echo "DIRECTORY FOR IMAGES: ".$uploaddir;

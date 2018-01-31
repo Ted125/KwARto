@@ -144,48 +144,8 @@
                       <h3 class="h4">Customer Questions</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
+                      <!-- Questions-->
+                       <?php include('Controllers/SellerDisplayQuestions.php');?>
                     </div>
                   </div>
                 </div> 
@@ -196,60 +156,20 @@
                       <h3 class="h4">Customer Comments</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
+                      <!-- Reviews-->
+                        <?php include('Controllers/SellerDisplayReviews.php');?>
                     </div>
                   </div>
                 </div>
 
                 <!-- Ratings-->
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="recent-updates card">
                     <div class="card-header">
                       <h3 class="h4">Product Ratings</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
+                      
                       <div class="item d-flex justify-content-between">
                         <div class="info d-flex">
                           <div class="icon"><i class="fa fa-star-half-o"></i></div>
@@ -267,57 +187,9 @@
                             </div>
                         <div class="date text-right"><strong>29</strong><span>December 2017</span></div>
                       </div>
-                      <!-- Item-->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Comfy Chair</h5></a>
-                            <p>John Doe</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>28</strong><span>December 2017</span></div>
-                      </div>
-                      <!-- Item        -->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Round Table</h5></a>
-                            <p>John Adams</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>28</strong><span>December 2017</span></div>
-                      </div>
-                      <!-- Item-->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Modern Table</h5></a>
-                            <p>Rachel Williams</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>27</strong><span>December 2017</span></div>
-                      </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </section>

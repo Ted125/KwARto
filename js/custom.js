@@ -20,7 +20,7 @@ jQuery(document).ready(function($)
 {
 	"use strict";
 
-	/* 
+	/*
 
 	1. Vars and Inits
 
@@ -34,7 +34,7 @@ jQuery(document).ready(function($)
 	var menuActive = false;
 	var hamburgerClose = $('.hamburger_close');
 	var fsOverlay = $('.fs_menu_overlay');
-
+	var lastScrollTop = 0;
 	setHeader();
 
 	$(window).on('resize', function()
@@ -45,17 +45,25 @@ jQuery(document).ready(function($)
 
 	$(document).on('scroll', function()
 	{
-		setHeader();
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       header.css({'top':"-90px"});
+
+	   } else {
+	      header.css({'top':"0"});
+
+	   }
+	   lastScrollTop = st;
 	});
 
 	initMenu();
 	initTimer();
-	initFavorite();
+	//initFavorite();
 	initFixProductBorder();
 	initIsotopeFiltering();
 	initSlider();
 
-	/* 
+	/*
 
 	2. Set Header
 
@@ -63,35 +71,44 @@ jQuery(document).ready(function($)
 
 	function setHeader()
 	{
-		if(window.innerWidth < 992)
-		{
-			if($(window).scrollTop() > 100)
-			{
-				header.css({'top':"0"});
-			}
-			else
-			{
-				header.css({'top':"0"});
-			}
-		}
-		else
-		{
-			if($(window).scrollTop() > 100)
-			{
-				header.css({'top':"-50px"});
-			}
-			else
-			{
-				header.css({'top':"0"});
-			}
-		}
-		if(window.innerWidth > 991 && menuActive)
-		{
-			closeMenu();
-		}
+		var lastScrollTop = 0;
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       header.css({'top':"-90px"});
+	   } else {
+	      header.css({'top':"0"});
+	   }
+	   lastScrollTop = st;
+
+		// if(window.innerWidth < 992)
+		// {
+		// 	if($(window).scrollTop() > 100)
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// 	else
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// }
+		// else
+		// {
+		// 	if($(window).scrollTop() > 100)
+		// 	{
+		// 		header.css({'top':"-90px"});
+		// 	}
+		// 	else
+		// 	{
+		// 		header.css({'top':"0"});
+		// 	}
+		// }
+		// if(window.innerWidth > 991 && menuActive)
+		// {
+		// 	closeMenu();
+		// }
 	}
 
-	/* 
+	/*
 
 	3. Init Menu
 
@@ -154,7 +171,7 @@ jQuery(document).ready(function($)
 					    	panel.style.maxHeight = panel.scrollHeight + "px";
 					    }
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -174,7 +191,7 @@ jQuery(document).ready(function($)
 		menuActive = false;
 	}
 
-	/* 
+	/*
 
 	4. Init Timer
 
@@ -188,11 +205,12 @@ jQuery(document).ready(function($)
 	    	// var target_date = new Date("Dec 7, 2017").getTime();
 
 	    	// comment lines below
-	    	var date = new Date();
-	    	date.setDate(date.getDate() + 3);
+				var saleEnd = $('#saleEnd').val();
+	    	var date = new Date(saleEnd);
+	    	// date.setDate(date.getDate() + 3);
 	    	var target_date = date.getTime();
 	    	//----------------------------------------
-	 
+
 			// variables for time units
 			var days, hours, minutes, seconds;
 
@@ -206,14 +224,14 @@ jQuery(document).ready(function($)
 			    // find the amount of "seconds" between now and target
 			    var current_date = new Date().getTime();
 			    var seconds_left = (target_date - current_date) / 1000;
-			 
+
 			    // do some time calculations
 			    days = parseInt(seconds_left / 86400);
 			    seconds_left = seconds_left % 86400;
-			     
+
 			    hours = parseInt(seconds_left / 3600);
 			    seconds_left = seconds_left % 3600;
-			     
+
 			    minutes = parseInt(seconds_left / 60);
 			    seconds = parseInt(seconds_left % 60);
 
@@ -221,13 +239,13 @@ jQuery(document).ready(function($)
 			    d.text(days);
 			    h.text(hours);
 			    m.text(minutes);
-			    s.text(seconds); 
-			 
+			    s.text(seconds);
+
 			}, 1000);
-    	}	
+    	}
     }
 
-    /* 
+    /*
 
 	5. Init Favorite
 
@@ -265,7 +283,7 @@ jQuery(document).ready(function($)
     	}
     }
 
-    /* 
+    /*
 
 	6. Init Fix Product Border
 
@@ -350,11 +368,11 @@ jQuery(document).ready(function($)
 					var product = $(products[i]);
 					product.css('border-right', 'none');
 				}
-			}	
+			}
     	}
     }
 
-    /* 
+    /*
 
 	7. Init Isotope Filtering
 
@@ -374,7 +392,7 @@ jQuery(document).ready(function($)
 
 		        $('.grid_sorting_button.active').removeClass('active');
 		        $(this).addClass('active');
-		 
+
 		        var selector = $(this).attr('data-filter');
 		        $('.product-grid').isotope({
 		            filter: selector,
@@ -385,13 +403,14 @@ jQuery(document).ready(function($)
 		            }
 		        });
 
-		        
-		         return false;
+		        return false;
 		    });
+
+
     	}
     }
 
-    /* 
+    /*
 
 	8. Init Slider
 

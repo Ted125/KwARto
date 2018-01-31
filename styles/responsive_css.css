@@ -1,0 +1,110 @@
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    body {
+       
+    }
+
+    .mobile-block{
+        display: block;
+        background-image: url(../images/bgmob.jpg); 
+        background-position: center;
+        position: fixed;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        height: auto;
+        width: 100%;
+    }
+    .tab-block{
+        display: none;
+    }
+    .super_container{
+        display:none;
+    }
+    .page{
+        display:none;
+    }
+}
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
+    .mobile-block{
+        display: block;
+       
+    }
+    .tab-block{
+        display: none;
+    }
+    .super_container{
+        display:none;
+    }
+    .page{
+        display:none;
+    }
+}
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+    body {
+      
+    }
+
+    .mobile-block{
+        display: none;
+       
+    }
+    .tab-block{
+        display: block;
+          background-image: url(../images/bgtab.jpg); 
+        background-position: center;
+        position: fixed;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        height: auto;
+        width: 100%;
+    }
+    .super_container{
+        display:none;
+    }
+    .page{
+        display:none;
+    }
+}
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+    .mobile-block{
+        display: none;
+       
+    }
+    .tab-block{
+        display: block;
+    }
+    .super_container{
+        display:none;
+    }
+    .page{
+        display:block;
+    }
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+    .mobile-block{
+        display: none;
+       
+    }
+    .tab-block{
+        display: none;
+    }
+    .super_container{
+        display:none;
+    }
+    .page{
+        display:none;
+    }
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */ 
+    .mobile-block{
+        display: none;
+    }
+    .tab-block{
+        display: none;
+    }
+    .super_container{
+        display:block;
+    }
+    .page{
+        display:block;
+    }
+}
