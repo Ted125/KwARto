@@ -24,7 +24,7 @@
 <div class="super_container">
 
 	<!-- NAVBAR HERE -->
-	<?php include('Access/Navbar.php');?>	
+	<?php include('Access/Navbar.php');?>
 
 	<div class="container contact_container">
 		<div class="row">
@@ -33,40 +33,58 @@
 				<div class="breadcrumbs d-flex flex-row align-items-center">
 					<ul>
                         <li><a href="index.php">Home</a></li>
-                       
+
                         <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Wishlist</a></li>
-						
+
 					</ul>
 				</div>
 			</div>
 		</div>
 
 		<h3><i class="fa fa-list-alt" aria-hidden="true"></i> My Wishlist</h3>
-		<div class="row">        
+		<div class="row">
         <table class="table-bordered thead-dark table-hover" style="width: 100%; margin-top: 20px;">
         <thead>
             <tr style="text-align: center;">
-                <th>Item No.</th>	
+                <th>Item No.</th>
                 <th>Product Image</th>
                 <th>Product Name</th>
-                <th>Date</th>
-                <th>Availability</th>
-            
+                <!-- <th>Date</th> -->
+                <!-- <th>Availability</th> -->
                 <th>Price</th>
+								<th>Actions</th>
                 <th></th>
             </tr>
         </thead>
         <tbody class="text-center">
-            <tr class="">
-                <td class="">1</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
+						<?php
+							$_POST["customerId"] = $_SESSION["customerId"];
+
+							require("Controllers/LoadWishlistItems.php");
+
+							if($wishlistResult != null){
+								$i = 0;
+
+								while($row = mysqli_fetch_assoc($wishlistResult)){
+									$i++;
+						?>
+            <tr class="wishlistItem">
+                <td class=""><?php echo $i; ?></td>
+                <td class=""><a href="single.php"><img style="max-height: 140px;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $row["imageName"]; ?> alt=" " class="img-responsive"></a></td>
                 <td class="">
-                Comfy Chair
+                <?php echo $row["name"]; ?>
                 </td>
-                <td class=""> <span>9/03/2017</span></td>
-                <td class=""><span style="color:green">In Stock</span></td>
-                <td class="" style="text-align:  center;">	
-                    <span style="color:red">P850.00</span>
+                <!-- <td class=""> <span>9/03/2017</span></td> -->
+                <!-- <td class=""><span style="color:green">In Stock</span></td> -->
+                <td class="" style="text-align:  center;">
+                    <span style="color:red">
+											<?php
+												$price = $row["price"];
+												$discount = $row["discount"];
+
+												echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
+											?>
+										</span>
 
                 </td>
                 <td>
@@ -113,65 +131,13 @@
 				  	</div>
                 </td>
             </tr>
-            <tr class="">
-                <td class="">2</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
-                <td class="">
-                Swivel Chair
-                </td>
-                <td class=""> <span>11/13/2017</span></td>
-                <td class=""><span style="color:green">In Stock</span></td>
-                <td class="" style="text-align:  center;">	
-                    <span style="color:red">P540.00</span>
-
-                </td>
-                <td>
-                    <div class="red_button" data-toggle="modal" data-target="#wishdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to cart</a></div>
-
-				  <!-- Modal-->
-				  	<div id="wishdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to move this item to your cart?</p>
-							</div>
-							<div class="modal-footer">
-							  <a href="cart.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-				  	</div>
-				  	<br>
-					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
-
-				  <!-- Modal-->
-				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to remove this item?</p>
-							</div>
-							<div class="modal-footer">
-							  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-				  	</div>
-                </td>
-            </tr>
+						<?php
+								}
+							}
+						?>
         </tbody>
     </table>
-			
+
 		</div>
 	</div>
 
