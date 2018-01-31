@@ -25,12 +25,12 @@
 	<!-- NAVBAR HERE -->
 		<?php include('Access/Navbar.php');?>
 
-	<div class="main_slider" style="background-image:url(http://cdn.abclocal.go.com/content/kfsn/images/cms/automation/images/1915021_1280x720.jpg)">
+	<div class="main_slider" style="background-image:url(https://ak8.picdn.net/shutterstock/videos/1643458/thumb/2.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
 					<div class="main_slider_content">
-						<h6 style="margin-bottom: 10px; margin-top: -100px; color: white;">Latest News</h6>
+						<h6 style="margin-bottom: 10px; margin-top: -20px; color: white;">Latest News</h6>
 						<!-- <h1>KwARto</h1> -->
 						<h1 style="color: white;">Year Ender Sale</h1>
 					</div>
@@ -41,6 +41,11 @@
 	
 	<div class="best_sellers">
 		<div class="container">
+
+				<div class="container text-center">
+					<br>Our New Years Event came and went with a bang. But cheer up, we've got great plans for next year! Shop our current sale items now.<br><br><span style="font-weight: bold;">NO Interest until 2018*</span><br>*With approved credit. See store for details.<br><br><h2>Hurry and Shop Early!</h2><br>Many items are one of a kind or have limited quantities! No Rain Checks!<br><br>Don't miss this sale! Get the furniture you want and need now at LOW, LOW Sale Prices and No Interest Financing until 2019*. Of course, you can always pay using VISA, MasterCard, Discover, or American Express... and yes, we still do except cash. We invite you to shop Carl Hatcher Furniture before you shop anywhere else. </p>
+				</div>
+
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
@@ -224,106 +229,15 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<br><p>Lorem ipsum dolor sit amet, odio timeam docendi per at. An tacimates laboramus vituperata mei, cum no detraxit antiopam expetendis, ut nam partem audiam. Te facer error vituperatoribus per, omnis illum ea mei. Dolores facilisi ad sed, latine aliquip duo ne, nisl atomorum quo at. Ex sea quidam noster iudicabit, sea feugait aliquando te.Movet erroribus mei eu, cu tota solum partiendo vix. Ut autem laboramus usu, vis eligendi partiendo ex. Voluptua scaevola ad his. Cu mel purto dictas singulis. Ut pro feugait tibique dissentias.<br><br>Alienum deleniti an est, pri option ancillae te. Vocent vulputate accommodare at vel. Cum et vivendum quaestio. Posse noster veritus ne nec, lucilius antiopam honestatis ius ea, at sit epicurei expetenda voluptaria.<br><br>Adhuc vituperatoribus id eam, nam harum dissentias at. Eu partem volutpat assentior eum, autem fugit dictas ex cum, ea wisi tollit scripserit mea. Ius te graeco euripidis constituam, vel adhuc facete ei. Nam cibo feugait ea. Pri id epicurei reformidans, ei mei solum iriure laoreet. Id mei munere hendrerit contentiones, sit et alia modus, est iudico laoreet et.</p>
-	</div>
+	<!-- Benefit HERE-->
+	<?php include('Access/Benefit.php');?>
 
+	<!-- NEWSLETTER HERE-->
+	<?php include('Access/Newsletter.php');?>
 
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>free shipping</h6>
-							<p>Within the Philippines</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>cash on delivery</h6>
-							<p>Pay upon receiving your item</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>14 days return</h6>
-							<p>See return policy for details</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>Open Always</h6>
-							<p>24/7</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- FOOTER HERE-->
+	<?php include('Access/Footer.php');?>
 
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<h4>Newsletter</h4>
-						<p>Subscribe to our newsletter and get 20% off your first purchase</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<form action="post">
-						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-						<ul class="footer_nav">
-							<li><a href="terms.php">Terms of Use</a></li>
-							<li><a href="privacy.php">Privacy Policy</a></li>
-							<li><a href="contact.php">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2018 All Rights Reserverd. <a href="#">KwARto</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
 
 </div>
 
