@@ -192,7 +192,7 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<button class="red_button" style="padding: 10px; border: none; color: white; background-color: #d42d2d;"><a>add to cart</a></button>
+						<button class="red_button" style="padding: 20px 40px 20px 40px; border: none; color: white; background-color: #d42d2d;"><a>add to cart</a></button>
 
 						<?php
 							if(isset($_SESSION["customerId"])){
