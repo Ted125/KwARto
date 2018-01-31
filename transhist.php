@@ -61,11 +61,29 @@
 			<h6 style="color: #d42d2d;">Delivery by Sat, 27 Jan - Tue, 6 Feb 2018</h6>
 		</div>
 
-		<div class="card" style="padding: 40px 100px 40px 100px; width: 100%;">
+		<div class="progress" style="margin-top: 30px;">
+			<!-- processing -->
+		 <!--  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+		  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color: #d42d2d">
+		    Processing
+		  </div> -->
+  		   <!--  Shipping -->
+  		  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+		  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; background-color: #d42d2d">
+		    Shipping
+		  </div>
+		    <!-- Delivery -->
+  		<!--   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+		  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; background-color: #d42d2d">
+		    Delivery
+		  </div> -->
+		</div>
+
+		<div class="card" style="padding: 40px 100px 40px 100px; width: 100%; border:none;">
  		 	<div class="card-block">
 			    <h6 class="card-title">01/02/2018</h6>
 			    <h6 class="card-title">Status: <span style="color: #d42d2d;">Pending</span></h6>
-			    <p class="card-text">Thank you for shopping with Lazada! Your order has been received and is going through verification process. Next update will be sent to you via email soon.</p>
+			    <p class="card-text">Thank you for shopping with KwARto! Your order has been received and is going through verification process. Next update will be sent to you via email soon.</p>
 			</div>
 		</div>
 
