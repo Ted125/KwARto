@@ -241,6 +241,7 @@ n<!DOCTYPE html>
 										    <label class="form-check-label" for="diffAd">Bill to a different address</label> -->
 										</div>
 							        </form>
+							        <div class="text-right"><br><button class="red_button" style="padding: 20px 40px 20px 40px;right: 0; border: none; color: white; background-color: #d42d2d;"><a>SAVE CHANGES</a></button></div>
 								</div>
 							</div>
 						</div>
