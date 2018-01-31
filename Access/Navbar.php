@@ -87,7 +87,7 @@
             <ul style="display:-webkit-inline-box;">
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FURNITURE <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 55rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -335,7 +335,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BED & BATH <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 40rem; font-size: 0.9em;">
                       <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -515,7 +515,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DECOR <span></span></a>
-                    <ul class="dropdown-menu proddrop" style="min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="min-width: 40rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -695,7 +695,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOUSEWARE <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="margin-left: -150px; min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="margin-left: -150px; min-width: 40rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -875,7 +875,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WINDOW TREAMENTS <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="margin-left: -350px; min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="margin-left: -350px; min-width: 40rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
@@ -1088,7 +1088,7 @@
                 </li>
                 <li class="dropdown nav2">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LIGHTING <span ></span></a>
-                    <ul class="dropdown-menu proddrop" style="margin-left: -600px; min-width: 50rem; font-size: 0.9em;">
+                    <ul class="dropdown-menu proddrop" style="margin-left: -600px; min-width: 40rem; font-size: 0.9em;">
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
