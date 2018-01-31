@@ -58,7 +58,7 @@ jQuery(document).ready(function($)
 
 	initMenu();
 	initTimer();
-	initFavorite();
+	//initFavorite();
 	initFixProductBorder();
 	initIsotopeFiltering();
 	initSlider();

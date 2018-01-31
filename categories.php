@@ -435,7 +435,13 @@ function Search(){
     },
     success: function(result) {
 			result.forEach(function(item){
-				var furniture = "<div class=' product_whole product-item men' style='max-height: 350px;'><div class='product discount product_filter'><div class='product_image' style='min-height: 240px; display:flex; align-items: center;'><img  style='' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
+				var furniture = "<div class=' product_whole product-item men' style='max-height: 350px;'><div class='product discount product_filter'><div class='product_image' style='min-height: 240px; display:flex; align-items: center;'><img  style='' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div>";
+
+				// if(item.wishlistId != -1){
+				// 	furniture += "<div class='favorite favorite_left active'></div>";
+				// }else{
+				// 	furniture += "<div class='favorite favorite_left'></div>";
+				// }
 
 				if(item.discount > 0){
 					furniture += "<div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-" + item.discount + "%</span></div>";

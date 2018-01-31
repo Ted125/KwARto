@@ -182,7 +182,26 @@
 												}
 											?>
 										</div>
-										<div class="favorite favorite_left"></div>
+
+										<?php
+											if(isset($_SESSION["customerId"])){
+												$_POST["customerId"] = $_SESSION["customerId"];
+												$_POST["furnitureId"] = $row["furnitureId"];
+
+												require("Controllers/IsWishlisted.php");
+
+												if($wishlistedResult != null && mysqli_num_rows($wishlistedResult) > 0){
+										?>
+													<div class="favorite favorite_left active"></div>
+										<?php
+												}else{
+										?>
+													<div class="favorite favorite_left"></div>
+										<?php
+												}
+											}
+										?>
+
 										<?php
 											if($row["discount"] > 0){
 										?>
@@ -201,7 +220,7 @@
 												if($discount > 0){
 													echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
 												}else{
-													echo "Php " . number_format($price);
+													echo "Php " . number_format($price, 2);
 												}
 											?>
 											<?php
@@ -384,7 +403,26 @@
 													}
 												?>
 											</div>
-											<div class="favorite favorite_left"></div>
+
+											<?php
+												if(isset($_SESSION["customerId"])){
+													$_POST["customerId"] = $_SESSION["customerId"];
+													$_POST["furnitureId"] = $row["furnitureId"];
+
+													require("Controllers/IsWishlisted.php");
+
+													if($wishlistedResult != null && mysqli_num_rows($wishlistedResult) > 0){
+											?>
+														<div class="favorite favorite_left active"></div>
+											<?php
+													}else{
+											?>
+														<div class="favorite favorite_left"></div>
+											<?php
+													}
+												}
+											?>
+
 											<?php
 												if($row["discount"] > 0){
 											?>
@@ -403,7 +441,7 @@
 													if($discount > 0){
 														echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
 													}else{
-														echo "Php " . number_format($price);
+														echo "Php " . number_format($price, 2);
 													}
 												?>
 												<?php
@@ -533,7 +571,7 @@ $(document).ready(function(){
       }
   );
 
-	$('.product-grid').isotope({
+	$(".product-grid").isotope({
 			filter: '.2',
 			animationOptions: {
 					duration: 750,
@@ -541,5 +579,63 @@ $(document).ready(function(){
 					queue: false
 			}
 	});
+
+	$(".favorite").on("click", function(){
+		var customerId = <?php
+			if(isset($_SESSION["customerId"])){
+				echo $_SESSION["customerId"];
+			}else{
+				echo -1;
+			}
+		?>;
+
+		if($(this).hasClass("active")){
+			RemoveFromWishlist(customerId, $(this).parent().find(".product_name").attr("name"), $(this));
+		}else{
+			AddToWishlist(customerId, $(this).parent().find(".product_name").attr("name"), $(this));
+		}
+	});
 });
+
+function AddToWishlist(customerId, furnitureId, div){
+	$("#sellerOptions").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/AddToWishlist.php",
+		dataType: "json",
+    data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+    },
+    success: function(result) {
+			// div.addClass("active");
+			location.reload();
+    },
+    error: function(result) {
+
+    }
+	});
+}
+
+function RemoveFromWishlist(customerId, furnitureId, div){
+	$("#sellerOptions").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/RemoveFromWishlist.php",
+		dataType: "json",
+    data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+    },
+    success: function(result) {
+			// div.removeClass("active");
+			location.reload();
+    },
+    error: function(result) {
+
+    }
+	});
+}
 </script>
