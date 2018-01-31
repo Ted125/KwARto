@@ -174,7 +174,7 @@
             </tr>
         </tbody>
     </table>
-
+    <br>
     <div class="row" style="margin-left: 20px; margin-top: 10px;">
 
     	<div class="card" style="width: 15rem; padding: 20px;">
