@@ -44,13 +44,17 @@ class user_details{
                 $this->setUsername($_POST['registerUsername']);
             }
             $this->setUserType($userType);
-            $this->setUserStatus("inactive");
-            $this->setImage('Resources/Images/User/default.jpg');
+            if(strcmp($this->getUserType(), 'admin') == 0){
+                $this->setImage('defaultadmin.png');    
+            }else{
+                $this->setImage('default.jpg');
+            }
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
             $this->setAddedBy('NULL');
             if(isset($_SESSION['userId'])){
                $this->setAddedBy($_SESSION['userId']);
+               $this->setUpdatedBy($_SESSION['userId']);
             }
             $create = "INSERT INTO user_details
             (
@@ -113,8 +117,7 @@ class user_details{
 
     public function createAdmin(){
         $result = null;
-        $this->setUserType($_SESSION['userType']);
-        if(isset($_SESSION) && strcmp($this->getUserType(),'admin') == 0){
+        if(isset($_SESSION) && strcmp( $_SESSION['userType'],'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
             $result = $this->createUser($this->getUserType());
@@ -298,7 +301,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded
+          $query = "SELECT username, userId, email, userType, mobileNumber, dateAdded, image
           FROM user_details
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;

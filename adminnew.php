@@ -65,7 +65,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="<?php
+              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+              }else{
+                echo 'Resources/Images/User/default/defaultadmin.png';
+              }
+            ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
@@ -118,11 +124,18 @@
 
                         <?php if(isset($_GET['error'])){
                           echo '
-                             <div class="form-group row">
+                             <div class>
                               <p style="color: #FF0000;">Something went badly wrong. Try again next time.</p>
                               </div>
                           ';
 
+                        }
+                        if(isset($_GET['success'])){
+                          echo '
+                             <div class>
+                              <p style="color: #9ACD32;">Admin Successfully registered.</p>
+                              </div>
+                          ';
                         }
                         ?>
                        
@@ -152,13 +165,6 @@
                           <label class="col-sm-3 form-control-label">Password</label>
                           <div class="col-sm-9">
                             <input type="password" class="form-control" name="registerPassword" required class="input-material">
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Confirm Password</label>
-                          <div class="col-sm-9">
-                            <input type="password" name="temp" class="form-control" required class="input-material">
                           </div>
                         </div>
 

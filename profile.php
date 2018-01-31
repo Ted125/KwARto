@@ -74,13 +74,13 @@ n<!DOCTYPE html>
 								<h3>Account Information</h3>
 								<div class="row">
 									<div class="col-lg-4 text-center">
-										<img  id="blah" <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
+										<img  id="blah" <?php echo 'src=Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';?> width = 200px height = 200px>
 										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
 
 										<div id="upload_button">
 										    <label>
-										      <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo/s</span>
+										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photos</span>
 										    </label>
 										</div>
 
@@ -127,7 +127,7 @@ n<!DOCTYPE html>
 												<div class="form-group">
 													<label class="col-md-3 control-label"></label>
 													<div class="col-md-8 text-right">
-														<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
+														<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
 														<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 															<div class="modal-dialog" role="document">
 																<div class="modal-content">
@@ -270,7 +270,7 @@ n<!DOCTYPE html>
 									<div class="form-group" style="margin-bottom: 0px;">
 										<label class="col-md-3 control-label"></label>
 										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsavePass">CHANGE PASSWORD</button>
+											<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModalsavePass">CHANGE PASSWORD</button>
 											<div class="modal fade" id="myModalsavePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -316,7 +316,7 @@ n<!DOCTYPE html>
 									<div class="form-group" style="margin-bottom: 0px;">
 										<label class="col-md-3 control-label"></label>
 										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsaveEmail">CHANGE EMAIL</button>
+											<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModalsaveEmail">CHANGE EMAIL</button>
 											<div class="modal fade" id="myModalsaveEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -340,7 +340,7 @@ n<!DOCTYPE html>
 								<div class="form-group" >
 									<label class="col-md-3 control-label"></label>
 									<div class="col-md-8 text-right">
-										<a href="Controllers/Logout.php"> <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button></a>
+										<a href="Controllers/Logout.php"> <button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button></a>
 										<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">

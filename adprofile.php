@@ -5,6 +5,14 @@
       header("Location:index.php");
   }
 ?>
+
+<style>
+#profilepic{
+	width:auto;
+	max-width:100%;
+	height:auto;
+}
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,7 +83,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="<?php
+              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+              }else{
+                echo 'Resources/Images/User/default/defaultadmin.png';
+              }
+            ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
               <p>Super Admin</p>
@@ -125,13 +139,19 @@
                     </div>
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
-                        <img src="http://via.placeholder.com/300"><br>
+                        <img id = "profilepic"src="<?php
+              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+              }else{
+                echo 'Resources/Images/User/default/defaultadmin.png';
+              }
+            ?>"><br>
                         <div id="upload_button">
-                          <label>
-                            <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
-                          </label>
-                        </div>
+										    <label>
+										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photos</span>
+										    </label>
+										   </div>
                       </div>
                       <form class="form-horizontal col-lg-8">
                         
@@ -183,13 +203,14 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Change Password</label>
                           <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
+                            <input id = "password" type="password" placeholder="********" class="form-control">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
+                            <input id = "confirm_password"type="password" placeholder="********" class="form-control">
+                            <span id = "message"></span>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -246,7 +267,35 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script type = "text/javascript">
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#profilepic')
+          .attr('src', e.target.result)
+          .width(300)
+          .height(300);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    </script>
+    <script>
+    $('#password, #confirm_password').on('keyup', function () {
+      if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('Passwords are the same').css('color', 'green');
+    } else { 
+    $('#message').html('Passwords are not the same').css('color', 'red');
+    }
+   });
+    </script>
   </body>
 </html>
+
+
