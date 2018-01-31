@@ -74,11 +74,18 @@ n<!DOCTYPE html>
 								<h3>Account Information</h3>
 								<div class="row">
 									<div class="col-lg-4 text-center">
-										<img  id="blah" <?php echo 'src=Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';?> width = 200px height = 200px>
+										<img  id="blah" src ="<?php
+											if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+												echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+											}else{
+												echo 'Resources/Images/User/default/default.png';
+											}
+											?>" width = 200px height = 200px>
 										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
 
 										<div id="upload_button">
 										    <label>
+											  <input type="hidden" name="field" value="image"/>
 										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
 										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photos</span>
 										    </label>
