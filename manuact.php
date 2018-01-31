@@ -163,13 +163,13 @@
                 </div>
 
                 <!-- Ratings-->
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="recent-updates card">
                     <div class="card-header">
                       <h3 class="h4">Product Ratings</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
+                      
                       <div class="item d-flex justify-content-between">
                         <div class="info d-flex">
                           <div class="icon"><i class="fa fa-star-half-o"></i></div>
@@ -187,57 +187,9 @@
                             </div>
                         <div class="date text-right"><strong>29</strong><span>December 2017</span></div>
                       </div>
-                      <!-- Item-->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Comfy Chair</h5></a>
-                            <p>John Doe</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>28</strong><span>December 2017</span></div>
-                      </div>
-                      <!-- Item        -->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Round Table</h5></a>
-                            <p>John Adams</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>28</strong><span>December 2017</span></div>
-                      </div>
-                      <!-- Item-->
-                      <div class="item d-flex justify-content-between">
-                        <div class="info d-flex">
-                          <div class="icon"><i class="fa fa-star-half-o"></i></div>
-                          <div class="title">
-                            <a href="#" style="text-decoration: none;"><h5>Modern Table</h5></a>
-                            <p>Rachel Williams</p>
-                            </div>
-                          </div>
-                            <div class="text-right">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg/1200px-Roundel_of_the_Hungarian_Red_Air_Corps_%28second_variant%29.svg.png" style="max-width: 15px;">
-                            </div>
-                        <div class="date text-right"><strong>27</strong><span>December 2017</span></div>
-                      </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </section>
