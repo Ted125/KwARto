@@ -81,12 +81,12 @@ n<!DOCTYPE html>
 												echo 'Resources/Images/User/default/default.png';
 											}
 											?>" width = 200px height = 200px>
-										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
+										<form class="form-horizontal" role="form" enctype="multipart/form-data" action = "Controllers/UpdateCustomerMult.php" method="POST">
 
 										<div id="upload_button">
 										    <label>
 											  <input type="hidden" name="field" value="image"/>
-										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+										      <input onchange="readURL(this)" type="file" name="newData" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
 										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photos</span>
 										    </label>
 										</div>
@@ -96,11 +96,9 @@ n<!DOCTYPE html>
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
 											<input onchange="readURL(this);" type="file" name="newData" />
 											<input type="submit" value="Upload Photo" style="color: white; background-color: #d42d2d; border: none; padding: 10px; border-radius: 5%;" />	 -->
-										</form>
 									</div>
 									<div class="col-lg-8">
 										<div class="product_details">
-											<form class="form-horizontal" role="form" action = "Controllers/UpdateCustomerMult.php" method="POST">
 												<div class="form-group">
 													<label class="col-lg-3 control-label">First name:</label>
 													<div class="col-lg-8">
