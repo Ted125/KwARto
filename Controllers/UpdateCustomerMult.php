@@ -7,6 +7,7 @@
 
   $customer = new customer();
   $verify = $customer->updateCustomerMult($_POST['updateFName'], $_POST['updateLName'], $_POST['updateBDay']);
+  include('UploadUserImage.php');
 
   /*$user = new user_details();
   $verify2 = $user->updateUser($_POST['field'], $_POST['newData']);
@@ -21,5 +22,5 @@
    echo "Invalid credentials or not activated";
  }
 
- header( "Location: http://localhost/capstone-project/profile.php" );
+ header( "Location: ../profile.php" );
 ?>

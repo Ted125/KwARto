@@ -90,7 +90,7 @@ class user_details{
     }
 
     public function updateUser($field, $newData){
-        include("Database.php");
+        //include("Database.php");
 
         $db = new Database();
         $connection = $db->Connect();
