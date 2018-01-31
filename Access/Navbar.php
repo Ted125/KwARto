@@ -91,7 +91,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="15%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="https://sep.yimg.com/ay/yhst-130150896824807/orange-fabric-sofa-loveseat-and-chair-set-22.jpg"></div>
+                              <td width="15%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/furniture.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Furniture</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Home is that blissful place where you can kick off your shoes, put your feet up, and just be yourself, but if your furniture isn’t comfortable or looks out of place, you don’t get that sense of relief when you walk in the door. Purchasing furniture for your home lets you create the relaxed ambiance and character that makes an otherwise plain house feel like your home. Furnishings from KwARto and its partners provide you with the quality you want and also give you that peaceful, at-home feeling so you can kick back and relax.</p>
@@ -339,7 +339,7 @@
                       <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="http://homesfeed.com/wp-content/uploads/2015/02/white-painted-wall-white-ceramic-floor-white-painted-ceiling-white-cozy-armchair-white-bedsheet-red-bedspread-white-cushions-round-unframed-mirror-gray-bedroom-rug.jpg"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/bbath.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Bed & Bath</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">One of the least-mentioned but most important rooms in the home, decorating your bathroom to your exact taste and style is a must. Essentially, this is the room that gets your day off on the right foot every morning, the room where you bathe your children and perhaps even the room where you take in a good book. Choose different bath accessories, furniture and decor to let your personal tastes shine through and to give your bathroom a complete, updated look</p>
@@ -519,7 +519,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="http://midtownkalamazoo.com/img/living-room-decorations/_large/attractive-living-rooms-room-decor-images-red-living-room-decor-red-plus-red-together-with-living-rooms-room-decor-images_living-room-decorations_1200x1000.jpg"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/decor.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Decor</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Moving into a new home or redecorating an existing space is an exciting journey, and you can do it all on your own by selecting statement pieces and decorative accents. Allow us at Pottery Barn to make the process even more delightful for you with our guide to getting started. To begin, consider what your personal style is and find products that coordinate with the theme.</p>
@@ -699,7 +699,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="https://gomeraindividual.com/wp-content/uploads/2017/06/wohnen-23.jpg"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/houseare.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Houseware</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Create an inspiring and appetizing dining experience with a smart makeover where your meals happen. If your breakfasts are boring start the day brightly with Leon bowls and dinnerware. The tasteful and fresh hand-painted cobalt blues and orange-golds on Leon dishwasher- and microwave-safe stoneware will perk up the gloomiest mornings. Bring more happy glow to the table in a dim breakfast area with the Explosion Chandelier or Belleville Pendant from the diverse lighting collection at KwARto.</p>
@@ -879,7 +879,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="https://s-media-cache-ak0.pinimg.com/originals/2f/79/1d/2f791d46dbc8e804c0915ba7efb8635d.jpg"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/window.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Window Treatments</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Once a room has been outfitted with furniture, it’s time to put on the finishing touches and add strength, beauty and usefulness with the right rugs and window treatments. From large area rugs that cover your entire floor to blackout curtains that keep out light when you want to, there are many options available for rugs and windows when you shop  KwARto.</p>
@@ -1092,7 +1092,7 @@
                         <table >
                           <tbody style="width:100%;">
                             <tr valign="top">
-                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="http://www.ifdm.it/media/post/dett/das-haus-imm-2018-lucie-koldova_07_6a5dfc.jpg"></div>
+                              <td width="20%" style="padding-left:20px;"><div class="leftimg text-center"><img style="text-align:center;max-height: 150px; margin-bottom:10px; margin-top: 5px;" src="./images/navbar2/light.jpg"></div>
                                 <div class="leftcontent">
                                   <strong>Lighting</strong>
                                   <p style="padding-right: 7px; font-size: 0.9em; text-align: justify;">Use home lighting fixtures to define the design aesthetic of your rooms and provide illumination for everyday tasks. We carry a wide selection of lighting fixtures for the home, from bright bathroom sconces to ornate chandeliers perfect for hanging above a formal dining room table. Light up a living room with floor lamps or wall fixtures that draw attention to a stunning piece of canvas wall art. Hang casual pendants above kitchen tables and islands for focused light or in breakfast nooks to brighten up the area. Check out the latest in on-trend home lighting to find lamps and wall sconces to give your home an instant upgrade.</p>
