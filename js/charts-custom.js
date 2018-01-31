@@ -39,7 +39,7 @@ $(document).ready(function () {
     var dates = [today];
     var x; 
     var days;// Days you want to subtract
-    for(x = 0, days = 7; x <= 5; x++, days+=7){
+    for(x = 0, days = 30; x <= 5; x++, days+=31){
      
         var date = new Date();
         var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
@@ -58,15 +58,32 @@ $(document).ready(function () {
         last = month + '/' + day + '/' + year;
         var newLength = dates.unshift(last);
     }
-    /* ACTUAL GRAPH*/
 
-    var requestOne = new XMLHttpRequest();
-    myRequest.open('GET', '../Controllers/retrieveReports.php', true);
-    myRequest.onreadystatechange = function(){
-        if(myRequest.readyState === 4){
-            data = [myRequest.result];
+    var y;
+    var display = Array();
+    for(y = 0 ; y <= 5; y++){
+        function getData(){
+            $.ajax({
+                url:"../Controllers/RetrieveNewUserCharts.php",
+                method:"GET",
+                dataType:"json",
+                data: {
+                   'datereport' : dates[x]
+                },
+                success: function(data){
+                    $(data).each(function(key,val){
+                        display[y] = parseInt(val[0]);
+                    });
+
+                },
+                complete: function(){
+
+                }
+                });
+
         }
     }
+
     var LINECHARTEXMPLE   = $('#lineChartExample');
     var lineChartExample = new Chart(LINECHARTEXMPLE, {
         type: 'line',
@@ -91,7 +108,7 @@ $(document).ready(function () {
             labels: [dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], today],
             datasets: [
                 {
-                    label: "Data Set One",
+                    label: "Customers",
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: gradient1,
@@ -110,11 +127,11 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [30, 50, 40, 61, 42, 35, 40],
+                    data: [display[0], display[1], display[1], display[1], display[1], display[1], display[1]],
                     spanGaps: false
                 },
                 {
-                    label: "Data Set Two",
+                    label: "Sellers",
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: gradient2,

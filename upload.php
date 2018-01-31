@@ -179,7 +179,15 @@
                 
                 <!-- General Information -->
                 <div class="col-lg-12">
+                  <?php 
+                    if(isset($_GET['error'])){
+                      echo '<div class="card-header d-flex align-items-center">
+                              <span class="text text-danger">*Image file size cannot exceed 2mb</span>
+                            </div>';
+                    }
 
+                  ?>
+                  
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Upload Product</h3>
@@ -281,12 +289,33 @@
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Package Selection</strong></h3>
                           <div class="form-group">       
-                            <label>Packages</label>
+                            <label>Packages included in the product</label>
                           </div>
                           <!-- <input type="submit"value="Find" style="float: right" />
                           <div style="overflow: hidden; padding-right: .5em;">
                            <input type="text" style="width: 100%;" />
                           </div>​ -->
+                          <div class="form-group">       
+                            <label>Height</label>
+                            <input type="number" placeholder="0" class="form-control" id="height" name="newPackageHeight">
+                          </div>
+                          <div class="form-group">       
+                            <label>Width</label>
+                            <input type="number" placeholder="0" class="form-control" id="height" name="newPackageWidth">
+                          </div>
+                          <div class="form-group">       
+                            <label>Length</label>
+                            <input type="number" placeholder="0" class="form-control" id="height" name="newPackageLength">
+                          </div>
+                          <div class="form-group">       
+                            <label>Size Unit</label>
+                            <select class="form-control" id="sizeUnit" name="newPackageSizeUnit">
+                              <option value="mm">Millimeter/s</option>
+                              <option value="cm">Centimeter/s</option>
+                              <option value="in">Inch/es</option>
+                              <option value="m">Meter/s</option>
+                            </select>
+                          </div>
                           <button onclick="removePackage();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
                           <button onclick="addPackage();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
                           <br>
@@ -294,7 +323,7 @@
                               <div id="packageField1">
                                 <span style="font-size: 18px;">Package 1</span>
                                 <input type="text" placeholder="Enter Package Name..." class="form-control" name="package1"><br>
-                                <input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br>
+                                <!-- <input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br>
                                 <input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br>
                                 <input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br>
                                 <select class="form-control" id="sizeUnit" name="newSizeUnit" required>
@@ -302,14 +331,14 @@
                                   <option value="cm">Centimeter/s</option>
                                   <option value="in">Inch/es</option>
                                   <option value="m">Meter/s</option>
-                                </select>
+                                </select> -->
                             </div>
                           </div>
                       </div>
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Specification</strong></h3>
                           <div class="form-group">       
-                            <label>Specification</label>
+                            <label>Specification about the product</label>
                           </div>
                           <button onclick="removeSpec();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
                           <button onclick="addSpec();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
@@ -354,7 +383,7 @@
 <!--                         <input style="margin-top: 10px;" type="file" name="model" /> -->
                           <div id="upload_button">
                             <label>
-                              <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
+                              <input type="file" name="model" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
                               <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload 3D Model</span>
                             </label>
                           </div>
@@ -521,7 +550,7 @@
     var i = 2;
     function addPackage(){
       if(i <= 5){
-        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div><input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br><select class="form-control" id="sizeUnit" name="newSizeUnit" required><option value="mm">Millimeter/s</option><option value="cm">Centimeter/s</option><option value="in">Inch/es</option><option value="m">Meter/s</option></select>'
+        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div>'
 
           );
         i++;

@@ -17,13 +17,13 @@
       $_SESSION['userType'] = $verify['userType'];
       $_SESSION['mobileNumber'] = $verify['mobileNumber'];
       $_SESSION['dateAdded'] = $verify['dateAdded'];
+      $_SESSION['image'] = $verify['image'];
     if(strcmp($verify['userType'], 'customer') == 0){
       $_SESSION['customerId'] = $verify['customerId'];
       $_SESSION['firstName'] = $verify['firstName'];
       $_SESSION['middleName'] = $verify['middleName'];
       $_SESSION['lastName'] = $verify['lastName'];
       $_SESSION['birthdate'] = $verify['birthdate'];
-      $_SESSION['image'] = $verify['image'];
     } else if(strcmp($verify['userType'], 'seller') == 0){
       $_SESSION['sellerId'] = $verify['sellerId'];
       $_SESSION['description'] = $verify['description'];

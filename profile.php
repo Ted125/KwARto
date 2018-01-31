@@ -74,13 +74,20 @@ n<!DOCTYPE html>
 								<h3>Account Information</h3>
 								<div class="row">
 									<div class="col-lg-4 text-center">
-										<img  id="blah" <?php echo 'src='.$_SESSION['image'].'';?> width = 200px height = 200px>
-										<form enctype="multipart/form-data" action="Controllers/UploadUserImage.php" method="POST">
+										<img  id="blah" src ="<?php
+											if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+												echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+											}else{
+												echo 'Resources/Images/User/default/default.png';
+											}
+											?>" width = 200px height = 200px>
+										<form class="form-horizontal" role="form" enctype="multipart/form-data" action = "Controllers/UpdateCustomerMult.php" method="POST">
 
 										<div id="upload_button">
 										    <label>
-										      <input type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo/s</span>
+											  <input type="hidden" name="field" value="image"/>
+										      <input onchange="readURL(this)" type="file" name="newData" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+										      <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photos</span>
 										    </label>
 										</div>
 
@@ -89,11 +96,9 @@ n<!DOCTYPE html>
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
 											<input onchange="readURL(this);" type="file" name="newData" />
 											<input type="submit" value="Upload Photo" style="color: white; background-color: #d42d2d; border: none; padding: 10px; border-radius: 5%;" />	 -->
-										</form>
 									</div>
 									<div class="col-lg-8">
 										<div class="product_details">
-											<form class="form-horizontal" role="form" action = "Controllers/UpdateCustomerMult.php" method="POST">
 												<div class="form-group">
 													<label class="col-lg-3 control-label">First name:</label>
 													<div class="col-lg-8">
@@ -127,7 +132,7 @@ n<!DOCTYPE html>
 												<div class="form-group">
 													<label class="col-md-3 control-label"></label>
 													<div class="col-md-8 text-right">
-														<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
+														<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModal">SAVE CHANGES</button>
 														<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 															<div class="modal-dialog" role="document">
 																<div class="modal-content">
@@ -270,7 +275,7 @@ n<!DOCTYPE html>
 									<div class="form-group" style="margin-bottom: 0px;">
 										<label class="col-md-3 control-label"></label>
 										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsavePass">CHANGE PASSWORD</button>
+											<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModalsavePass">CHANGE PASSWORD</button>
 											<div class="modal fade" id="myModalsavePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -316,7 +321,7 @@ n<!DOCTYPE html>
 									<div class="form-group" style="margin-bottom: 0px;">
 										<label class="col-md-3 control-label"></label>
 										<div class="col-md-8 text-right">
-											<button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#myModalsaveEmail">CHANGE EMAIL</button>
+											<button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#myModalsaveEmail">CHANGE EMAIL</button>
 											<div class="modal fade" id="myModalsaveEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -340,7 +345,7 @@ n<!DOCTYPE html>
 								<div class="form-group" >
 									<label class="col-md-3 control-label"></label>
 									<div class="col-md-8 text-right">
-										<a href="Controllers/Logout.php"> <button type="button" class="btn add_to_cart_button red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button></a>
+										<a href="Controllers/Logout.php"> <button type="button" class="btn red_button" style="color: white;" data-toggle="modal" data-target="#modalLogout">LOG OUT</button></a>
 										<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">

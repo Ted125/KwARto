@@ -133,7 +133,18 @@
 
 								<!-- Search Filters Container -->
 								<form>
-									<input id = "searchCategoryId" type = "hidden" value = "1">
+									<?php
+										if(isset($_POST["searchCategoryId"])){
+									?>
+											<input id = "searchCategoryId" type = "hidden" value = "<?php echo $_POST['searchCategoryId'] ?>">
+									<?php
+										}else{
+									?>
+											<input id = "searchCategoryId" type = "hidden" value = "1">
+									<?php
+										}
+									?>
+
 									<input id = "searchSellerId" type = "hidden" value = "-1">
 									<input id = "searchMinPrice" type = "hidden" value = "-1">
 									<input id = "searchMaxPrice" type = "hidden" value = "-1">
@@ -141,6 +152,8 @@
 									<input id = "searchMaxDiscount" type = "hidden" value = "-1">
 									<input id = "searchMinRating" type = "hidden" value = "-1">
 									<input id = "searchMaxRating" type = "hidden" value = "-1">
+									<input id = "searchSaleStart" type = "hidden" value = "">
+									<input id = "searchSaleEnd" type = "hidden" value = "">
 									<input id = "searchName" type = "hidden" value = "">
 									<input id = "searchSortValue" type = "hidden" value = "">
 									<input id = "searchSortOrder" type = "hidden" value = "">
@@ -414,13 +427,21 @@ function Search(){
 			"maxDiscount" : $("#searchMaxDiscount").val(),
 			"minRating" : $("#searchMinRating").val(),
 			"maxRating" : $("#searchMaxRating").val(),
-			"name" : $("#searchName").val(),
+			"saleStart" : $("#searchSaleStart").val(),
+			"saleEnd" : $("#searchSaleEnd").val(),
+ 			"name" : $("#searchName").val(),
 			"sortValue" : $("#searchSortValue").val(),
 			"sortOrder" : $("#searchSortOrder").val()
     },
     success: function(result) {
 			result.forEach(function(item){
-				var furniture = "<div class=' product_whole product-item men' style='max-height: 350px;'><div class='product discount product_filter'><div class='product_image' style='min-height: 240px; display:flex; align-items: center;'><img  style='' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div><div class='favorite favorite_left'></div>";
+				var furniture = "<div class=' product_whole product-item men' style='max-height: 350px;'><div class='product discount product_filter'><div class='product_image' style='min-height: 240px; display:flex; align-items: center;'><img  style='' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.imageName + "' alt=''></div>";
+
+				// if(item.wishlistId != -1){
+				// 	furniture += "<div class='favorite favorite_left active'></div>";
+				// }else{
+				// 	furniture += "<div class='favorite favorite_left'></div>";
+				// }
 
 				if(item.discount > 0){
 					furniture += "<div class='product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center'><span>-" + item.discount + "%</span></div>";

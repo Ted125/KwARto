@@ -1,24 +1,28 @@
-<!DOCTYPE html>
 <html>
-  <head lang="en">
-  <meta charset="UTF-8">
-  <script language="JavaScript">
-    function showInput() {
-        document.getElementById('display').innerHTML = 
-                    document.getElementById("user_input").value;
-    }
-  </script>
+<form class="pure-form">
+    <fieldset>
+        <legend>Confirm password with HTML5</legend>
 
-  </head>
-<body>
+        <input type="password" placeholder="Password" id="password" required>
+        <input type="password" onkeypress="validatePassword()" placeholder="Confirm Password" id="confirm_password" required>
 
-  <form>
-    <label><b>Enter a Message</b></label>
-    <input type="text" name="message" id="user_input">
-  </form>
-
-  <input type="submit" onclick="showInput();"><br/>
-  <label>Your input: </label>
-  <p><span id='display'></span></p>
-</body>
+        <button type="submit" class="pure-button pure-button-primary">Confirm</button>
+    </fieldset>
+</form>
 </html>
+
+<script>
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeypress = validatePassword;
+</script>
