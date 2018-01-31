@@ -133,7 +133,18 @@
 
 								<!-- Search Filters Container -->
 								<form>
-									<input id = "searchCategoryId" type = "hidden" value = "1">
+									<?php
+										if(isset($_POST["searchCategoryId"])){
+									?>
+											<input id = "searchCategoryId" type = "hidden" value = "<?php echo $_POST['searchCategoryId'] ?>">
+									<?php
+										}else{
+									?>
+											<input id = "searchCategoryId" type = "hidden" value = "1">
+									<?php
+										}
+									?>
+
 									<input id = "searchSellerId" type = "hidden" value = "-1">
 									<input id = "searchMinPrice" type = "hidden" value = "-1">
 									<input id = "searchMaxPrice" type = "hidden" value = "-1">
@@ -141,6 +152,8 @@
 									<input id = "searchMaxDiscount" type = "hidden" value = "-1">
 									<input id = "searchMinRating" type = "hidden" value = "-1">
 									<input id = "searchMaxRating" type = "hidden" value = "-1">
+									<input id = "searchSaleStart" type = "hidden" value = "">
+									<input id = "searchSaleEnd" type = "hidden" value = "">
 									<input id = "searchName" type = "hidden" value = "">
 									<input id = "searchSortValue" type = "hidden" value = "">
 									<input id = "searchSortOrder" type = "hidden" value = "">
@@ -414,7 +427,9 @@ function Search(){
 			"maxDiscount" : $("#searchMaxDiscount").val(),
 			"minRating" : $("#searchMinRating").val(),
 			"maxRating" : $("#searchMaxRating").val(),
-			"name" : $("#searchName").val(),
+			"saleStart" : $("#searchSaleStart").val(),
+			"saleEnd" : $("#searchSaleEnd").val(),
+ 			"name" : $("#searchName").val(),
 			"sortValue" : $("#searchSortValue").val(),
 			"sortOrder" : $("#searchSortOrder").val()
     },

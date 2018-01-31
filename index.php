@@ -501,7 +501,6 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="js/custom.js"></script>
 </body>
-
 </html>
 <script type = "text/javascript">
 $(document).ready(function(){

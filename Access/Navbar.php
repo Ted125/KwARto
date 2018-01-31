@@ -21,7 +21,7 @@
                      </div>
                     </li>
                     <li><a href="index.php">home</a></li>
-                    <li><a href="categories.php">categories</a></li>
+                    <li><a href="categories.php" id = "navbarCategories">categories</a></li>
                     <?php
                       if(!isset($_SESSION['userId'])){
                         echo '<li><a href="loginnew.php"><button class="btn btn-primary" style="background-color: #d42d2d; border: 0px;">Login</button></a></li>';
@@ -90,7 +90,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu " width="23%" style="padding-left: 30px">
-                                <a href="#" class="linkmenu linktop"><strong>Bedroom</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "8"><strong>Bedroom</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 8;
@@ -115,7 +115,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -123,7 +123,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Dining Room</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "9"><strong>Dining Room</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 9;
@@ -148,7 +148,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -156,7 +156,7 @@
                               </td>
 
                               <td class="rightmenu" width="20%" style="padding-left: 10px;">
-                                <a href="#" class="linkmenu linktop"><strong>Kitchen</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "10"><strong>Kitchen</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 10;
@@ -181,7 +181,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -189,7 +189,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Living Room</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "11"><strong>Living Room</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 11;
@@ -214,7 +214,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -223,7 +223,7 @@
 
                               <td class="rightmenu" width="20%" style="padding-left: 10px">
 
-                                <a href="#" class="linkmenu linktop"><strong>Kids Furniture</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "12"><strong>Kids Furniture</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 12;
@@ -248,7 +248,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -256,7 +256,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Office Furniture</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "13"><strong>Office Furniture</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 13;
@@ -281,7 +281,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -289,7 +289,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Outdoor Furniture</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "14"><strong>Outdoor Furniture</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 14;
@@ -314,7 +314,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -338,7 +338,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Mattress</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "90"><strong>Mattress</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 90;
@@ -363,7 +363,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -371,7 +371,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Pillows</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "89"><strong>Pillows</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 89;
@@ -396,14 +396,14 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
                                 ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Bed Sheets</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "88"><strong>Bed Sheets</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 88;
@@ -428,7 +428,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -436,7 +436,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Throws + Blankets</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "87"><strong>Throws + Blankets</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 87;
@@ -461,7 +461,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -469,7 +469,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Bathware</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "86"><strong>Bathware</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 86;
@@ -494,7 +494,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -518,7 +518,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Accent Pillows + Throws</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "117"><strong>Accent Pillows + Throws</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 117;
@@ -543,7 +543,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -551,7 +551,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Wall Decor + Mirrors</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "116"><strong>Wall Decor + Mirrors</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 116;
@@ -576,14 +576,14 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
                                 ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Home Accents</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "115"><strong>Home Accents</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 115;
@@ -608,7 +608,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -616,7 +616,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Carpets</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "114"><strong>Carpets</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 114;
@@ -641,7 +641,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -649,7 +649,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Room Dividers</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "113"><strong>Room Dividers</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 113;
@@ -674,7 +674,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -698,7 +698,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Dinnerware</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "139"><strong>Dinnerware</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 139;
@@ -723,7 +723,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -731,7 +731,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Table Linens</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name ="138"><strong>Table Linens</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 138;
@@ -756,14 +756,14 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
                                 ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Glassware</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "137"><strong>Glassware</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 137;
@@ -788,7 +788,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -796,7 +796,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Sports Bottle + Flasks</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "136"><strong>Sports Bottle + Flasks</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 136;
@@ -821,7 +821,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -829,7 +829,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Kitchenware</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "135"><strong>Kitchenware</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 135;
@@ -854,7 +854,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -878,7 +878,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Window Accessories</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "155"><strong>Window Accessories</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 155;
@@ -903,7 +903,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -911,7 +911,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Blinds</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "154"><strong>Blinds</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 154;
@@ -936,7 +936,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -944,7 +944,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Curtain</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "153"><strong>Curtain</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 153;
@@ -969,14 +969,14 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
                                 ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Hooks</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "152"><strong>Hooks</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 152;
@@ -1001,7 +1001,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1009,7 +1009,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Rods</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "151"><strong>Rods</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 151;
@@ -1034,7 +1034,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1042,7 +1042,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Tassels</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "150"><strong>Tassels</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 150;
@@ -1067,7 +1067,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1091,7 +1091,7 @@
                                 </div>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Table Lamp + Desk Lamp</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "166"><strong>Table Lamp + Desk Lamp</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 166;
@@ -1116,7 +1116,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1124,7 +1124,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Floor Lamps</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "165"><strong>Floor Lamps</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 165;
@@ -1149,7 +1149,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1157,7 +1157,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Wall Lamps</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "164"><strong>Wall Lamps</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 164;
@@ -1182,7 +1182,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1190,7 +1190,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Chandelier</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "163"><strong>Chandelier</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 163;
@@ -1215,14 +1215,14 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
                                 ?>
                               </td>
                               <td class="rightmenu" width="35%" style="padding-left: 20px">
-                                <a href="#" class="linkmenu linktop"><strong>Pendant Lighting</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "162"><strong>Pendant Lighting</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 162;
@@ -1247,7 +1247,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1255,7 +1255,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Outdoor Lighting</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "161"><strong>Outdoor Lighting</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 161;
@@ -1280,7 +1280,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1288,7 +1288,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Ceiling Lights</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "160"><strong>Ceiling Lights</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 160;
@@ -1313,7 +1313,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1321,7 +1321,7 @@
 
                                 <br>
 
-                                <a href="#" class="linkmenu linktop"><strong>Ceiling Fan</strong><br></a>
+                                <a href="#" class="linkmenu linktop" name = "159"><strong>Ceiling Fan</strong><br></a>
 
                                 <?php
                                   $_POST["categoryId"] = 159;
@@ -1346,7 +1346,7 @@
 
                                       echo "</span>";
                                 ?>
-                                      <a href="#" class="linkmenu linkcontent"><?php echo $subtreeRow["name"]; ?><br></a>
+                                      <a href="#" class="linkmenu linkcontent" name = "<?php echo $subtreeRow['categoryId']; ?>"><?php echo $subtreeRow["name"]; ?><br></a>
                                 <?php
                                     }
                                   }
@@ -1363,3 +1363,14 @@
     </div>
 
   </header>
+  <form id = "chosenNavForm" action = "categories.php" method = "POST">
+    <input id = "chosenNavCategory" type = "hidden" name = "searchCategoryId" value = "1">
+  </form>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  $(".rightmenu").on("click", ".linkmenu", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val($(this).attr("name"));
+    $("#chosenNavForm").submit();
+  });
+</script>
