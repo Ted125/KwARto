@@ -193,7 +193,25 @@
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<button class="red_button" style="padding: 10px; border: none; color: white; background-color: #d42d2d;"><a>add to cart</a></button>
-						<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
+
+						<?php
+							if(isset($_SESSION["customerId"])){
+								$_POST["customerId"] = $_SESSION["customerId"];
+								$_POST["furnitureId"] = $row["furnitureId"];
+
+								require("Controllers/IsWishlisted.php");
+
+								if($wishlistedResult != null && mysqli_num_rows($wishlistedResult) > 0){
+						?>
+									<div class="product_favorite d-flex flex-column align-items-center justify-content-center active" title="Add to Wishlist"></div>
+						<?php
+								}else{
+						?>
+									<div class="product_favorite d-flex flex-column align-items-center justify-content-center" title="Add to Wishlist"></div>
+						<?php
+								}
+							}
+						?>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
 						<span class="ti-truck"></span><span>Cash On Delivery</span>
@@ -792,19 +810,78 @@ $(document).ready(function(){
 		$("#5Star").click(function(){
         $("#ratingValue").val(5);
     });
+
+		$(".product_favorite").on("click", function(){
+			var customerId = <?php
+				if(isset($_SESSION["customerId"])){
+					echo $_SESSION["customerId"];
+				}else{
+					echo -1;
+				}
+			?>;
+			var furnitureId = <?php echo $_POST["furnitureId"]; ?>
+
+			if($(this).hasClass("active")){
+				RemoveFromWishlist(customerId, furnitureId, $(this));
+			}else{
+				AddToWishlist(customerId, furnitureId, $(this));
+			}
+		});
 });
 </script>
 <script type = "text/javascript">
 $(document).ready(function(){
 	$(".dropdown").hover(
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-            $(this).toggleClass('open');
-        },
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-            $(this).toggleClass('open');
-        }
-    );
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+          $(this).toggleClass('open');
+      },
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+          $(this).toggleClass('open');
+      }
+  );
 });
+
+function AddToWishlist(customerId, furnitureId, div){
+	$("#sellerOptions").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/AddToWishlist.php",
+		dataType: "json",
+    data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+    },
+    success: function(result) {
+			div.addClass("active");
+			// location.reload();
+    },
+    error: function(result) {
+
+    }
+	});
+}
+
+function RemoveFromWishlist(customerId, furnitureId, div){
+	$("#sellerOptions").empty();
+
+	$.ajax({
+		type: "POST",
+    url: "Ajax/RemoveFromWishlist.php",
+		dataType: "json",
+    data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+    },
+    success: function(result) {
+			div.removeClass("active");
+			// location.reload();
+    },
+    error: function(result) {
+
+    }
+	});
+}
 </script>
