@@ -471,7 +471,7 @@ function Search(){
 
 				furniture += "</div>";
 
-				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0;'><a>add to cart</a></div></div>";
+				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0; color:white;'><a>add to cart</a></div></div>";
 				$("#searchResultsContainer").append(furniture);
 			});
     },
