@@ -11,16 +11,19 @@
     $verify = $user->updateUser($_POST['field'], $_POST['newData']);
   } else {
     echo "Cannot update";
-    header('Location: ../profile.php?error=1');
+    header('Location: ../manuprofile.php?error=1');
+    die();
   }
 
   if($verify == true){
     $_SESSION[$_POST['field']] = $_POST['newData'];
-
+    header('Location: ../manuprofile.php');
+    die();
   } else {
       	//inform user that the input is not valid
    echo "Invalid credentials or not activated";
+   header('Location: ../manuprofile.php?error=0');
  }
 
- header('Location: ../profile.php');
+
 ?>

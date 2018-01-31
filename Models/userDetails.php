@@ -46,6 +46,7 @@ class user_details{
             $this->setUserType($userType);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
+            $this->setImage('default.jpg');
             $create = "INSERT INTO user_details
             (
             password,
@@ -54,7 +55,8 @@ class user_details{
             userStatus,
             email,
             mobileNumber,
-            addedBy
+            addedBy,
+            image
             )
             VALUES
             ('".$this->getPassword()."',
@@ -63,7 +65,8 @@ class user_details{
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
             '".$this->getMobileNumber()."',
-            '".$this->getAddedBy()."'
+            '".$this->getAddedBy()."',
+            '".$this->getImage()."'
             )";
             echo $create;
             $result = mysqli_query($connection, $create);
