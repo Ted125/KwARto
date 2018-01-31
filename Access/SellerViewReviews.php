@@ -22,10 +22,14 @@
             $dateToday = date_create(date('Y-m-d H:i:s'));
             $dateAdded = date_create($row['dateAdded']);
             $diff = date_diff($dateAdded, $dateToday);
-            if(strcmp($diff->format("%a days"),'1') > 0){
+            if(strcmp($diff->format("%a"),'1') > 0){
               echo $diff->format("%a days");  
-            } else {
+            } else if(strcmp($diff->format("%h"),'1') > 0){
               echo $diff->format("%h hours");
+            } else if(strcmp($diff->format("%i"),'1') > 0){
+              echo $diff->format("%i minutes");
+            } else {
+              echo $diff->format("%s seconds");
             }
             
           ?>
@@ -35,5 +39,5 @@
   <div class="content"><?php echo $row['title'];?></div>
   <span class="fa fa-thumbs-up"> <?php echo $row['likes'];?></span>
   <div class="quote has-shadow"> <small><?php echo $row['body'];?></small></div>
-  <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
+  <div class="CTAs pull-right"><a href="single.php" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
 </div>
