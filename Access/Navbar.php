@@ -41,7 +41,15 @@
 
                               <li class="nav-item dropdown">
 
-                              <a href = "profile.php"><img height="35" width="35" src="Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'"></img></a>
+                              <a href = "profile.php"><img height="35" width="35" src="'; 
+                              
+                              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                              }else{
+                                echo 'Resources/Images/User/default/default.png';
+                              }
+                              
+                              echo '"></img></a>
 
                               <ul aria-labelledby="notifications" class="dropdown-menu">
                                   <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
