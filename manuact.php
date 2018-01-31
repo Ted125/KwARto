@@ -144,48 +144,8 @@
                       <h3 class="h4">Customer Questions</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my question regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this question long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
+                      <!-- Questions-->
+                       <?php include('Controllers/SellerDisplayQuestions.php');?>
                     </div>
                   </div>
                 </div> 
@@ -196,48 +156,8 @@
                       <h3 class="h4">Customer Comments</h3>
                     </div>
                     <div class="card-body no-padding">
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
-                      <!-- Item-->
-                      <div class="item clearfix">
-                        <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content">
-                              <h5>Comfy Chair</h5><span>Jane Doe</span>
-                              <div class="full-date"><small>Today 5:60 pm - 12.29.2017</small></div>
-                            </div>
-                          </div>
-                          <div class="date text-right"><small>5min ago</small></div>
-                        </div>
-                        <div class="quote has-shadow"> <small>This is my comment regarding this item. I am not sure if this is helpful but i hope that it may aid future buyers who would want to purchase this product. is this comment long enough? I hope that it is.</small></div>
-                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
-                      </div>  
+                      <!-- Reviews-->
+                        <?php include('Controllers/SellerDisplayReviews.php');?>
                     </div>
                   </div>
                 </div>
