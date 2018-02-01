@@ -287,7 +287,7 @@
 
 		require("Controllers/SearchFurniture.php");
 
-		if($searchFurnitureResult != null){
+		if($searchFurnitureResult != null && mysqli_num_rows($searchFurnitureResult) > 0){
 			$row = mysqli_fetch_assoc($searchFurnitureResult);
 
 			$saleEnd = new DateTime($row["saleEnd"]);
@@ -553,7 +553,7 @@
 	<?php include('Access/Footer.php');?>
 
 </div>
-	
+
 	<!-- MOBILE VIEW HERE-->
 	<?php include('Access/MobileTab.php');?>
 
