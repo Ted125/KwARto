@@ -12,9 +12,9 @@
   <td data-toggle="modal" data-target="#mrowModal<?php echo $row['userId'];?>" style = "color:<?php echo $color;?>"><?php echo $row['userStatus'];?></td>
   <td>
   <?php
-  if(strcmp($row['userStatus'], 'banned') == 0){
+  if(strcmp($row['userStatus'], 'active') != 0){
     echo 
-    '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
+    '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Activate</button>
     <!-- Modal-->
     <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
       <div role="document" class="modal-dialog">  
