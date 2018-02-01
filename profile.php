@@ -269,7 +269,7 @@
 									<div class="form-group">
 										<label class="col-md-6 control-label">Confirm New Password:</label>
 										<div class="col-md-8">
-											<input class="form-control" type="password" placeholder="Confirm New Password">
+											<input class="form-control" type="password" placeholder="Confirm New Password" name="comData">
 										</div>
 									</div>
 
@@ -315,7 +315,7 @@
 									<div class="form-group">
 										<label class="col-lg-3 control-label">Confirm New Email:</label>
 										<div class="col-lg-8">
-											<input class="form-control" type="text" placeholder="email@email.com">
+											<input class="form-control" type="text" placeholder="email@email.com" name="comData">
 										</div>
 									</div>
 

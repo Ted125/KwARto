@@ -233,6 +233,34 @@ class customer extends user_details{
         }        
         return $result;
     }
+
+    public function changeOrderState($sellerId, $state, $orderId){
+        include("Database.php");
+        
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION['userType']) && strcmp($this->getUserType(),'seller') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+
+                $create = "UPDATE customer_order
+                           SET  state = '".$state."'
+                           WHERE orderId = ".$orderId."";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'no session';
+            return null;
+        }
+    }
     /***************** SETTERS AND GETTERS ****************/
 
 
