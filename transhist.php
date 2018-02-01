@@ -25,7 +25,7 @@
 
 	<!-- NAVBAR HERE -->
 		<?php include('Access/Navbar.php');?>
-	
+
 	<div class="container single_product_container">
 		<div class="row">
 			<div class="col">
@@ -43,135 +43,140 @@
 
 		<h3><i class="fa fa-server" aria-hidden="true"></i> Transaction History</h3>
 		<br>
+
+		<?php
+			$_POST["customerId"] = $_SESSION["customerId"];
+
+			require("Controllers/LoadCustomerOrders.php");
+
+			if($orderResult != null){
+				$i = 0;
+
+				while($row = mysqli_fetch_assoc($orderResult)){
+					$i++;
+		?>
+
+		<!-- Order Entry Starts Here -->
+
 		<div class="row text-center">
-		<h5 style="position: absolute; left: 0px;">Order # <span style="color: #d42d2d;">13213</span></h5>
-		<h5 style="margin-left: 40%;">Placed On <span style="color: #d42d2d;">February 02, 2018</span></h5>
-		<h5 style="position: absolute; right: 0px;">Total: <span style="color: #d42d2d;">P2,103.00</span></h5>
+		<h5 style="position: absolute; left: 0px;">Order # <span style="color: #d42d2d;"><?php echo $row["orderNumber"]; ?></span></h5>
+		<h5 style="margin-left: 40%;">Placed On <span style="color: #d42d2d;"><?php echo date("D, F j, Y", strtotime($row["dateAdded"])); ?></span></h5>
+		<h5 style="position: absolute; right: 0px;">Total: <span style="color: #d42d2d;"><?php echo "Php " . number_format($row["totalFee"], 2); ?></span></h5>
 		</div>
 
 		<div class="row">
 			<br>
-			<h4 style="position: absolute; left: 0px;"><i class="fa fa-gift"></i> Package <span style="color: #d42d2d;">01</span></h4>
+			<h4 style="position: absolute; left: 0px;"><i class="fa fa-gift"></i> Package <span style="color: #d42d2d;"><?php echo $i; ?></span></h4>
 			<h4 style="position: absolute; right: 0px;">Sold by: <span style="color: #d42d2d;">Manufacturer Inc.</span></h4>
 		</div>
 		<br>
 		<br>
-		<div class="">	
+		<div class="">
 			<h4 ><i class="fa fa-ship"></i> Standard Shipping</h4>
-			<h6 style="color: #d42d2d;">Delivery by Sat, 27 Jan - Tue, 6 Feb 2018</h6>
+			<h6 style="color: #d42d2d;">Delivery by <?php echo date("D, F j, Y", strtotime($row["dateAdded"] . ' + 7 days')); ?> - <?php echo date("D, F j, Y", strtotime($row["dateAdded"] . ' + 12 days')); ?></h6>
 		</div>
 
 		<div class="progress" style="margin-top: 30px;">
-			<!-- Processing -->
-		 <!--  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-		  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color: #d42d2d">
-		    Processing
-		  </div> -->
-
+			<?php
+				if($row["state"] == "pending"){
+			?>
+					<!-- Processing -->
+				  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+				  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:33%; background-color: #d42d2d">
+				    Pending
+				  </div>
+			<?php
+				}else if($row["state"] == "shipping"){
+			?>
   		   <!--  Shipping -->
-  		  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-		  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; background-color: #d42d2d">
-		    Shipping
-		  </div>
+		  		 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+				  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:66%; background-color: #d42d2d">
+				    Shipping
+				  </div>
+			<?php
+				}else if($row["state"] == "delivered"){
+			?>
 
 		    <!-- Delivery -->
-  		<!--   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-		  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; background-color: #d42d2d">
-		    Delivery
-		  </div> -->
+		  		  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+				  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color: #d42d2d">
+				    Delivered
+				  </div>
+			<?php
+				}
+			?>
 		</div>
+
+		<?php
+			$_POST["orderId"] = $row["orderId"];
+
+			require("Controllers\LoadOrderStatus.php");
+
+			if($orderStatusResult != null){
+				$statusRow = mysqli_fetch_assoc($orderStatusResult);
+		?>
 
 		<div class="card" style="padding: 40px 100px 40px 100px; width: 100%; border:none;">
  		 	<div class="card-block">
-			    <h6 class="card-title">01/02/2018</h6>
-			    <h6 class="card-title">Status: <span style="color: #d42d2d;">Pending</span></h6>
-			    <p class="card-text">Thank you for shopping with KwARto! Your order has been received and is going through verification process. Next update will be sent to you via email soon.</p>
+			    <h6 class="card-title"><?php echo date("D, F j, Y", strtotime($statusRow["dateAdded"])); ?></h6>
+			    <h6 class="card-title">Status: <span style="color: #d42d2d;"><?php echo $row["state"]; ?></span></h6>
+			    <p class="card-text"><?php echo $statusRow["status"]; ?></p>
 			</div>
 		</div>
 
-		<h5>Order List:</h5>
+		<?php
+			}
+		?>
+
+		<h5>Item List:</h5>
 
 		<table class=" thead-dark table-hover" style="width: 100%; margin-top: 20px;">
         <thead>
             <tr style="text-align: center;">
-                <th width="5%"></th>	
+                <th width="5%"></th>
                 <th width="15%">Product Image</th>
-                <th width="20%">Product Name</th>
-                <th width="30%">Description</th>
-            
-                <th width="15%">Price</th>
-                <th width="15%">Action</th>
+                <th width="35%">Product Name</th>
+                <th width="20%">Quantity</th>
+                <th width="25%">Price</th>
             </tr>
         </thead>
         <tbody class="text-center">
-            <tr class="">
-                <td class="">1</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/1.jpg" alt=" " class="img-responsive"></a></td>
-                <td class="">
-                Comfy Chair
-                </td>
-                <td class=""> <span>This product is a very nice product which you should really buy. Thanks This product is a very nice product which you should really buy. Thanks</span></td>
-                <td class="" style="text-align:  center;">	
-                    <span style="color:red">P850.00</span>
+					<?php
+						$_POST["orderId"] = $row["orderId"];
 
-                </td>
-                <td>
-					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+						require("Controllers/LoadOrderItems.php");
 
-				  <!-- Modal-->
-				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to remove this item?</p>
-							</div>
-							<div class="modal-footer">
-							  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-				  	</div>
-                </td>
-            </tr>
-            <tr class="">
-                <td class="">2</td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src="./images/wishlist/2.jpg" alt=" " class="img-responsive"></a></td>
-                <td class="">
-                Swivel Chair
-                </td>
-                <td class=""> <span>This product is also a very nice product which you should really buy. </span></td>
-                <td class="" style="text-align:  center;">	
-                    <span style="color:red">P540.00</span>
+						if($orderItemResult != null){
+							$j = 0;
 
-                </td>
-                <td>
-					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+							while($itemRow = mysqli_fetch_assoc($orderItemResult)){
+								$j++;
+					?>
+		            <tr class="">
+		                <td class=""><?php echo $j; ?></td>
+		                <td class=""><a href="#"><img style="max-height: 140px;" src=<?php echo "Resources/Images/Furniture/" .  $itemRow["furnitureId"] . "/" . $itemRow["image"]; ?> alt=" " class="img-responsive"></a></td>
+		                <td class=""><?php echo $itemRow["name"]; ?></td>
+		                <td class=""> <span><?php echo $itemRow["quantity"]; ?></span></td>
+		                <td class="" style="text-align:  center;">
+		                   <span style="color:red">
+												<?php
+													$price = $itemRow["originalPrice"];
+													$discount = $itemRow["discount"];
 
-				  <!-- Modal-->
-				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-						<div role="document" class="modal-dialog">
-						  <div class="modal-content">
-							<div class="modal-header">
-							  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-							  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-							</div>
-							<div class="modal-body">
-							  <p>Are you sure you want to remove this item?</p>
-							</div>
-							<div class="modal-footer">
-							  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Yes</button></a>
-							  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-							</div>
-						  </div>
-						</div>
-				  	</div>
-                </td>
-            </tr>
+													if($discount > 0){
+														echo "Php " . number_format(($price * (1 - $discount / 100)), 2);
+													}else{
+														echo "Php " . number_format($price, 2);
+													}
+												?>
+											</span>
+		                </td>
+		            </tr>
+
+					<?php
+							}
+						}
+					?>
         </tbody>
     </table>
     <br>
@@ -179,14 +184,14 @@
 
     	<div class="card" style="width: 15rem; padding: 20px;">
 		    <h5 class="card-title">Delivery Address</h5>
-		    <p class="card-text">G1-09A Tabay, Tayud, Lilo-an, Cebu, Cebu-Liloan-Tayud 6002</p>
-		    <p class="card-text">+63 9159831382</p>
+		    <p class="card-text"><?php echo $row["shippingAddress"]; ?></p>
+		    <p class="card-text"><?php echo $row["shippingContactNumber"]; ?></p>
 		</div>
 
     	<div class="card" style="margin-left: 20px; width: 15rem; padding: 20px; ">
 		    <h5 class="card-title">Billing Address</h5>
-		    <p class="card-text">G1-09A Tabay, Tayud, Lilo-an, Cebu, Cebu-Liloan-Tayud 6002</p>
-		    <p class="card-text">+63 9159831382</p>
+		    <p class="card-text"><?php echo $row["billingAddress"]; ?></p>
+		    <p class="card-text"><?php echo $row["billingContactNumber"]; ?></p>
 		</div>
 
 		<div class="card" style="margin-left: 20px; width: 35rem; padding: 20px;">
@@ -194,31 +199,42 @@
 		    <h5 class="card-title">Total Summary</h5>
 		    <div class="row">
 			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Sub-total:</p>
-			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P2.100.00</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;"><?php echo "Php " . number_format($row["subtotalFee"], 2); ?></p>
 			</div>
 			<div class="row" style="margin-top: -10px;">
 			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Shipping Fee:</p>
-			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;"><?php echo "Php " . number_format($row["shippingFee"], 2); ?></p>
 			</div>
 			<div class="row" style="margin-top: -10px;">
-			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Promotion:</p>
-			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Discount:</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;"><?php echo number_format($row["discount"], 0) . " %"; ?></p>
 			</div>
 
 			<div class="row" style="margin-top: -10px;">
 			    <p class="card-text" style="position: relative;padding-left: 30px; left: 0px;">Total (VAT applied where applicable):</p>
-			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">P0.00</p>
+			    <p class="card-text" style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;"><?php echo "Php " . number_format($row["totalFee"], 2); ?></p>
 			</div>
 
-			<div class="row" style="margin-top: -10px;">
+			<!-- <div class="row" style="margin-top: -10px;">
 			    <p style="position: relative;padding-left: 30px; left: 0px;">To be paid through:</p>
 			    <p style="position: absolute; padding-right: 30px; right: 0px; color: #d42d2d;">Cash on Delivery</p>
-			</div>
+			</div> -->
 
 		  </div>
 		</div>
 
     </div>
+		<br>
+		<br>
+		<hr>
+		<br>
+		<br>
+		<!-- Order Entry Ends Here -->
+
+		<?php
+				}
+			}
+		?>
 
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
