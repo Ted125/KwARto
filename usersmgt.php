@@ -219,7 +219,6 @@
                                          <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['email'].'</h5></h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Mobile Number: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['mobileNumber'].'</h5></h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['dateAdded'].'</h5></h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['addedBy'].'</h5></h5></div>
                                       </div>
                                     </div>
                                   </div>
@@ -346,7 +345,7 @@
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-5">
-                                          <img src="Resources/Images/User/'.$row['userId'].'/'.$row['image'].'" id = "userpics" width = "200px" height = "200px">
+                                          <img src="Resources/Images/User/'.$row['userId'].'/'.$row['image'].'" id = "userpics" width = "200px" height = "200px" alt ="">
                                       </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$row['userId'].'</h5>  </h5></div>

@@ -1,6 +1,5 @@
 <?php 
 
-
     class seller extends user_details{
         private $sellerId;
         private $name;
