@@ -206,7 +206,7 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  <div class="modal-body">
+                                  <div class="modal-body">  
                                     <div class="row">
                                       <div class="col-5">
                                           <img src="Resources/Images/User/'.$appRow['userId'].'/'.$appRow['image'].'" id = "pendingpics" alt = "">

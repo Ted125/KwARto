@@ -21,50 +21,47 @@ $(document).ready(function () {
     // Line Chart
     // ------------------------------------------------------ //
     /* WORKING DATE LABELS */
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
+    // var today = new Date();
+    // var dd = today.getDate();
+    // var mm = today.getMonth()+1; //January is 0!
+    // var yyyy = today.getFullYear();
 
-    if(dd<10) {
-        dd = '0'+dd
-    } 
+    // if(dd<10) {
+    //     dd = '0'+dd
+    // } 
 
-    if(mm<10) {
-        mm = '0'+mm
-    } 
+    // if(mm<10) {
+    //     mm = '0'+mm
+    // } 
 
-    today = mm + '/' + dd + '/' + yyyy;
+    // today = mm + '/' + dd + '/' + yyyy;
     
-    var dates = [today];
-    var x; 
-    var days;// Days you want to subtract
-    for(x = 0, days = 30; x <= 5; x++, days+=31){
+    // var dates = [today];
+    // var x; 
+    // var days;// Days you want to subtract
+    // for(x = 0, days = 30; x <= 5; x++, days+=31){
      
-        var date = new Date();
-        var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-        var day =last.getDate();
-        var month=last.getMonth()+1;
-        var year=last.getFullYear();
+    //     var date = new Date();
+    //     var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+    //     var day =last.getDate();
+    //     var month=last.getMonth()+1;
+    //     var year=last.getFullYear();
 
-        if(day<10) {
-            day = '0'+day
-        } 
+    //     if(day<10) {
+    //         day = '0'+day
+    //     } 
 
-        if(month<10) {
-            month = '0'+month
-        } 
+    //     if(month<10) {
+    //         month = '0'+month
+    //     } 
 
-        last = month + '/' + day + '/' + year;
-        var newLength = dates.unshift(last);
-    }
+    //     last = month + '/' + day + '/' + year;
+    //     var newLength = dates.unshift(last);
+    // }
 
-    var y;
-    var display = Array();
-    for(y = 0 ; y <= 5; y++){
-        function getData(){
-            $.ajax({
-                url:"../Controllers/RetrieveNewUserCharts.php",
+    function getData(){
+        $.ajax({
+        url:"../Controllers/RetrieveNewUserCharts.php",
                 method:"GET",
                 dataType:"json",
                 data: {

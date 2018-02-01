@@ -142,6 +142,55 @@
         return $result;
     }
 
+    public function findSellerId($userId){
+        include_once("Database.php");
+        $result = NULL;
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $this->setUserId($userId);
+            $qry = "SELECT sellerId
+                    FROM seller
+                    WHERE userId = '".$this->getUserId()."'
+                    ";
+            $result = mysqli_query($connection, $qry);
+        }else{
+            echo 'no connection';
+        }
+        return $result;
+    }
+
+    public function banAllSellerFurniture($userId){
+        include_once("Database.php");
+        if(isset($_SESSION)){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'admin') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $data = $this->findSellerId($userId);
+                    if($row = $data->fetch_assoc()){
+                        $this->setSellerId($row['sellerId']);
+                    }
+                    $query = "UPDATE furniture
+                    SET status = '0', live = 0
+                    WHERE sellerId = '".$this->getSellerId()."'
+                    ";
+                    $result = mysqli_query($connection, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only admins can unban furniture';
+            }
+        }else{
+            echo 'no session';
+        }
+        return $result;
+    }
+
     /************ SETTERS AND GETTERS ************/
 
     public function getSellerId(){
