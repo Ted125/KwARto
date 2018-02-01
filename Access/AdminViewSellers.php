@@ -12,7 +12,7 @@
   <td data-toggle="modal" data-target="#mrowModal<?php echo $row['userId'];?>" style = "color:<?php echo $color;?>"><?php echo $row['userStatus'];?></td>
   <td>
   <?php
-  if(strcmp($row['userStatus'], 'banned') == 0){
+  if(strcmp($row['userStatus'], 'active') != 0){
     echo 
     '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
     <!-- Modal-->
@@ -78,7 +78,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-5">
-              <img src="<?php echo $row['image'];?>" id = "pendingpics" width = "200px" height = "200px" alt ="">
+              <img src="<?php echo 'Resources/Images/User/'.$row['userId'].'/'.$row['image'].'';?>" id = "pendingpics" width = "200px" height = "200px" alt ="">
             </div>
             <div class="col-7">
              <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;"></h5><?php echo $row['userId'];?></h5></div>
