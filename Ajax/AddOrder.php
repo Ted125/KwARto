@@ -23,7 +23,7 @@
     $paymentId = $_POST["paymentId"];
     $sellerId = $_POST["sellerId"];
 
-    $query = "INSERT INTO customer_order (orderNumber, shippingContactPerson, shippingAddress, shippingLocationId, shippingContactNumber, billingContactPerson, billingAddress, billingLocationId, billingContactNumber, discount, tax, subtotalFee, shippingFee, totalFee, customerId, paymentId, sellerId) VALUES('" . $orderNumber . "', '" . $shippingContactPerson . "', '" . $shippingAddress . "', " . $shippingLocationId . ", '" . $shippingContactNumber . "', '" . $billingContactPerson . "', '" . $billingAddress . "', " . $billingLocationId . ", '" . $billingContactNumber . "', " . $discount . ", " . $tax . ", " . $subtotalFee . ", " . $shippingFee . ", " . $totalFee . ", " . $customerId . ", " . $paymentId . ", " . sellerId . ");";
+    $query = "INSERT INTO customer_order (orderNumber, shippingContactPerson, shippingAddress, shippingLocationId, shippingContactNumber, billingContactPerson, billingAddress, billingLocationId, billingContactNumber, discount, tax, subtotalFee, shippingFee, totalFee, customerId, paymentId, sellerId) VALUES('" . $orderNumber . "', '" . $shippingContactPerson . "', '" . $shippingAddress . "', " . $shippingLocationId . ", '" . $shippingContactNumber . "', '" . $billingContactPerson . "', '" . $billingAddress . "', " . $billingLocationId . ", '" . $billingContactNumber . "', " . $discount . ", " . $tax . ", " . $subtotalFee . ", " . $shippingFee . ", " . $totalFee . ", " . $customerId . ", " . $paymentId . ", " . $sellerId . ");";
     $addOrderResult = mysqli_query($connection, $query);
 
     if($addOrderResult != null && $addOrderResult){
@@ -40,22 +40,26 @@
           $_POST["orderId"] = $orderId;
           $_POST["stockId"] = $stockRow["stockId"];
 
-          require("AddOrderItem.php");
+          require("../Controllers/AddOrderItem.php");
 
           $_POST["furnitureId"] = $stockRow["furnitureId"];
           $_POST["customerId"] = $customerId;
 
-          require("SellCartItem.php");
+          require("../Controllers/SellCartItem.php");
         }
 
         $_POST["orderId"] = $orderId;
         $_POST["status"] = "Order has been placed.";
 
-        require("AddOrderStatus.php");
+        require("../Controllers/AddOrderStatus.php");
+
+        $rows = array();
+        $rows[] = "true";
+        print json_encode($rows);
       }
 
 
-      // header("Location: ../complete.php");
+      header("Location: ../complete.php");
     }
   }
 ?>
