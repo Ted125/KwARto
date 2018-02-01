@@ -269,6 +269,19 @@ $(document).ready(function(){
 		});
 	});
 
+	$("#cartItemsContainer").on("click", ".addToWishlistButton", function(){
+		var furnitureId = $(this).closest(".cartItem").attr("name");
+		var customerId = <?php
+			if(isset($_SESSION["customerId"])){
+				echo $_SESSION["customerId"];
+			}else{
+				echo -1;
+			}
+		?>;
+
+		AddToWishlist(customerId, furnitureId, $(this));
+	});
+
 	$("#cartItemsContainer").on("click", ".removeFromCartButton", function(){
 		var furnitureId = $(this).closest(".cartItem").attr("name");
 		RemoveFromCart(furnitureId);
@@ -336,7 +349,13 @@ function LoadCartItems(){
 	 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
 	 			});
 
-				 cartEntry += "</td><td class='' style='text-align:  center;'><div class='red_button' data-toggle='modal' data-target='#cartdia1' style='width: 150px; margin-top: 10px;'><a href='#'>move to wishlist</a></div><br><div class='removeFromCartButton red_button' data-toggle='modal' data-target='#cartdia2' style='width: 150px; background-color: #444; margin-top: 10px;'><a href='#'>remove from list</a></div>";
+				cartEntry += "</td><td class='' style='text-align:  center;'>";
+
+				if(item.wishlistId != null && item.wishlistId == -1){
+					cartEntry += "<div class='addToWishlistButton red_button' data-toggle='modal' data-target='#cartdia1' style='width: 150px; margin-top: 10px;'><a href='#'>move to wishlist</a></div><br>";
+				}
+
+				 cartEntry += "<div class='removeFromCartButton red_button' data-toggle='modal' data-target='#cartdia2' style='width: 150px; background-color: #444; margin-top: 10px;'><a href='#'>remove from list</a></div>";
 
 				 $("#cartItemsContainer").append(cartEntry);
 			});
@@ -417,6 +436,25 @@ function CalculateTotalFee(){
 			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
 	});
 	$("#totalFeeText").text("Php " + totalFee);
+}
+
+function AddToWishlist(customerId, furnitureId, div){
+	$.ajax({
+		type: "POST",
+    url: "Ajax/AddToWishlist.php",
+		dataType: "json",
+    data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+    },
+    success: function(result) {
+			// div.addClass("active");
+			location.reload();
+    },
+    error: function(result) {
+
+    }
+	});
 }
 
 function RemoveFromCart(furnitureId){

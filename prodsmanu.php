@@ -102,7 +102,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="<?php
+                      if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                        echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
@@ -142,6 +148,30 @@
                 
                 <div class="col-lg-12">
                   <div class="card">
+                    <?php
+                      if(isset($_GET['discounterror'])){
+                        if($_GET['discounterror'] == '1'){
+                          echo '<div class="card-header d-flex align-items-center">
+                                  <span class="text text-danger">Cannot start discount before this day.</span>
+                                </div>'
+                                ;
+                        } else if($_GET['discounterror'] == '2'){
+                          echo '<div class="card-header d-flex align-items-center">
+                                  <span class="text text-danger">Cannot end discount before start of discount.</span>
+                                </div>'
+                                ;
+                        }
+                      }
+
+                      if(isset($_GET['restockerror'])){
+                        if($_GET['restockerror'] == '1'){
+                          echo '<div class="card-header d-flex align-items-center">
+                                  <span class="text text-danger">Cannot restock at a negative amount.</span>
+                                </div>'
+                                ;
+                        }
+                      }
+                    ?>
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Products</h3>
                     </div>

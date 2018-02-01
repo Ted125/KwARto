@@ -1,10 +1,10 @@
   <?php
   $color = ($row['live'] == 1)?"#9ACD32":"#FF0000";
-  $live = ($row['live'] == 1)?"Yes":"No";
+  $live = ($row['live'] == 1)?"checked":" ";
   $status = ($row['live'] == 1)?"Live":"Not Live";
   $act = ($row['live'] == 1)?"fa fa-arrow-down":"fa fa-arrow-up";
   $ban = ($row['status'] == 0)?"disabled":" ";
-  $ban_warn = ($row['status'] == 0)?"fa fa-times": $act;
+  $ban_warn = ($row['status'] == 0)?"Banned":"Not Live";
 ?>
 <tr>
   <?php include('Controllers/SellerGetAvailableStock.php');?>
@@ -24,15 +24,7 @@
     <form method="post" action="Controllers/SellerToggleLive.php">
       <input type="hidden" value=<?php echo $row['live'];?> name="live"/>
       <input type="hidden" value=<?php echo $row['furnitureId'];?> name="furnitureId"/>
-      <input type="checkbox" data-toggle="toggle" data-on="Live" data-off="Not Live">
-          <script>
-            $(function() {
-              $('#toggle').bootstrapToggle({
-                on: 'Live',
-                off: 'Not Live'
-              });
-            })
-          </script>
+      <input type="checkbox" onChange="this.form.submit()" data-toggle="toggle" data-on="Live" data-off="<?php echo $ban_warn;?>" <?php echo $live;?> <?php echo $ban;?>>
     </form>
   </td> 
       <!-- <button type="submit" title="Live/Remove from live" style="margin-right: 3px;" class="btn btn-primary <?php echo $ban_warn;?>" <?php echo $ban;?>></button> -->
@@ -167,18 +159,19 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Discount (%)</label>
-                <input id=<?php echo "dateToday".$count;?> type="number" class="form-control" name="discount" min="0" max="100">       
+                <input type="number" class="form-control" name="discount" min="0" max="100">       
                 <label>Sale Start</label>
-                <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateStart" min="">
+                <input id=dateToday type="date" class="form-control" name="dateStart" value=<?php echo date('Y-m-d');?>>
+                <input id=comDateToday type="hidden" class="form-control" name="comDateStart" value=<?php echo date('Y-m-d');?>>
                 <label>Sale End</label>
-                <input id=<?php echo "dateToday".$count;?> type="date" class="form-control" name="dateEnd" min="">
+                <input id=dateEnd type="date" class="form-control" name="dateEnd">
                 <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
               </div>
               <div class="form-group">
                 <p>Are you sure you want to update these changes?</p>       
               </div>
               <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Yes"  />
+                <input id="discountBtn" type="submit" class="btn btn-primary" value="Yes"/>
               </div>
             </div>
           </form>
@@ -192,5 +185,32 @@
       y = n.getFullYear();
       m = n.getMonth() + 1;
       d = n.getDate();
-      document.getElementById("<?php echo "dateToday".$count;?>").min = d + "-" + m + "-" + y;
+      //document.getElementById("<?php echo "dateToday".$count;?>").min = d + "-" + m + "-" + y;
+
+      // $(function() {
+      //   $('#toggle').bootstrapToggle({
+      //     on: 'Live',
+      //     off: 'Not Live'
+      //   });
+      // });
+
+      function toggleLive() {
+        if(document.getElementById("liveCheckbox").checked = false){
+          document.getElementById("furnLive").submit();
+        } else {
+          document.getElementById("furnLive").submit();
+        }
+      }
+
+      //set date today
+      function () { 
+        var today = new Date();
+        var end = new Date();
+        var dateToday = today.getFullYear()+"-"today.getMonth()+1+"-"today.getDate();
+        document.getElementById("dateToday").defaultValue = dateToday;
+        document.getElementById("comDateToday").defaultValue = dateToday;
+        end = document.getElementById("dateEnd").value;
+
+      }
+
 </script>
