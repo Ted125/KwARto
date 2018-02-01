@@ -174,8 +174,8 @@
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Users</h3>
                     </div>
-                      <div id="chart_div" style="width: 100%; height: 500px;"></div>
-                      <div id="chart_div_2" style="width: 100%; height: 500px;"></div>
+                      <div id="chart_div" style="width: 100%; height: 250px;"></div>
+                      <div id="chart_div_2" style="width: 100%; height: 250px;"></div>
                   </div>
                 </div>
 
