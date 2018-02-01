@@ -192,7 +192,7 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<button class="red_button" style="padding: 20px 40px 20px 40px; border: none; color: white; background-color: #d42d2d;"><a>add to cart</a></button>
+						<button class="red_button addToCartButton" style="padding: 0px 40px 0px 40px; border: none; color: white; background-color: #d42d2d;"><a href = "#">add to cart</a></button>
 
 						<?php
 							if(isset($_SESSION["customerId"])){
@@ -772,7 +772,8 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
-	$(".add_to_cart_button").on("click", function(){
+	$(".addToCartButton").on("click", function(e){
+		e.preventDefault();
 		var id = "<?php echo $_POST['furnitureId']; ?>";
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
@@ -844,8 +845,6 @@ $(document).ready(function(){
 });
 
 function AddToWishlist(customerId, furnitureId, div){
-	$("#sellerOptions").empty();
-
 	$.ajax({
 		type: "POST",
     url: "Ajax/AddToWishlist.php",
@@ -865,8 +864,6 @@ function AddToWishlist(customerId, furnitureId, div){
 }
 
 function RemoveFromWishlist(customerId, furnitureId, div){
-	$("#sellerOptions").empty();
-
 	$.ajax({
 		type: "POST",
     url: "Ajax/RemoveFromWishlist.php",
