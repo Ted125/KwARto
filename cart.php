@@ -186,6 +186,7 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/single_custom.js"></script>
+<script src="js/jquery.number.min.js"></script>
 </body>
 
 </html>
@@ -342,17 +343,18 @@ function LoadCartItems(){
 		},
 		success: function(result) {
 			var count = 0;
-			var dimWeight = 0;
+			var shippingFee = 0;
+			var subtotalFee = 0;
+			var commission = 5;
+			var totalFee = 0;
 
 			result.forEach(function(item){
 				count++;
-				dimWeight += parseInt(item.totalWeight);
+				// dimWeight += parseInt(item.totalWeight);
 
 				var cartEntry = "<tr class='cartItem' name = '" + item.furnitureId + "'><td class=''>" + count + "</td><td class=''><a><img class='productImage' style='max-height: 140px;' src='Resources/Images/Furniture/" + item.furnitureId + "/" + item.image + "' alt=' ' class='img-responsive'></a></td><td class=''><div class='' style='text-align: -webkit-center'><div class='form-group form-group-options'><div class='input-group input-group-option' style='width: 130px;'><span class='removeCartItemButton input-group-addon input-group-addon-remove btn'><span class='fa fa-minus'></span></span><input type='text' class='cartItemQuantity form-control' style='text-align: center;' value='" + item.numItems + "'><span class='addCartItemButton input-group-addon btn'><span class='fa fa-plus'></span></span></div></div></div></td><td class='productName'>" + item.name + "</td><td class=''>Php&nbsp;";
 
-				 cartEntry += (item.price * (1 - item.discount / 100)).toFixed(2).replace(/./g, function(c, i, a) {
-	 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
-	 			});
+				 cartEntry += $.number((item.price * (1 - item.discount / 100)), 2);
 
 				cartEntry += "</td><td class='' style='text-align:  center;'>";
 
@@ -365,83 +367,115 @@ function LoadCartItems(){
 				 $("#cartItemsContainer").append(cartEntry);
 			});
 
-			CalculateSubtotalFee(dimWeight);
-		},
-		error: function(result) {
+			$.ajax({
+				type: "POST",
+				url: "Ajax/LoadCartAggregates.php",
+				dataType: "json",
+				data: {
+					"customerId" : customerId
+				},
+				success: function(result){
+					result.forEach(function(item){
+						subtotalFee += parseFloat(item.subtotal);
+						subtotalFee += (subtotalFee * (commission / 100));
+						shippingFee += GetShippingFee(parseFloat(item.totalWeight));
+					});
 
-		}
-	});
-}
+					totalFee = subtotalFee + shippingFee;
 
-function CalculateSubtotalFee(dimWeight){
-	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+					$("#subtotalFeeText").attr("value", subtotalFee);
+					$("#inputSubtotalFee").val(subtotalFee);
+					$("#subtotalFeeText").text("Php " + $.number(subtotalFee, 2));
 
-	$.ajax({
-		type: "POST",
-		url: "Ajax/GetSubtotalCartPrice.php",
-		dataType: "json",
-		data: {
-			"customerId" : customerId
-		},
-		success: function(result) {
-			var subtotal = parseFloat(result[0].total);
-			var tax = 7;	// 7 %
+					$("#shippingFeeText").attr("value", shippingFee);
+					$("#inputShippingFee").val(shippingFee);
+					$("#shippingFeeText").text("Php " + $.number(shippingFee, 2));
 
-			$("#subtotalFeeText").attr("value", (subtotal + subtotal * (tax / 100)));
-			$("#inputSubtotalFee").val(subtotal);
+					$("#inputTotalFee").val(totalFee);
+					$("#totalFeeText").text("Php " + $.number(totalFee, 2));
+				},
+				error: function(result){
 
-			subtotal = (subtotal + subtotal * (tax / 100)).toFixed(2).replace(/./g, function(c, i, a) {
-			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+				}
 			});
 
-			$("#subtotalFeeText").text("Php " + subtotal);
-			CalculateShippingFee(dimWeight);
+			//CalculateSubtotalFee(dimWeight);
 		},
 		error: function(result) {
-			$("#subtotalFeeText").attr("value", 0);
-			$("#subtotalFeeText").text("Php 0");
-			CalculateShippingFee(dimWeight);
+
 		}
 	});
 }
 
-function CalculateShippingFee(totalWeight){
-	$.ajax({
-		type: "POST",
-		url: "Ajax/CalculateShippingFee.php",
-		data: {
-			"dimWeight" : totalWeight
-		},
-		success: function(result) {
-			$("#shippingFeeText").attr("value", result);
-			$("#inputShippingFee").val(result);
-
-			var shippingFee = parseFloat(result).toFixed(2).replace(/./g, function(c, i, a) {
-			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
-			});
-
-			$("#shippingFeeText").text("Php " + shippingFee);
-			CalculateTotalFee();
-		},
-		error: function(result) {
-			$("#shippingFeeText").attr("value", 0);
-			$("#shippingFeeText").text("Php 0");
-			CalculateTotalFee();
-		}
-	});
-}
-
-function CalculateTotalFee(){
-	var subtotalFee = parseFloat($("#subtotalFeeText").attr("value"));
-	var shippingFee = parseFloat($("#shippingFeeText").attr("value"));
-
-	$("#inputTotalFee").val(subtotalFee + shippingFee);
-
-	var totalFee = (subtotalFee + shippingFee).toFixed(2).replace(/./g, function(c, i, a) {
-			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
-	});
-	$("#totalFeeText").text("Php " + totalFee);
-}
+// function CalculateSubtotalFee(dimWeight){
+// 	var customerId = "<?php echo $_SESSION['customerId']; ?>";
+//
+// 	$.ajax({
+// 		type: "POST",
+// 		url: "Ajax/GetSubtotalCartPrice.php",
+// 		dataType: "json",
+// 		data: {
+// 			"customerId" : customerId
+// 		},
+// 		success: function(result) {
+// 			var subtotal = parseFloat(result[0].total);
+// 			var tax = 7;	// 7 %
+//
+// 			$("#subtotalFeeText").attr("value", (subtotal + subtotal * (tax / 100)));
+// 			$("#inputSubtotalFee").val(subtotal);
+//
+// 			subtotal = (subtotal + subtotal * (tax / 100)).toFixed(2).replace(/./g, function(c, i, a) {
+// 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+// 			});
+//
+// 			$("#subtotalFeeText").text("Php " + subtotal);
+// 			CalculateShippingFee(dimWeight);
+// 		},
+// 		error: function(result) {
+// 			$("#subtotalFeeText").attr("value", 0);
+// 			$("#subtotalFeeText").text("Php 0");
+// 			CalculateShippingFee(dimWeight);
+// 		}
+// 	});
+// }
+//
+// function CalculateShippingFee(totalWeight){
+// 	$.ajax({
+// 		type: "POST",
+// 		url: "Ajax/CalculateShippingFee.php",
+// 		data: {
+// 			"dimWeight" : totalWeight
+// 		},
+// 		success: function(result) {
+// 			$("#shippingFeeText").attr("value", result);
+// 			$("#inputShippingFee").val(result);
+//
+// 			var shippingFee = parseFloat(result).toFixed(2).replace(/./g, function(c, i, a) {
+// 			    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+// 			});
+//
+// 			$("#shippingFeeText").text("Php " + shippingFee);
+// 			CalculateTotalFee();
+// 		},
+// 		error: function(result) {
+// 			$("#shippingFeeText").attr("value", 0);
+// 			$("#shippingFeeText").text("Php 0");
+// 			CalculateTotalFee();
+// 		}
+// 	});
+// }
+//
+// function CalculateTotalFee(){
+// 	var subtotalFee = parseFloat($("#subtotalFeeText").attr("value"));
+// 	var shippingFee = parseFloat($("#shippingFeeText").attr("value"));
+//
+// 	$("#inputTotalFee").val(subtotalFee + shippingFee);
+//
+// 	var totalFee = (subtotalFee + shippingFee).toFixed(2).replace(/./g, function(c, i, a) {
+// 			return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+// 	});
+// 	$("#totalFeeText").text("Php " + totalFee);
+// }
 
 function AddToWishlist(customerId, furnitureId, div){
 	$.ajax({
@@ -479,6 +513,154 @@ function RemoveFromCart(furnitureId){
 
 		}
 	});
+}
+
+function GetShippingFee(dimWeight){
+	var feeTable = new Array(32);
+
+	feeTable[0] = new Array(2);
+	feeTable[0][0] = 0.5;
+	feeTable[0][1] = 66.08;
+
+	feeTable[1] = new Array(2);
+	feeTable[1][0] = 1;
+	feeTable[1][1] = 78.40;
+
+	feeTable[2] = new Array(2);
+	feeTable[2][0] = 2;
+	feeTable[2][1] = 112;
+
+	feeTable[3] = new Array(2);
+	feeTable[3][0] = 3;
+	feeTable[3][1] = 140;
+
+	feeTable[4] = new Array(2);
+	feeTable[4][0] = 4;
+	feeTable[4][1] = 168;
+
+	feeTable[5] = new Array(2);
+	feeTable[5][0] = 5;
+	feeTable[5][1] = 196;
+
+	feeTable[6] = new Array(2);
+	feeTable[6][0] = 6;
+	feeTable[6][1] = 218.40;
+
+	feeTable[7] = new Array(2);
+	feeTable[7][0] = 7;
+	feeTable[7][1] = 240.80;
+
+	feeTable[8] = new Array(2);
+	feeTable[8][0] = 8;
+	feeTable[8][1] = 263.20;
+
+	feeTable[9] = new Array(2);
+	feeTable[9][0] = 9;
+	feeTable[9][1] = 285.60;
+
+	feeTable[10] = new Array(2);
+	feeTable[10][0] = 10;
+	feeTable[10][1] = 308;
+
+	feeTable[11] = new Array(2);
+	feeTable[11][0] = 11;
+	feeTable[11][1] = 319.20;
+
+	feeTable[12] = new Array(2);
+	feeTable[12][0] = 12;
+	feeTable[12][1] = 330.40;
+
+	feeTable[13] = new Array(2);
+	feeTable[13][0] = 13;
+	feeTable[13][1] = 341.60;
+
+	feeTable[14] = new Array(2);
+	feeTable[14][0] = 14;
+	feeTable[14][1] = 352.80;
+
+	feeTable[15] = new Array(2);
+	feeTable[15][0] = 15;
+	feeTable[15][1] = 364;
+
+	feeTable[16] = new Array(2);
+	feeTable[16][0] = 16;
+	feeTable[16][1] = 375.20;
+
+	feeTable[17] = new Array(2);
+	feeTable[17][0] = 17;
+	feeTable[17][1] = 386.40;
+
+	feeTable[18] = new Array(2);
+	feeTable[18][0] = 18;
+	feeTable[18][1] = 397.60;
+
+	feeTable[19] = new Array(2);
+	feeTable[19][0] = 19;
+	feeTable[19][1] = 408.80;
+
+	feeTable[20] = new Array(2);
+	feeTable[20][0] = 20;
+	feeTable[20][1] = 420;
+
+	feeTable[21] = new Array(2);
+	feeTable[21][0] = 21;
+	feeTable[21][1] = 431.20;
+
+	feeTable[22] = new Array(2);
+	feeTable[22][0] = 22;
+	feeTable[22][1] = 442.40;
+
+	feeTable[23] = new Array(2);
+	feeTable[23][0] = 23;
+	feeTable[23][1] = 453.60;
+
+	feeTable[24] = new Array(2);
+	feeTable[24][0] = 24;
+	feeTable[24][1] = 464.80;
+
+	feeTable[25] = new Array(2);
+	feeTable[25][0] = 25;
+	feeTable[25][1] = 476;
+
+	feeTable[26] = new Array(2);
+	feeTable[26][0] = 26;
+	feeTable[26][1] = 487.20;
+
+	feeTable[27] = new Array(2);
+	feeTable[27][0] = 27;
+	feeTable[27][1] = 498.40;
+
+	feeTable[28] = new Array(2);
+	feeTable[28][0] = 28;
+	feeTable[28][1] = 509.60;
+
+	feeTable[29] = new Array(2);
+	feeTable[29][0] = 29;
+	feeTable[29][1] = 520.80;
+
+	feeTable[30] = new Array(2);
+	feeTable[30][0] = 30;
+	feeTable[30][1] = 532;
+
+	feeTable[31] = new Array(2);
+	feeTable[31][0] = 31;
+	feeTable[31][1] = 560;
+
+	if(dimWeight == 0){
+		return 0;
+	}
+
+	if(dimWeight <= feeTable[0][0]){
+		return feeTable[0][1];
+	}
+
+	for(var i = 0; i < 32; i++){
+		if(feeTable[i][0] >= dimWeight){
+			return feeTable[i][1];
+		}
+	}
+
+	return feeTable[31][1];
 }
 </script>
 

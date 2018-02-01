@@ -916,7 +916,7 @@
 $(document).ready(function(){
 	$(".addToCartButton").on("click", function(e){
 		e.preventDefault();
-		var id = "<?php echo $_POST['furnitureId']; ?>";
+		var id = "<?php echo $_GET['singleFurnitureId']; ?>";
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
 	});
