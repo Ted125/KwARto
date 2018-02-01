@@ -175,9 +175,8 @@
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Users</h3>
                     </div>
-                    <div class="card-body">
-                      <canvas id="lineChartExample"></canvas>
-                    </div>
+                      <div id="chart_div" style="width: 100%; height: 500px;"></div>
+                      <div id="chart_div_2" style="width: 100%; height: 500px;"></div>
                   </div>
                 </div>
 
@@ -243,8 +242,49 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-custom.js"></script>
+    <!-- s<script src="js/charts-custom.js"></script> -->
     <!-- Main File-->
     <script src="js/front.js"></script>
-  </body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Sellers'],
+          <?php
+              require("Controllers/RetrieveNewSellerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Sellers',
+          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+        function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Customers'],
+          <?php
+              require("Controllers/RetrieveNewCustomerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Customers',
+          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+        chart.draw(data, options);
+      }
+    </script>
 </html>
