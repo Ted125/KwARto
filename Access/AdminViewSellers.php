@@ -13,30 +13,30 @@
   <td>
   <?php
   if(strcmp($row['userStatus'], 'banned') == 0){
-                                echo 
-                                '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
-                                <!-- Modal-->
-                                <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-                                  <div role="document" class="modal-dialog">  
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-                                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <p>Are you sure you want to unban this user?</p>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                        <form  method = "post" action = "Controllers/ActivateUser.php">
-                                        <input type = "hidden" name = "userId" value = '.$row['userId'].' />
-                                        <input type = "submit" class="btn btn-primary" value = "Yes"/>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>';
-                              }else{
+    echo 
+    '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
+    <!-- Modal-->
+    <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+      <div role="document" class="modal-dialog">  
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to unban this user?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            <form  method = "post" action = "Controllers/ActivateUser.php">
+            <input type = "hidden" name = "userId" value = '.$row['userId'].' />
+            <input type = "submit" class="btn btn-primary" value = "Yes"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>';
+  }else{
     echo 
     '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Ban</button>
     <!-- Modal-->
@@ -54,6 +54,7 @@
           <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
           <form  method = "post" action = "Controllers/DeactivateUser.php">
           <input type = "hidden" name ="userId" value = "'.$row['userId'].'" />
+          <input type = "hidden" name = "userType" value = '.$row['userType'].' />
           <input type = "submit" class="btn btn-primary" value = "Yes"/>
           </form>
           </div>

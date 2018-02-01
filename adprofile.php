@@ -153,7 +153,7 @@
 										    </label>
 										   </div>
                       </div>
-                      <form class="form-horizontal col-lg-8">
+                      <form class="form-horizontal col-lg-8" action = >
                         
                         <div class="line"></div>
 
@@ -203,13 +203,13 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Change Password</label>
                           <div class="col-sm-9">
-                            <input id = "password" type="password" placeholder="********" class="form-control">
+                            <input id = "password" type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input id = "confirm_password"type="password" placeholder="********" class="form-control">
+                            <input id = "confirm_password"type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
                             <span id = "message"></span>
                           </div>
                         </div>
