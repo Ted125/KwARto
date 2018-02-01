@@ -48,6 +48,38 @@
         return $result;
     }
 
+    public function updateSellerMult(){
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION)){
+            if(!strcmp($this->getUserType(),'customer') == 0){
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $create = "UPDATE seller
+                                INNER JOIN user_details ON seller.userId = user_details.userId
+                                SET  name = '".$_POST['updateName']."',
+                                    description = '".$_POST['updateDesc']."',
+                                    mobileNumber = '".$_POST['updateMobile']."'
+                                
+                                WHERE seller.userId = '".$this->getUserId()."'
+                               ";
+                    $result = mysqli_query($connection, $create);
+                    mysqli_close($connection);
+                    echo "test";
+                    return $result;
+                }else{
+                    echo 'no db connection';
+                }
+            }else{
+                echo 'customers are not allowed to update sellers';
+            }
+        }else{
+            echo 'no session';
+        }
+        return null;
+    }
+
     public function updateSeller($field, $newData){
         $this->setUserType($_SESSION['userType']);
         $this->setUserId($_SESSION['userId']);

@@ -14,13 +14,11 @@ if (move_uploaded_file($_FILES['newData']['tmp_name'], $uploadfile)) {
 
   $_POST['newData'] = $_SESSION['userId'] . $fileExtension;
 
-  echo "FIELD: ".$_POST['field'];
   echo "NEWDATA: ".$_POST['newData']; 
   require_once("../Models/userDetails.php");
 
   $user = new user_details();
-  $verify = $user->updateUser($_POST['field'], $_POST['newData']);
-  $_SESSION[$_POST['field']] = $_POST['newData'];
+  $verifyImage = $user->updateUser('image', $_POST['newData']);
 
   $_SESSION['image'] = $_POST['newData'];
 

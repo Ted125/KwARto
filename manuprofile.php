@@ -156,6 +156,16 @@
                 <!-- General Information -->
                 <div class="col-lg-12">
                   <div class="card">
+                    <?php
+                        if(isset($_GET['error'])){
+                          echo '<div class="card-header d-flex align-items-center">';
+                          switch($_GET['error']){
+                            case '1': echo "<label class='col-sm-12 text text-danger'>Fields does not match. Try again.</label>"; break;
+                            default : echo "<label class='col-sm-12 text text-danger'>Something went wrong. Try again.</label>"; 
+                          }
+                          echo '</div>';
+                        }
+                      ?>
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Account Information</h3>
                     </div>
@@ -169,31 +179,32 @@
                       }
                       ?>" width = 200px height = 200px>
                       <br>
+                        
+                      </div>
+                      <!-- For seller info -->
+                      <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/UpdateSellerMult.php" method="POST">
                         <div id="upload_button">
                           <label>
-                            <input type="file" onchange="readURL(this)" name="image" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                            <input type="file" onchange="readURL(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
                             <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
                           </label>
                         </div>
-                      </div>
-                      <!-- For seller info -->
-                      <form class="form-horizontal col-lg-8" action="#" method="POST">
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Company Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value="<?php echo $_SESSION['name'];?>" >
+                            <input type="text" class="form-control" value="<?php echo $_SESSION['name'];?>" name="updateName">
                           </div>
                         </div>
                         <div class="form-group row">       
                           <label class="col-sm-3 form-control-label">Description</label>
                           <div class="col-sm-9">
-                            <textarea type="text" class="form-control" value="" /><?php echo $_SESSION['description'];?></textarea>
+                            <textarea type="text" class="form-control" value="" name="updateDesc"><?php echo $_SESSION['description'];?></textarea>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value=<?php echo $_SESSION['mobileNumber'];?> >
+                            <input type="text" class="form-control" value="<?php echo $_SESSION['mobileNumber'];?>" name="updateMobile">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -222,14 +233,7 @@
                       </form>
                       
                       <div class="line"></div> 
-                      <?php
-                        if(isset($_GET['error'])){
-                          switch($_GET['error']){
-                            case '1': echo "<label class='col-sm-12 text text-danger'>Fields does not match. Try again.</label>"; break;
-                            default : echo "<label class='col-sm-12 text text-danger'>Something went wrong. Try again.</label>"; 
-                          }
-                        }
-                      ?>
+
                       <!-- For Email address --> 
                       <form class="form-horizontal col-lg-8" action="Controllers/UpdateSeller.php" method="POST">
                         <div class="form-group row">
