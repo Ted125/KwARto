@@ -12,6 +12,7 @@
   } else {
     echo "Cannot update";
     header('Location: ../profile.php?error=1');
+    die();
   }
 
   if($verify == true){
