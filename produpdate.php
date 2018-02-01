@@ -196,29 +196,29 @@
                       </div>
                   </div>
 
-                  <form role="form" class="col-lg-12" action="Controllers/SellerUpdateFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
+                  <form role="form" class="col-lg-12" action="Controllers/UpdateFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
                   <div class="row setup-content-2" id="step-4">
                   <div class="col-lg-12">
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
                       <div class="form-group">
                       <label>Product Name</label>
-                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName" value="<?php echo $_POST['updateName']?>" required>
+                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="updateName" value="<?php echo $_POST['updateName']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc" required><?php echo $_POST['updateDesc']?></textarea>
+                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="updateDesc" required><?php echo $_POST['updateDesc']?></textarea>
                       </div>
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName" value="<?php echo $_POST['updateModelName']?>" required>
+                        <input type="text" placeholder="" class="form-control" id="modelName" name="updateModelName" value="<?php echo $_POST['updateModelName']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Color</label>
-                        <input type="text" class="form-control" name="newColor" value="<?php echo $_POST['updateColor']?>" required>
+                        <input type="text" class="form-control" name="updateColor" value="<?php echo $_POST['updateColor']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
-                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight" value="<?php echo $_POST['updateWeight']?>" required>
+                        <input type="text" placeholder="0" class="form-control" id="weight" name="updateWeight" value="<?php echo $_POST['updateWeight']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight Unit</label>
@@ -226,15 +226,15 @@
                       </div>
                       <div class="form-group">       
                         <label>Length</label>
-                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength" value="<?php echo $_POST['updateLength']?>" required>
+                        <input type="number" placeholder="0" class="form-control" id="length" name="updateLength" value="<?php echo $_POST['updateLength']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Width</label>
-                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth" value="<?php echo $_POST['updateWidth']?>" required>
+                        <input type="number" placeholder="0" class="form-control" id="width" name="updateWidth" value="<?php echo $_POST['updateWidth']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Height</label>
-                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight" value="<?php echo $_POST['updateHeight']?>" required>
+                        <input type="number" placeholder="0" class="form-control" id="height" name="updateHeight" value="<?php echo $_POST['updateHeight']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Size Unit</label>
@@ -242,13 +242,13 @@
                       </div>
                       <div class="form-group">       
                         <label>Warranty ID</label>
-                            <select class="form-control" name="newWar" required>
+                            <select class="form-control">
                               <?php include("Controllers/SellerDisplayAllWarranty.php");?>
                             </select>
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
-                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice" value="<?php echo $_POST['updatePrice']?>" required>
+                        <input type="text" placeholder="0.00" class="form-control" id="price" name="updatePrice" value="<?php echo $_POST['updatePrice']?>" required>
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
@@ -262,15 +262,16 @@
                           </div>
                           <div class="form-group">       
                             <label>Height</label>
-                            <input type="number" placeholder="0" class="form-control" name="newPackageHeight" value="<?php echo $_POST['updatePackageLength']?>">
+                            <input type="hidden" name="furnitureId" value="<?php echo $_POST['furnitureId']?>">
+                            <input type="number" placeholder="0" class="form-control" name="updatePackageHeight" value="<?php echo $_POST['updatePackageHeight']?>">
                           </div>
                           <div class="form-group">       
                             <label>Width</label>
-                            <input type="number" placeholder="0" class="form-control" name="newPackageWidth" value="<?php echo $_POST['updatePackageWidth']?>">
+                            <input type="number" placeholder="0" class="form-control" name="updatePackageWidth" value="<?php echo $_POST['updatePackageWidth']?>">
                           </div>
                           <div class="form-group">       
                             <label>Length</label>
-                            <input type="number" placeholder="0" class="form-control" name="newPackageLength" value="<?php echo $_POST['updatePackageHeight']?>">
+                            <input type="number" placeholder="0" class="form-control" name="updatePackageLength" value="<?php echo $_POST['updatePackageLength']?>">
                           </div>
                           <div class="form-group">       
                             <label>Size Unit</label>
@@ -295,7 +296,7 @@
                           <h3 class="font-bold pl-0 my-4"><strong>Category Selection</strong></h3>
                           <div class="form-group">       
                             <label>Category</label>
-                            <select class="form-control" name="newCategoryId">
+                            <select class="form-control" name="updateCategoryId">
                               <?php include("Controllers/SellerDisplayAllCategory.php");?>
                             </select>
                           </div>
