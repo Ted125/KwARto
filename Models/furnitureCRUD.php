@@ -268,6 +268,44 @@ class furniture{
         return $result;
     }
 
+    public function updateFurniture($furnitureId){
+        require("Database.php");
+        if(isset($_SESSION['userType']) && strcmp($_SESSION['userType'],'seller') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+                $this->setFurnitureId($furnitureId);
+                $create = "UPDATE furniture
+                           SET  name = '".$_POST['updateName']."', 
+                                description = '".$_POST['updateDesc']."', 
+                                modelName = '".$_POST['updateModelName']."',
+                                color = '".$_POST['updateColor']."',
+                                weight = '".$_POST['updateWeight']."',
+                                length = '".$_POST['updateLength']."',
+                                width = '".$_POST['updateWidth']."',
+                                height = '".$_POST['updateHeight']."',
+                                packageLength = '".$_POST['updatePackageLength']."',
+                                packageWidth = '".$_POST['updatePackageWidth']."',
+                                packageHeight = '".$_POST['updatePackageHeight']."',
+                                price = '".$_POST['updatePrice']."',
+                                categoryId = '".$_POST['updateCategoryId']."'
+                           WHERE furniture.furnitureId = ".$this->getFurnitureId()."
+                           ";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'invalid user';
+            return null;
+        }
+    }
+
     public function activateFurniture($furnitureId){
         require("Database.php");
         if(isset($_SESSION['userType'])){
