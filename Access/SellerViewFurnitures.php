@@ -112,7 +112,25 @@
     </div> -->
     
     <!-- button for edit -->
-    <a href="produpdate.php"><button type="button" title="Update Product"  style="margin-right: 3px;" class="btn btn-primary fa fa-edit"></button></a>
+    <form role="form" action="produpdate.php" method="POST">
+      <input type="hidden" name="furnitureId" value="<?php echo $row['furnitureId'];?>"/>
+      <input type="hidden" name="updateName" value="<?php echo $row['furnitureName'];?>"/>
+      <input type="hidden" name="updateDesc" value="<?php echo $row['furnitureDesc'];?>"/>
+      <input type="hidden" name="updateModelName" value="<?php echo $row['modelName'];?>"/>
+      <input type="hidden" name="updateColor" value="<?php echo $row['color'];?>"/>
+      <input type="hidden" name="updateWeight" value="<?php echo $row['weight'];?>"/>
+      <input type="hidden" name="updateWeightUnit" value="<?php echo $row['weightUnit'];?>"/>
+      <input type="hidden" name="updateLength" value="<?php echo $row['length'];?>"/>
+      <input type="hidden" name="updateWidth" value="<?php echo $row['width'];?>"/>
+      <input type="hidden" name="updateHeight" value="<?php echo $row['height'];?>"/>
+      <input type="hidden" name="updateSizeUnit" value="<?php echo $row['sizeUnit'];?>"/>
+      <input type="hidden" name="updatePrice" value="<?php echo $row['price'];?>"/>
+      <input type="hidden" name="updatePackageLength" value="<?php echo $row['packageLength'];?>"/>
+      <input type="hidden" name="updatePackageWidth" value="<?php echo $row['packageWidth'];?>"/>
+      <input type="hidden" name="updatePackageHeight" value="<?php echo $row['packageHeight'];?>"/>
+      <input type="hidden" name="updatePackageSizeUnit" value="<?php echo $row['packageSizeUnit'];?>"/>
+      <button type="submit" title="Update Product"  style="margin-right: 3px;" class="btn btn-primary fa fa-edit"></button>
+    </form>
     
     <!-- Button for Restock Furnitures -->
     <button type="button" title="Restock Product"  style="margin-right: 3px;" data-toggle="modal" data-target="<?php echo "#restockModal".$count;?>" class="btn btn-primary fa fa-plus"></button>
