@@ -67,7 +67,9 @@
 		<div class="row">
 			<br>
 			<h4 style="position: absolute; left: 0px;"><i class="fa fa-gift"></i> Package <span style="color: #d42d2d;"><?php echo $i; ?></span></h4>
-			<h4 style="position: absolute; right: 0px;">Sold by: <span style="color: #d42d2d;">Manufacturer Inc.</span></h4>
+			<h4 style="position: absolute; right: 0px;">Sold by: <span style="color: #d42d2d;">
+				<?php echo $row["sellerName"]; ?>
+			</span></h4>
 		</div>
 		<br>
 		<br>

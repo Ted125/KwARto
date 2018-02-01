@@ -593,9 +593,11 @@
 			},
 			success: function(result){
 				console.log("Successfully added order!");
+				window.location.replace("complete.php");
 			},
 			error: function(result){
 				console.log(result.responseText);
+				window.location.replace("complete.php");
 			}
 		});
 	}

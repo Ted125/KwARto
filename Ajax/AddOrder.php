@@ -59,7 +59,7 @@
       }
 
 
-      header("Location: ../complete.php");
+      // header("Location: ../complete.php");
     }
   }
 ?>
