@@ -2,10 +2,11 @@
 <?php
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
-      header("Location:manuindex.php");
+      header("Location:index.php");
   }
 ?>
- <head>
+<html>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>kwARto 2018</title>
@@ -22,7 +23,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <link rel="icon" href="images/icon.png">
+ 
+    <!-- Web Icon -->
+    <link rel="shortcut icon" href="images/icon.png">
    
   </head>
   <body>
@@ -62,8 +65,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="
-            <?php
+            <div class="avatar"><img src="<?php
               if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
                 echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
               }else{
@@ -83,7 +85,7 @@
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <!-- <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li> -->
                     <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li> 
-                    <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
+                    <!-- <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li> -->
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
@@ -96,74 +98,130 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Admin Dashboard</h2>
+              <h2 class="no-margin-bottom">Reports</h2>
             </div>
           </header>
-          <!-- Dashboard Counts Section-->
-          
-          <!-- Dashboard Header Section    -->
-          <section class="dashboard-header" style="background-color: #faf6f6">
+          <!-- Breadcrumb-->
+          <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="admindex.php">Home</a></li>
+              <li class="breadcrumb-item active">Reports </li>
+            </ul>
+          </div>
+          <!-- Charts Section-->
+          <section class="charts" style="background-color: #faf6f6">
+
+            <section class="dashboard-counts no-padding-bottom" style="padding-top: 0px;">
             <div class="container-fluid">
-              <div class="row">
-                
-                <!-- Line Chart -->
-                <div class="chart col-lg-8 col-12">
-                  <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
-                    <canvas id="lineCahrt"></canvas>
+              <div class="row bg-white has-shadow">
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                    <div class="title"><span>New<br>Users</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminNewCustReports.php')?>%; height: 4px;" aria-valuenow="<?php include('Controllers/AdminNewCustReports.php')?>  " aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong><?php include('Controllers/AdminNewCustReports.php')?></strong></div>
                   </div>
                 </div>
-                <div class="chart col-lg-4 col-12">
-                  <!-- Bar Chart   -->
-                  <div class="bar-chart has-shadow bg-white">
-                    <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
-                    <canvas id="barChartHome"></canvas>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-red"><i class="icon-check"></i></div>
+                    <div class="title"><span>Pending<br>Transactions</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminPendTranReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong><?php include('Controllers/AdminPendTranReports.php')?></strong></div>
                   </div>
-                  <!-- Numbers-->
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-green"><i class="icon-bill"></i></div>
+                    <div class="title"><span>Added<br>Manufacturers</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminNewManuReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong><?php include('Controllers/AdminNewManuReports.php')?></strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-orange"><i class="icon-padnote"></i></div>
+                    <div class="title"><span>Pending<br>Manufacturers</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: <?php include('Controllers/AdminPendManuReports.php')?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong><?php include('Controllers/AdminPendManuReports.php')?></strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <br>
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Line Charts-->
+                <div class="col-lg-8">
+                  <div class="line-chart-example card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Registered Users</h3>
+                    </div>
+                      <div id="chart_div" style="width: 100%; height: 250px;"></div>
+                      <div id="chart_div_2" style="width: 100%; height: 250px;"></div>
+                  </div>
+                </div>
+
+                <div class="statistics col-lg-4 col-12">
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
-                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
-                    <div class="text"><strong>99.9%</strong><br><small>Uptime Success Rate</small></div>
+                    <div class="icon bg-red"><i class="fa fa-bed"></i></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalProdReports.php')?></strong><br><small>Added Products</small></div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- Projects Section-->
-          
-          <!-- Client Section-->
-          <section class="client no-padding-top">
-            <div class="container-fluid">
-              <div class="row">
-                <!-- Work Amount  -->
-                <div class="col-lg-6">
-                  <div class="work-amount card">
-                    <div class="card-body">
-                      <h3>Average Demographic</h3><small>Average number of hours users spend on the website according to age group</small>
-                      <div class="chart text-center">
-                        <div class="text"><strong>2</strong><br><span>Hours</span></div>
-                        <canvas id="pieChart"></canvas>
-                      </div>
-                    </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-rub"></i></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalComTranReports.php')?></strong><br><small>Completed Transactions</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-orange"><i class="fa fa-mail-reply"></i></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalCanTranReports.php')?></strong><br><small>Product Returns</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
+                    <div class="text"><strong><?php include('Controllers/AdminTotalReviewsReports.php')?></strong><br><small>User Reviews</small></div>
                   </div>
                 </div>
                 
-                <!-- Total Sales -->
                 <div class="col-lg-6">
-                  <div class="overdue card">
+                  <div class="line-chart-example card no-margin-bottom">
+                    
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Top Selling Manufacturers</h3>
+                    </div>
                     <div class="card-body">
-                      <h3>Total Sales</h3><small>Total commission from ads and general store revenue.</small>
-                      <div class="number text-center">P20,320</div>
-                      <div class="chart">
-                        <canvas id="lineChart1"></canvas>
-                      </div>
+                      <div id="top_x_div" style="width: 100%; height: 157px;"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="col-lg-6">
+                  <div class="line-chart-example card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Top Selling Products</h3>
+                    </div>
+                    <div class="card-body">
+                      <div id="top_x_div_2" style="width: 100%; height: 157px;"></div>
+                    </div>
+                  </div>
+                </div> 
           </section>
-          
           <!-- Page Footer-->
-         <footer class="main-footer">
+          <footer class="main-footer">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-lg-12 text-right">
@@ -183,8 +241,98 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
+    <!-- s<script src="js/charts-custom.js"></script> -->
     <!-- Main File-->
     <script src="js/front.js"></script>
-  </body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+      google.charts.setOnLoadCallback(drawStuff1);
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Sellers'],
+          <?php
+              require("Controllers/RetrieveNewSellerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Sellers',
+          hAxis: {titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+        function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Customers'],
+          <?php
+              require("Controllers/RetrieveNewCustomerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Customers',
+          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+        chart.draw(data, options);
+      }
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Manufacturers', 'Furniture Sold'],
+          <?php require("Controllers/RetrieveTopSellingManufacturers.php")?>
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Total amount sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+  
+      function drawStuff1() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Furniture', 'Furniture Sold'],
+          <?php require("Controllers/RetrieveTopSellingProducts.php")?>
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Stock sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" },
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div_2'));
+        chart.draw(data, options);
+      };
+
+    </script>
 </html>
