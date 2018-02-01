@@ -7,7 +7,7 @@
   if($connection){
     $furnitureId = $_POST["furnitureId"];
 
-    $query = "SELECT * FROM furniture WHERE furnitureId = " . $furnitureId;
+    $query = "SELECT f.*, s.name AS sellerName FROM furniture AS f JOIN seller AS s ON f.sellerId = s.sellerId WHERE f.furnitureId = " . $furnitureId;
     $furnitureDetailsResult = mysqli_query($connection, $query);
   }
 ?>
