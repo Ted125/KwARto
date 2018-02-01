@@ -92,7 +92,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -140,12 +140,12 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img id = "profilepic"src="<?php
-              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
-                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
-              }else{
-                echo 'Resources/Images/User/default/defaultadmin.png';
-              }
-            ?>"><br>
+                        if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                          echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                        }else{
+                          echo 'Resources/Images/User/default/defaultadmin.png';
+                        }
+                      ?>"><br>
                         <div id="upload_button">
 										    <label>
 										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
