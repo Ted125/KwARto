@@ -297,7 +297,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
-					<div class="deal_ofthe_week_img">
+					<div class="deal_ofthe_week_img" style="display: flex; align-items: center; background-color: white; ">
 						<?php
 							$_POST["furnitureId"] = $row["furnitureId"];
 
@@ -306,7 +306,7 @@
 							if($thumbnailResult != null){
 								$r = mysqli_fetch_assoc($thumbnailResult);
 						?>
-						<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="">
+						<img style="max-width: 540px; height: auto;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="">
 						<?php
 							}
 						?>
