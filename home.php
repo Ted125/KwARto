@@ -124,7 +124,7 @@
 					</div>
 				</div>
 			
-				<a href="#" style=""><button class="profile-btn" style="width: 30%; color: white; left: 9%; border-radius: 8px;"><h6 style="margin-bottom: 0px; color: white; padding: 10px;">Download the App</h6></button></a>
+				<a href="download.php" style=""><button class="profile-btn" style="width: 30%; color: white; left: 9%; border-radius: 8px;"><h6 style="margin-bottom: 0px; color: white; padding: 10px;">Download the App</h6></button></a>
 			</div>
 			<br>
 			<div class="clearfix"> </div>	
