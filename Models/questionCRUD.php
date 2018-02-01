@@ -55,6 +55,27 @@
         return $result;
     }
 
+    public function displayTotalSellerQuestions($sellerId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query ="SELECT COUNT(*) AS questions FROM question 
+                    INNER JOIN furniture ON question.furnitureId = furniture.furnitureId
+                    INNER JOIN seller ON furniture.sellerId = seller.sellerId
+                    WHERE seller.sellerId = ".$sellerId."
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
     /************ SETTERS AND GETTERS ************/
         
     public function getQuestionId(){
