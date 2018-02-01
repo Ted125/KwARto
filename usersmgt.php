@@ -58,8 +58,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
@@ -82,7 +81,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -122,12 +121,12 @@
                 
                 <div class="col-lg-12">
                   <div class="card">
-                    <div class="card-header d-flex align-items-center">
+                    <div class="card-header d-flex ">
                       <h3 class="h4">Pending Manufacturers List</h3>
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
-                      <table class="table table-striped table-hover text-center">
+                      <table class="table table-striped table-hover text-left">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -206,7 +205,7 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  <div class="modal-body">
+                                  <div class="modal-body">  
                                     <div class="row">
                                       <div class="col-5">
                                           <img src="Resources/Images/User/'.$appRow['userId'].'/'.$appRow['image'].'" id = "pendingpics" alt = "">
@@ -220,7 +219,6 @@
                                          <div class="row" style="padding-left: 20px;"><h5>E-Mail Address: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['email'].'</h5></h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Mobile Number: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['mobileNumber'].'</h5></h5></div>
                                          <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['dateAdded'].'</h5></h5></div>
-                                         <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['addedBy'].'</h5></h5></div>
                                       </div>
                                     </div>
                                   </div>
@@ -248,7 +246,7 @@
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
-                      <table class="table table-striped table-hover text-center">
+                      <table class="table table-striped table-hover">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -347,7 +345,7 @@
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-5">
-                                          <img src="Resources/Images/User/'.$row['userId'].'/'.$row['image'].'" id = "userpics" width = "200px" height = "200px">
+                                          <img src="Resources/Images/User/'.$row['userId'].'/'.$row['image'].'" id = "userpics" width = "200px" height = "200px" alt ="">
                                       </div>
                                       <div class="col-7">
                                          <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;">'.$row['userId'].'</h5>  </h5></div>

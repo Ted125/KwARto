@@ -14,8 +14,8 @@
                   <ul class="navbar_menu">
                     <li>
                       <div class="search-container">
-                        <form action="/action_page.php">
-                          <input type="text" placeholder="What are you looking for?" name="search" style="border: 0; outline: 0; background: transparent; border-bottom: 1px solid #d42d2d; color: #d42d2d; width:300px; font-size: 1em; padding:10px 10px 0px 10px;">
+                        <form action="categories.php" method = "POST">
+                          <input type="text" placeholder="What are you looking for?" name="name" style="border: 0; outline: 0; background: transparent; border-bottom: 1px solid #d42d2d; color: #d42d2d; width:300px; font-size: 1em; padding:10px 10px 0px 10px;">
                           <button style="padding: 10px 15px 10px 15px;border: none;background: none;" type="submit"><i class="fa fa-search" style="font-size: 1em;"></i></button>
                         </form>
                      </div>
@@ -41,14 +41,14 @@
 
                               <li class="nav-item dropdown">
 
-                              <a href = "profile.php"><img height="35" width="35" src="'; 
-                              
+                              <a href = "profile.php"><img height="35" width="35" src="';
+
                               if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
                                 echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
                               }else{
                                 echo 'Resources/Images/User/default/default.png';
                               }
-                              
+
                               echo '"></img></a>
 
                               <ul aria-labelledby="notifications" class="dropdown-menu">

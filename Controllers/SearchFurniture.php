@@ -42,6 +42,8 @@
               WHERE node.lft
               BETWEEN parent.lft
               AND parent.rgt
+              AND f.live = 1
+              AND f.status = 1
               AND parent.categoryId = " . $categoryId;
 
       if($sellerId != -1){

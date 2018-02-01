@@ -50,10 +50,10 @@
                     <input id="login" type="submit" class="btn btn-primary" value="Login">
                   </form><a href="loginnew.php" class="forgot-pass">Already have an account?</a><br><small>Do not have an account? </small><a href="registernew.php" class="signup">Signup</a>
                   <br><br>
-                  <div>
+                  <!-- <div>
                     <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
                     <a id="glogin" href="#" style="background-color: #dd4935; border-color: #dd4935" class="btn btn-primary"><i class="fa fa-google-plus"></i> Login with Google</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

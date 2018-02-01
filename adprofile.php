@@ -68,8 +68,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
@@ -92,7 +91,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -140,12 +139,12 @@
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
                         <img id = "profilepic"src="<?php
-              if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
-                echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
-              }else{
-                echo 'Resources/Images/User/default/defaultadmin.png';
-              }
-            ?>"><br>
+                        if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                          echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                        }else{
+                          echo 'Resources/Images/User/default/defaultadmin.png';
+                        }
+                      ?>"><br>
                         <div id="upload_button">
 										    <label>
 										      <input onchange="readURL(this)" type="file" name="MAX_FILE_SIZE" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
@@ -153,7 +152,7 @@
 										    </label>
 										   </div>
                       </div>
-                      <form class="form-horizontal col-lg-8">
+                      <form class="form-horizontal col-lg-8" action = >
                         
                         <div class="line"></div>
 
@@ -203,13 +202,13 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Change Password</label>
                           <div class="col-sm-9">
-                            <input id = "password" type="password" placeholder="********" class="form-control">
+                            <input id = "password" type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input id = "confirm_password"type="password" placeholder="********" class="form-control">
+                            <input id = "confirm_password"type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
                             <span id = "message"></span>
                           </div>
                         </div>

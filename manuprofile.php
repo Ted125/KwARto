@@ -60,8 +60,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                 <!-- Notifications -->
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -108,7 +107,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src ="<?php
+                      if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                        echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
@@ -150,40 +155,92 @@
                 <!-- General Information -->
                 <div class="col-lg-12">
                   <div class="card">
+                    <?php
+                        if(isset($_GET['error'])){
+                          echo '<div class="card-header d-flex align-items-center">';
+                          switch($_GET['error']){
+                            case '1': echo "<label class='col-sm-12 text text-danger'>Fields does not match. Try again.</label>"; break;
+                            default : echo "<label class='col-sm-12 text text-danger'>Something went wrong. Try again.</label>"; 
+                          }
+                          echo '</div>';
+                        }
+                      ?>
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Account Information</h3>
                     </div>
                     <div class="card-body row">
                       <div class="col-lg-4 text-center">
-                        <img src="http://via.placeholder.com/300"><br>
-                        <div id="upload_button">
-                          <label>
-                            <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
-                          </label>
-                        </div>
+                        <img  id="blah" src ="<?php
+                      if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                        echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" width = 200px height = 200px>
+                      <br>
+                        
                       </div>
-                      <form class="form-horizontal col-lg-8">
+                      <!-- For seller info -->
+                      <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/UpdateSellerMult.php" method="POST">
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Change Photo</label>
+                          <div class="col-sm-9">
+                            <div id="upload_button">
+                              <label>
+                                <input type="file" onchange="readURL(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                                <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Company Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value=<?php echo $_SESSION['name'];?> >
+                            <input type="text" class="form-control" value="<?php echo $_SESSION['name'];?>" name="updateName">
                           </div>
                         </div>
                         <div class="form-group row">       
                           <label class="col-sm-3 form-control-label">Description</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="<?php echo $_SESSION['description'];?>" />
+                            <textarea type="text" class="form-control" value="" name="updateDesc"><?php echo $_SESSION['description'];?></textarea>
                           </div>
                         </div>
-                        <div class="line"></div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Mobile Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" value=<?php echo $_SESSION['mobileNumber'];?> >
+                            <input type="text" class="form-control" value="<?php echo $_SESSION['mobileNumber'];?>" name="updateMobile">
                           </div>
                         </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 offset-sm-3">
+                            <button type="button" data-toggle="modal" data-target="#myModalSeller" class="btn btn-primary">Save Changes</button>
+                              <!-- Modal-->
+                              <div id="myModalSeller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to change Company Information?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </form>
+                      
+                      <div class="line"></div> 
 
+                      <!-- For Email address --> 
+                      <form class="form-horizontal col-lg-8" action="Controllers/UpdateSeller.php" method="POST">
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
                           <div class="col-sm-9">
@@ -195,18 +252,45 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">New E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="email@address.com">
+                            <input type="hidden" class="form-control" name="field" value="email">
+                            <input type="email" class="form-control" placeholder="email@address.com" name="newData">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm E-mail Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="email@address.com">
+                            <input id="comEmail" type="email" class="form-control" placeholder="email@address.com" name="comData">
                           </div>
                         </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 offset-sm-3">
+                            <button id="emailBtn" type="button" data-toggle="modal" data-target="#myModalEmail" class="btn btn-primary">Save Changes</button>
+                              <!-- Modal-->
+                              <div id="myModalEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to change Email?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </form>
 
-                        <div class="line"></div>
+                      <div class="line"></div>
+                      <!-- For Password --> 
+                      <form class="form-horizontal col-lg-8" action="Controllers/UpdateSeller.php" method="POST">
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Password</label>
                           <div class="col-sm-9">
@@ -216,24 +300,21 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Change Password</label>
                           <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
+                            <input type="hidden" class="form-control" name="field" value="password">
+                            <input type="text" placeholder="********" class="form-control" name="newData">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input type="text" placeholder="********" class="form-control">
+                            <input type="text" placeholder="********" class="form-control" name="comData">
                           </div>
                         </div>
-                        <div class="line"></div>
-                        
-                        
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
-                            <button type="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Save Changes</button>
+                            <button type="button" data-toggle="modal" data-target="#myModalPassword" class="btn btn-primary">Save Changes</button>
                               <!-- Modal-->
-                              <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                              <div id="myModalPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -241,11 +322,11 @@
                                       <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                                     </div>
                                     <div class="modal-body">
-                                      <p>Are you sure you want to save changes?</p>
+                                      <p>Are you sure you want to change Password?</p>
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
                                     </div>
                                   </div>
                                 </div>
@@ -253,6 +334,8 @@
                           </div>
                         </div>
                       </form>
+                        <div class="line"></div>
+                                         
                     </div>
                   </div>
                 </div>
@@ -281,5 +364,22 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script>
+      //Preview Image
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#blah')
+            .attr('src', e.target.result)
+            .width(200)
+            .height(200);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
   </body>
 </html>

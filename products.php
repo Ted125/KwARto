@@ -52,8 +52,7 @@
 
               </ul>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                 <li class="nav-item"><a href="cprofile.php" class="nav-link">Welcome, Jane!</a></li>
                 <!-- Logout    -->
                 <li class="nav-item"><a href="loginnew.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>

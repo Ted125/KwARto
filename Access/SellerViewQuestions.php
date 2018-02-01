@@ -1,6 +1,12 @@
 <div class="item clearfix">
   <div class="feed d-flex justify-content-between">
-    <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="https://www.shareicon.net/data/512x512/2016/07/05/791212_people_512x512.png" alt="person" class="img-fluid rounded-circle"></a>
+    <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile" style="display: flex;width: 50px;height: 50px;"><img style="width:50px;height: auto;align-items: center;" src="<?php
+                      if(file_exists('Resources/Images/User/'.$row['userId'].'/'.$row['image'].'')) {
+                        echo 'Resources/Images/User/'.$row['userId'].'/'.$row['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" alt="person" class="img-fluid rounded-circle"></a>
       <div class="content">
         <h5><?php echo $row['name'];?></h5><span><?php echo $row['firstName']." ".$row['lastName'];?></span>
         <div class="full-date">

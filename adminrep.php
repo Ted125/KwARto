@@ -51,8 +51,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
@@ -75,7 +74,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -175,9 +174,8 @@
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Registered Users</h3>
                     </div>
-                    <div class="card-body">
-                      <canvas id="lineChartExample"></canvas>
-                    </div>
+                      <div id="chart_div" style="width: 100%; height: 250px;"></div>
+                      <div id="chart_div_2" style="width: 100%; height: 250px;"></div>
                   </div>
                 </div>
 
@@ -207,7 +205,7 @@
                       <h3 class="h4">Top Selling Manufacturers</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample1"></canvas>
+                      <div id="top_x_div" style="width: 100%; height: 157px;"></div>
                     </div>
                   </div>
                 </div>
@@ -217,7 +215,7 @@
                       <h3 class="h4">Top Selling Products</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample2"></canvas>
+                      <div id="top_x_div_2" style="width: 100%; height: 157px;"></div>
                     </div>
                   </div>
                 </div> 
@@ -243,8 +241,98 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-custom.js"></script>
+    <!-- s<script src="js/charts-custom.js"></script> -->
     <!-- Main File-->
     <script src="js/front.js"></script>
-  </body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+      google.charts.setOnLoadCallback(drawStuff1);
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Sellers'],
+          <?php
+              require("Controllers/RetrieveNewSellerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Sellers',
+          hAxis: {titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+        function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Customers'],
+          <?php
+              require("Controllers/RetrieveNewCustomerCharts.php"); 
+          ?>
+        ]);
+
+        var options = {
+          title: 'Monthly Report of New Customers',
+          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+        chart.draw(data, options);
+      }
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Manufacturers', 'Furniture Sold'],
+          <?php require("Controllers/RetrieveTopSellingManufacturers.php")?>
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Total amount sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+  
+      function drawStuff1() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Manufacturers', 'Furniture Sold'],
+          <?php require("Controllers/RetrieveTopSellingProducts.php")?>
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Stock sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" },
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div_2'));
+        chart.draw(data, options);
+      };
+
+    </script>
 </html>

@@ -52,8 +52,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                 <!-- Notifications -->
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -100,7 +99,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="<?php
+                      if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                        echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>

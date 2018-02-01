@@ -21,15 +21,16 @@
     $totalFee = $_POST["totalFee"];
     $customerId = $_POST["customerId"];
     $paymentId = $_POST["paymentId"];
+    $sellerId = $_POST["sellerId"];
 
-    $query = "INSERT INTO customer_order (orderNumber, shippingContactPerson, shippingAddress, shippingLocationId, shippingContactNumber, billingContactPerson, billingAddress, billingLocationId, billingContactNumber, discount, tax, subtotalFee, shippingFee, totalFee, customerId, paymentId) VALUES('" . $orderNumber . "', '" . $shippingContactPerson . "', '" . $shippingAddress . "', " . $shippingLocationId . ", '" . $shippingContactNumber . "', '" . $billingContactPerson . "', '" . $billingAddress . "', " . $billingLocationId . ", '" . $billingContactNumber . "', " . $discount . ", " . $tax . ", " . $subtotalFee . ", " . $shippingFee . ", " . $totalFee . ", " . $customerId . ", " . $paymentId . ");";
+    $query = "INSERT INTO customer_order (orderNumber, shippingContactPerson, shippingAddress, shippingLocationId, shippingContactNumber, billingContactPerson, billingAddress, billingLocationId, billingContactNumber, discount, tax, subtotalFee, shippingFee, totalFee, customerId, paymentId, sellerId) VALUES('" . $orderNumber . "', '" . $shippingContactPerson . "', '" . $shippingAddress . "', " . $shippingLocationId . ", '" . $shippingContactNumber . "', '" . $billingContactPerson . "', '" . $billingAddress . "', " . $billingLocationId . ", '" . $billingContactNumber . "', " . $discount . ", " . $tax . ", " . $subtotalFee . ", " . $shippingFee . ", " . $totalFee . ", " . $customerId . ", " . $paymentId . ", " . sellerId . ");";
     $addOrderResult = mysqli_query($connection, $query);
 
     if($addOrderResult != null && $addOrderResult){
       $orderId = mysqli_insert_id($connection);
 
       // Add Order Items
-      $query = "SELECT s.*, f.price, f.discount FROM furniture_stock AS s JOIN furniture AS f ON s.furnitureId = f.furnitureId WHERE s.status = 'on_hold' AND s.customerId = " . $customerId;
+      $query = "SELECT s.*, f.price, f.discount FROM furniture_stock AS s JOIN furniture AS f ON s.furnitureId = f.furnitureId WHERE s.status = 'on_hold' AND s.customerId = " . $customerId . " AND f.sellerId = " . $sellerId;
       $onHoldStockResult = mysqli_query($connection, $query);
 
       if($onHoldStockResult != null){
@@ -54,7 +55,7 @@
       }
 
 
-      header("Location: ../complete.php");
+      // header("Location: ../complete.php");
     }
   }
 ?>
