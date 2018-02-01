@@ -43,6 +43,9 @@ class user_details{
             if(isset($_SESSION['userType'])){
                 $this->setUsername($_POST['registerUsername']);
             }
+            if(strcmp($_SESSION['userType'], 'admin') != 0){
+                $this->setUserStatus('inactive');
+            }
             $this->setUserType($userType);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
