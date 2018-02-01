@@ -5,7 +5,7 @@
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 						<div class="benefit_content">
-							<h6>free shipping</h6>
+							<h6>Shipping Services</h6>
 							<p>Within the Philippines</p>
 						</div>
 					</div>
@@ -23,8 +23,8 @@
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
 						<div class="benefit_content">
-							<h6>14 days return</h6>
-							<p>See return policy for details</p>
+							<h6>Seller Opportunities</h6>
+							<p>See terms and policy for details</p>
 						</div>
 					</div>
 				</div>
