@@ -48,6 +48,38 @@
         return $result;
     }
 
+    public function updateSellerMult(){
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION)){
+            if(!strcmp($this->getUserType(),'customer') == 0){
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $create = "UPDATE seller
+                                INNER JOIN user_details ON seller.userId = user_details.userId
+                                SET  name = '".$_POST['updateName']."',
+                                    description = '".$_POST['updateDesc']."',
+                                    mobileNumber = '".$_POST['updateMobile']."'
+                                
+                                WHERE seller.userId = '".$this->getUserId()."'
+                               ";
+                    $result = mysqli_query($connection, $create);
+                    mysqli_close($connection);
+                    echo "test";
+                    return $result;
+                }else{
+                    echo 'no db connection';
+                }
+            }else{
+                echo 'customers are not allowed to update sellers';
+            }
+        }else{
+            echo 'no session';
+        }
+        return null;
+    }
+
     public function updateSeller($field, $newData){
         $this->setUserType($_SESSION['userType']);
         $this->setUserId($_SESSION['userId']);
@@ -138,6 +170,55 @@
                     ";
             $result = mysqli_query($connection, $query);
             mysqli_close($connection);
+        }
+        return $result;
+    }
+
+    public function findSellerId($userId){
+        include_once("Database.php");
+        $result = NULL;
+        $db = new Database();
+        $connection = $db->Connect();
+        if($connection){
+            $this->setUserId($userId);
+            $qry = "SELECT sellerId
+                    FROM seller
+                    WHERE userId = '".$this->getUserId()."'
+                    ";
+            $result = mysqli_query($connection, $qry);
+        }else{
+            echo 'no connection';
+        }
+        return $result;
+    }
+
+    public function banAllSellerFurniture($userId){
+        include_once("Database.php");
+        if(isset($_SESSION)){
+            $user = new user_details();
+            $user->setUserType($_SESSION['userType']);
+            if(strcmp($user->getUserType(),'admin') == 0){
+                $result = NULL;
+                $db = new Database();
+                $connection = $db->Connect();
+                if($connection){
+                    $data = $this->findSellerId($userId);
+                    if($row = $data->fetch_assoc()){
+                        $this->setSellerId($row['sellerId']);
+                    }
+                    $query = "UPDATE furniture
+                    SET status = '0', live = 0
+                    WHERE sellerId = '".$this->getSellerId()."'
+                    ";
+                    $result = mysqli_query($connection, $query);
+                }else{
+                    echo 'no connection';
+                }
+            }else{
+                echo 'only admins can unban furniture';
+            }
+        }else{
+            echo 'no session';
         }
         return $result;
     }

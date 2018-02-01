@@ -6,7 +6,7 @@
   session_start();
   include("../Models/Database.php");
   
-  if(strcmp($_POST['newData'], $_POST['comData']) == 0 || strcmp($_POST['newData'], "") == 0){
+  if(!empty($_POST['newData']) && strcmp($_POST['newData'], $_POST['comData']) == 0){
     $user = new user_details();
     $verify = $user->updateUser($_POST['field'], $_POST['newData']);
   } else {

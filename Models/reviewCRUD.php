@@ -41,10 +41,13 @@
                         name,
                         firstName,
                         middleName,
-                        lastName
+                        lastName,
+                        customer.userId AS userId,
+                        image
                         FROM  review
                         INNER JOIN furniture ON review.furnitureId = furniture.furnitureId
                         INNER JOIN customer ON review.customerId = customer.customerId
+                        INNER JOIN user_details ON customer.userId = user_details.userId
                         WHERE sellerId = ".$_SESSION['sellerId']."
                 ";
 

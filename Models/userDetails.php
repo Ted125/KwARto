@@ -43,6 +43,9 @@ class user_details{
             if(isset($_SESSION['userType'])){
                 $this->setUsername($_POST['registerUsername']);
             }
+            if(strcmp($_SESSION['userType'], 'admin') != 0){
+                $this->setUserStatus('inactive');
+            }
             $this->setUserType($userType);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
@@ -111,7 +114,7 @@ class user_details{
         if(isset($_SESSION) && strcmp( $_SESSION['userType'],'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
-            $thos->setAddedBy($_SESSION['userId']);
+            $this->setAddedBy($_SESSION['userId']);
             $result = $this->createUser($this->getUserType());
         }else{
             echo 'no session or only admins can create other admins';

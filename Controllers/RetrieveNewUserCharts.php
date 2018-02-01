@@ -1,6 +1,6 @@
 <?php
 include_once("../Models/Database.php");
-    $monthnum = date_parse_from_format("m/d/Y", $_GET['datereport']);
+
     $db = new Database();
     $connection = $db->connect();
     if($connection){

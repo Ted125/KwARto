@@ -82,7 +82,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -206,7 +206,7 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  <div class="modal-body">
+                                  <div class="modal-body">  
                                     <div class="row">
                                       <div class="col-5">
                                           <img src="Resources/Images/User/'.$appRow['userId'].'/'.$appRow['image'].'" id = "pendingpics" alt = "">
