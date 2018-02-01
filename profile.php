@@ -96,31 +96,31 @@
 											<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
 											<input onchange="readURL(this);" type="file" name="newData" />
 											<input type="submit" value="Upload Photo" style="color: white; background-color: #d42d2d; border: none; padding: 10px; border-radius: 5%;" />	 -->
-									</div>
+									</div>  
 									<div class="col-lg-8">
 										<div class="product_details">
 												<div class="form-group">
 													<label class="col-lg-3 control-label">First name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" name = "updateFName" <?php echo 'value='.$_SESSION['firstName'].'';?> >
+														<input class="form-control" type="text" name = "updateFName" <?php echo 'value="'.$_SESSION['firstName'].'"';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Last name:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="text" name = "updateLName" <?php echo 'value='.$_SESSION['lastName'].'';?> >
+														<input class="form-control" type="text" name = "updateLName" <?php echo 'value="'.$_SESSION['lastName'].'"';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Birthdate:</label>
 													<div class="col-lg-8">
-														<input class="form-control" type="date" name = "updateBDay" <?php echo 'value='.$_SESSION['birthdate'].'';?> >
+														<input class="form-control" type="date" name = "updateBDay" <?php echo 'value="'.$_SESSION['birthdate'].'"';?> >
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-lg-3 control-label">Email:</label>
 													<div class="col-lg-8">
-														<input class="form-control" disabled="" type="text" <?php echo 'value='.$_SESSION['email'].'';?> >
+														<input class="form-control" disabled="" type="text" <?php echo 'value="'.$_SESSION['email'].'"';?> >
 													</div>
 												</div>
 												<div class="form-group">
@@ -269,7 +269,7 @@
 									<div class="form-group">
 										<label class="col-md-6 control-label">Confirm New Password:</label>
 										<div class="col-md-8">
-											<input class="form-control" type="password" placeholder="Confirm New Password">
+											<input class="form-control" type="password" placeholder="Confirm New Password" name="comData">
 										</div>
 									</div>
 
@@ -315,7 +315,7 @@
 									<div class="form-group">
 										<label class="col-lg-3 control-label">Confirm New Email:</label>
 										<div class="col-lg-8">
-											<input class="form-control" type="text" placeholder="email@email.com">
+											<input class="form-control" type="text" placeholder="email@email.com" name="comData">
 										</div>
 									</div>
 
@@ -392,8 +392,8 @@
 	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 	<script src="plugins/easing/easing.js"></script>
 	<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-	<script src="js/single_custom.js"></script>
-
+	
+	<script src="js/custom.js"></script>
 
 	<script type = "text/javascript">
 $(document).ready(function(){

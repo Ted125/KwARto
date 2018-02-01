@@ -84,7 +84,7 @@
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <!-- <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li> -->
                     <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li> 
-                    <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li>
+                    <!-- <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li> -->
                     
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
@@ -163,10 +163,17 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="password" class="form-control" name="registerPassword" required class="input-material">
+                            <input id = "password" type="password" class="form-control" name="registerPassword" required class="input-material" pattern=".{8,}" required title="8 characters minimum">
                           </div>
                         </div>
 
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Confirm Password</label>
+                          <div class="col-sm-9">
+                            <input id = "confirm_password"type="password" class="form-control" name="confirm_password" required class="input-material" pattern=".{8,}" required title="8 characters minimum">
+                            <span id = "message"></span>
+                          </div>
+                        </div>
                         <div class="line"></div>
                                                 
                         <div class="form-group row">
@@ -221,5 +228,14 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script type = "text/javascript">
+    $('#password, #confirm_password').on('keyup', function () {
+      if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('Passwords are the same').css('color', 'green');
+    } else { 
+    $('#message').html('Passwords are not the same').css('color', 'red');
+    }
+   });
+    </script>
   </body>
 </html>

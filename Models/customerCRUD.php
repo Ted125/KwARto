@@ -189,14 +189,14 @@ class customer extends user_details{
                         lastName,
                         customer_order.orderId AS orderId,
                         orderNumber,
-                        shippingContactPerson,
-                        shippingAddress,
-                        shippingLocationId,
-                        shippingContactNumber,
-                        billingContactPerson,
-                        billingAddress,
-                        billingLocationId,
-                        billingContactNumber,
+                        customer_order.shippingContactPerson,
+                        customer_order.shippingAddress,
+                        customer_order.shippingLocationId,
+                        customer_order.shippingContactNumber,
+                        customer_order.billingContactPerson,
+                        customer_order.billingAddress,
+                        customer_order.billingLocationId,
+                        customer_order.billingContactNumber,
                         customer_order.discount,
                         tax,
                         subtotalFee,
@@ -214,7 +214,7 @@ class customer extends user_details{
                         name,
                         description,
                         price
-                        FROM customer 
+                        FROM customer
                         INNER JOIN customer_order ON customer.customerId = customer_order.customerId 
                         INNER JOIN order_item ON customer_order.orderId = order_item.orderId
                         INNER JOIN furniture_stock ON order_item.stockId = furniture_stock.stockId
@@ -232,6 +232,34 @@ class customer extends user_details{
             echo "Connection Error";
         }        
         return $result;
+    }
+
+    public function changeOrderState($sellerId, $state, $orderId){
+        include("Database.php");
+        
+        $this->setUserType($_SESSION['userType']);
+        $this->setUserId($_SESSION['userId']);
+        if(isset($_SESSION['userType']) && strcmp($this->getUserType(),'seller') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+
+                $create = "UPDATE customer_order
+                           SET  state = '".$state."'
+                           WHERE orderId = ".$orderId."";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'no session';
+            return null;
+        }
     }
     /***************** SETTERS AND GETTERS ****************/
 

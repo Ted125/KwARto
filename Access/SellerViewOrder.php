@@ -23,12 +23,16 @@
                 <div class="modal-body">
                   <div class="" style="margin-bottom: 10px;">
                     <span><h3>Status:</h3></span>
-                    <button data-toggle="dropdown" style="background-color: #D42D2D; color: white;" type="button" class="btn btn-white dropdown-toggle"><?php echo $row['state'];?><span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a style="color: #D42D2D; text-decoration: none;" href="#">Pending</a></li>
-                      <li><a style="color: #D42D2D; text-decoration: none;" href="#">Completed</a></li>
-                      <li><a style="color: #D42D2D; text-decoration: none;" href="#">Cancelled</a></li>
-                    </ul>
+                    <?php echo $row['state'];?><span class="caret"></span></button>
+                    <form action="Controllers/SellerChangeOrderState.php" method="POST">
+                      <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
+                      <select class="form-control" id="weightUnit" name="state" required>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="shipping">Shipping</option>
+                      </select>
+                      <input type="submit">
+                    </form>
                   </div>
 
                   <h5 style="color: #555">Order details:</h5>

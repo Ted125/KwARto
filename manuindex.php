@@ -147,6 +147,7 @@
             include('Controllers/SellerGetTotalReviews.php');
             include('Controllers/SellerGetRatingSum.php');
             include('Controllers/SellerGetTotalQuestions.php');
+            include('Controllers/SellerGetTotalProducts.php');
           ?>
           <!-- Charts Section-->
           <section class="charts" style="background-color: #faf6f6">
@@ -257,16 +258,25 @@
                 <div class="statistics col-lg-4 col-12">
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-red"><i class="fa fa-bed"></i></div>
-                    <div class="text"><strong>234</strong><br><small>Added Products</small></div>
+                    <div class="text">
+                      <strong>
+                      <?php echo $total_furniture['total_furniture'];?>
+                      </strong><br><small>Added Products</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-green"><i class="fa fa-rub"></i></div>
-                    <div class="text"><strong>152</strong><br><small>Completed Transactions</small></div>
+                    <div class="text">
+                      <strong>
+                      <?php 
+                        
+                        echo $stock_sold['sold_stock'];
+                      ?> 
+                      </strong><br><small>Completed Transactions</small></div>
                   </div>
-                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                  <!-- <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-orange"><i class="fa fa-mail-reply"></i></div>
                     <div class="text"><strong>10</strong><br><small>Product Returns</small></div>
-                  </div>
+                  </div> -->
                 </div>
                 
                 <div class="col-lg-12">
