@@ -172,7 +172,8 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="js/contact_custom.js"></script>
+
+<script src="js/custom.js"></script>
 
 <script type = "text/javascript">
 $(document).ready(function(){

@@ -407,7 +407,8 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
-<script src="js/single_custom.js"></script>
+
+<script src="js/custom.js"></script>
 </body>
 
 </html>
