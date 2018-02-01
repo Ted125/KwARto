@@ -107,7 +107,7 @@
 								<div class="product_sorting_container product_sorting_container_top">
 									<ul class="product_sorting">
 										<li>
-											<span id = "sortValueText" class="type_sorting_text">Product Name</span>
+											<span id = "sortValueText" class="">Product Name</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
 												<li class="sortValueOption type_sorting_btn" name="name" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
@@ -121,7 +121,7 @@
 									</ul>
 									<ul class="product_sorting">
 										<li>
-											<span id = "sortOrderText" class="type_sorting_text">Ascending</span>
+											<span id = "sortOrderText" class="">Ascending</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
 												<li class="sortOrderOption type_sorting_btn" name="ascending" data-isotope-option='{ "sortBy": "ascending" }'><span>Ascending</span></li>
@@ -226,6 +226,7 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/categories_custom.js"></script>
+<script src="js/jquery.number.min.js"></script>
 </body>
 
 </html>
@@ -249,7 +250,7 @@ $(document).ready(function(){
     );
 
 
-	$("#amount").val("Php 0 - Php 100000");
+	$("#amountPrice").val("Php 0 - Php 100000");
 	$("#amountDiscount").val("0 % - 100 %");
 	$("#amountRating").val("1 star - 5 stars");
 
@@ -322,11 +323,13 @@ $(document).ready(function(){
 
 	$(".sortValueOption").on("click", function(){
 		$("#searchSortValue").val($(this).attr("name"));
+		$("#sortValueText").text($(this).text());
 		Search();
 	});
 
 	$(".sortOrderOption").on("click", function(){
 		$("#searchSortOrder").val($(this).attr("name"));
+		$("#sortOrderText").text($(this).text());
 		Search();
 	});
 
@@ -463,9 +466,9 @@ function Search(){
 				furniture += "<div class='product_info'><h6 class='product_name' name='" + item.furnitureId + "'><a>" + item.name + "</a></h6>";
 
 				if(item.discount > 0){
-					furniture += "<div class='product_price' style='font-size: 14px;'>Php&nbsp;" + (item.price * (1 - item.discount / 100)) + "<span> Php&nbsp;" + item.price + "</span></div></div></div>";
+					furniture += "<div class='product_price' style='font-size: 14px;'>Php&nbsp;" + $.number((item.price * (1 - item.discount / 100)), 2) + "<span> Php&nbsp;" + $.number(item.price, 2) + "</span></div></div></div>";
 				}else{
-					furniture += "<div class='product_price' style='font-size: 14px;'> Php&nbsp;" + item.price + "</div></div></div>";
+					furniture += "<div class='product_price' style='font-size: 14px;'> Php&nbsp;" + $.number(item.price, 2) + "</div></div></div>";
 				}
 
 				furniture += "<div class='text-center product_rating' style='color: #fac451; margin-top: 20px; font-size: 14px;'>";
