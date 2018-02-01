@@ -253,9 +253,6 @@
 		</div>
 	</div>
 
-	</div>
-
-
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -264,7 +261,12 @@
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
+	</div>
 
+
+
+	<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 	<!-- MODAL CONTENTS -->
 	<!-- CASH ON DELIVERY -->
 	<div id="codmodal" tabindex="-1" role="dialog" aria-labelledby="codmodal" aria-hidden="true" class="modal fade text-left">

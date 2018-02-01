@@ -159,8 +159,10 @@
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
-
 </div>
+
+<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>

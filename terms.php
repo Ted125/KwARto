@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
@@ -105,9 +105,6 @@ n<!DOCTYPE html>
 		</div>
 			
 	</div>
-</div>
-	</div>
-
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -116,7 +113,12 @@ n<!DOCTYPE html>
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
+	
+</div>
+	</div>
 
+	<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

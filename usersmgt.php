@@ -122,12 +122,12 @@
                 
                 <div class="col-lg-12">
                   <div class="card">
-                    <div class="card-header d-flex align-items-center">
+                    <div class="card-header d-flex ">
                       <h3 class="h4">Pending Manufacturers List</h3>
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
-                      <table class="table table-striped table-hover text-center">
+                      <table class="table table-striped table-hover text-left">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -248,7 +248,7 @@
                     </div>
                     <div class="card-body">
                       <h6 class="text-muted">* Click to see more details</h6>
-                      <table class="table table-striped table-hover text-center">
+                      <table class="table table-striped table-hover">
                         <thead>
                           <tr>
                             <th>#</th>
