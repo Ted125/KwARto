@@ -154,7 +154,19 @@
 									<input id = "searchMaxRating" type = "hidden" value = "-1">
 									<input id = "searchSaleStart" type = "hidden" value = "">
 									<input id = "searchSaleEnd" type = "hidden" value = "">
-									<input id = "searchName" type = "hidden" value = "">
+
+									<?php
+										if(isset($_POST["name"])){
+									?>
+											<input id = "searchName" type = "hidden" value = "<?php echo $_POST['name']; ?>">
+									<?php
+										}else{
+									?>
+											<input id = "searchName" type = "hidden" value = "">
+									<?php
+										}
+									?>
+
 									<input id = "searchSortValue" type = "hidden" value = "">
 									<input id = "searchSortOrder" type = "hidden" value = "">
 								</form>
