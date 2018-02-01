@@ -70,7 +70,7 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>eCommerce Platform</h4>
-						<p>KwARto makes buying and selling furniture much more convenient!</p>
+						<p>KwARto makes buying and selling furniture much more convenient! Buy from a wide range of popular furniture lines, all at the best prices in the Philippines</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -79,8 +79,8 @@
 						<i class="fa fa-bullseye" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
-						<h4>Scope of the platform</h4>
-						<p>Services are pertained only to customers in the Philippines!</p>
+						<h4>Joys of a Seller</h4>
+						<p>Sell in a dash - List a product and start selling in less than 30 seconds! Build up your marketplace credibility by gathering positive ratings and reviews from your customers</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -92,8 +92,8 @@
 						<i class="fa fa-credit-card" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
-						<h4>How does payment work?</h4>
-						<p>We have several modes of payment available namely: Banking, Cash on Delivery and Online Payment</p>
+						<h4>Why KwARto?</h4>
+						<p>KwARto is a fun and free online marketplace where you can buy and sell on mobile anytime, anywhere! Shopping and selling has never been easier. Join KwARto's mobile marketplace!</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -103,31 +103,37 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>What Makes KWARTO Special?</h4>
-						<p>KwARto's mobile application integrates Augmented Reality. Make sure to check that out!</p>
+						<p>KwARto's mobile application integrates Augmented Reality. This allows users to immerse in a brand new shopping experience. Make sure to check that out!</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="events-bottom">
-				<div class="col-md-6 events_bottom_left">
-					<div class="col-md-8 events_bottom_left2">	
-						<img src="images/ar.png" alt=" " class="img-responsive" style="min-height: 150%; min-width: 150%;" />
+			<div class="events-bottom" style="padding-top: 0px;">
+				<div class="col-md-6 events_bottom_left" style="left:10%; ">
+					<div class="col-md-12 events_bottom_left2 ">	
+						<img src="images/ar.png" alt=" " class="img-responsive" style="max-height: 500px;" />
 					</div>
-					<div class="clearfix"> </div>
+				
 				</div>
 				<div class="col-md-6 events_bottom_left">
-					<div class=" text-center col-md-8 events_bottom_left2">	
-						<h3>Get the mobile app!</h3>
-						<p>Download the kwARto mobile application in the Google Play Store today to obtain the full experience! <br> <br> Mobile Application Exclusive Features: <br>Augmented Reality Preview of furniture products!<br>Handheld shopping experience!<br>Blah blah blah!<br>Augmented Reality Preview of furniture products!</p>
+					<div class="  col-md-12 events_bottom_left2">	
+						<h3 >Get the mobile app!</h3>
+						<p>Please note that KwARto requires permission to access the following services for these reasons:<br> <br>- Storage permission: We need to access your Gallery for product images when uploading products. <br>- Camera permission: When you are uploading product listings and preview in AR, we need access to your camera, so that you can fully engage in transactions on KwARto.<br><br>
+						</p>
+
+						<div class="text-center">
+							<a href="#" style=""><button class="profile-btn" style="width: 40%; color: white; border-radius: 8px;"><h6 style="margin-bottom: 0px; color: white">Download the App</h6></button></a>
+						</div>
 					</div>
+
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<br>
 			<div class="text-center">
-				<a href="index.php" style=""><button class="profile-btn" style="width: 30%; color: white; border-radius: 8px;"><h2 style="margin-bottom: 0px; color: white">Get Started</h2></button></a>
+				<a href="index.php" style=""><button class="profile-btn" style="width: 30%; color: white; border-radius: 8px;"><h3 style="margin-bottom: 0px; color: white">Get Started</h3></button></a>
 			</div>
 			<div class="clearfix"> </div>	
 			</div>
