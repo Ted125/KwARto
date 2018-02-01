@@ -65,21 +65,21 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg1.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Bedroom</a>
+							<a id = "bannerBedroom" href="#">Bedroom</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg2.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Home Office</a>
+							<a id = "bannerOffice" href="#">Home Office</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg3.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Living Room</a>
+							<a id = "bannerLivingRoom" href="#">Living Room</a>
 						</div>
 					</div>
 				</div>
@@ -543,6 +543,11 @@
 		</div>
 	</div>
 
+  <!-- Chosen Nav Form -->
+  <form id = "chosenNavForm" action = "categories.php" method = "POST">
+    <input id = "chosenNavCategory" type = "hidden" name = "searchCategoryId" value = "1">
+  </form>
+
 	<!-- Benefit HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -621,6 +626,24 @@ $(document).ready(function(){
 			AddToWishlist(customerId, $(this).parent().find(".product_name").attr("name"), $(this));
 		}
 	});
+
+  $("#bannerBedroom").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("8");
+    $("#chosenNavForm").submit();
+  });
+
+  $("#bannerOffice").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("13");
+    $("#chosenNavForm").submit();
+  });
+
+  $("#bannerLivingRoom").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("11");
+    $("#chosenNavForm").submit();
+  });
 });
 
 function AddToWishlist(customerId, furnitureId, div){
