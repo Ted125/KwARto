@@ -78,7 +78,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-5">
-              <img src="<?php echo $row['image'];?>" id = "pendingpics" width = "200px" height = "200px" alt ="">
+              <img src="<?php echo 'Resources/Images/User/'.$row['userId'].'/'.$row['image'].'';?>" id = "pendingpics" width = "200px" height = "200px" alt ="">
             </div>
             <div class="col-7">
              <div class="row" style="padding-left: 20px;"><h5>User ID: <h5  style="font-weight: normal; padding-left: 5px;"></h5><?php echo $row['userId'];?></h5></div>
