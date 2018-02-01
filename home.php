@@ -70,7 +70,7 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>eCommerce Platform</h4>
-						<p>KwARto makes buying and selling furniture much more convenient! Buy from a wide range of popular furniture lines, all at the best prices in the Philippines</p>
+						<p style="color: #524e4e;">KwARto makes buying and selling furniture much more convenient! Buy from a wide range of popular furniture lines, all at the best prices in the Philippines</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -80,7 +80,7 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>Joys of a Seller</h4>
-						<p>Sell in a dash - List a product and start selling in less than 30 seconds! Build up your marketplace credibility by gathering positive ratings and reviews from your customers</p>
+						<p style="color: #524e4e;">Sell in a dash - List a product and start selling in less than 30 seconds! Build up your marketplace credibility by gathering positive ratings and reviews from your customers</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -93,7 +93,7 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>Why KwARto?</h4>
-						<p>KwARto is a fun and free online marketplace where you can buy and sell on mobile anytime, anywhere! Shopping and selling has never been easier. Join KwARto's mobile marketplace!</p>
+						<p style="color: #524e4e;">KwARto is a fun and free online marketplace where you can buy and sell on mobile anytime, anywhere! Shopping and selling has never been easier. Join KwARto's mobile marketplace!</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -103,7 +103,7 @@
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right">
 						<h4>What Makes KWARTO Special?</h4>
-						<p>KwARto's mobile application integrates Augmented Reality. This allows users to immerse in a brand new shopping experience. Make sure to check that out!</p>
+						<p style="color: #524e4e;">KwARto's mobile application integrates Augmented Reality. This allows users to immerse in a brand new shopping experience. Make sure to check that out!</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -119,21 +119,18 @@
 				<div class="col-md-6 events_bottom_left">
 					<div class="  col-md-12 events_bottom_left2">	
 						<h3 >Get the mobile app!</h3>
-						<p>Please note that KwARto requires permission to access the following services for these reasons:<br> <br>- Storage permission: We need to access your Gallery for product images when uploading products. <br>- Camera permission: When you are uploading product listings and preview in AR, we need access to your camera, so that you can fully engage in transactions on KwARto.<br><br>
+						<p style="color: #524e4e;">Please note that KwARto requires permission to access the following services for these reasons:<br> <br><strong>Storage permission:</strong> We need to access your Gallery for product images when uploading products. <br><strong>Camera permission:</strong> When you are uploading product listings and preview in AR, we need access to your camera, so that you can fully engage in transactions on KwARto.<br><br>
 						</p>
-
-						<div class="text-center">
-							<a href="#" style=""><button class="profile-btn" style="width: 40%; color: white; border-radius: 8px;"><h6 style="margin-bottom: 0px; color: white">Download the App</h6></button></a>
-						</div>
 					</div>
-
-					<div class="clearfix"> </div>
 				</div>
-				<div class="clearfix"> </div>
+			
+				<a href="#" style=""><button class="profile-btn" style="width: 30%; color: white; left: 9%; border-radius: 8px;"><h6 style="margin-bottom: 0px; color: white; padding: 10px;">Download the App</h6></button></a>
 			</div>
 			<br>
-			<div class="text-center">
-				<a href="index.php" style=""><button class="profile-btn" style="width: 30%; color: white; border-radius: 8px;"><h3 style="margin-bottom: 0px; color: white">Get Started</h3></button></a>
+			<div class="clearfix"> </div>	
+
+			<div class="text-center" style="margin-top: 20px;">
+				<a href="index.php" style=""><button class="profile-btn" style="width: 40%; color: white; border-radius: 8px;"><h3 style="margin-bottom: 0px; color: white; padding: 10px;">Go To Desktop Version</h3></button></a>
 			</div>
 			<div class="clearfix"> </div>	
 			</div>

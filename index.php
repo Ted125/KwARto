@@ -37,7 +37,7 @@
 	<div class="main_slider" style="background-image:url(./images/caro1.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height text-center">
-				<div style="margin: 0px 200px 0px 200px;">
+				<div style="margin: 0px 170px 0px 170px;">
 					<div class="row text-center" style="left: 40%;">
 			        	<img src="./images/hero-image-2.png" style="max-height: 400px;">
 			        	<img src="./images/hero-image-3.png" style="margin-top: 30px; margin-left: -150px; max-height: 400px;">
