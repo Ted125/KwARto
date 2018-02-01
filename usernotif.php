@@ -31,7 +31,7 @@ n<!DOCTYPE html>
 		<div class="row">
 			<div class="col">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 20px;">
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li class="active"><a href="usernotif.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Notifications</a></li>
@@ -47,7 +47,8 @@ n<!DOCTYPE html>
 					<tbody class="text-center">
 					<tr class="">
 						<!-- Image should link to the image of the item to be received -->
-					<td class=""><a href="#"><img data-toggle="modal" data-target="#notifimg" style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td>
+					<!-- <td class=""><a href="#"><img data-toggle="modal" data-target="#notifimg" style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td> -->
+					<td class=""><i class="fa fa-archive" style="color: #d42d2d;" aria-hidden="true"></td>
 						<!-- Modal-->
 					  	<div id="notifimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
 							<div role="document" class="modal-dialog">
@@ -74,49 +75,34 @@ n<!DOCTYPE html>
 					<td class="">System Message</td>
 					<td class="">Have you received your item?</td>
 					<td class="" style="text-align:  center;">	
-						<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">Yes</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>By selecting Confirm, you confirm that you have received your item.</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Confirm</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
+						<div class="red_button" data-toggle="modal" data-target="#cartdia5" style="width: 150px; margin-top: 10px;"><a href="#">View details</a></div>
+						  <!-- Modal-->
+						  	<div id="cartdia5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+								<div role="document" class="modal-dialog">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
+									  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
 									</div>
-							  	</div>
-							  	<br>
-								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">No</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>By selecting Confirm, you confirm that you have not received your item.</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Confirm</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
+									<div class="modal-body">
+									  <p><strong>Order ID:</strong> 123028</p>
+									  <p><strong>Order Amount:</strong> P2,250.00</p>
+									  <p><strong>Shipping/Delivery Fee:</strong> P100.00</p>
+									  <p><strong>Total Payment:</strong> P2,350.00</p>
+									  <p><strong>Mode of Payment:</strong> Cash On Delivery</p>
+									  <p><strong>Expected Arrival:</strong> January 20, 2018</p>
 									</div>
-							  	</div>
-						</td>
+									<div class="modal-footer">
+									  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+									</div>
+								  </div>
+								</div>
+						  	</div>
+					</td>
 					</tr>
 					<tr class="">
-						<td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/way2.png" alt=" " class="img-responsive"></a></td>
+						<!-- <td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/way2.png" alt=" " class="img-responsive"></a></td> -->
+						<td class=""><i class="fa fa-clipboard" style="color: #d42d2d;" aria-hidden="true"></td>
 						<td class="">System Message</td>
 						<td class="">Your order is on the way</td>
 						<td class="" style="text-align:  center;">	
