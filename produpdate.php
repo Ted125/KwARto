@@ -193,74 +193,52 @@
                           <div class="steps-step-2">
                               <a href="#step-5" type="text" class="btn btn-tabnext btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Category Selection"><i class="fa fa-pencil" aria-hidden="true"></i> Step Two</a>
                           </div>
-                          <div class="steps-step-2">
-                              <a href="#step-6" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Product Image"><i class="fa fa-photo" aria-hidden="true"></i> Step Three</a>
-                          </div>
-                          <div class="steps-step-2" onclick="showInput();">
-                              <a href="#step-7" type="text" class="btn btn-tabnext btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i> Step Four</a>
-                          </div>
                       </div>
                   </div>
 
-                  <form role="form" class="col-lg-12" action="Controllers/SellerUploadFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
+                  <form role="form" class="col-lg-12" action="Controllers/SellerUpdateFurniture.php" method="post" enctype="multipart/form-data" name="formUploadFile">
                   <div class="row setup-content-2" id="step-4">
                   <div class="col-lg-12">
                       <h3 class="font-bold pl-0 my-4"><strong>Product Information</strong></h3>
                       <div class="form-group">
                       <label>Product Name</label>
-                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName" required>
+                        <input type="text" placeholder="Product Name" class="form-control" id="name" name="newName" value="<?php echo $_POST['updateName']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc" required></textarea>
+                        <textarea class="form-control" rows="3" id="description" placeholder="Description of the item goes here" name="newDesc" required><?php echo $_POST['updateDesc']?></textarea>
                       </div>
-                      <!-- <div class="form-group">       
-                        <label>Model</label>
-                        <input type="text" placeholder="" class="form-control" name="newModel" required>
-                      </div> -->
                       <div class="form-group">       
                         <label>Model Name</label>
-                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName" required>
-                      </div><!-- 
-                      <div class="form-group">       
-                        <label>Version Of</label>
-                        <input type="number" placeholder="0" class="form-control" name="newVersionOf" value="0">
-                      </div> -->
+                        <input type="text" placeholder="" class="form-control" id="modelName" name="newModelName" value="<?php echo $_POST['updateModelName']?>" required>
+                      </div>
                       <div class="form-group">       
                         <label>Color</label>
-                        <input type="text" class="form-control" name="newColor" required>
+                        <input type="text" class="form-control" name="newColor" value="<?php echo $_POST['updateColor']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight</label>
-                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight" required>
+                        <input type="text" placeholder="0" class="form-control" id="weight" name="newWeight" value="<?php echo $_POST['updateWeight']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Weight Unit</label>
-                        <select class="form-control" id="weightUnit" name="newWeightUnit" required>
-                          <option value="kg">Kilogram/s</option>
-                          <option value="lb">Pound/s</option>
-                        </select>
+                        <input type="text" class="form-control" value="<?php echo $_POST['updateWeightUnit']?>" disabled>
                       </div>
                       <div class="form-group">       
                         <label>Length</label>
-                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength" required>
+                        <input type="number" placeholder="0" class="form-control" id="length" name="newLength" value="<?php echo $_POST['updateLength']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Width</label>
-                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth" required>
+                        <input type="number" placeholder="0" class="form-control" id="width" name="newWidth" value="<?php echo $_POST['updateWidth']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Height</label>
-                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight" required>
+                        <input type="number" placeholder="0" class="form-control" id="height" name="newHeight" value="<?php echo $_POST['updateHeight']?>" required>
                       </div>
                       <div class="form-group">       
                         <label>Size Unit</label>
-                        <select class="form-control" id="sizeUnit" name="newSizeUnit" required>
-                          <option value="mm">Millimeter/s</option>
-                          <option value="cm">Centimeter/s</option>
-                          <option value="in">Inch/es</option>
-                          <option value="m">Meter/s</option>
-                        </select>
+                        <input type="text" class="form-control" value="<?php echo $_POST['updateSizeUnit']?>" disabled>
                       </div>
                       <div class="form-group">       
                         <label>Warranty ID</label>
@@ -270,7 +248,7 @@
                       </div>
                       <div class="form-group">       
                         <label>Price</label>
-                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice" required>
+                        <input type="text" placeholder="0.00" class="form-control" id="price" name="newPrice" value="<?php echo $_POST['updatePrice']?>" required>
                       </div>
                       <br>
                       <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
@@ -282,42 +260,35 @@
                           <div class="form-group">       
                             <label>Packages</label>
                           </div>
-                          <!-- <input type="submit"value="Find" style="float: right" />
-                          <div style="overflow: hidden; padding-right: .5em;">
-                           <input type="text" style="width: 100%;" />
-                          </div>​ -->
-                          <button onclick="removePackage();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
-                          <button onclick="addPackage();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
-                          <br>
+                          <div class="form-group">       
+                            <label>Height</label>
+                            <input type="number" placeholder="0" class="form-control" name="newPackageHeight" value="<?php echo $_POST['updatePackageLength']?>">
+                          </div>
+                          <div class="form-group">       
+                            <label>Width</label>
+                            <input type="number" placeholder="0" class="form-control" name="newPackageWidth" value="<?php echo $_POST['updatePackageWidth']?>">
+                          </div>
+                          <div class="form-group">       
+                            <label>Length</label>
+                            <input type="number" placeholder="0" class="form-control" name="newPackageLength" value="<?php echo $_POST['updatePackageHeight']?>">
+                          </div>
+                          <div class="form-group">       
+                            <label>Size Unit</label>
+                            <input type="text" class="form-control" value="<?php echo $_POST['updatePackageSizeUnit']?>" disabled>
+                          </div>
                           <div class="package">  
-                              <div id="packageField1">
-                                <span style="font-size: 18px;">Package 1</span>
-                                <input type="text" placeholder="Enter Package Name..." class="form-control" name="package1"><br>
-                                <input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br>
-                                <input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br>
-                                <input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br>
-                                <select class="form-control" id="sizeUnit" name="newSizeUnit" required>
-                                  <option value="mm">Millimeter/s</option>
-                                  <option value="cm">Centimeter/s</option>
-                                  <option value="in">Inch/es</option>
-                                  <option value="m">Meter/s</option>
-                                </select>
-                            </div>
+                              <!-- Display package -->
+                              <?php include("Controllers/SellerDisplayFurniturePackage.php");?>
                           </div>
                       </div>
                       <div class="col-md-12">
                           <h3 class="font-bold pl-0 my-4"><strong>Specification</strong></h3>
                           <div class="form-group">       
-                            <label>Specification</label>
+                            <label>Specification about the product</label>
                           </div>
-                          <button onclick="removeSpec();" type="button" class="btn btn-primary btn-rounded float-right fa fa-minus"></button>
-                          <button onclick="addSpec();" type="button" class="btn btn-success btn-rounded float-right fa fa-plus"></button>
                           <br>
                           <div class="spec">  
-                              <div id="specField1">
-                                <span style="font-size: 18px;">Specification 1</span>
-                                <input type="text" placeholder="Enter Specification Name..." class="form-control" name="spec1"><br>
-                              </div>
+                              <?php include("Controllers/SellerDisplayFurnitureSpecification.php");?>
                           </div>
                       </div>
                       <div class="col-md-12">
@@ -330,58 +301,7 @@
                           </div>
                           <br>
                           <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                          <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
-                      </div>
-                  </div>
-                  <div class="row setup-content-2" id="step-6">
-                    <div class="col-lg-12 text-center">
-                        <h3 class="font-bold pl-0 my-4"><strong>Upload Image/s</strong></h3>
-                        <div class="gallery"></div>
-                      <div style="margin-top: 5px;">
-                        
-                      </div>    
-                        <!--<input onchange="emptyGallery();" style="margin-top: 10px;" type="file" name="image[]" multiple id="gallery-photo-add"/> -->
-                        <div id="upload_button">
-                          <label>
-                            <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
-                          </label>
-                        </div>
-                      <div class="form-group text-left">       
-                        <br><h4 style="margin-bottom: 0px;">3D Model</h4><br>
-                        <!-- <label>Select 3D Model to upload:</label> -->
-<!--                         <input style="margin-top: 10px;" type="file" name="model" /> -->
-                          <div id="upload_button">
-                            <label>
-                              <input type="file" onchange="emptyGallery();" name="image[]" multiple id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                              <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload 3D Model</span>
-                            </label>
-                          </div>
-                        <input type="hidden" class="btn btn-primary" name="newSellerId" value=<?php echo $_SESSION['sellerId'];?> />
-
-                        <!-- <button style="background-color: #d42d2d; color: white;" class="btn btn-primary form-control">Upload</button> -->
-                      </div>
-                      <br>
-                      <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                      <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="showInput();">Next</button>
-                    </div>
-                  </div>
-                  <div class="row setup-content-2" id="step-7">
-                      <div class="col-md-12">
-                          <h3 class="font-bold pl-0 my-4"><strong>Finish Upload</strong></h3>
-                          
-                          <div class="form-group">
-                              <input type="checkbox" id="terms" onclick="disableElement()">
-                              <label for="checkbox111">I agree to the <a style="text-decoration: none;" href="terms.php">terms and conditions</a></label>
-                          </div>
-                          <div class="form-group">
-                              <input type="checkbox" id="policy" onclick="disableElement()">
-                              <label for="checkbox112">I have read the <a style="text-decoration: none;" href="privacy.php">privacy policy</a></label>
-                          </div>
-                          <h2 class="text-center font-bold my-4">Upload product!</h2>
-                          <br>
-                          <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
-                          <button id="upload" class="btn btn-primary btn-rounded float-right" type="submit" disabled>Submit</button>
+                          <button id="upload" class="btn btn-primary btn-rounded float-right" type="submit">Submit</button>
                       </div>
                   </div>
                   </form>
@@ -520,7 +440,7 @@
     var i = 2;
     function addPackage(){
       if(i <= 5){
-        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div><input type="text" placeholder="Enter Package Width..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Length..." class="form-control" name="package1"><br><input type="text" placeholder="Enter Package Height..." class="form-control" name="package1"><br><select class="form-control" id="sizeUnit" name="newSizeUnit" required><option value="mm">Millimeter/s</option><option value="cm">Centimeter/s</option><option value="in">Inch/es</option><option value="m">Meter/s</option></select>'
+        $('.package').append('<div id="packageField'+ i +'"><span style="font-size: 18px;">Package '+ i +'</span><input type="text" placeholder="Enter Package Name..." class="form-control" name="package'+ i +'"><br></div>'
 
           );
         i++;
@@ -541,7 +461,7 @@
       if(j <= 5){
         $('.spec').append('<div id="specField'+ j +'"><span style="font-size: 18px;">Specification '+ j +'</span><input type="text" placeholder="Enter Specification Name..." class="form-control" name="spec'+ j +'"><br></div>');
         j++;
-        console.log(i);
+        console.log(j);
       }
     }
 
@@ -552,15 +472,6 @@
       }
     }
 
-    //Check checkbox
-    function disableElement() {
-      if (document.getElementById('terms').checked && document.getElementById('policy').checked) 
-      {
-        document.getElementById("upload").disabled = false;
-      } else {
-        document.getElementById("upload").disabled = true;
-      }
-    }
   </script>
   </body>
 </html>

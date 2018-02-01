@@ -34,7 +34,13 @@
       <!-- Main Navbar-->
       <header class="header">
         <nav class="navbar">
-          
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
@@ -46,7 +52,8 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-               
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                 <!-- Notifications -->
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -180,7 +187,11 @@
                       <?php  
                         
                         echo $reviews['reviews'];
-                        $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
+                        if($reviews['reviews'] != 0){
+                          $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
+                        } else {
+                          $aveRating = 0;
+                        }
                       ?>
                       </strong>
                     </div>

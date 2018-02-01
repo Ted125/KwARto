@@ -53,7 +53,7 @@ class furniture_package{
     public function displayFurniturePackage($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
             //$result = NULL;

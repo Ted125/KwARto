@@ -538,18 +538,18 @@
     $( ".gallery" ).empty();
   }
   //Preview final input
-    function showInput() {
-      document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
-      document.getElementById('prevName').innerHTML = document.getElementById("name").value;
-      document.getElementById('prevPrice').innerHTML = document.getElementById("price").value;
-      document.getElementById('prevSize').innerHTML = document.getElementById("length").value +" X "+
-                                                      document.getElementById("width").value +" X "+
-                                                      document.getElementById("height").value +""+
-                                                      document.getElementById("sizeUnit").value +" - "+
-                                                      document.getElementById("weight").value +""+
-                                                      document.getElementById("weightUnit").value;
+    // function showInput() {
+    //   document.getElementById('prevModelName').innerHTML = document.getElementById("modelName").value;
+    //   document.getElementById('prevName').innerHTML = document.getElementById("name").value;
+    //   document.getElementById('prevPrice').innerHTML = document.getElementById("price").value;
+    //   document.getElementById('prevSize').innerHTML = document.getElementById("length").value +" X "+
+    //                                                   document.getElementById("width").value +" X "+
+    //                                                   document.getElementById("height").value +""+
+    //                                                   document.getElementById("sizeUnit").value +" - "+
+    //                                                   document.getElementById("weight").value +""+
+    //                                                   document.getElementById("weightUnit").value;
 
-    }
+    // }
 
     //Package
     var i = 2;

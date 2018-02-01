@@ -13,7 +13,7 @@ $furnImg = new furniture_image();
 
 $verify = $user->createFurniture();
 
-for($p = 1; $p < 5; $p++){
+for($p = 1; $p <= 5; $p++){
   if(isset($_POST['package'.$p.''])){
     if($package->createFurniturePackage($_POST['package'.$p.''], $verify) == NULL){
       echo $p." failed to insert<br>";
@@ -23,7 +23,7 @@ for($p = 1; $p < 5; $p++){
   }
 }
 
-for($p = 1; $p < 5; $p++){
+for($p = 1; $p <= 5; $p++){
   if(isset($_POST['spec'.$p.''])){
     if($spec->createFurnitureSpecification($_POST['spec'.$p.''], $verify) == NULL){
        echo $p." failed to insert<br>";
@@ -91,5 +91,5 @@ if ($verify != null || $verify >= 0) {
 }
    
 
-header('Location: '.$_SERVER['HTTP_REFERER']);
+//header('Location: '.$_SERVER['HTTP_REFERER']);
 ?> 
