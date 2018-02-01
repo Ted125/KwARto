@@ -10,8 +10,8 @@
         $qry = "SELECT DATE_FORMAT(dateAdded, '%M %Y') as date,count(userId) as customers 
                 FROM user_details 
                 WHERE userType = 'customer'
-                GROUp BY MONTH(dateAdded)
-                ORDER BY YEAR(dateAdded)";
+                GROUP BY MONTH(dateAdded), YEAR(dateAdded)
+	        ORDER BY Year(dateAdded),month(dateAdded)";
         $result = mysqli_query($connection, $qry);
     
         mysqli_close($connection);       
