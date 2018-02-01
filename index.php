@@ -130,7 +130,7 @@
 			<div class="row">
 				<div class="col">
 					<!-- Selected Furniture Form -->
-					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+					<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
 						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 					</form>
 					<!-- Cart Form -->
