@@ -34,13 +34,7 @@
       <!-- Main Navbar-->
       <header class="header">
         <nav class="navbar">
-          <!-- Search Box-->
-          <div class="search-box">
-            <button class="dismiss"><i class="icon-close"></i></button>
-            <form id="searchForm" action="#" role="search">
-              <input type="search" placeholder="What are you looking for..." class="form-control">
-            </form>
-          </div>
+          
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
@@ -52,8 +46,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+               
                 <!-- Notifications -->
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -140,6 +133,14 @@
               <li class="breadcrumb-item active">Reports </li>
             </ul>
           </div>
+          <!-- Include Stuff -->
+          <?php
+            include('Models/Database.php');
+            include('Controllers/SellerGetTotalSales.php');
+            include('Controllers/SellerGetTotalReviews.php');
+            include('Controllers/SellerGetRatingSum.php');
+            include('Controllers/SellerGetTotalQuestions.php');
+          ?>
           <!-- Charts Section-->
           <section class="charts" style="background-color: #faf6f6">
 
@@ -150,36 +151,58 @@
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-violet"><i class="fa-money"></i></div>
-                    <div class="title"><span>Monthly<br>Sold</span>
+                    <div class="title"><span>Total<br>Sold</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                        <div role="progressbar" style="width: <?php echo $stock_sold['sold_stock'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>29</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $stock_sold['sold_stock'];
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
-                    <div class="title"><span>New<br>Comments</span>
+                    <div class="title"><span>Total<br>Comments</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                        <div role="progressbar" style="width: <?php echo $reviews['reviews'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>70</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php  
+                        
+                        echo $reviews['reviews'];
+                        $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
+                      ?>
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-green"><i class="fa fa-star"></i></div>
-                    <div class="title"><span>New<br>Ratings</span>
+                    <div class="title"><span>Average<br>Ratings</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                        <div role="progressbar" style="width: <?php echo (string)(((float)$aveRating/5)*100);?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>40</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $aveRating;
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -188,10 +211,17 @@
                     <div class="icon bg-orange"><i class="fa fa-warning"></i></div>
                     <div class="title"><span>New<br>Questions</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                        <div role="progressbar" style="width: <?php echo $questions['questions'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>12</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $questions['questions'];
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -58,6 +58,46 @@
         return $result;
     }
 
+    public function displayTotalSellerReviews($sellerId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query ="SELECT COUNT(*) AS reviews FROM review 
+                    INNER JOIN furniture ON review.furnitureId = furniture.furnitureId
+                    INNER JOIN seller ON furniture.sellerId = seller.sellerId
+                    WHERE seller.sellerId = ".$sellerId."
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
+    public function displaySumRatings($sellerId){
+        $db = new Database();
+        $connection = $db->Connect();
+        $result = null;
+        if($connection){
+            $query ="SELECT SUM(rating) AS ratingSum
+                        FROM review 
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
+
     /************ SETTERS AND GETTERS ************/
         
     public function getReviewId(){

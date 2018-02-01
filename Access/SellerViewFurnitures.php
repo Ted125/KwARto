@@ -130,15 +130,16 @@
                 <input type="number" class="form-control" placeholder="Amount to Restock" name="quantityAmount">
                 <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
               </div>
-              <div class="form-group">
-                <p>Are you sure you want to update these changes?</p>       
+              <div class="form-group" >
+                <small style="position: absolute;bottom: 0; margin-top: 30px;">* Are you sure you want to update these changes?</small>       
               </div>
+            </div>
+          
+          <div class="modal-footer">
               <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Yes"  />
               </div>
-            </div>
-          </form>
-          <div class="modal-footer">
+              </form>
             <div class="form-group">
               <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>  
             </div>
@@ -157,6 +158,7 @@
           </div>
           <form role="form" method="post" action="Controllers/SellerSetDiscount.php">
             <div class="modal-body">
+                <small style="position: absolute;bottom: 0; margin-top: 30px;">* Are you sure you want to update these changes?</small>    
               <div class="form-group">
                 <label>Discount (%)</label>
                 <input type="number" class="form-control" name="discount" min="0" max="100">       
@@ -168,11 +170,16 @@
                 <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
               </div>
               <div class="form-group">
-                <p>Are you sure you want to update these changes?</p>       
               </div>
+          </div>
+              <div class="modal-footer">
               <div class="form-group">
-                <input id="discountBtn" type="submit" class="btn btn-primary" value="Yes"/>
+                <input type="submit" id="discountBtn" class="btn btn-primary" value="Yes"  />
               </div>
+              </form>
+            <div class="form-group">
+              <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>  
+            </div>
             </div>
           </form>
         </div>

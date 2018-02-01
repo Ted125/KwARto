@@ -1,6 +1,6 @@
 <div class="item clearfix">
   <div class="feed d-flex justify-content-between">
-    <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="<?php
+    <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile" style="display: flex;width: 50px;height: 50px;"><img style="width:50px;height: auto;align-items: center;" src="<?php
                       if(file_exists('Resources/Images/User/'.$row['userId'].'/'.$row['image'].'')) {
                         echo 'Resources/Images/User/'.$row['userId'].'/'.$row['image'].'';
                       }else{

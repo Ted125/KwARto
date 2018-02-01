@@ -194,6 +194,27 @@ class furniture_stock{
         }        
         return $result;
     }
+
+    public function displayTotalSales($addedBy){
+        $db = new Database();
+        $connection = $db->Connect();
+        $this->setAddedBy($addedBy);
+        $result = null;
+        if($connection){
+            $query ="SELECT COUNT(*) AS sold_stock 
+            FROM furniture_stock 
+            WHERE addedBy = '".$this->getAddedBy()."' && status = 'sold'
+            ";
+            $result = mysqli_query($connection, $query);
+                  
+            //$row = mysqli_fetch_array($result);
+            mysqli_close($connection);
+            //$row = $result->fetch_assoc();
+        } else {
+            echo "Connection Error";
+        }        
+        return $result;
+    }
     
     public function deleteAllFurnitureStock($furnitureId){
         if(isset($_SESSION)){

@@ -60,8 +60,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                 <!-- Notifications -->
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -183,12 +182,18 @@
                       </div>
                       <!-- For seller info -->
                       <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/UpdateSellerMult.php" method="POST">
-                        <div id="upload_button">
-                          <label>
-                            <input type="file" onchange="readURL(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
-                          </label>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Change Photo</label>
+                          <div class="col-sm-9">
+                            <div id="upload_button">
+                              <label>
+                                <input type="file" onchange="readURL(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                                <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload Photo</span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
+
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Company Name</label>
                           <div class="col-sm-9">
