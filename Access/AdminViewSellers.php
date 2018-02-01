@@ -14,7 +14,7 @@
   <?php
   if(strcmp($row['userStatus'], 'active') != 0){
     echo 
-    '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Activate</button>
+    '<button type="button" data-toggle="modal" data-target="#banModal'.$row['userId'].'" class="btn btn-primary">Unban</button>
     <!-- Modal-->
     <div id="banModal'.$row['userId'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
       <div role="document" class="modal-dialog">  

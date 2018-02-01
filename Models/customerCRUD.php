@@ -189,14 +189,14 @@ class customer extends user_details{
                         lastName,
                         customer_order.orderId AS orderId,
                         orderNumber,
-                        shippingContactPerson,
-                        shippingAddress,
-                        shippingLocationId,
-                        shippingContactNumber,
-                        billingContactPerson,
-                        billingAddress,
-                        billingLocationId,
-                        billingContactNumber,
+                        customer_order.shippingContactPerson,
+                        customer_order.shippingAddress,
+                        customer_order.shippingLocationId,
+                        customer_order.shippingContactNumber,
+                        customer_order.billingContactPerson,
+                        customer_order.billingAddress,
+                        customer_order.billingLocationId,
+                        customer_order.billingContactNumber,
                         customer_order.discount,
                         tax,
                         subtotalFee,
@@ -214,7 +214,7 @@ class customer extends user_details{
                         name,
                         description,
                         price
-                        FROM customer 
+                        FROM customer
                         INNER JOIN customer_order ON customer.customerId = customer_order.customerId 
                         INNER JOIN order_item ON customer_order.orderId = order_item.orderId
                         INNER JOIN furniture_stock ON order_item.stockId = furniture_stock.stockId
