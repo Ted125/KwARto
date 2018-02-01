@@ -26,6 +26,16 @@
 	<!-- NAVBAR HERE -->
 	<?php include('Access/Navbar.php');?>
 
+	<!-- Selected Furniture Form -->
+	<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
+		<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+	</form>
+
+	<!-- Cart Form -->
+	<form id = "cartForm" action = "cart.php" method = "POST">
+		<input id = "cartItemField" type = "hidden" name = "furnitureId">
+	</form>
+
 	<div class="container contact_container">
 		<div class="row">
 			<div class="col">
@@ -56,7 +66,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody class="text-center">
+        <tbody class="text-center" id = "wishlistItemsContainer">
 						<?php
 							$_POST["customerId"] = $_SESSION["customerId"];
 
@@ -68,10 +78,10 @@
 								while($row = mysqli_fetch_assoc($wishlistResult)){
 									$i++;
 						?>
-            <tr class="wishlistItem">
+            <tr class="wishlistItem" name = "<?php echo $row['furnitureId']; ?>">
                 <td class=""><?php echo $i; ?></td>
-                <td class=""><a href="single.php"><img style="max-height: 140px;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $row["imageName"]; ?> alt=" " class="img-responsive"></a></td>
-                <td class="">
+                <td class=""><p><img style="max-height: 140px;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $row["imageName"]; ?> alt=" " class="productImage img-responsive"></p></td>
+                <td class="productName">
                 <?php echo $row["name"]; ?>
                 </td>
                 <!-- <td class=""> <span>9/03/2017</span></td> -->
@@ -88,7 +98,7 @@
 
                 </td>
                 <td>
-                    <div class="red_button" data-toggle="modal" data-target="#wishdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to cart</a></div>
+                    <div class="red_button addToCartButton" data-toggle="modal" data-target="#wishdia1" style="width: 150px; margin-top: 10px;"><a href="#">move to cart</a></div>
 
 				  <!-- Modal-->
 				  	<div id="wishdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
@@ -109,7 +119,7 @@
 						</div>
 				  	</div>
 				  	<br>
-					<div class="red_button" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
+					<div class="red_button removeFromWishlistButton" data-toggle="modal" data-target="#wishdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">remove from list</a></div>
 
 				  <!-- Modal-->
 				  	<div id="wishdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
@@ -149,8 +159,10 @@
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
-
 </div>
+
+<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
@@ -165,16 +177,66 @@
 <script type = "text/javascript">
 $(document).ready(function(){
 	$(".dropdown").hover(
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-            $(this).toggleClass('open');
-        },
-        function() {
-            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-            $(this).toggleClass('open');
-        }
-    );
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+          $(this).toggleClass('open');
+      },
+      function() {
+          $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+          $(this).toggleClass('open');
+      }
+  );
+
+	$("#wishlistItemsContainer").on("click", ".productName", function(){
+		var id = $(this).closest(".wishlistItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#wishlistItemsContainer").on("click", ".productImage", function(){
+		var id = $(this).closest(".wishlistItem").attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
+	});
+
+	$("#wishlistItemsContainer").on("click", ".addToCartButton", function(e){
+		e.preventDefault();
+		var id = $(this).closest(".wishlistItem").attr("name");
+		$("#cartItemField").val(id);
+		$("#cartForm").submit();
+	});
+
+	$("#wishlistItemsContainer").on("click", ".removeFromWishlistButton", function(){
+		var customerId = <?php
+			if(isset($_SESSION["customerId"])){
+				echo $_SESSION["customerId"];
+			}else{
+				echo -1;
+			}
+		?>;
+
+		RemoveFromWishlist(customerId, $(this).closest(".wishlistItem").attr("name"), $(this));
+	});
 });
+
+function RemoveFromWishlist(customerId, furnitureId, div){
+	$.ajax({
+		type: "POST",
+		url: "Ajax/RemoveFromWishlist.php",
+		dataType: "json",
+		data: {
+			"customerId" : customerId,
+			"furnitureId" : furnitureId
+		},
+		success: function(result) {
+			// div.removeClass("active");
+			location.reload();
+		},
+		error: function(result) {
+
+		}
+	});
+}
 </script>
 </body>
 

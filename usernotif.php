@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <?php session_start();?>
@@ -31,7 +31,7 @@ n<!DOCTYPE html>
 		<div class="row">
 			<div class="col">
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 20px;">
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li class="active"><a href="usernotif.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Notifications</a></li>
@@ -47,11 +47,12 @@ n<!DOCTYPE html>
 					<tbody class="text-center">
 					<tr class="">
 						<!-- Image should link to the image of the item to be received -->
-					<td class=""><a href="#"><img data-toggle="modal" data-target="#notifimg" style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td>
+					<!-- <td class=""><a href="#"><img data-toggle="modal" data-target="#notifimg" style="max-height: 140px;" src="./images/notifs/package2.png" alt=" " class="img-responsive"></a></td> -->
+					<td class=""><i class="fa fa-archive" style="color: #d42d2d;" aria-hidden="true"></td>
 						<!-- Modal-->
 					  	<div id="notifimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
 							<div role="document" class="modal-dialog">
-							  <div class="modal-content">
+							  <div class="modal-content" >
 								<div class="modal-header">
 								  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
 								  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
@@ -74,49 +75,34 @@ n<!DOCTYPE html>
 					<td class="">System Message</td>
 					<td class="">Have you received your item?</td>
 					<td class="" style="text-align:  center;">	
-						<div class="red_button" data-toggle="modal" data-target="#cartdia1" style="width: 150px; margin-top: 10px;"><a href="#">Yes</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>By selecting Confirm, you confirm that you have received your item.</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Confirm</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
+						<div class="red_button" data-toggle="modal" data-target="#cartdia5" style="width: 150px; margin-top: 10px;"><a href="#">View details</a></div>
+						  <!-- Modal-->
+						  	<div id="cartdia5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+								<div role="document" class="modal-dialog">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h4 id="exampleModalLabel" class="modal-title">Order Details</h4>
+									  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
 									</div>
-							  	</div>
-							  	<br>
-								<div class="red_button" data-toggle="modal" data-target="#cartdia2" style="width: 150px; background-color: #444; margin-top: 10px;"><a href="#">No</a></div>
-							  <!-- Modal-->
-							  	<div id="cartdia2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
-									<div role="document" class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
-										  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-										</div>
-										<div class="modal-body">
-										  <p>By selecting Confirm, you confirm that you have not received your item.</p>
-										</div>
-										<div class="modal-footer">
-										  <a href="wishlist.php"><button type="button" class="btn red_button" style="color: white;"> Confirm</button></a>
-										  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-										</div>
-									  </div>
+									<div class="modal-body">
+									  <p><strong>Order ID:</strong> 123028</p>
+									  <p><strong>Order Amount:</strong> P2,250.00</p>
+									  <p><strong>Shipping/Delivery Fee:</strong> P100.00</p>
+									  <p><strong>Total Payment:</strong> P2,350.00</p>
+									  <p><strong>Mode of Payment:</strong> Cash On Delivery</p>
+									  <p><strong>Expected Arrival:</strong> January 20, 2018</p>
 									</div>
-							  	</div>
-						</td>
+									<div class="modal-footer">
+									  <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+									</div>
+								  </div>
+								</div>
+						  	</div>
+					</td>
 					</tr>
 					<tr class="">
-						<td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/way2.png" alt=" " class="img-responsive"></a></td>
+						<!-- <td class=""><a href="#"><img style="max-height: 140px;" src="./images/notifs/way2.png" alt=" " class="img-responsive"></a></td> -->
+						<td class=""><i class="fa fa-clipboard" style="color: #d42d2d;" aria-hidden="true"></td>
 						<td class="">System Message</td>
 						<td class="">Your order is on the way</td>
 						<td class="" style="text-align:  center;">	
@@ -228,109 +214,19 @@ n<!DOCTYPE html>
                     </div>
                   </div>
               </div>
-            </div>
-		</div>
+			<!-- Benefit HERE-->
+			<?php include('Access/Benefit.php');?>
 
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>free shipping</h6>
-							<p>Within the Philippines</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>cash on delivery</h6>
-							<p>Pay upon receiving your item</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>14 days return</h6>
-							<p>See return policy for details</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>Open Always</h6>
-							<p>24/7</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- NEWSLETTER HERE-->
+			<?php include('Access/Newsletter.php');?>
+
+			<!-- FOOTER HERE-->
+			<?php include('Access/Footer.php');?>
 		</div>
 	</div>
-
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<h4>Newsletter</h4>
-						<p>Subscribe to our newsletter and get 20% off your first purchase</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<form action="post">
-						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-						<ul class="footer_nav">
-							<li><a href="terms.php">Terms of Use</a></li>
-							<li><a href="privacy.php">Privacy Policy</a></li>
-							<li><a href="contact.php">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2018 All Rights Reserverd. <a href="#">KwARto</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
 </div>
-
+<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>

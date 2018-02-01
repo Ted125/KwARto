@@ -52,7 +52,7 @@ class furniture_specification{
     public function displayFurnitureSpecification($furnitureId){
         $db = new Database();
         $connection = $db->Connect();
-        $this->setFurnitureId($furnituredId);
+        $this->setFurnitureId($furnitureId);
         $result = null;
         if($connection){
             //$result = NULL;

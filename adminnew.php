@@ -50,8 +50,7 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                 
                
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
@@ -74,7 +73,7 @@
             ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['username']?></h1>
-              <p>Super Admin</p>
+              <p>Administrator</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -90,7 +89,7 @@
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
-            <li class="active"> <a href="adminnew.php"> <i class="fa fa-user"></i>Register </a></li>
+            <li class="active"> <a href="adminnew.php"> <i class="fa fa-user"></i>Register New Admin</a></li>
             <li><a href="Controllers/Logout.php"> <i class="icon-interface-windows"></i>Logout</a></li>
           </ul>
         </nav>

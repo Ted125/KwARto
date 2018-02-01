@@ -43,9 +43,13 @@ class user_details{
             if(isset($_SESSION['userType'])){
                 $this->setUsername($_POST['registerUsername']);
             }
+            if(strcmp($_SESSION['userType'], 'admin') != 0){
+                $this->setUserStatus('inactive');
+            }
             $this->setUserType($userType);
             $this->setEmail($_POST['registerEmail']);
             $this->setMobileNumber($_POST['registerPhone']);
+            $this->setImage('default.jpg');
             $create = "INSERT INTO user_details
             (
             password,
@@ -54,7 +58,8 @@ class user_details{
             userStatus,
             email,
             mobileNumber,
-            addedBy
+            addedBy,
+            image
             )
             VALUES
             ('".$this->getPassword()."',
@@ -63,7 +68,8 @@ class user_details{
             '".$this->getUserStatus()."',
             '".$this->getEmail()."',
             '".$this->getMobileNumber()."',
-            '".$this->getAddedBy()."'
+            '".$this->getAddedBy()."',
+            '".$this->getImage()."'
             )";
             echo $create;
             $result = mysqli_query($connection, $create);
@@ -108,7 +114,7 @@ class user_details{
         if(isset($_SESSION) && strcmp( $_SESSION['userType'],'admin') == 0){
             $this->setUserStatus('active');
             $this->setUserType('admin');
-            $thos->setAddedBy($_SESSION['userId']);
+            $this->setAddedBy($_SESSION['userId']);
             $result = $this->createUser($this->getUserType());
         }else{
             echo 'no session or only admins can create other admins';

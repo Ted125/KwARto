@@ -37,13 +37,13 @@
 	<div class="main_slider" style="background-image:url(./images/caro1.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height text-center">
-				<div style="margin: 0px 200px 0px 200px;">
+				<div style="margin: 0px 170px 0px 170px;">
 					<div class="row text-center" style="left: 40%;">
 			        	<img src="./images/hero-image-2.png" style="max-height: 400px;">
 			        	<img src="./images/hero-image-3.png" style="margin-top: 30px; margin-left: -150px; max-height: 400px;">
 	        		</div>
 	        		<div class="text-center" style="margin-left: 150px;">
-			          	<h2 style="color: black; margin-top: -80px; color: #282828;">Get the Mobile App Now</h2>
+			          	<h2 style="color: black; margin-top: -80px; color: #2e1111; font-weight: lighter;">Get the Mobile App Now</h2>
 			          	<div style="margin-top: 10px;" class="red_button shop_now_button"><a href="#" style="text-decoration: none; color: white;">download here</a></div>
 			          </div>
 				</div>
@@ -65,21 +65,21 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg1.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Bedroom</a>
+							<a id = "bannerBedroom" href="#">Bedroom</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg2.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Home Office</a>
+							<a id = "bannerOffice" href="#">Home Office</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(./images/indexbg3.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">Living Room</a>
+							<a id = "bannerLivingRoom" href="#">Living Room</a>
 						</div>
 					</div>
 				</div>
@@ -130,7 +130,7 @@
 			<div class="row">
 				<div class="col">
 					<!-- Selected Furniture Form -->
-					<form id = "selectedFurnitureForm" action = "single.php" method = "POST">
+					<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
 						<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
 					</form>
 					<!-- Cart Form -->
@@ -287,7 +287,7 @@
 
 		require("Controllers/SearchFurniture.php");
 
-		if($searchFurnitureResult != null){
+		if($searchFurnitureResult != null && mysqli_num_rows($searchFurnitureResult) > 0){
 			$row = mysqli_fetch_assoc($searchFurnitureResult);
 
 			$saleEnd = new DateTime($row["saleEnd"]);
@@ -297,7 +297,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
-					<div class="deal_ofthe_week_img">
+					<div class="deal_ofthe_week_img" style="display: flex; align-items: center; background-color: white; ">
 						<?php
 							$_POST["furnitureId"] = $row["furnitureId"];
 
@@ -306,7 +306,7 @@
 							if($thumbnailResult != null){
 								$r = mysqli_fetch_assoc($thumbnailResult);
 						?>
-						<img src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="">
+						<img style="max-width: 540px; height: auto;" src=<?php echo "Resources/Images/Furniture/" .  $row["furnitureId"] . "/" . $r["image"]; ?> alt="">
 						<?php
 							}
 						?>
@@ -543,6 +543,11 @@
 		</div>
 	</div>
 
+  <!-- Chosen Nav Form -->
+  <form id = "chosenNavForm" action = "categories.php" method = "POST">
+    <input id = "chosenNavCategory" type = "hidden" name = "searchCategoryId" value = "1">
+  </form>
+
 	<!-- Benefit HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -553,6 +558,9 @@
 	<?php include('Access/Footer.php');?>
 
 </div>
+
+	<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
@@ -618,6 +626,24 @@ $(document).ready(function(){
 			AddToWishlist(customerId, $(this).parent().find(".product_name").attr("name"), $(this));
 		}
 	});
+
+  $("#bannerBedroom").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("8");
+    $("#chosenNavForm").submit();
+  });
+
+  $("#bannerOffice").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("13");
+    $("#chosenNavForm").submit();
+  });
+
+  $("#bannerLivingRoom").on("click", function(e){
+    e.preventDefault();
+    $("#chosenNavCategory").val("11");
+    $("#chosenNavForm").submit();
+  });
 });
 
 function AddToWishlist(customerId, furnitureId, div){

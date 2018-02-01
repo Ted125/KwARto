@@ -106,6 +106,7 @@
 		<input id = "inputTotalFee" name = "totalFee" type = "hidden">
 		<input id = "inputCustomerId" name = "customerId" type = "hidden">
 		<input id = "inputPaymentId" name = "paymentId" type = "hidden">
+		<input id = "inputSellerId" name = "sellerId" type = "hidden">
 	</form>
 
 	<div class="blogs">
@@ -253,9 +254,6 @@
 		</div>
 	</div>
 
-	</div>
-
-
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -264,7 +262,12 @@
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
+	</div>
 
+
+
+	<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 	<!-- MODAL CONTENTS -->
 	<!-- CASH ON DELIVERY -->
 	<div id="codmodal" tabindex="-1" role="dialog" aria-labelledby="codmodal" aria-hidden="true" class="modal fade text-left">
@@ -510,29 +513,93 @@
 		var shippingFee = "<?php echo $_POST['shippingFee']; ?>";
 		var totalFee = "<?php echo $_POST['totalFee']; ?>";
 
-		GenerateOrderNumber();
+		$.ajax({
+			type: "POST",
+			url: "Ajax/LoadCartAggregates.php",
+			dataType: "json",
+			data: {
+				"customerId" : customerId
+			},
+			success: function(result){
+				var shippingFee = 0;
+				var subtotalFee = 0;
+				var commission = 5;
+				var totalFee = 0;
 
-		$("#inputShippingContactPerson").val($("#shipContactPerson").val());
-		$("#inputShippingContactNumber").val($("#shipContactNumber").val());
-		$("#inputShippingAddress").val($("#shipAddress").val());
-		$("#inputShippingLocationId").val($("#selectBarangay").find(":selected").val());
+				result.forEach(function(item){
+					GenerateOrderNumber();
 
-		$("#inputBillingContactPerson").val($("#shipContactPerson").val());
-		$("#inputBillingContactNumber").val($("#shipContactNumber").val());
-		$("#inputBillingAddress").val($("#shipAddress").val());
-		$("#inputBillingLocationId").val($("#selectBarangay").find(":selected").val());
+					$("#inputShippingContactPerson").val($("#shipContactPerson").val());
+					$("#inputShippingContactNumber").val($("#shipContactNumber").val());
+					$("#inputShippingAddress").val($("#shipAddress").val());
+					$("#inputShippingLocationId").val($("#selectBarangay").find(":selected").val());
 
-		$("#inputDiscount").val(0);
-		$("#inputTax").val(7);
+					$("#inputBillingContactPerson").val($("#shipContactPerson").val());
+					$("#inputBillingContactNumber").val($("#shipContactNumber").val());
+					$("#inputBillingAddress").val($("#shipAddress").val());
+					$("#inputBillingLocationId").val($("#selectBarangay").find(":selected").val());
 
-		$("#inputSubtotalFee").val(subtotalFee);
-		$("#inputShippingFee").val(shippingFee);
-		$("#inputTotalFee").val(totalFee);
+					$("#inputDiscount").val(0);
+					$("#inputTax").val(7);
 
-		$("#inputCustomerId").val(customerId);
-		$("#inputPaymentId").val(1);
+					subtotalFee = parseFloat(item.subtotal);
+					subtotalFee += (subtotalFee * (commission / 100));
+					shippingFee = GetShippingFee(parseFloat(item.totalWeight));
+					totalFee = subtotalFee + shippingFee;
 
-		$("#addOrderForm").submit();
+					$("#inputSubtotalFee").val(subtotalFee);
+					$("#inputShippingFee").val(shippingFee);
+					$("#inputTotalFee").val(totalFee);
+
+					$("#inputCustomerId").val(customerId);
+					$("#inputPaymentId").val(1);
+
+					$("#inputSellerId").val(item.sellerId);
+
+					AddOrder();
+				});
+			},
+			error: function(result){
+				console.log(result.responseText);
+			}
+		});
+	}
+
+	function AddOrder(){
+		var customerId = "<?php echo $_SESSION['customerId']; ?>";
+
+		$.ajax({
+			type: "POST",
+			url: "Ajax/AddOrder.php",
+			dataType: "json",
+			data: {
+				"orderNumber" : $("#inputOrderNumber").val(),
+				"shippingContactPerson" : $("#inputShippingContactPerson").val(),
+				"shippingAddress" : $("#inputShippingAddress").val(),
+				"shippingLocationId" : $("#inputShippingLocationId").val(),
+				"shippingContactNumber" : $("#inputShippingContactNumber").val(),
+				"billingContactPerson" : $("#inputBillingContactPerson").val(),
+				"billingAddress" : $("#inputBillingAddress").val(),
+				"billingLocationId" : $("#inputBillingLocationId").val(),
+				"billingContactNumber" : $("#inputBillingContactNumber").val(),
+				"discount" : $("#inputDiscount").val(),
+				"tax" : $("#inputTax").val(),
+				"subtotalFee" : $("#inputSubtotalFee").val(),
+				"shippingFee" : $("#inputShippingFee").val(),
+				"totalFee" : $("#inputTotalFee").val(),
+				"customerId" : customerId,
+				"paymentId" : $("#inputPaymentId").val(),
+				"sellerId" : $("#inputSellerId").val()
+			},
+			success: function(result){
+				console.log("Successfully added order!");
+				window.location.replace("complete.php");
+			},
+			error: function(result){
+				console.log(result.responseText);
+				window.location.replace("complete.php");
+			}
+		});
 	}
 
 	function GenerateOrderNumber(){
@@ -613,4 +680,151 @@ $(document).ready(function () {
   $('div.setup-panel-2 div a.btn-amber').trigger('click');
 });
 
+function GetShippingFee(dimWeight){
+	var feeTable = new Array(32);
+
+	feeTable[0] = new Array(2);
+	feeTable[0][0] = 0.5;
+	feeTable[0][1] = 66.08;
+
+	feeTable[1] = new Array(2);
+	feeTable[1][0] = 1;
+	feeTable[1][1] = 78.40;
+
+	feeTable[2] = new Array(2);
+	feeTable[2][0] = 2;
+	feeTable[2][1] = 112;
+
+	feeTable[3] = new Array(2);
+	feeTable[3][0] = 3;
+	feeTable[3][1] = 140;
+
+	feeTable[4] = new Array(2);
+	feeTable[4][0] = 4;
+	feeTable[4][1] = 168;
+
+	feeTable[5] = new Array(2);
+	feeTable[5][0] = 5;
+	feeTable[5][1] = 196;
+
+	feeTable[6] = new Array(2);
+	feeTable[6][0] = 6;
+	feeTable[6][1] = 218.40;
+
+	feeTable[7] = new Array(2);
+	feeTable[7][0] = 7;
+	feeTable[7][1] = 240.80;
+
+	feeTable[8] = new Array(2);
+	feeTable[8][0] = 8;
+	feeTable[8][1] = 263.20;
+
+	feeTable[9] = new Array(2);
+	feeTable[9][0] = 9;
+	feeTable[9][1] = 285.60;
+
+	feeTable[10] = new Array(2);
+	feeTable[10][0] = 10;
+	feeTable[10][1] = 308;
+
+	feeTable[11] = new Array(2);
+	feeTable[11][0] = 11;
+	feeTable[11][1] = 319.20;
+
+	feeTable[12] = new Array(2);
+	feeTable[12][0] = 12;
+	feeTable[12][1] = 330.40;
+
+	feeTable[13] = new Array(2);
+	feeTable[13][0] = 13;
+	feeTable[13][1] = 341.60;
+
+	feeTable[14] = new Array(2);
+	feeTable[14][0] = 14;
+	feeTable[14][1] = 352.80;
+
+	feeTable[15] = new Array(2);
+	feeTable[15][0] = 15;
+	feeTable[15][1] = 364;
+
+	feeTable[16] = new Array(2);
+	feeTable[16][0] = 16;
+	feeTable[16][1] = 375.20;
+
+	feeTable[17] = new Array(2);
+	feeTable[17][0] = 17;
+	feeTable[17][1] = 386.40;
+
+	feeTable[18] = new Array(2);
+	feeTable[18][0] = 18;
+	feeTable[18][1] = 397.60;
+
+	feeTable[19] = new Array(2);
+	feeTable[19][0] = 19;
+	feeTable[19][1] = 408.80;
+
+	feeTable[20] = new Array(2);
+	feeTable[20][0] = 20;
+	feeTable[20][1] = 420;
+
+	feeTable[21] = new Array(2);
+	feeTable[21][0] = 21;
+	feeTable[21][1] = 431.20;
+
+	feeTable[22] = new Array(2);
+	feeTable[22][0] = 22;
+	feeTable[22][1] = 442.40;
+
+	feeTable[23] = new Array(2);
+	feeTable[23][0] = 23;
+	feeTable[23][1] = 453.60;
+
+	feeTable[24] = new Array(2);
+	feeTable[24][0] = 24;
+	feeTable[24][1] = 464.80;
+
+	feeTable[25] = new Array(2);
+	feeTable[25][0] = 25;
+	feeTable[25][1] = 476;
+
+	feeTable[26] = new Array(2);
+	feeTable[26][0] = 26;
+	feeTable[26][1] = 487.20;
+
+	feeTable[27] = new Array(2);
+	feeTable[27][0] = 27;
+	feeTable[27][1] = 498.40;
+
+	feeTable[28] = new Array(2);
+	feeTable[28][0] = 28;
+	feeTable[28][1] = 509.60;
+
+	feeTable[29] = new Array(2);
+	feeTable[29][0] = 29;
+	feeTable[29][1] = 520.80;
+
+	feeTable[30] = new Array(2);
+	feeTable[30][0] = 30;
+	feeTable[30][1] = 532;
+
+	feeTable[31] = new Array(2);
+	feeTable[31][0] = 31;
+	feeTable[31][1] = 560;
+
+	if(dimWeight == 0){
+		return 0;
+	}
+
+	if(dimWeight <= feeTable[0][0]){
+		return feeTable[0][1];
+	}
+
+	for(var i = 0; i < 32; i++){
+		if(feeTable[i][0] >= dimWeight){
+			return feeTable[i][1];
+		}
+	}
+
+	return feeTable[31][1];
+}
 </script>

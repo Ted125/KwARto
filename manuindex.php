@@ -100,7 +100,13 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="https://www.shareicon.net/data/2016/07/05/791221_man_512x512.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="<?php
+                      if(file_exists('Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'')) {
+                        echo 'Resources/Images/User/'.$_SESSION['userId'].'/'.$_SESSION['image'].'';
+                      }else{
+                        echo 'Resources/Images/User/default/default.png';
+                      }
+                      ?>" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4"><?php echo $_SESSION['name'];?></h1>
               <p>Manufacturer</p>
@@ -134,6 +140,14 @@
               <li class="breadcrumb-item active">Reports </li>
             </ul>
           </div>
+          <!-- Include Stuff -->
+          <?php
+            include('Models/Database.php');
+            include('Controllers/SellerGetTotalSales.php');
+            include('Controllers/SellerGetTotalReviews.php');
+            include('Controllers/SellerGetRatingSum.php');
+            include('Controllers/SellerGetTotalQuestions.php');
+          ?>
           <!-- Charts Section-->
           <section class="charts" style="background-color: #faf6f6">
 
@@ -144,36 +158,62 @@
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-violet"><i class="fa-money"></i></div>
-                    <div class="title"><span>Monthly<br>Sold</span>
+                    <div class="title"><span>Total<br>Sold</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                        <div role="progressbar" style="width: <?php echo $stock_sold['sold_stock'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>29</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $stock_sold['sold_stock'];
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-red"><i class="fa fa-comment-o"></i></div>
-                    <div class="title"><span>New<br>Comments</span>
+                    <div class="title"><span>Total<br>Comments</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                        <div role="progressbar" style="width: <?php echo $reviews['reviews'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>70</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php  
+                        
+                        echo $reviews['reviews'];
+                        if($reviews['reviews'] != 0){
+                          $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
+                        } else {
+                          $aveRating = 0;
+                        }
+                      ?>
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-green"><i class="fa fa-star"></i></div>
-                    <div class="title"><span>New<br>Ratings</span>
+                    <div class="title"><span>Average<br>Ratings</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                        <div role="progressbar" style="width: <?php echo (string)(((float)$aveRating/5)*100);?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>40</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $aveRating;
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -182,10 +222,17 @@
                     <div class="icon bg-orange"><i class="fa fa-warning"></i></div>
                     <div class="title"><span>New<br>Questions</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                        <div role="progressbar" style="width: <?php echo $questions['questions'];?>%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>12</strong></div>
+                    <div class="number">
+                      <strong>
+                      <?php 
+                        
+                        echo $questions['questions'];
+                      ?> 
+                      </strong>
+                    </div>
                   </div>
                 </div>
               </div>
