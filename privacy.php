@@ -146,9 +146,6 @@
 		</div>
 			
 	</div>
-</div>
-	</div>
-
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
 
@@ -157,7 +154,11 @@
 
 	<!-- FOOTER HERE-->
 	<?php include('Access/Footer.php');?>
+</div>
+	</div>
 
+	<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

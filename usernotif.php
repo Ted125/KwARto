@@ -1,4 +1,4 @@
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <?php session_start();?>
@@ -214,20 +214,19 @@ n<!DOCTYPE html>
                     </div>
                   </div>
               </div>
-            </div>
+			<!-- Benefit HERE-->
+			<?php include('Access/Benefit.php');?>
+
+			<!-- NEWSLETTER HERE-->
+			<?php include('Access/Newsletter.php');?>
+
+			<!-- FOOTER HERE-->
+			<?php include('Access/Footer.php');?>
 		</div>
-
-	<!-- Benefit HERE-->
-	<?php include('Access/Benefit.php');?>
-
-	<!-- NEWSLETTER HERE-->
-	<?php include('Access/Newsletter.php');?>
-
-	<!-- FOOTER HERE-->
-	<?php include('Access/Footer.php');?>
-
+	</div>
 </div>
-
+<!-- MOBILE VIEW HERE-->
+	<?php include('Access/MobileTab.php');?>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
