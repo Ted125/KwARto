@@ -876,6 +876,10 @@
 		</div>
 	</div>
 
+	<!-- Selected Furniture Form -->
+	<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
+		<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+	</form>
 
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
@@ -909,6 +913,12 @@ $(document).ready(function(){
 		var id = "<?php echo $_GET['singleFurnitureId']; ?>";
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
+	});
+
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
 	});
 
 	var thumbs = $('.single_product_thumbnails ul li');
