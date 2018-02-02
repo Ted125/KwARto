@@ -616,10 +616,6 @@
 					<div class="product_slider_container">
 						<div class="owl-carousel owl-theme product_slider">
 							<?php
-								$_POST["categoryId"] = $row["categoryId"];
-
-								require("Controllers/LoadSinglePath.php");
-
 								$_POST["categoryId"] = 1;
 								$_POST["sellerId"] = $row["sellerId"];
 								$_POST["minPrice"] = -1;
@@ -880,6 +876,10 @@
 		</div>
 	</div>
 
+	<!-- Selected Furniture Form -->
+	<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
+		<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+	</form>
 
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
@@ -894,13 +894,6 @@
 	<!-- MOBILE VIEW HERE-->
 	<?php include('Access/MobileTab.php');?>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -920,6 +913,12 @@ $(document).ready(function(){
 		var id = "<?php echo $_GET['singleFurnitureId']; ?>";
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
+	});
+
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
 	});
 
 	var thumbs = $('.single_product_thumbnails ul li');

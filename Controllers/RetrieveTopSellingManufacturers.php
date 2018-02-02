@@ -11,7 +11,8 @@
                 INNER JOIN furniture f ON f.sellerId = s.sellerId 
                 INNER JOIN furniture_stock fs ON fs.furnitureId = f.furnitureId
                 WHERE fs.status = 'sold' 
-                ORDER BY stock_sold
+                GROUP BY s.name
+                ORDER BY stock_sold desc
                 limit 3";
         $result = mysqli_query($connection, $qry);
     

@@ -153,7 +153,7 @@
 										    </label>
 										   </div>
                       </div>
-                      <form class="form-horizontal col-lg-8" action = >
+                      <form class="form-horizontal col-lg-8" action = "Controllers/UpdateUser.php">
 
                         <div class="line"></div>
 
@@ -203,13 +203,13 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Change Password</label>
                           <div class="col-sm-9">
-                            <input id = "password" type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
+                            <input id = "password" type="password" placeholder="********" class="form-control">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Confirm Password</label>
                           <div class="col-sm-9">
-                            <input id = "confirm_password"type="password" placeholder="********" class="form-control" pattern=".{8,}"   required title="8 characters minimum">
+                            <input id = "confirm_password"type="password" placeholder="********" class="form-control">
                             <span id = "message"></span>
                           </div>
                         </div>
@@ -232,8 +232,8 @@
                                       <p>Are you sure you want to save changes?</p>
                                     </div>
                                     <div class="modal-footer">
+                                    <input type = 'Submit' value ='Save Changes' class="btn btn-danger"/>
                                       <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                                      <button type="button" class="btn btn-primary">Yes</button>
                                     </div>
                                   </div>
                                 </div>

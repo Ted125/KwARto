@@ -213,7 +213,7 @@
                       <h3 class="h4">Total Sales</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample"></canvas>
+                    <div id="chart_div_3" style="width: 100%; height: 250px;"></div>
                       <!-- reused these charts. just make new ones in charts-custom.js .. templated na to-->
                     </div>
                   </div>
@@ -249,7 +249,9 @@
                       <h3 class="h4">Top Selling Products</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample2"></canvas>
+                    </div>
+                    <div id="top_x_div_3" style="width: 100%; height: 157px; margin-bottom: 2%; margin-left: 2%"></div>
+                   </div>
                     </div>
                   </div>
                 </div>
@@ -275,8 +277,54 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-custom.js"></script>
+    <!-- <script src="js/charts-custom.js"></script> -->
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.load('current', {'packages':['corechart']});                   
+    google.charts.setOnLoadCallback(drawStuff);
+    google.charts.setOnLoadCallback(drawChart);
+  
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales'],
+        <?php require("Controllers/RetrieveTotalSales.php")?>
+      ]);
+
+      var options = {
+        title: 'Total Sales',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_3'));
+
+      chart.draw(data, options);
+    }
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Furniture', 'Furniture Sold', ],
+          <?php require("Controllers/RetrieveTopSellingSellerProducts.php")?>
+        ]);
+
+        var options = {
+          width: 1500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Total stock sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div_3'));
+        chart.draw(data, options);
+      };
+
+    </script>
   </body>
 </html>

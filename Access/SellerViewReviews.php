@@ -57,5 +57,5 @@
   <div class="content"><?php echo $row['title'];?></div>
   <span class="fa fa-thumbs-up"> <?php echo $row['likes'];?></span>
   <div class="quote has-shadow"> <small><?php echo $row['body'];?></small></div>
-  <div class="CTAs pull-right"><a href="single.php" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
+  <div class="CTAs pull-right"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId'];?>" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
 </div>
