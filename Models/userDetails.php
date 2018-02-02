@@ -233,7 +233,7 @@ class user_details{
         $db = new Database();
         $connection = $db->Connect();
         if($connection){
-            $query = "SELECT userType
+            $query = "SELECT userType, userStatus
                       FROM user_details
                       WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
             if($result = mysqli_query($connection, $query)){
@@ -244,7 +244,7 @@ class user_details{
                         return $this->LoginCustomer($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
-                    } else if(strcmp($row['userType'], "seller") == 0){
+                    } else if(strcmp($row['userType'], "seller") == 0 && strcmp($row['userStatus'], "active") == 0){
                         return $this->LoginSeller($sessionEmail, $sessionPassword);
                     }
                 }
@@ -259,7 +259,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, customerId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
+          $query = "SELECT user_details.userId AS userId, userStatus, customerId, email, userType, mobileNumber, image, dateAdded, firstName, middleName, lastName, birthdate
 
           FROM user_details INNER JOIN customer ON customer.userId = user_details.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
