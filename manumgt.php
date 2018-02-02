@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
       header("Location:index.php");
@@ -28,10 +29,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href=" images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -56,8 +57,8 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
-               
+
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -65,7 +66,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -89,9 +90,9 @@
                     <li class="active"><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <!-- <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li> -->
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li> 
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <!-- <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li> -->
-                    
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
@@ -113,10 +114,10 @@
               <li class="breadcrumb-item active">Manufacturers Management</li>
             </ul>
           </div>
-          <section class="tables" style="background-color: #faf6f6">   
+          <section class="tables" style="background-color: #faf6f6">
             <div class="container-fluid">
               <div class="row">
-                
+
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
@@ -132,7 +133,7 @@
                             <th>Description</th>
                             <th>E-mail Address</th>
                             <th>Status</th>
-                            <th>Action</th> 
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -141,7 +142,7 @@
                       </table>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </section>

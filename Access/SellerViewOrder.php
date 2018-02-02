@@ -1,10 +1,10 @@
 <?php
-  switch($row['state']){
-    case "pending": $color = "#ffc36d"; break;
-    case "shipping": $color = "#ffc36d"; break;
-    case "delivered": $color = "#54e69d"; break;
-    default : $color = "#D42D2D";
-  }
+switch($row['state']){
+  case "pending": $color = "#ffc36d"; break;
+  case "shipping": $color = "#ffc36d"; break;
+  case "delivered": $color = "#54e69d"; break;
+  default : $color = "#D42D2D";
+}
 ?>
 <div class="project">
   <div class="row bg-white has-shadow">
@@ -26,12 +26,20 @@
                     <?php echo $row['state'];?><span class="caret"></span></button>
                     <form action="Controllers/SellerChangeOrderState.php" method="POST">
                       <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
-                      <select class="form-control" id="weightUnit" name="state" required>
-                        <option value="pending">Pending</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="shipping">Shipping</option>
-                      </select>
-                      <input type="submit">
+                      <input type="hidden" name="state" value="pending">
+                      <input class="btn btn-primary" type="submit" value="Set As Pending">
+                    </form>
+                    <br>
+                    <form action="Controllers/SellerChangeOrderState.php" method="POST">
+                      <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
+                      <input type="hidden" name="state" value="shipping">
+                      <input class="btn btn-primary" type="submit" value="Set As Shipping">
+                    </form>
+                    <br>
+                    <form action="Controllers/SellerChangeOrderState.php" method="POST">
+                      <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
+                      <input type="hidden" name="state" value="delivered">
+                      <input class="btn btn-primary" type="submit" value="Set As Delivered">
                     </form>
                   </div>
 
@@ -46,8 +54,14 @@
                       <div class="item">
                         <div class="row" style="margin-bottom: 0px;">
                           <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-                            <div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
+                            <div class="text-center"><img style="max-width: 100px;" src="<?php
+                            if(file_exists('Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg')) {
+                              echo 'Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg';
+                            }else{
+                              echo 'Resources/Images/Furniture/default/default.png';
+                            }
+                            ?>"></div>
+                            <div class="date"><span>P<?php echo $row['price'];?></span><span class="text-info"></span></div>
                           </div>
                           <div class="col-8 content">
                             <h5><?php echo $row['name'];?></h5>
@@ -55,34 +69,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="item">
-                        <div class="row" style="margin-bottom: 0px;">
-                          <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-                            <div class="date"><span><?php echo $row['price'];?> </span><span class="text-info">( 1 )</span></div>
-                          </div>
-                          <div class="col-8 content">
-                            <h5>Wooden Stool</h5>
-                            <p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="row" style="margin-bottom: 0px;">
-                          <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-                            <div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-                          </div>
-                          <div class="col-8 content">
-                            <h5>Chic Table Piece</h5>
-                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-                          </div>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                   <br>
-                  <div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
+                  <div class="text-right"><h3 class="h4">Amount: P<?php echo $row['price'];?></h3></div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>

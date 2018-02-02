@@ -616,10 +616,6 @@
 					<div class="product_slider_container">
 						<div class="owl-carousel owl-theme product_slider">
 							<?php
-								$_POST["categoryId"] = $row["categoryId"];
-
-								require("Controllers/LoadSinglePath.php");
-
 								$_POST["categoryId"] = 1;
 								$_POST["sellerId"] = $row["sellerId"];
 								$_POST["minPrice"] = -1;
@@ -716,7 +712,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
 							</div>
 
 							<?php
@@ -860,7 +856,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
 							</div>
 
 							<?php
@@ -880,6 +876,10 @@
 		</div>
 	</div>
 
+	<!-- Selected Furniture Form -->
+	<form id = "selectedFurnitureForm" action = "single.php" method = "GET">
+		<input id = "selectedFurnitureField" type = "hidden" name = "singleFurnitureId">
+	</form>
 
 	<!-- BENEFIT HERE-->
 	<?php include('Access/Benefit.php');?>
@@ -898,17 +898,10 @@
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-
+<script src="js/single_custom.js"></script>
 <script src="js/custom.js"></script>
 </body>
 
@@ -920,6 +913,12 @@ $(document).ready(function(){
 		var id = "<?php echo $_GET['singleFurnitureId']; ?>";
 		$("#cartItemField").val(id);
 		$("#cartForm").submit();
+	});
+
+	$(".product_name").on("click", function(){
+		var id = $(this).attr("name");
+		$("#selectedFurnitureField").val(id);
+		$("#selectedFurnitureForm").submit();
 	});
 
 	var thumbs = $('.single_product_thumbnails ul li');
@@ -963,7 +962,7 @@ $(document).ready(function(){
 					echo -1;
 				}
 			?>;
-			var furnitureId = <?php echo $_POST["furnitureId"]; ?>
+			var furnitureId = <?php echo $_GET["singleFurnitureId"]; ?>
 
 			if($(this).hasClass("active")){
 				RemoveFromWishlist(customerId, furnitureId, $(this));

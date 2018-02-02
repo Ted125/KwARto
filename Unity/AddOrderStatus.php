@@ -9,9 +9,9 @@
     $result = mysqli_query($connection, $query);
 
     if($result){
-      echo "true";
+      // echo "true" . "\n";
     }else{
-      echo "false";
+      // echo "false" . "\n";
     }
   }
 ?>

@@ -3,6 +3,7 @@ require('../Models/furnitureCRUD.php');
 require('../Models/furniture_packageCRUD.php');
 require('../Models/furniture_specificationCRUD.php');
 require('../Models/furniture_imageCRUD.php');
+ob_start();
 session_start();
 
 
@@ -50,7 +51,7 @@ if ($verify != null || $verify >= 0) {
       $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Images/Furniture//'.$verify.'//';
       $fileExtension = '.jpg';
 
-      
+
       $fiName = $furnImg->countAllImages($uploaddir);
       $uploadfile = $uploaddir . basename((string)$fiName) . $fileExtension;
       echo "THE FILE NAME WILL BE ".$fiName;
@@ -76,8 +77,8 @@ if ($verify != null || $verify >= 0) {
   $uploadfile2 = $uploaddir2 . basename($_FILES['model']['name']);
 
   if ($err == 0 && move_uploaded_file($_FILES['model']['name'], $uploadfile2)) {
-    echo "NEWDATA: ".$_FILES['image']['tmp_name']."<br>"; 
-    echo "NEWDATA: ".$_FILES['model']['tmp_name']."<br>"; 
+    echo "NEWDATA: ".$_FILES['image']['tmp_name']."<br>";
+    echo "NEWDATA: ".$_FILES['model']['tmp_name']."<br>";
     echo "DIRECTORY FOR IMAGES: ".$uploaddir;
     echo "DIRECTORY FOR MODEL: ".$uploaddir2;
 
@@ -85,11 +86,10 @@ if ($verify != null || $verify >= 0) {
     echo "Upload Fail";
     echo "......uploadfile:->>>".$uploadfile;
   }
-  
+
 } else {
     echo "Connection failed";
 }
-   
 
-//header('Location: '.$_SERVER['HTTP_REFERER']);
-?> 
+header('Location: '.$_SERVER['HTTP_REFERER']);
+?>

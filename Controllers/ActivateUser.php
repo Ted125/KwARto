@@ -1,8 +1,8 @@
 <?php
   require_once("../Models/userDetails.php");
-
+  ob_start();
   session_start();
-  
+
   $user = new user_details();
   $verify = $user->activateUser($_POST['userId']);
   if($verify != null){

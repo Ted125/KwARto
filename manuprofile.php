@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   //require("Controllers/Login.php");
   session_start();
   if(strcmp($_SESSION['userType'],'seller') != 0){
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
     <!-- STYLING FOR UPLOAD BUTTON -->
@@ -60,41 +61,9 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
+
                 <!-- Notifications -->
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-shopping-basket bg-orange"></i>You have 2 product purchases</div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-star-o"></i>You have 2 new product ratings</div>
-                          <div class="notification-time"><small>10 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>view all notifications</strong></a></li>
-                  </ul>
-                </li>
-                <!-- Messages -->
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">6</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Comfy Chair</h3><span>You have 2 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Wooden Stool</h3><span>You have 3 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Modern Table</h3><span>You have 1 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
-                  </ul>
-                </li>
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -102,7 +71,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -126,7 +95,7 @@
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
- 
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li class="active"> <a href="manuprofile.php"> <i class="icon-user"></i>Profile</a></li>
@@ -148,10 +117,10 @@
             </ul>
           </div>
           <!-- Forms Section-->
-          <section class="forms" style="background-color: #faf6f6"> 
+          <section class="forms" style="background-color: #faf6f6">
             <div class="container-fluid">
               <div class="row">
-                
+
                 <!-- General Information -->
                 <div class="col-lg-12">
                   <div class="card">
@@ -160,7 +129,7 @@
                           echo '<div class="card-header d-flex align-items-center">';
                           switch($_GET['error']){
                             case '1': echo "<label class='col-sm-12 text text-danger'>Fields does not match. Try again.</label>"; break;
-                            default : echo "<label class='col-sm-12 text text-danger'>Something went wrong. Try again.</label>"; 
+                            default : echo "<label class='col-sm-12 text text-danger'>Something went wrong. Try again.</label>";
                           }
                           echo '</div>';
                         }
@@ -178,7 +147,7 @@
                       }
                       ?>" width = 200px height = 200px>
                       <br>
-                        
+
                       </div>
                       <!-- For seller info -->
                       <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/UpdateSellerMult.php" method="POST">
@@ -200,7 +169,7 @@
                             <input type="text" class="form-control" value="<?php echo $_SESSION['name'];?>" name="updateName">
                           </div>
                         </div>
-                        <div class="form-group row">       
+                        <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Description</label>
                           <div class="col-sm-9">
                             <textarea type="text" class="form-control" value="" name="updateDesc"><?php echo $_SESSION['description'];?></textarea>
@@ -236,10 +205,10 @@
                           </div>
                         </div>
                       </form>
-                      
-                      <div class="line"></div> 
 
-                      <!-- For Email address --> 
+                      <div class="line"></div>
+
+                      <!-- For Email address -->
                       <form class="form-horizontal col-lg-8" action="Controllers/UpdateSeller.php" method="POST">
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">E-mail Address</label>
@@ -289,7 +258,7 @@
                       </form>
 
                       <div class="line"></div>
-                      <!-- For Password --> 
+                      <!-- For Password -->
                       <form class="form-horizontal col-lg-8" action="Controllers/UpdateSeller.php" method="POST">
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Password</label>
@@ -335,7 +304,7 @@
                         </div>
                       </form>
                         <div class="line"></div>
-                                         
+
                     </div>
                   </div>
                 </div>

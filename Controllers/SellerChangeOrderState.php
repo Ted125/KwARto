@@ -1,7 +1,7 @@
 <?php
 require_once("../Models/userDetails.php");
 require_once("../Models/customerCRUD.php");
-
+  ob_start();
   session_start();
   $customer = new customer();
   $verify = $customer->changeOrderState($_SESSION['sellerId'], $_POST['state'], $_POST['orderId']);

@@ -1,4 +1,5 @@
 <!-- <?php
+    ob_start();
     session_start();
   ?>
  -->
@@ -20,4 +21,3 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/styledrop.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive_css.css">
-

@@ -1,4 +1,4 @@
-<?php 
+<?php
 // require("SQL_Connect.php");
 // include("Database.php");
 // include("userDetails.php");
@@ -16,9 +16,9 @@ class furniture_image{
     const DB_TABLE_PK = "furnitureImageId";
 
     /***************** CONSTRUCTOR ****************/
-    
+
     public function __construct(){
-        
+
     }
 
     /***************** FUNCTIONS ****************/
@@ -44,12 +44,12 @@ class furniture_image{
                     } else {
                         $this->setThumbnail('0');
                     }
-                    
-                    
+
+
                     $this->setAddedBy($_SESSION['sellerId']);
                     $this->setUpdatedBy($_SESSION['sellerId']);
                     $create = "INSERT INTO furniture_image
-                    ( 
+                    (
                     image,
                     thumbnail,
                     addedBy,
@@ -58,13 +58,13 @@ class furniture_image{
                     )
                     VALUES
                     ('".$this->getImage()."',
-                    '".$this->getThumbnail()."',
+                    ".$this->getThumbnail().",
                     '".$this->getAddedBy()."',
                     '".$this->getUpdatedBy()."',
                     '".$this->getFurnitureId()."'
                     )";
-                    
-                    $result = mysqli_query($connection, $create);   
+
+                    $result = mysqli_query($connection, $create);
                 }
             }else{
                  echo 'only sellers can add furniture image';
@@ -87,17 +87,40 @@ class furniture_image{
             WHERE furnitureId = '".$this->getFurnitureId()."'
             ";
             $result = mysqli_query($connection, $query);
-                  
+
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
-        }        
+        }
         return $result;
     }
 
-    public function deleteFurnitureImage($furnituredId){}
+    public function deleteFurnitureImage($furnitureId){
+        require("Database.php");
+        if(isset($_SESSION['userType']) && strcmp($_SESSION['userType'],'seller') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+                $this->setFurnitureId($furnitureId);
+                $create = "DELETE FROM furniture
+                            WHERE furnitureId = ".$this->getFurnitureId()."
+                           ";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'invalid user';
+            return null;
+        }
+    }
 
     public function deleteAllFurnitureImage($furnitureId){
         if(isset($_SESSION)){
@@ -132,7 +155,7 @@ class furniture_image{
         return iterator_count($fi)+1;
     }
     /************ SETTERS AND GETTERS ************/
-    
+
     public function getFurnitureImageId(){
         return $this->furnitureImageId;
     }
@@ -197,7 +220,7 @@ class furniture_image{
         $this->updatedBy = $updatedBy;
     }
 
-    
+
 
 }
 
