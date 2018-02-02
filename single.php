@@ -640,7 +640,7 @@
 							?>
 
 							<div class="owl-item product_slider_item product-item">
-								<div class="product discount product_filter">
+								<div class="product discount product_filter" style="height: 320px;">
 									<div class="product_image" style="min-height: 240px;">
 										<?php
 											$_POST["furnitureId"] = $searchRow["furnitureId"];
@@ -784,7 +784,7 @@
 							?>
 
 							<div class="owl-item product_slider_item product-item">
-								<div class="product discount product_filter">
+								<div class="product discount product_filter" style="height: 320px;">
 									<div class="product_image" style="min-height: 240px;">
 										<?php
 											$_POST["furnitureId"] = $searchRow["furnitureId"];
