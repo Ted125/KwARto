@@ -211,6 +211,7 @@ class customer extends user_details{
                         paymentId,
                         furniture_stock.dateAdded AS furniture_stockDateAdded,
                         furniture_stock.dateUpdated AS furniture_stockDateUpdated,
+                        furniture.furnitureId AS furnitureId,
                         name,
                         description,
                         price

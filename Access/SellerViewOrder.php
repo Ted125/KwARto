@@ -46,8 +46,14 @@
                       <div class="item">
                         <div class="row" style="margin-bottom: 0px;">
                           <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/sofa-chair-512.png"></div>
-                            <div class="date"><span>P1,250.00 </span><span class="text-info">( 2 )</span></div>
+                            <div class="text-center"><img style="max-width: 100px;" src="<?php
+                      if(file_exists('Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg')) {
+                        echo 'Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg';
+                      }else{
+                        echo 'Resources/Images/Furniture/default/default.png';
+                      }
+                      ?>"></div>
+                            <div class="date"><span>P<?php echo $row['price'];?></span><span class="text-info"></span></div>
                           </div>
                           <div class="col-8 content">
                             <h5><?php echo $row['name'];?></h5>
@@ -55,34 +61,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="item">
-                        <div class="row" style="margin-bottom: 0px;">
-                          <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://image.freepik.com/free-icon/kitchen-chair_318-63175.jpg  "></div>
-                            <div class="date"><span><?php echo $row['price'];?> </span><span class="text-info">( 1 )</span></div>
-                          </div>
-                          <div class="col-8 content">
-                            <h5>Wooden Stool</h5>
-                            <p>This is the description of the stool. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="row" style="margin-bottom: 0px;">
-                          <div class="col-4 date-holder text-right">
-                            <div class="text-center"><img style="max-width: 100px;" src="https://cdn.onlinewebfonts.com/svg/img_487298.png"></div>
-                            <div class="date"><span>P890.00 </span><span class="text-info">( 1 )</span></div>
-                          </div>
-                          <div class="col-8 content">
-                            <h5>Chic Table Piece</h5>
-                            <p>This is the description of the table. i have to make the description long so that we can see the behavior of the modal content with multiple lines. i hope this description is long enough.</p>
-                          </div>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                   <br>
-                  <div class="text-right"><h3 class="h4">Total: P3,790</h3></div>
+                  <div class="text-right"><h3 class="h4">Amount: P<?php echo $row['price'];?></h3></div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
