@@ -43,7 +43,7 @@
 			        	<img src="./images/hero-image-3.png" style="margin-top: 30px; margin-left: -150px; max-height: 400px;">
 	        		</div>
 	        		<div class="text-center" style="margin-left: 150px;">
-			          	<h2 style="color: black; margin-top: -80px; color: #2e1111; font-weight: lighter;">Get the Mobile App Now</h2>
+			          	<h2 style="color: black; margin-top: -80px; color: #2e1111; font-weight: lighter; text-shadow: 1px 1px #9d9393;">Get the Mobile App Now</h2>
 			          	<div style="margin-top: 10px;" class="red_button shop_now_button"><a href="download.php" style="text-decoration: none; color: white;">download here</a></div>
 			          </div>
 				</div>
