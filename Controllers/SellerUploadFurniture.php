@@ -90,11 +90,5 @@ if ($verify != null || $verify >= 0) {
     echo "Connection failed";
 }
 
-<<<<<<< HEAD
-
 header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>
-=======
-header('Location: '.$_SERVER['HTTP_REFERER']);
-?> 
->>>>>>> e66a6cf9489f2bf1e9658a6a85edbcd98f0405a3
