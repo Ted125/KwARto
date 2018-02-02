@@ -38,6 +38,7 @@ class user_details{
     public function createUser($userType){//Create Customer
         $db = new Database();
         $connection = $db->Connect();
+        $result = null;
         if($connection){
             $this->setPassword(md5($_POST['registerPassword']));
             if(isset($_SESSION['userType'])){

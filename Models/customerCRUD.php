@@ -25,7 +25,7 @@ class customer extends user_details{
                 ".$field." = ".$newData."
                 WHERE 
                 customer.userId = ".$_SESSION['userId']."";
-        echo $create;
+        // echo $create;
         /*sample code here*/
     }
 
@@ -33,6 +33,7 @@ class customer extends user_details{
         include("Database.php");
         $db = new Database();
         $connection = $db->Connect();
+        $result = null;
         if($connection){
             $userDetails = new user_details();
             $userType = "customer";
@@ -57,17 +58,13 @@ class customer extends user_details{
             '".$this->getUserId()."'
             )";
             
-            echo $create;
+            // echo $create;
             $result = mysqli_query($connection, $create);
             
-            if($result){
-                return result;
-            } else {
-                return null;
-            }
         } else{
             echo "Connection Error on Customer";
         }
+        return $result;
     }
 
     public function updateCustomer($field, $newData){
@@ -107,8 +104,8 @@ class customer extends user_details{
                            SET  firstName = '".$fName."', lastName = '".$lName."', birthdate = '".$bDay."'
                            WHERE customer.userId = ".$this->getUserId()."";
                 $result = mysqli_query($connection, $create);
-                echo $create." ";
-                echo $result;
+                // echo $create." ";
+                // echo $result;
                 mysqli_close($connection);
                 return $result;
             }else{
@@ -249,8 +246,8 @@ class customer extends user_details{
                            SET  state = '".$state."'
                            WHERE orderId = ".$orderId."";
                 $result = mysqli_query($connection, $create);
-                echo $create." ";
-                echo $result;
+                // echo $create." ";
+                // echo $result;
                 mysqli_close($connection);
                 return $result;
             }else{
