@@ -179,7 +179,7 @@
 
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
-                            <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Create</button>
+                            <button type="button" id ="enter" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary" disabled = "true">Create</button>
                               <!-- Modal-->
                               <div id="myModalconf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
                                 <div role="document" class="modal-dialog">
@@ -232,9 +232,11 @@
     <script type = "text/javascript">
     $('#password, #confirm_password').on('keyup', function () {
       if ($('#password').val() == $('#confirm_password').val()) {
-    $('#message').html('Passwords are the same').css('color', 'green');
+        $('#message').html('Passwords are the same').css('color', 'green');
+        $("#enter").prop('disabled',false);
     } else {
-    $('#message').html('Passwords are not the same').css('color', 'red');
+        $('#message').html('Passwords are not the same').css('color', 'red');
+        $("#enter").prop('disabled',true);
     }
    });
     </script>
