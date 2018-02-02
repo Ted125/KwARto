@@ -377,8 +377,10 @@ function LoadCartItems(){
 				},
 				success: function(result){
 					result.forEach(function(item){
-						subtotalFee += parseFloat(item.subtotal);
-						subtotalFee += (subtotalFee * (commission / 100));
+						var s = parseFloat(item.subtotal);
+						s += (s * (commission / 100));
+
+						subtotalFee += s;
 						shippingFee += GetShippingFee(parseFloat(item.totalWeight));
 					});
 
