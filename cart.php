@@ -491,7 +491,7 @@ function AddToWishlist(customerId, furnitureId, div){
     },
     success: function(result) {
 			// div.addClass("active");
-			location.reload();
+			location.reload(true);
     },
     error: function(result) {
 

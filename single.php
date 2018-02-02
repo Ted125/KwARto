@@ -963,7 +963,7 @@ $(document).ready(function(){
 					echo -1;
 				}
 			?>;
-			var furnitureId = <?php echo $_POST["furnitureId"]; ?>
+			var furnitureId = <?php echo $_GET["singleFurnitureId"]; ?>
 
 			if($(this).hasClass("active")){
 				RemoveFromWishlist(customerId, furnitureId, $(this));
