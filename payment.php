@@ -188,27 +188,28 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 blog_item_col">
+					<!-- <div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(http://www.pvhc.net/img138/vhfubfultznbnkaozkjh.png)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 								<h4 class="blog_title">Credit or Debit Card</h4>
 								<span class="blog_meta">Only major cards accepted</span>
-								<!-- <a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a> -->
-								<form method="POST">
+								<a class=""  data-toggle="modal" data-target="#credmodal" style="text-decoration: none; color: #d42d2d;" href="#">Select</a>
+								<form method="POST" id = "stripeForm">
 								  <script
 								    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 								    data-key="pk_test_PQyJ2oQLBknBavmRzO2ityzu"
-								    data-amount="2000"
-								    data-name="Demo Site"
-								    data-description="2 widgets ($20.00)"
-								    data-image="">
+								    data-amount="10"
+								    data-name="KwARto"
+								    data-description="Powered by Stripe"
+								    data-image=""
+										data-currency="PHP">
 								  </script>
 								</form>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-4 blog_item_col">
+					</div> -->
+					<!-- <div class="col-lg-4 blog_item_col">
 						<div class="blog_item">
 							<div class="blog_background" style="background-image:url(./images/payment/paypal.jpg)"></div>
 							<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
@@ -217,7 +218,7 @@
 								<a class="" style="text-decoration: none; color: #d42d2d;" href="https://www.paypal.com/PH">Select</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<br>
 
@@ -386,7 +387,7 @@
 						    <input type="text" data-stripe="exp-year">
 						  </div>
 
-						  <button type="submit">Buy Now</button>
+						  <button id = "customButton">Buy Now</button>
 						</form>
 						<p id = "creditCardError"></p>
 			  <p>By placing your order, you agree to KwARto's <a href="privacy.php" style="color: red;">privacy policy</a> and <a href="terms.php" style="color: red;">terms of use</a> </p>
