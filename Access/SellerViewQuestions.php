@@ -39,5 +39,5 @@
     </div>
   </div>
   <div class="quote has-shadow"> <small><?php echo $row['question'];?></small></div>
-  <div class="CTAs pull-right"><a href="single.php" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
+  <div class="CTAs pull-right"><a href="single.php?singleFurnitureId=<?php echo $row['furnitureId'];?>" class="btn btn-xs btn-secondary"><i class="fa fa-share"> </i>View</a></div>
 </div>

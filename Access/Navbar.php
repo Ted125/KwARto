@@ -52,15 +52,17 @@
                               echo '"></img></a>
 
                               <ul aria-labelledby="notifications" class="dropdown-menu">
-                                  <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
+                                  <!--<li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
                                       <div class="msg-body">
                                         <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Have you received your item?</span>
                                       </div></a></li>
                                   <li><a rel="nofollow" href="usernotif.php" class="dropdown-item d-flex">
                                       <div class="msg-body">
                                         <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
-                                      </div></a></li>
-                                  <li><a rel="nofollow" href="Controllers/Logout.php" class="dropdown-item all-notifications" style="padding-left:120px;"> <strong>Logout</strong></a></li>
+                                      </div></a></li>-->
+                                      
+                                  <li><a rel="nofollow" href="profile.php" class="dropdown-item all-notifications" style=""><i class="fa fa-user"></i><strong> My Profile</strong></a></li>
+                                  <li><a rel="nofollow" href="Controllers/Logout.php" class="dropdown-item all-notifications" style=""> <strong><i class="fa fa-angle-double-left"></i> Logout</strong></a></li>
                                 </ul>
                               </li>
                               ';

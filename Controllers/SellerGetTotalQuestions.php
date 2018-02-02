@@ -1,8 +1,8 @@
 <?php
   require_once("Models/questionCRUD.php");
-
+  ob_start();
   //session_start();
-  
+
   $furn = new question();
   $temp = $furn->displayTotalSellerQuestions($_SESSION['sellerId']);
   if($temp != null){

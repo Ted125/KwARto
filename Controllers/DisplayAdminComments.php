@@ -1,8 +1,8 @@
 <?php
   require_once("Models/feedbackCRUD.php");
-
+  ob_start();
   //session_start();
-  
+
   $feed = new feedback();
   $verify = $feed->displayAllFeedback();
   $count = 1;

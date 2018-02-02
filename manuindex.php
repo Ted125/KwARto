@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   //require("Controllers/Login.php");
   session_start();
   if(strcmp($_SESSION['userType'],'seller') != 0){
@@ -24,10 +25,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -35,12 +36,7 @@
       <header class="header">
         <nav class="navbar">
           <!-- Search Box-->
-          <div class="search-box">
-            <button class="dismiss"><i class="icon-close"></i></button>
-            <form id="searchForm" action="#" role="search">
-              <input type="search" placeholder="What are you looking for..." class="form-control">
-            </form>
-          </div>
+
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
@@ -53,41 +49,9 @@
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Search-->
-                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                <!-- <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li> -->
                 <!-- Notifications -->
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-shopping-basket bg-orange"></i>You have 2 product purchases</div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-star-o"></i>You have 2 new product ratings</div>
-                          <div class="notification-time"><small>10 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>view all notifications</strong></a></li>
-                  </ul>
-                </li>
-                <!-- Messages -->
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">6</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Comfy Chair</h3><span>You have 2 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Wooden Stool</h3><span>You have 3 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Modern Table</h3><span>You have 1 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
-                  </ul>
-                </li>
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -95,7 +59,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -119,7 +83,7 @@
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
- 
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile </a></li>
@@ -166,10 +130,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $stock_sold['sold_stock'];
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -185,8 +149,8 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php  
-                        
+                      <?php
+
                         echo $reviews['reviews'];
                         if($reviews['reviews'] != 0){
                           $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
@@ -209,10 +173,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $aveRating;
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -228,10 +192,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $questions['questions'];
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -249,7 +213,7 @@
                       <h3 class="h4">Total Sales</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample"></canvas>
+                    <div id="chart_div_3" style="width: 100%; height: 250px;"></div>
                       <!-- reused these charts. just make new ones in charts-custom.js .. templated na to-->
                     </div>
                   </div>
@@ -267,10 +231,10 @@
                     <div class="icon bg-green"><i class="fa fa-rub"></i></div>
                     <div class="text">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $stock_sold['sold_stock'];
-                      ?> 
+                      ?>
                       </strong><br><small>Completed Transactions</small></div>
                   </div>
                   <!-- <div class="statistic d-flex align-items-center bg-white has-shadow">
@@ -278,14 +242,16 @@
                     <div class="text"><strong>10</strong><br><small>Product Returns</small></div>
                   </div> -->
                 </div>
-                
+
                 <div class="col-lg-12">
                   <div class="line-chart-example card">
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Top Selling Products</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample2"></canvas>
+                    </div>
+                    <div id="top_x_div_3" style="width: 100%; height: 157px; margin-bottom: 2%; margin-left: 2%"></div>
+                   </div>
                     </div>
                   </div>
                 </div>
@@ -297,7 +263,7 @@
                 <div class="col-sm-6 col-lg-12 text-right">
                   <p>kwARto &copy; 2018-2019</p>
                 </div>
-                
+
               </div>
             </div>
           </footer>
@@ -311,8 +277,54 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-custom.js"></script>
+    <!-- <script src="js/charts-custom.js"></script> -->
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.load('current', {'packages':['corechart']});                   
+    google.charts.setOnLoadCallback(drawStuff);
+    google.charts.setOnLoadCallback(drawChart);
+  
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales'],
+        <?php require("Controllers/RetrieveTotalSales.php")?>
+      ]);
+
+      var options = {
+        title: 'Total Sales',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_3'));
+
+      chart.draw(data, options);
+    }
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Furniture', 'Furniture Sold', ],
+          <?php require("Controllers/RetrieveTopSellingSellerProducts.php")?>
+        ]);
+
+        var options = {
+          width: 1500,
+          legend: { position: 'none' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Total stock sold'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div_3'));
+        chart.draw(data, options);
+      };
+
+    </script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
   require_once("../Models/furnitureCRUD.php");
-
+  ob_start();
   session_start();
-  
+
   $furn = new furniture();
 
   if($_POST['live'] == 1){
@@ -10,10 +10,10 @@
   } else {
     $verify = $furn->activateFurniture($_POST['furnitureId']);
   }
-  
+
 
   if($verify != null){
-    
+
     echo "Successfully Changed";
   } else {
         //inform user that the input is not valid

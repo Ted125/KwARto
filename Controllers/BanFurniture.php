@@ -1,8 +1,8 @@
 <?php
   require_once("../Models/furnitureCRUD.php");
-
+  ob_start();
   session_start();
-  
+
   $furn = new furniture();
   $verify = $furn->banFurniture($_POST['furnitureId']);
   //echo $_POST['userId'];

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+    <title>Customer Registration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -69,6 +69,11 @@
                       <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
                       <label for="register-passowrd" class="label-material">Password</label>
                     </div>
+                    <div class="form-group">
+                      <input id="confirm_password" type="password" name="confirmPassword" required class="input-material">
+                      <label for="confirm_password" class="label-material">Confirm Password</label>
+                      <span id = "message"></span>
+                    </div>
                     <div class="form-group terms-conditions">
                       <input id="license" type="checkbox" class="checkbox-template" onclick="disableElement()">
                       <label for="license">I agree to the terms and policies</label>
@@ -94,13 +99,24 @@
     <script src="js/front.js"></script>
     <script>
       function disableElement() {
-          if (document.getElementById('license').checked) 
+          if (document.getElementById('license').checked && $('#register-passowrd').val() == $('#confirm_password').val()) 
           {
             document.getElementById("register").disabled = false;
           } else {
             document.getElementById("register").disabled = true;
           }
       }
+    </script>
+    <script type = "text/javascript">
+    $('#register-passowrd, #confirm_password').on('keyup', function () {
+      if ($('#register-passowrd').val() == $('#confirm_password').val()) {
+        $('#message').html('Passwords are the same').css('color', 'green');
+        disableElement();
+    } else {
+        $('#message').html('Passwords are not the same').css('color', 'red');
+        $("#register").prop('disabled',true);
+    }
+   });
     </script>
   </body>
 </html>

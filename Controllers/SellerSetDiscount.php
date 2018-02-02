@@ -1,8 +1,8 @@
 <?php
   require_once("../Models/furnitureCRUD.php");
-
+  ob_start();
   session_start();
-  
+
   if(strcmp($_POST['dateStart'], $_POST['comDateStart']) < 0){
     header( "Location: ../prodsmanu.php?discounterror=1" );
     die();
@@ -19,7 +19,7 @@
     echo "Successfully Inserted Discount";
 
   } else {
-        
+
     echo "Invalid credentials or not activated";
   }
 

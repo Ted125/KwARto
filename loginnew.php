@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   if(isset($_SESSION)){
   session_unset();
   session_destroy();
@@ -49,7 +50,10 @@
                 <div class="content">
                   <?php
                     if(isset($_GET['error'])){
-                      echo '<p id="error-msg" class="text text-danger">*Username or Password Invalid. Please Try Again.</p>';
+                      echo '<p id="error-msg" class="text text-danger">*Account is Invalid or Banned. Please Try Again.</p>';
+                    }
+                    if(isset($_GET['success'])){
+                      echo '<p id="error-msg" class="text text-success">*Successfully created new account!</p>';
                     }
                   ?>
                   <form id="login-form" method="post" action= "Controllers/Login.php">
@@ -67,10 +71,10 @@
                   <br>
                   <small>Wanna be registered as a new seller? </small>
                   <a href="registernewseller.php" class="signup">Signup Seller</a>
-                  
+
                   <br><br><br>
                     <a href="index.php" class="signup" style="position: absolute; right: 50px; bottom: 50px;"><i class="fa fa-chevron-left" style="font-size: 1em;"></i> Back to Home</a>
-                  
+
                   <!-- <br><br>
                   <div>
                     <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
@@ -84,7 +88,7 @@
       </div>
 
     </div>
-  
+
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

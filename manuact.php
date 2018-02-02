@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   //require("Controllers/Login.php");
   session_start();
   if(strcmp($_SESSION['userType'],'seller') != 0){
@@ -24,10 +25,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -52,41 +53,9 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
+
                 <!-- Notifications -->
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">4</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-shopping-basket bg-orange"></i>You have 2 product purchases</div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification">
-                          <div class="notification-content"><i class="fa fa-star-o"></i>You have 2 new product ratings</div>
-                          <div class="notification-time"><small>10 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>view all notifications</strong></a></li>
-                  </ul>
-                </li>
-                <!-- Messages -->
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">6</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Comfy Chair</h3><span>You have 2 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Wooden Stool</h3><span>You have 3 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-body">
-                          <h3 class="h5">Modern Table</h3><span>You have 1 new questions/comments</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="manuact.php" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
-                  </ul>
-                </li>
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -94,7 +63,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -118,7 +87,7 @@
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li class="active"><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
- 
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile </a></li>
@@ -139,12 +108,12 @@
               <li class="breadcrumb-item active">Customer Activity</li>
             </ul>
           </div>
-          <section class="tables" style="background-color: #faf6f6"> 
+          <section class="tables" style="background-color: #faf6f6">
             <div class="container-fluid">
               <div class="row">
                 <!-- Customer Questions -->
                 <div class="col-lg-6">
-                  <div class="daily-feeds card"> 
+                  <div class="daily-feeds card">
                     <div class="card-header">
                       <h3 class="h4">Customer Questions</h3>
                     </div>
@@ -153,10 +122,10 @@
                        <?php include('Controllers/SellerDisplayQuestions.php');?>
                     </div>
                   </div>
-                </div> 
+                </div>
                 <!-- Customer Comments -->
                 <div class="col-lg-6">
-                  <div class="daily-feeds card"> 
+                  <div class="daily-feeds card">
                     <div class="card-header">
                       <h3 class="h4">Customer Comments</h3>
                     </div>
@@ -174,7 +143,7 @@
                       <h3 class="h4">Product Ratings</h3>
                     </div>
                     <div class="card-body no-padding">
-                      
+
                       <div class="item d-flex justify-content-between">
                         <div class="info d-flex">
                           <div class="icon"><i class="fa fa-star-half-o"></i></div>
