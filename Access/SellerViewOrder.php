@@ -1,10 +1,10 @@
 <?php
-  switch($row['state']){
-    case "pending": $color = "#ffc36d"; break;
-    case "shipping": $color = "#ffc36d"; break;
-    case "delivered": $color = "#54e69d"; break;
-    default : $color = "#D42D2D";
-  }
+switch($row['state']){
+  case "pending": $color = "#ffc36d"; break;
+  case "shipping": $color = "#ffc36d"; break;
+  case "delivered": $color = "#54e69d"; break;
+  default : $color = "#D42D2D";
+}
 ?>
 <div class="project">
   <div class="row bg-white has-shadow">
@@ -26,12 +26,20 @@
                     <?php echo $row['state'];?><span class="caret"></span></button>
                     <form action="Controllers/SellerChangeOrderState.php" method="POST">
                       <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
-                      <select class="form-control" id="weightUnit" name="state" required>
-                        <option value="pending">Pending</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="shipping">Shipping</option>
-                      </select>
-                      <input type="submit">
+                      <input type="hidden" name="state" value="pending">
+                      <input class="btn btn-primary" type="submit" value="Set As Pending">
+                    </form>
+                    <br>
+                    <form action="Controllers/SellerChangeOrderState.php" method="POST">
+                      <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
+                      <input type="hidden" name="state" value="shipping">
+                      <input class="btn btn-primary" type="submit" value="Set As Shipping">
+                    </form>
+                    <br>
+                    <form action="Controllers/SellerChangeOrderState.php" method="POST">
+                      <input type="hidden" name="orderId" value="<?php echo $row['orderId'];?>">
+                      <input type="hidden" name="state" value="delivered">
+                      <input class="btn btn-primary" type="submit" value="Set As Delivered">
                     </form>
                   </div>
 
@@ -47,12 +55,12 @@
                         <div class="row" style="margin-bottom: 0px;">
                           <div class="col-4 date-holder text-right">
                             <div class="text-center"><img style="max-width: 100px;" src="<?php
-                      if(file_exists('Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg')) {
-                        echo 'Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg';
-                      }else{
-                        echo 'Resources/Images/Furniture/default/default.png';
-                      }
-                      ?>"></div>
+                            if(file_exists('Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg')) {
+                              echo 'Resources/Images/Furniture/'.$row['furnitureId'].'/1.jpg';
+                            }else{
+                              echo 'Resources/Images/Furniture/default/default.png';
+                            }
+                            ?>"></div>
                             <div class="date"><span>P<?php echo $row['price'];?></span><span class="text-info"></span></div>
                           </div>
                           <div class="col-8 content">
