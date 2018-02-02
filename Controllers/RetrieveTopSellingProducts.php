@@ -9,8 +9,9 @@
         $qry = "SELECT f.name as furniture_name, count(fs.stockId) as stock_sold
                 FROM  furniture f  
                 INNER JOIN furniture_stock fs ON fs.furnitureId = f.furnitureId
-                WHERE fs.status = 'sold'  
-                ORDER BY stock_sold
+                WHERE fs.status = 'sold'
+                GROUP BY f.name  
+                ORDER BY stock_sold desc
                 limit 3";
         $result = mysqli_query($connection, $qry);
     
