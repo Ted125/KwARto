@@ -56,6 +56,10 @@
         $rows = array();
         $rows[] = "true";
         print json_encode($rows);
+      }else{
+        $rows = array();
+        $rows[] = $query;
+        print json_encode($rows);
       }
 
 

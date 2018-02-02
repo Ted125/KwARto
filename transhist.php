@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+	ob_start();
+	session_start();
+?>
 <html lang="en">
 <head>
 <title>KwARto | Web Application</title>
