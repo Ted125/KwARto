@@ -1,7 +1,7 @@
 <?php
   //echo $_SERVER['DOCUMENT_ROOT'];
   require_once($_SERVER['DOCUMENT_ROOT'] . "/Capstone-Project/Models/userDetails.php");
-
+  ob_start();
   session_start();
 
   $user = new user_details();

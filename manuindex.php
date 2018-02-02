@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   //require("Controllers/Login.php");
   session_start();
   if(strcmp($_SESSION['userType'],'seller') != 0){
@@ -24,10 +25,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -35,7 +36,7 @@
       <header class="header">
         <nav class="navbar">
           <!-- Search Box-->
-          
+
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
@@ -50,7 +51,7 @@
                 <!-- Search-->
                 <!-- <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li> -->
                 <!-- Notifications -->
-                  
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -58,7 +59,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -82,7 +83,7 @@
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
- 
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile </a></li>
@@ -129,10 +130,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $stock_sold['sold_stock'];
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -148,8 +149,8 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php  
-                        
+                      <?php
+
                         echo $reviews['reviews'];
                         if($reviews['reviews'] != 0){
                           $aveRating = round((float)$ratingSum['ratingSum']/(float)$reviews['reviews'], 2);
@@ -172,10 +173,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $aveRating;
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -191,10 +192,10 @@
                     </div>
                     <div class="number">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $questions['questions'];
-                      ?> 
+                      ?>
                       </strong>
                     </div>
                   </div>
@@ -230,10 +231,10 @@
                     <div class="icon bg-green"><i class="fa fa-rub"></i></div>
                     <div class="text">
                       <strong>
-                      <?php 
-                        
+                      <?php
+
                         echo $stock_sold['sold_stock'];
-                      ?> 
+                      ?>
                       </strong><br><small>Completed Transactions</small></div>
                   </div>
                   <!-- <div class="statistic d-flex align-items-center bg-white has-shadow">
@@ -241,7 +242,7 @@
                     <div class="text"><strong>10</strong><br><small>Product Returns</small></div>
                   </div> -->
                 </div>
-                
+
                 <div class="col-lg-12">
                   <div class="line-chart-example card">
                     <div class="card-header d-flex align-items-center">
@@ -260,7 +261,7 @@
                 <div class="col-sm-6 col-lg-12 text-right">
                   <p>kwARto &copy; 2018-2019</p>
                 </div>
-                
+
               </div>
             </div>
           </footer>

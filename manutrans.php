@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   //require("Controllers/Login.php");
   session_start();
   if(strcmp($_SESSION['userType'],'seller') != 0){
@@ -24,10 +25,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -52,9 +53,9 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
+
                 <!-- Notifications -->
-                  
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -62,7 +63,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -86,7 +87,7 @@
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
                     <li class="active"><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
- 
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="manuprofile.php"> <i class="icon-user"></i>Profile </a></li>
@@ -107,7 +108,7 @@
               <li class="breadcrumb-item active">Transactions Management</li>
             </ul>
           </div>
-          <section class="tables" style="background-color: #faf6f6">   
+          <section class="tables" style="background-color: #faf6f6">
             <div class="container-fluid">
               <!-- Project-->
               <?php include("Controllers/SellerDisplayOrder.php");?>

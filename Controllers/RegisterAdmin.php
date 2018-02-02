@@ -1,6 +1,7 @@
 <?php
 require_once("../Models/userDetails.php");
 include("../Models/Database.php");
+ob_start();
 session_start();
 
 $user = new user_details();
@@ -15,6 +16,6 @@ if($verify != null){
 
 	echo "Invalid credentials or not activated";
 	header( "Location: ../adminnew.php?error=1");
-	
+
 }
 ?>

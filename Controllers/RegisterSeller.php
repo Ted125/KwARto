@@ -1,7 +1,7 @@
 <?php
 require_once("../Models/userDetails.php");
 require_once("../Models/sellerCRUD.php");
-
+ob_start();
 session_start();
 
 $seller = new seller();

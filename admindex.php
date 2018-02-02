@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
       header("Location:index.php");
@@ -23,10 +24,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href="images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -51,8 +52,8 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
-               
+
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -60,7 +61,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -84,9 +85,9 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <!-- <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li> -->
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li> 
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <!-- <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li> -->
-                    
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
@@ -197,10 +198,10 @@
                     <div class="text"><strong><?php include('Controllers/AdminTotalReviewsReports.php')?></strong><br><small>User Reviews</small></div>
                   </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                   <div class="line-chart-example card no-margin-bottom">
-                    
+
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Top Selling Manufacturers</h3>
                     </div>
@@ -218,7 +219,7 @@
                       <div id="top_x_div_2" style="width: 100%; height: 157px;"></div>
                     </div>
                   </div>
-                </div> 
+                </div>
           </section>
           <!-- Page Footer-->
           <footer class="main-footer">
@@ -227,7 +228,7 @@
                 <div class="col-sm-6 col-lg-12 text-right">
                   <p>kwARto &copy; 2018-2019</p>
                 </div>
-                
+
               </div>
             </div>
           </footer>
@@ -257,7 +258,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Sellers'],
           <?php
-              require("Controllers/RetrieveNewSellerCharts.php"); 
+              require("Controllers/RetrieveNewSellerCharts.php");
           ?>
         ]);
 
@@ -275,7 +276,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Customers'],
           <?php
-              require("Controllers/RetrieveNewCustomerCharts.php"); 
+              require("Controllers/RetrieveNewCustomerCharts.php");
           ?>
         ]);
 
@@ -310,7 +311,7 @@
         var chart = new google.charts.Bar(document.getElementById('top_x_div'));
         chart.draw(data, options);
       };
-  
+
       function drawStuff1() {
         var data = new google.visualization.arrayToDataTable([
           ['Furniture', 'Furniture Sold'],

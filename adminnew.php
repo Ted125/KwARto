@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   session_start();
   if(strcmp($_SESSION['userType'],'admin') != 0){
       header("Location:index.php");
@@ -22,10 +23,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
- 
+
     <!-- Web Icon -->
     <link rel="shortcut icon" href=" images/icon.png">
-   
+
   </head>
   <body>
     <div class="page">
@@ -50,8 +51,8 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                 
-               
+
+
                 <!-- Logout    -->
                 <li class="nav-item"><a href="Controllers/Logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -59,7 +60,7 @@
           </div>
         </nav>
       </header>
-      <div class="page-content d-flex align-items-stretch"> 
+      <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
           <!-- Sidebar Header-->
@@ -83,9 +84,9 @@
                     <li><a href="manumgt.php"> <i class="fa fa-truck"></i>Manufacturers Mgmt.</a></li>
                     <li><a href="prodsmgt.php"> <i class="fa fa-bathtub"></i>Products Management</a></li>
                     <!-- <li><a href="cats.php"> <i class="fa fa-archive"></i>Categories Management</a></li> -->
-                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li> 
+                    <li><a href="quescomp.php"> <i class="fa fa-envelope-open-o"></i>Comments & Feedback</a></li>
                     <!-- <li><a href="adminrep.php"> <i class="fa fa-bar-chart"></i>Reports</a></li> -->
-                    
+
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="adprofile.php"> <i class="fa fa-user"></i>Profile </a></li>
@@ -108,10 +109,10 @@
             </ul>
           </div>
           <!-- Forms Section-->
-          <section class="forms" style="background-color: #faf6f6"> 
+          <section class="forms" style="background-color: #faf6f6">
             <div class="container-fluid">
               <div class="row">
-                
+
                 <!-- General Information -->
                 <div class="col-lg-12">
                   <div class="card">
@@ -119,7 +120,7 @@
                       <h3 class="h4">New Admin Information</h3>
                     </div>
                     <div class="card-body row">
-                      <form id="register-form" class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php"> 
+                      <form id="register-form" class="form-horizontal col-lg-8" method="post" action="Controllers/RegisterAdmin.php">
 
                         <?php if(isset($_GET['error'])){
                           echo '
@@ -137,7 +138,7 @@
                           ';
                         }
                         ?>
-                       
+
 
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">User Name</label>
@@ -175,7 +176,7 @@
                           </div>
                         </div>
                         <div class="line"></div>
-                                                
+
                         <div class="form-group row">
                           <div class="col-sm-4 offset-sm-3">
                             <button type="button" data-toggle="modal" data-target="#myModalconf" class="btn btn-primary">Create</button>
@@ -232,7 +233,7 @@
     $('#password, #confirm_password').on('keyup', function () {
       if ($('#password').val() == $('#confirm_password').val()) {
     $('#message').html('Passwords are the same').css('color', 'green');
-    } else { 
+    } else {
     $('#message').html('Passwords are not the same').css('color', 'red');
     }
    });

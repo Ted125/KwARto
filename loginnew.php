@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  ob_start();
   if(isset($_SESSION)){
   session_unset();
   session_destroy();
@@ -67,10 +68,10 @@
                   <br>
                   <small>Wanna be registered as a new seller? </small>
                   <a href="registernewseller.php" class="signup">Signup Seller</a>
-                  
+
                   <br><br><br>
                     <a href="index.php" class="signup" style="position: absolute; right: 50px; bottom: 50px;"><i class="fa fa-chevron-left" style="font-size: 1em;"></i> Back to Home</a>
-                  
+
                   <!-- <br><br>
                   <div>
                     <a id="fblogin" href="#" style="background-color: #29487d; border-color: #29487d" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
@@ -84,7 +85,7 @@
       </div>
 
     </div>
-  
+
     <!-- Javascript files-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
