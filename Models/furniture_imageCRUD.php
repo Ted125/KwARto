@@ -58,7 +58,7 @@ class furniture_image{
                     )
                     VALUES
                     ('".$this->getImage()."',
-                    '".$this->getThumbnail()."',
+                    ".$this->getThumbnail().",
                     '".$this->getAddedBy()."',
                     '".$this->getUpdatedBy()."',
                     '".$this->getFurnitureId()."'
@@ -152,7 +152,7 @@ class furniture_image{
         $fi = new FilesystemIterator($link, FilesystemIterator::SKIP_DOTS);
         printf("There were %d Files", iterator_count($fi));
 
-        return iterator_count($fi);
+        return iterator_count($fi)+1;
     }
     /************ SETTERS AND GETTERS ************/
 
