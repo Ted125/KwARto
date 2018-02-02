@@ -30,7 +30,7 @@ class user_details{
                 ".$field." = '".$newData."'
                 WHERE
                 user_details.userId = ".$_SESSION['userId']."";
-        echo $create;
+        // echo $create;
 
         /*sample code here*/
     }
@@ -43,7 +43,7 @@ class user_details{
             if(isset($_SESSION['userType'])){
                 $this->setUsername($_POST['registerUsername']);
             }
-            if(strcmp($_SESSION['userType'], 'admin') != 0){
+            if(!isset($_SESSION['userType']) || strcmp($_SESSION['userType'], 'admin') != 0){
                 $this->setUserStatus('inactive');
             }
             $this->setUserType($userType);
@@ -71,12 +71,12 @@ class user_details{
             '".$this->getAddedBy()."',
             '".$this->getImage()."'
             )";
-            echo $create;
+            // echo $create;
             $result = mysqli_query($connection, $create);
 
             $this->setUserId($connection->insert_id);
             mysqli_close($connection);
-            echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
+            // echo "<h1> after result in userDetails.php ".$this->getUserId()."</h1>";
             return $this->getUserId();
         } else {
             echo "Connection Error on User Details";

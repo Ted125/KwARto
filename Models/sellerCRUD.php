@@ -39,7 +39,7 @@
             '".$this->getUserId()."')
             ";
 
-            echo $create;
+            // echo $create;
             $result = mysqli_query($connection, $create);
         }else{
             echo 'no connection';
