@@ -60,15 +60,9 @@
                                       <div class="msg-body">
                                         <h6 class="" style="color: red;"><i class="fa fa-bullhorn"></i> System Message</h6><span style="font-size: 0.8em;">Your delivery is on the way</span>
                                       </div></a></li>-->
-                                      <li><a rel="nofollow" href="profile.php" class="dropdown-item d-flex">
-                                      <div class="msg-body">
-                                        <h6 class="" style="color: red;"><i class="fa fa-user"></i> My Profile</h6><span style="font-size: 0.8em;">Go to profile</span>
-                                      </div></a></li>
-                                      <li><a rel="nofollow" href="Controllers/Logout.php" class="dropdown-item d-flex">
-                                      <div class="msg-body">
-                                        <h6 class="" style="color: red;"><i class="fa fa-user"></i> Logout</h6><span style="font-size: 0.8em;">Change Account/Log out</span>
-                                      </div></a></li>
-                                  <li><a rel="nofollow" href="Controllers/Logout.php" class="dropdown-item all-notifications" style="padding-left:120px;"> <strong>Logout</strong></a></li>
+                                      
+                                  <li><a rel="nofollow" href="profile.php" class="dropdown-item all-notifications" style=""><i class="fa fa-user"></i><strong> My Profile</strong></a></li>
+                                  <li><a rel="nofollow" href="Controllers/Logout.php" class="dropdown-item all-notifications" style=""> <strong><i class="fa fa-angle-double-left"></i> Logout</strong></a></li>
                                 </ul>
                               </li>
                               ';
