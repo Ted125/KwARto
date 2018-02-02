@@ -8,7 +8,7 @@
 
   $verify = $user->login($_POST['loginEmail'], md5($_POST['loginPassword']));
 
-  if($verify != null){
+  if($verify != null && strcmp($verify['userStatus'], 'banned') != 0){
     if(strcmp($verify['userType'], 'admin') == 0){
       $_SESSION['username'] = $verify['username'];
     }
@@ -34,12 +34,15 @@
     switch($_SESSION['userType']){
       case "customer":
         header("Location: ../index.php");
+        die();
         break;
       case "seller":
         header("Location: ../manuindex.php");
+        die();
         break;
       case "admin":
         header("Location: ../admindex.php");
+        die();
         break;
     }
 

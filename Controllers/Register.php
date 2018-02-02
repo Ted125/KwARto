@@ -10,7 +10,7 @@ $verify = $user->createCustomer();
 if($verify != null){
 
 	echo '<script type="text/javascript">alert("Registered successfully. Thank you for joining the kwARto family!");</script>';
-	header("Refresh: 0; ../loginnew.php");
+	header("Refresh: 0; ../loginnew.php?success=1");
 
 } else {
 	echo '<script type="text/javascript">alert("Something went wrong! Please try again later.");</script>';

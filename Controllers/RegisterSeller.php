@@ -9,7 +9,7 @@ $verify = $seller->createSeller();
 
 if($verify != null){
 	echo '<script type="text/javascript">alert("Registered successfully. Please wait until an administrator has activated your account. Thank you!");</script>';
-    header("Refresh: 0; ../loginnew.php");
+    header("Refresh: 0; ../loginnew.php?success=1");
 } else {
 	echo '<script type="text/javascript">alert("Something went wrong! Please try again later.");</script>';
     header("Refresh: 0; ../registernewSeller.php");
