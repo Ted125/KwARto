@@ -70,7 +70,7 @@
                       <label for="register-passowrd" class="label-material">Password</label>
                     </div>
                     <div class="form-group">
-                      <input id="confirm_password" type="password" name="registerPassword" required class="input-material">
+                      <input id="confirm_password" type="password" name="confirmPassword" required class="input-material">
                       <label for="confirm_password" class="label-material">Confirm Password</label>
                       <span id = "message"></span>
                     </div>
