@@ -50,7 +50,10 @@
                 <div class="content">
                   <?php
                     if(isset($_GET['error'])){
-                      echo '<p id="error-msg" class="text text-danger">*Username or Password Invalid. Please Try Again.</p>';
+                      echo '<p id="error-msg" class="text text-danger">*Account is Invalid or Banned. Please Try Again.</p>';
+                    }
+                    if(isset($_GET['success'])){
+                      echo '<p id="error-msg" class="text text-success">*Successfully created new account!</p>';
                     }
                   ?>
                   <form id="login-form" method="post" action= "Controllers/Login.php">
