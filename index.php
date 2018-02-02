@@ -477,13 +477,13 @@
 												</div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a>add to cart</a></div>
-									</div>
+									<div class="red_button add_to_cart_button" style="color: white;"><a>add to cart</a></div>
+								</div>
 
-							<?php
-									}
+						<?php
 								}
-							?>
+							}
+						?>
 
 						</div>
 

@@ -28,6 +28,13 @@
 <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
 <link rel="icon" href="images/icon.png">
 	<?php include('Access/Header.php');?>
+
+	<style type="text/css">
+		
+		.carttry:hover {
+			color: #FFFFFF;background-color: red;text-transform: uppercase;font-size: 14px;font-weight: 500;text-align: center;line-height: 40px;width: 100%; -webkit-font-smoothing: antialiased;
+		}
+	</style>
 </head>
 
 <body>
@@ -711,8 +718,8 @@
 										?>
 										</div>
 									</div>
+								<div class="carttry" style="color: #ffffff;"><a>add to cart</a></div>
 								</div>
-								<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 							</div>
 
 							<?php
@@ -855,8 +862,8 @@
 										?>
 										</div>
 									</div>
+								<div class="carttry" style="color: #FFFFFF;"><a>add to cart</a></div>
 								</div>
-								<div class="red_button add_to_cart_button"><a>add to cart</a></div>
 							</div>
 
 							<?php
