@@ -241,7 +241,7 @@ class user_details{
                 $rowcount=mysqli_num_rows($result);
                 if($rowcount == 1){
                     $row = $result->fetch_assoc();
-                    if(strcmp($row['userType'], "customer") == 0){
+                    if(strcmp($row['userType'], "customer") == 0 && strcmp($row['userStatus'], 'banned') != 0){
                         return $this->LoginCustomer($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
