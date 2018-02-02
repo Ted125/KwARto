@@ -1,8 +1,8 @@
 <?php
   require_once("Models/reviewCRUD.php");
-
+  ob_start();
   //session_start();
-  
+
   $furn = new review();
   $temp = $furn->displaySumRatings($_SESSION['sellerId']);
   if($temp != null){

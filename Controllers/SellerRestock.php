@@ -1,6 +1,6 @@
 <?php
   require_once("../Models/furniture_stockCRUD.php");
-
+  ob_start();
   session_start();
   if(strcmp($_POST['quantityAmount'], "0") < 0){
     header( "Location: ../prodsmanu.php?restockerror=1" );
@@ -12,7 +12,7 @@
     echo "Successfully Restocked";
 
   } else {
-        
+
     echo "Invalid credentials or not activated";
   }
 

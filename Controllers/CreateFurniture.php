@@ -1,6 +1,6 @@
 <?php
 require_once("../Models/furnitureCRUD.php");
-
+ob_start();
 session_start();
 
 $furn = new furniture();
@@ -13,6 +13,6 @@ if($verify != null){
 } else {
       	//inform user that the input is not valid
 	echo "Invalid credentials or not activated";
-	
+
 }
 header( "Location: http://localhost/capstone-project/" );
