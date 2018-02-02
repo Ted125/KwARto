@@ -3,6 +3,7 @@ require('../Models/furnitureCRUD.php');
 require('../Models/furniture_packageCRUD.php');
 require('../Models/furniture_specificationCRUD.php');
 require('../Models/furniture_imageCRUD.php');
+ob_start();
 session_start();
 
 

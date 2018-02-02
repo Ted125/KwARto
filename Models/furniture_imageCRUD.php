@@ -1,4 +1,4 @@
-<?php 
+<?php
 // require("SQL_Connect.php");
 // include("Database.php");
 // include("userDetails.php");
@@ -16,9 +16,9 @@ class furniture_image{
     const DB_TABLE_PK = "furnitureImageId";
 
     /***************** CONSTRUCTOR ****************/
-    
+
     public function __construct(){
-        
+
     }
 
     /***************** FUNCTIONS ****************/
@@ -44,12 +44,12 @@ class furniture_image{
                     } else {
                         $this->setThumbnail('0');
                     }
-                    
-                    
+
+
                     $this->setAddedBy($_SESSION['sellerId']);
                     $this->setUpdatedBy($_SESSION['sellerId']);
                     $create = "INSERT INTO furniture_image
-                    ( 
+                    (
                     image,
                     thumbnail,
                     addedBy,
@@ -63,8 +63,8 @@ class furniture_image{
                     '".$this->getUpdatedBy()."',
                     '".$this->getFurnitureId()."'
                     )";
-                    
-                    $result = mysqli_query($connection, $create);   
+
+                    $result = mysqli_query($connection, $create);
                 }
             }else{
                  echo 'only sellers can add furniture image';
@@ -87,13 +87,13 @@ class furniture_image{
             WHERE furnitureId = '".$this->getFurnitureId()."'
             ";
             $result = mysqli_query($connection, $query);
-                  
+
             //$row = mysqli_fetch_array($result);
             mysqli_close($connection);
             //$row = $result->fetch_assoc();
         } else {
             echo "Connection Error";
-        }        
+        }
         return $result;
     }
 
@@ -119,7 +119,7 @@ class furniture_image{
         }else{
             echo 'invalid user';
             return null;
-        }    
+        }
     }
 
     public function deleteAllFurnitureImage($furnitureId){
@@ -152,10 +152,10 @@ class furniture_image{
         $fi = new FilesystemIterator($link, FilesystemIterator::SKIP_DOTS);
         printf("There were %d Files", iterator_count($fi));
 
-        return iterator_count($fi)+1;
+        return iterator_count($fi);
     }
     /************ SETTERS AND GETTERS ************/
-    
+
     public function getFurnitureImageId(){
         return $this->furnitureImageId;
     }
@@ -220,7 +220,7 @@ class furniture_image{
         $this->updatedBy = $updatedBy;
     }
 
-    
+
 
 }
 
