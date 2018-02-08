@@ -36,6 +36,15 @@
       #upload_button input[type=file] {
         display:none;
       }
+      .notif1{
+        font-size : 20px;
+      }
+      .notif1{
+        font-size : 20px; 
+      }
+      .notif1{
+        font-size : 20px; 
+      }
     </style>
   </head>
   <body>
@@ -125,47 +134,68 @@
                        <div class="card">
                        <div class="card-header d-flex align-items-center">
                            <h5>In order to approve your application the kwARto team would like to require you these documents in order for to you to do business.</h3>
-                    </div>
-                           <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/UploadSellerDocuments.php" method="POST">
-                                <img id = "secdti">
+                       </div>
+                           <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/AddSellerDocuments.php" method="POST">
+                                <img id = "1">
                                 <div class="col-xs-3">
-                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload SEC/DTI registration form:</label>
+                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload SEC/DTI registration form: <span id = "notif1"></span></label>
                                     <div class="col-sm-9">
                                         <div id="upload_button">
                                         <label>
-                                            <input type="file" onchange="readURL1(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                                            <input id = "first" type="file" onchange="readURL1(this)" name="newData1" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
                                             <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>
                                         </label>
                                         </div>
                                     </div>
                                 </div>
-                                <img id = "busiper">
+                                <img id = "2">
                                 <div class="col-xs-3">
-                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload Business Permit:</label>
+                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload Business Permit: <span id = "notif2"></span></label>
                                     <div class="col-sm-9">
                                         <div id="upload_button">
                                         <label>
-                                            <input type="file" onchange="readURL2(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>
+                                            <input id = "second" type="file" onchange="readURL2(this)" name="newData2" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>             
                                         </label>
                                         </div>
                                     </div>
                                 </div>
-                                <img id = "birreg">
+                                <img id = "3">
                                 <div class="col-xs-3">
-                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload BIR Registration form:</label>
+                                    <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload BIR Registration form: <span id = "notif3"></span></label>
                                     <div class="col-sm-9">
                                         <div id="upload_button">
                                         <label>
-                                            <input type="file" onchange="readURL3(this)" name="newData" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>
+                                            <input id = "third" type="file" onchange="readURL3(this)" name="newData3" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
+                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>                                     
                                         </label>
                                         </div>
                                     </div>
+                                </div>
+                              <div class="form-group terms-conditions">
+                                  <input id="license" type="checkbox" class="checkbox-template" onclick="disableElement()">
+                                  <label for="license">I agree to the terms and policies and swear that these documents are true to the best of my knowledge</label>
+                              </div>
+                              <button id = "enter" type="button" data-toggle="modal" data-target="#myModalSeller" class="btn btn-primary" disabled>Submit Documents</button>
+                              <!-- Modal-->
+                              <div id="myModalSeller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+                                <div role="document" class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 id="exampleModalLabel" class="modal-title">Confirm Action</h4>
+                                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to upload these documents?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                                      <button type="submit" class="btn btn-primary">Yes</button>
+                                    </div>
+                                  </div>
                                 </div>
                         </form>
                     </div>
-                </div>
             </section>
         <!-- Page Footer-->
         <footer class="main-footer">
@@ -196,12 +226,13 @@
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        $('#secdti')
+        $('#1')
         .attr('src', e.target.result)
         .width(350)
         .height(500);
       };
       reader.readAsDataURL(input.files[0]);
+      $('#notif1').html('✓').css('color', 'green');
     }
   }
 
@@ -210,12 +241,13 @@
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        $('#busiper')
+        $('#2')
         .attr('src', e.target.result)
         .width(350)
         .height(500);
       };
       reader.readAsDataURL(input.files[0]);
+      $('#notif2').html('✓').css('color', 'green');
     }
   }
 
@@ -224,15 +256,26 @@
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        $('#birreg')
+        $('#3')
         .attr('src', e.target.result)
         .width(350)
         .height(500);
       };
       reader.readAsDataURL(input.files[0]);
+      $('#notif3').html('✓').css('color', 'green');
     }
   }
+
 </script>
-</script>
+<script>
+      function disableElement() {
+          if (document.getElementById('license').checked && '' !== $('#first').val() && '' !== $('#second').val() && '' !== $('#third').val()) 
+          {
+            document.getElementById("enter").disabled = false;
+          } else {
+            document.getElementById("enter").disabled = true;
+          }
+      }
+    </script>
 </body>
 </html>
