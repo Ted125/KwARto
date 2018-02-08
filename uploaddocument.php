@@ -45,6 +45,10 @@
       .notif1{
         font-size : 20px; 
       }
+      img{
+        height : 500px;
+        width : 350px;
+      }
     </style>
   </head>
   <body>
@@ -137,13 +141,13 @@
                        </div>
                        <div class="col-xs-3">
                            <?php
-                               if($_GET['success'] == 1){
+                               if(isset($_GET['success'])){
                                  echo '<p style ="margin : 1em; color:	#9ACD32"; >Your documents were successfully uploaded and the kwARto admins will soon begin reviewing the documents. Please bear with us for a while. Thank you!<p>';
                                }
                            ?>
                          </div> 
                            <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/AddSellerDocuments.php" method="POST">
-                                <img id = "1">
+                                <img id = "1" <?php echo "src = 'Resources/Documents/Seller/".$_SESSION['sellerId']."/".$_SESSION['sellerId']."_secdti.jpg'";?> alt = ''>
                                 <div class="col-xs-3">
                                     <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload SEC/DTI registration form: <span id = "notif1"></span></label>
                                     <div class="col-sm-9">
@@ -155,7 +159,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img id = "2">
+                                <img id = "2" <?php echo "src = 'Resources/Documents/Seller/".$_SESSION['sellerId']."/".$_SESSION['sellerId']."_busiper.jpg'";?> alt = ''>
                                 <div class="col-xs-3">
                                     <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload Business Permit: <span id = "notif2"></span></label>
                                     <div class="col-sm-9">
@@ -167,7 +171,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img id = "3">
+                                <img id = "3" <?php echo "src = 'Resources/Documents/Seller/".$_SESSION['sellerId']."/".$_SESSION['sellerId']."_bir.jpg'";?> alt = ''>
                                 <div class="col-xs-3">
                                     <label class="col-sm-3 form-control-label" style="margin-top: 15px;">Upload BIR Registration form: <span id = "notif3"></span></label>
                                     <div class="col-sm-9">
