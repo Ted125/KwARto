@@ -245,7 +245,7 @@ class user_details{
                         return $this->LoginCustomer($sessionEmail, $sessionPassword);
                     } else if(strcmp($row['userType'], "admin") == 0){
                         return $this->LoginAdmin($sessionEmail, $sessionPassword);
-                    } else if(strcmp($row['userType'], "seller") == 0 && strcmp($row['userStatus'], "active") == 0){
+                    } else if(strcmp($row['userType'], "seller") == 0 && strcmp($row['userStatus'], "banned") != 0){
                         return $this->LoginSeller($sessionEmail, $sessionPassword);
                     }
                 }
@@ -330,7 +330,7 @@ class user_details{
         $row = null;
         if($connection){
           //If possible please replace query name  with sql name, plox
-          $query = "SELECT user_details.userId AS userId, sellerId, email, userType, mobileNumber, dateAdded, image, name, description
+          $query = "SELECT user_details.userId AS userId, userStatus, sellerId, email, userType, mobileNumber, dateAdded, image, name, description
           FROM user_details INNER JOIN seller ON user_details.userId = seller.userId
           WHERE email = '".$sessionEmail."' AND  password = '".$sessionPassword."'";
           //echo $this->DB_TABLE.$sessionEmail.$sessionPassword;

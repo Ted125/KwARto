@@ -133,8 +133,15 @@
                     <div class="col-lg-12">
                        <div class="card">
                        <div class="card-header d-flex align-items-center">
-                           <h5>In order to approve your application the kwARto team would like to require you these documents in order for to you to do business.</h3>
+                           <h5>In order to approve your application, the kwARto team would like to require you these documents in order for to you to do business with us.</h3>
                        </div>
+                       <div class="col-xs-3">
+                           <?php
+                               if($_GET['success'] == 1){
+                                 echo '<p style ="margin : 1em; color:	#9ACD32"; >Your documents were successfully uploaded and the kwARto admins will soon begin reviewing the documents. Please bear with us for a while. Thank you!<p>';
+                               }
+                           ?>
+                         </div> 
                            <form class="form-horizontal col-lg-8" role="form" enctype="multipart/form-data" action="Controllers/AddSellerDocuments.php" method="POST">
                                 <img id = "1">
                                 <div class="col-xs-3">
@@ -143,7 +150,7 @@
                                         <div id="upload_button">
                                         <label>
                                             <input id = "first" type="file" onchange="readURL1(this)" name="newData1" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>
+                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Select</span>
                                         </label>
                                         </div>
                                     </div>
@@ -155,7 +162,7 @@
                                         <div id="upload_button">
                                         <label>
                                             <input id = "second" type="file" onchange="readURL2(this)" name="newData2" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>             
+                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Select</span>             
                                         </label>
                                         </div>
                                     </div>
@@ -167,7 +174,7 @@
                                         <div id="upload_button">
                                         <label>
                                             <input id = "third" type="file" onchange="readURL3(this)" name="newData3" id="gallery-photo-add" value="512000" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)">
-                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Upload</span>                                     
+                                            <span class="btn btn-primary" style="background-color: #d42d2d; border:none; margin-top: 10px; color: white;">Select</span>                                     
                                         </label>
                                         </div>
                                     </div>

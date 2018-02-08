@@ -25,6 +25,7 @@
       $_SESSION['lastName'] = $verify['lastName'];
       $_SESSION['birthdate'] = $verify['birthdate'];
     } else if(strcmp($verify['userType'], 'seller') == 0){
+      $_SESSION['userStatus'] = $verify['userStatus'];
       $_SESSION['sellerId'] = $verify['sellerId'];
       $_SESSION['description'] = $verify['description'];
       $_SESSION['name'] = $verify['name'];

@@ -1,7 +1,15 @@
 <!DOCTYPE html>
+<?php
+  //require("Controllers/Login.php");
+  session_start();
+  if(strcmp($_SESSION['userType'],'seller') != 0){
+      header("Location:index.php");
+  }else if(strcmp($_SESSION['userStatus'], 'inactive') == 0){
+    header("Location:uploaddocument.php");
+  }
+?>
 <html>
   <head>
-    <?php session_start();?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>KwARto | Web Application</title>
