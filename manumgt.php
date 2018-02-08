@@ -11,6 +11,10 @@
     height: 200px;
     width: 200px;
     }
+    .document{
+    height: 200px;
+    width: 200px;
+    }
 </style>
  <head>
     <meta charset="utf-8">

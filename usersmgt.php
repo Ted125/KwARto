@@ -12,6 +12,10 @@
     height: 200px;
     width: 200px;
     }
+    .document{
+    height: 200px;
+    width: 200px;
+    }
 </style>
  <head>
     <meta charset="utf-8">
@@ -221,7 +225,22 @@
                                          <div class="row" style="padding-left: 20px;"><h5>Join Date: <h5 style="font-weight: normal; margin-left: 5px;">'.$appRow['dateAdded'].'</h5></h5></div>
                                       </div>
                                     </div>
-                                  </div>
+                                    <hr>
+                                    <div class =  "col-8">
+                                      Securities and Exchange Commission / Department of Trade and Industry form
+                                      <img class = "document" alt = "" src = Resources/Documents/Seller/'.$appRow['sellerId'].'/'.$appRow['sellerId'].'_secdti.jpg>
+                                    </div>
+                                    <hr>
+                                    <div class =  "col-8">
+                                      Business Permit
+                                      <img class = "document" alt = "" src = Resources/Documents/Seller/'.$appRow['sellerId'].'/'.$appRow['sellerId'].'_busiper.jpg>
+                                    </div>
+                                    <hr>
+                                    <div class =  "col-8">
+                                      BIR
+                                      <img class = "document" alt = "" src = Resources/Documents/Seller/'.$appRow['sellerId'].'/'.$appRow['sellerId'].'_bir.jpg>
+                                    </div>
+                                    </div>
                                 </div>
                               </div>
                             </div>

@@ -91,6 +91,22 @@
              <!-- <div class="row" style="padding-left: 20px;"><h5>Added By: <h5 style="font-weight: normal; margin-left: 5px;"><?php echo $row['addedBy'];?>3123</h5></h5></div> -->
            </div>
          </div>
+         <hr>
+           <div class =  "col-8">
+              Securities and Exchange Commission / Department of Trade and Industry form
+              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_secdti.jpg>
+            </div>
+            <hr>
+            <div class =  "col-8">
+              Business Permit
+              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_busiper.jpg>
+            </div>
+            <hr>
+            <div class =  "col-8">
+              BIR
+              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_bir.jpg>
+            </div>
+            </div>
        </div>
      </div>
    </div>
