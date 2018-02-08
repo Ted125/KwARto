@@ -86,6 +86,7 @@
                     <li><a href="manuindex.php"> <i class="icon-list"></i>Reports</a></li>
                     <li class="active"><a href="prodsmanu.php"> <i class="icon-padnote"></i>Products Management</a></li>
                     <li><a href="upload.php"> <i class="fa fa-upload"></i>Upload Product</a></li>
+                    <li><a href="uploaddocument.php"> <i class="fa fa-upload"></i>Upload Documents</a></li>
                     <li><a href="manutrans.php"> <i class="fa fa-shopping-bag"></i>Transactions Mgmt.</a></li>
                     <li><a href="manuact.php"> <i class="fa fa-street-view"></i>Customer Activity</a></li>
  
