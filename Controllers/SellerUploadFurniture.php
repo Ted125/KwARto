@@ -72,11 +72,11 @@ if ($verify != null || $verify >= 0) {
     mkdir($_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//', 0777, true);
   }
   $uploaddir2 = $_SERVER['DOCUMENT_ROOT'] . '/Capstone-Project/Resources/Models//'.$verify.'//';
-  //$fileExtension2 = '.asset';
-
-  $uploadfile2 = $uploaddir2 . basename($_FILES['model']['name']);
-
-  if ($err == 0 && move_uploaded_file($_FILES['model']['name'], $uploadfile2)) {
+  $fileExtension2 = '';
+  echo "The 3D model name is: ".$_FILES['model']['name']."<br>";
+  $uploadfile2 = $uploaddir2 . basename($_FILES['model']['name']) . $fileExtension2;
+  echo "The location for the 3D model name is: ".$uploadfile2."<br>";
+  if (move_uploaded_file($_FILES['model']['tmp_name'], $uploadfile2)) {
     echo "NEWDATA: ".$_FILES['image']['tmp_name']."<br>";
     echo "NEWDATA: ".$_FILES['model']['tmp_name']."<br>";
     echo "DIRECTORY FOR IMAGES: ".$uploaddir;
@@ -84,12 +84,12 @@ if ($verify != null || $verify >= 0) {
 
   } else {
     echo "Upload Fail";
-    echo "......uploadfile:->>>".$uploadfile;
+    echo "......uploadfile:->>>".$uploadfile2;
   }
 
 } else {
     echo "Connection failed";
 }
 
-header('Location: '.$_SERVER['HTTP_REFERER']);
+//header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>

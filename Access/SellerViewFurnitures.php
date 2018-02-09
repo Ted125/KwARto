@@ -203,6 +203,40 @@
         </div>
       </div>
     </div>
+
+    <!-- Button for delete -->
+    <button type="button" title="Add Promo/Discount" data-toggle="modal" data-target="<?php echo "#delete".$count;?>" class="btn btn-primary fa fa-tag"></button>
+    <div id=<?php echo "delete".$count;?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="exampleModalLabel" class="modal-title">Remove Product</h4>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <form role="form" method="post" action="Controllers/SellerDeleteFurniture.php">
+            <div class="modal-body">
+                <small style="position: absolute;bottom: 0; margin-top: 30px;">* Are you sure you want to remove this furniture?</small>    
+              <div class="form-group">
+                <label>Name:</label>
+                <span><?php echo $row['furnitureName'];?></span>     
+                <input type="hidden" class="form-control" value=<?php echo $row['furnitureId']?> name="furnitureId">
+              </div>
+              <div class="form-group">
+              </div>
+          </div>
+              <div class="modal-footer">
+              <div class="form-group">
+                <input type="submit" id="discountBtn" class="btn btn-primary" value="Yes"  />
+              </div>
+              </form>
+            <div class="form-group">
+              <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>  
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </td>
 </tr>
 <script>

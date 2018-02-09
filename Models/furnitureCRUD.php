@@ -306,6 +306,31 @@ class furniture{
         }
     }
 
+    public function deleteFurniture($furnitureId){
+        require("Database.php");
+        if(isset($_SESSION['userType']) && strcmp($_SESSION['userType'],'seller') == 0){
+            $db = new Database();
+            $connection = $db->Connect();
+            if($connection){
+                $this->setFurnitureId($furnitureId);
+                $create = "DELETE FROM furniture
+                            WHERE furnitureId = ".$this->getFurnitureId()."
+                           ";
+                $result = mysqli_query($connection, $create);
+                echo $create." ";
+                echo $result;
+                mysqli_close($connection);
+                return $result;
+            }else{
+                echo 'no db connection';
+                return null;
+            }
+        }else{
+            echo 'invalid user';
+            return null;
+        }    
+    }
+
     public function activateFurniture($furnitureId){
         require("Database.php");
         if(isset($_SESSION['userType'])){

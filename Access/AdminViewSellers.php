@@ -92,21 +92,26 @@
            </div>
          </div>
          <hr>
-           <div class =  "col-8">
-              Securities and Exchange Commission / Department of Trade and Industry form
-              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_secdti.jpg>
+          <div class="row setup-content-2" id="step-4">
+            <div class="col-lg-12" align="center">
+              <div class="col-lg-6">
+                <label>SEC/DTI form</label>
+                <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_secdti.jpg>
+              </div>
+              <br>
+              <hr>
+              <div class="col-lg-6">
+                <label>Business Permit</label>
+                <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_busiper.jpg>
+              </div>
+              <br>
+              <hr>
+              <div class="col-lg-6">
+                <label>BIR Form</label>
+                <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_bir.jpg>
+              </div>
             </div>
-            <hr>
-            <div class =  "col-8">
-              Business Permit
-              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_busiper.jpg>
-            </div>
-            <hr>
-            <div class =  "col-8">
-              BIR
-              <img class = "document" alt = "" src = Resources/Documents/Seller/<?php echo $row['sellerId'];?>/<?php echo $row['sellerId'];?>_bir.jpg>
-            </div>
-            </div>
+          </div>
        </div>
      </div>
    </div>

@@ -12,7 +12,7 @@
     width: 200px;
     }
     .document{
-    height: 200px;
+    height: 300px;
     width: 200px;
     }
 </style>
