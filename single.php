@@ -192,7 +192,18 @@
 						</p>
 					</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<button class="red_button addToCartButton" style="padding: 0px 40px 0px 40px; border: none; color: white; background-color: #d42d2d;"><a href = "#">add to cart</a></button>
+
+						<?php
+							if(isset($_SESSION["customerId"])){
+						?>
+								<button class="red_button addToCartButton" style="padding: 0px 40px 0px 40px; border: none; color: white; background-color: #d42d2d;"><a href = "#">add to cart</a></button>
+						<?php
+							}else{
+						?>
+								<button class="red_button login_to_buy_button" style="padding: 0px 40px 0px 40px; border: none; color: white; background-color: #d42d2d;"><a href = "#">Login to Buy</a></button>
+						<?php
+							}
+						?>
 
 						<?php
 							if(isset($_SESSION["customerId"])){
@@ -712,7 +723,17 @@
 										</div>
 									</div>
 								</div>
-								<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<?php
+									if(isset($_SESSION["customerId"])){
+								?>
+										<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<?php
+									}else{
+								?>
+										<div style="margin-left: 0px; color: #ffffff;" class="red_button login_to_buy_button"><a>Login to Buy</a></div>
+								<?php
+									}
+								?>
 							</div>
 
 							<?php
@@ -856,7 +877,17 @@
 										</div>
 									</div>
 								</div>
-								<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<?php
+									if(isset($_SESSION["customerId"])){
+								?>
+										<div style="margin-left: 0px; color: #ffffff;" class="red_button add_to_cart_button"><a>add to cart</a></div>
+								<?php
+									}else{
+								?>
+										<div style="margin-left: 0px; color: #ffffff;" class="red_button login_to_buy_button"><a>Login to Buy</a></div>
+								<?php
+									}
+								?>
 							</div>
 
 							<?php

@@ -256,8 +256,18 @@
 											</div>
 										</div>
 									</div>
-									<div class="red_button add_to_cart_button" style="color: white;"><a>add to cart</a></div>
-								</div>
+                  <?php
+                    if(isset($_SESSION["customerId"])){
+                  ?>
+				              <div class="red_button add_to_cart_button" style="color: white;"><a>add to cart</a></div>
+                  <?php
+                    }else{
+                  ?>
+                      <div class="red_button login_to_buy_button" style="color: white;"><a>Login to buy</a></div>
+                  <?php
+                    }
+                  ?>
+                </div>
 
 						<?php
 								}
@@ -477,7 +487,17 @@
 												</div>
 											</div>
 										</div>
-									<div class="red_button add_to_cart_button" style="color: white;"><a>add to cart</a></div>
+                    <?php
+                      if(isset($_SESSION["customerId"])){
+                    ?>
+  				              <div class="red_button add_to_cart_button" style="color: white;"><a>add to cart</a></div>
+                    <?php
+                      }else{
+                    ?>
+                        <div class="red_button login_to_buy_button" style="color: white;"><a>Login to buy</a></div>
+                    <?php
+                      }
+                    ?>
 								</div>
 
 						<?php

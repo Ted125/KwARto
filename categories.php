@@ -489,7 +489,18 @@ function Search(){
 
 				furniture += "</div>";
 
-				furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0; color:white;'><a>add to cart</a></div></div>";
+				<?php
+					if(isset($_SESSION["customerId"])){
+				?>
+						furniture += "<div class='red_button add_to_cart_button' style='position:absolute;bottom:0; color:white;'><a>add to cart</a></div></div>";
+				<?php
+					}else{
+				?>
+						furniture += "<div class='red_button login_to_buy_button' style='position:absolute;bottom:0; color:white;'><a>Login to Buy</a></div></div>";
+				<?php
+					}
+				?>
+
 				$("#searchResultsContainer").append(furniture);
 			});
     },
